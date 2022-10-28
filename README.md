@@ -1,5 +1,2 @@
 # Laborbuch-im-Physikpraktikum
-Dateisammlung
-
-jypnb -> latex
-jupyter nbconvert /path/to/mynotebook.ipynb --to latex
+Messreihen, Arbeitsstände, Materialien und vieles mehr...
