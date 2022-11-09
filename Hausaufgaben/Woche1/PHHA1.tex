@@ -319,6 +319,8 @@ T (°C) & 7,6 & 7,8 & 8,2 & 7,7 & 7,8 & 8,3 & 8,0 \\
 \bottomrule()
 \end{longtable}
 
+\newpage
+
 \textbf{Geben Sie den Bestwert für T zusammen mit der Messunsicherheit
 (Typ A) in korrekter Schreibweise an.}
 
@@ -356,7 +358,7 @@ Student Faktor, hier \(1,08\). Die Berechnung erfolgt durch Einabe in R:
 \CommentTok{\# Berechnung Standardabweichung des Mittelwertes (SDM)}
 \NormalTok{SDM }\OtherTok{=}\NormalTok{ SD}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\FunctionTok{length}\NormalTok{(temp\_messwerte))}
 
-\CommentTok{\# Student T{-} Faktor für n = 7}
+\CommentTok{\# Student T{-}Faktor für n = 7}
 \NormalTok{t }\OtherTok{=} \FloatTok{1.08}
 
 \CommentTok{\# Berechnung Vertrauensabweichung (VAB)}
@@ -381,6 +383,8 @@ Student Faktor, hier \(1,08\). Die Berechnung erfolgt durch Einabe in R:
 
 Für die Messunsicherheit ergibt sich daraus:
 \(u = (7,91 \pm 0,11)\)°\(C\).
+
+\newpage
 
 \hypertarget{aufgabe-8}{%
 \section{Aufgabe 8:}\label{aufgabe-8}}
@@ -409,5 +413,57 @@ Hoffentlich korrekt
 \(U=1,81kV, u(U)=1693mV\) & \(U=(1810,0\pm 1,7)V\) \\
 \bottomrule()
 \end{longtable}
+
+\hypertarget{aufgabe-9}{%
+\section{Aufgabe 9:}\label{aufgabe-9}}
+
+\textbf{Lesen Sie die folgenden Messgrößen so gut wie möglich ab und
+geben Sie sie korrekt an!} \includegraphics{A9.png}
+
+\hypertarget{a-voltmeter}{%
+\subsection{a) Voltmeter}\label{a-voltmeter}}
+
+Skalenart: Analog
+
+Abgelesener Bestwert: \(8,9 V\)
+
+Kleinstes ablesbare Intervall \(a\): \(0,5V\)
+
+Da es sich bei der Anzeige des Voltmeters um eine analoge Anzeige
+handelt wird für die Berechnung der Messunsicherheit der Ableseskala
+\(u_{skala}\) die Formel \(u_{skala}=\frac{a}{2\sqrt{6}}\) verwendet:
+\[\Rightarrow u_{skala} = \pm\frac{0,5V}{2\sqrt{6}} = \pm 0,10V\] Damit
+ergibt sich das Messergebnis zu: \((8,9\pm0,10)V\).
+
+\hypertarget{b-thermometer}{%
+\subsection{b) Thermometer}\label{b-thermometer}}
+
+Skalenart: Analog
+
+Abgelesener Bestwert: \(41^\circ\text{C}\)
+
+Kleinstes ablesbares Intervall \(a\): \(1^\circ\text{C}\)
+
+Da es sich bei der Anzeige des Thermometers um eine analoge Anzeige
+handelt wird für die Berechnung der Messunsicherheit der Ableseskala
+\(u_{skala}\) die Formel \(u_{skala}=\frac{a}{2\sqrt{6}}\) verwendet:
+\[\Rightarrow u_{skala} = \pm\frac{1^\circ\text{C}}{2\sqrt{6}} = \pm 0,20^\circ\text{C}\]
+Damit ergibt sich das Messergebnis zu: \((41,00\pm0,20)^\circ\text{C}\).
+
+\hypertarget{c-standzylinder}{%
+\subsection{c) Standzylinder}\label{c-standzylinder}}
+
+Skalenart: Analog
+
+Abgelesener Bestwert:
+\((\frac{1}{2}+\frac{3}{24})*100ml = \frac{15}{24}*100ml= 62,5ml\)
+
+Kleinstes ablesbares Intervall \(a\): \(\frac{1}{12}*100ml\)
+
+Der Standzylinder besitzt eine analoge Skala. Für die Berechnung der
+Messunsicherheit der Ableseskala \(u_{skala}\) findet die Formel
+\(u_{skala}=\frac{a}{2\sqrt{6}}\) verwendung:
+\[\Rightarrow u_{skala} = \pm\frac{\frac{1}{12}*100ml}{2\sqrt{6}} = \pm 1,7ml\]
+Damit ergibt sich das Messergebnis zu: \((62,5\pm1,7)ml\).
 
 \end{document}

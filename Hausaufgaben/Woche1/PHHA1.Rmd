@@ -150,6 +150,7 @@ Der Fehler der Ableseskala steigt in diesem Vergleich hingegen um zwei Größeno
 |------|---|---|---|---|---|---|---|
 |T (°C)|7,6|7,8|8,2|7,7|7,8|8,3|8,0|
 
+\newpage
 **Geben Sie den Bestwert für T zusammen mit der Messunsicherheit (Typ A) in korrekter Schreibweise an.**
 
 Es finden folgende Formeln für die Berechnung von Statistik- und Fehlerkenngrößen Verwendung:
@@ -187,6 +188,7 @@ data.frame(Maßzahl = c('Mittelwert', 'Standardabweichung',
 ```
 Für die Messunsicherheit ergibt sich daraus: $u = (7,91 \pm 0,11)$°$C$.
 
+\newpage
 # Aufgabe 8:
 **Geben Sie die folgenden Messergebnisse korrekt an:**
 
@@ -197,3 +199,41 @@ Für die Messunsicherheit ergibt sich daraus: $u = (7,91 \pm 0,11)$°$C$.
 |$v=(199798673,67\pm 7245,98132)\frac{m}{s}$      |$v=(199798700\pm7200)\frac{m}{s}$            |
 |$\lambda=(885,589*10^{-11}\pm 0,004985*10^{-8})m$|$\lambda=(0,8856*10^{-8}\pm 0,0050*10^{-8})m$|
 |$U=1,81kV, u(U)=1693mV$                          |$U=(1810,0\pm 1,7)V$                         |
+
+# Aufgabe 9:
+**Lesen Sie die folgenden Messgrößen so gut wie möglich ab und geben Sie sie korrekt
+an!**
+![Bild aus Aufgabe 9](A9.png)
+
+## a) Voltmeter
+Skalenart: Analog
+
+Abgelesener Bestwert: $8,9 V$
+
+Kleinstes ablesbare Intervall $a$: $0,5V$
+
+Da es sich bei der Anzeige des Voltmeters um eine analoge Anzeige handelt wird für die Berechnung der Messunsicherheit der Ableseskala $u_{skala}$ die Formel $u_{skala}=\frac{a}{2\sqrt{6}}$ verwendet:
+$$\Rightarrow u_{skala} = \pm\frac{0,5V}{2\sqrt{6}} = \pm 0,10V$$
+Damit ergibt sich das Messergebnis zu: $(8,9\pm0,10)V$.
+
+## b) Thermometer
+Skalenart: Analog
+
+Abgelesener Bestwert: $41^\circ\text{C}$
+
+Kleinstes ablesbares Intervall $a$: $1^\circ\text{C}$ 
+
+Da es sich bei der Anzeige des Thermometers um eine analoge Anzeige handelt wird für die Berechnung der Messunsicherheit der Ableseskala $u_{skala}$ die Formel $u_{skala}=\frac{a}{2\sqrt{6}}$ verwendet:
+$$\Rightarrow u_{skala} = \pm\frac{1^\circ\text{C}}{2\sqrt{6}} = \pm 0,20^\circ\text{C}$$
+Damit ergibt sich das Messergebnis zu: $(41,00\pm0,20)^\circ\text{C}$.
+
+## c) Standzylinder
+Skalenart: Analog
+
+Abgelesener Bestwert: $(\frac{1}{2}+\frac{3}{24})*100ml = \frac{15}{24}*100ml= 62,5ml$
+
+Kleinstes ablesbares Intervall $a$: $\frac{1}{12}*100ml$ 
+
+Der Standzylinder besitzt eine analoge Skala. Für die Berechnung der Messunsicherheit der Ableseskala $u_{skala}$ findet die Formel $u_{skala}=\frac{a}{2\sqrt{6}}$ verwendung:
+$$\Rightarrow u_{skala} = \pm\frac{\frac{1}{12}*100ml}{2\sqrt{6}} = \pm 1,7ml$$
+Damit ergibt sich das Messergebnis zu: $(62,5\pm1,7)ml$.
