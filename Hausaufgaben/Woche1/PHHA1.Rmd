@@ -1,6 +1,6 @@
 ---
 title: "Hausaufgabe 1"
-author: "Justus Weyers"
+author: "Team 4 (Milena Mensching, Justus Weyers)"
 date: '2022-11-03'
 output: 
   pdf_document: 
