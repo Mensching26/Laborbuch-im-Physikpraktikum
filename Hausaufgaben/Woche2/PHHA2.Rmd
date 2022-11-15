@@ -1,5 +1,5 @@
 ---
-title: "Hausaufgabe 1"
+title: "Hausaufgabe 2"
 author: "Team 4 (Milena Mensching, Justus Weyers)"
 date: "`r Sys.Date()`"
 output: 
@@ -73,6 +73,7 @@ u&=\pm \sqrt{(\frac{\partial m_{ges}}{\partial m_1}*u_{Gerät})^2+(\frac{\partia
 Die Gesamtmasse $m_{ges}$ beträgt also:
 $$m_{ges}=((30,2+9,8+5,1)\pm 3,1)g = (45,1 \pm 3,1)g$$
 # Aufgabe 6
+
 **Jo will die Periodendauer T eines Pendels experimentell bestimmen. Jo
 entscheidet statt einer einzelnen Periode 20 Perioden mit der Stoppuhr zu
 messen. Wie kann Jo die Periodendauer T und ihre Messunsicherheit
@@ -81,12 +82,34 @@ Wenn Sie jetzt die Ergebnisse dieser Übung reflektieren, würden Sie sagen
 dass es um die Periodendauern eines Pendels zu bestimmen, besser ist
 mehrere Perioden zu messen oder wenige?**
 
-Für die mittlere Periodendauer lässt sich folgende Formel aufstellen:
-$$T = \frac{t}{n}$$
+Es handelt sich bei diesem Vorgehen um eine Auswertung der Daten nach Typ-A (GUM), also einen statistschen Ansatz zur abschätzung der Messunsicherheit.
 
-* $T$: Gemittelte Periodendauer
-* $t$: Gemessene Zeit
+Die Verteilung der Messergebnisse wird als normalverteilt angenommen (Gauss-Verteilung).
+
+Jo kann den Mittelwert $\overline{T}$ aus allen 20 Periodendauern berechnen.
+$$\overline{T} = \frac{1}{n}\sum \limits_{i=1}^nT_i$$
+
+* $\bar{T}$: Gemittelte Periodendauer
+* $T_i$: Periodendauer der $i$-ten Messung
 * $n$: Anzahl von Perioden
 
-Die Messunsicherheit berechnetsich als:
+Um die Streuung der Messwerte einschätzen zu können wird dann die Standardabweichung berechnet:
+$$\sigma_x = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (T_i - \overline{T})^2}$$
+Diese sagt aus, wie stark die Ergebnisse um den Mittelwert streuen. Da der Mittelwert für eine Teilmenge der Messungen ebenfalls streuen kann wird auch die Standardabweichung des Mittelwertes berechnet:
+$$\sigma_{\overline{T}}=\frac{\sigma_x}{\sqrt{n}}$$
+Diese ist für normalverteilte Stichproben der entscheidende Parameter. "Dieser gibt das Intervall an, in dem sich 68,3% aller Mittelwerte, noch folgender Messreihen befinden werden" [Skript: "Umgang mit Messunsicherheiten Teil 1", S.5]. Die **Standardmessunsicherheit** der n-mal geessenen Periodendauer lässt sich so statistisch abschätzen [ebd.].
 
+Das Messergebnis wird mit $\overline{T} \pm \sigma_{\overline{T}}$ angegeben.
+
+Aus der Formel für die Standardabweichung des Mittelwertes wird ersichtlich, dass für eine größere Anzahl von Messungen n die Standardabweichung des Mittelwertes kleiner wird.
+
+# Aufgabe 7:
+
+**Wieso ist die Messung der Periodendauer eines Pendels präziser, wenn man
+die Stoppuhr beim Punkt der maximalen Geschwindigkeit des Pendels und
+nicht beim Punkt der minimalen Geschwindigkeit startet (bzw. stoppt)?
+Hinweis: denken Sie an die Reaktionszeit einer Person.**
+
+Vermutlich ist das der Unsicherheit eines Menschan bei der Festlegung auf einen Zeitpunkt der maximalen Auslenkung des Pendels geschuldet. Die Unsicherheit besteht dann darin, dass es schwierig ist, in dem vergleichsweise langen Zeitraum, den das Pendel in der maximalen Auslenkung und anderen Positionen der Fast-Maximalauslenkung verbringt, die Stoppuhr richtig zu betätigen. Die Periodendauer kann dann auf zufällige Art und Weise als zu kurz oder zu lang angegeben werden. Dieser Umstand muss nicht zu einer größeren systematischen Abweichung führen, allerdings zu einer kleineren Präzision. Der Durchgang durch die minimale Auslenkung ist dagegen vergleichsweise gut auszumachen und anzugeben. Die Reaktionszeit ist nachträglich aber in beiden Fällen zu berücksichtigen. 
+
+Es wären aber auch noch präzisere Methoden zur Bestimmung der Periodendauer denkbar. Beispielsweise die Aufnahme des schwingenden Pendels mit einer Kamera mit einer möglichst hohen zeitlichen Auflösung (Bildwiederholungsrate). Am Computer ließen sich dann der Zeitpunkt des Einzelbildes der minimalen Auslenkung bestimmen. Die Reaktionszeit würde in diesem Falle praktisch wegfallen.
