@@ -1,0 +1,8 @@
+Aufgabe 5:
+Der Prozess der Ausdehnung eines Gummibandes lässt sich nicht unbedingt (oder nur für bestimmte Dehnungsgrade) durch das Hooksche Gesetz beschreiben.
+Die Auslenkungs-Kraft-Beziehung ist anders als zum Beispiel bei einer Feder nicht linear, es lässt sich also keine Proportionalitätskonstante (Federkonstante) festlegen.
+
+Für einen Kraftsensor, welcher ein Gummiband verwendet, muss die Auslenkungs-Kraft-Beziehung beispielsweise als Schauild, idealerweise als mathematische Funktion, bekannt sein. 
+Dann ließe sich dieses Gerät analog zu einem Messgerät mit Feder verwenden. Zum Bestimmen der Kraft müsste dann auf dem Schaubild die entsprechende Zugkraft abgelesen werden.
+
+Typischerweise beruht allerdings bei Kraftsensoren oder auch bei Waagen die Messung auf der Verwendung von Federn. Dies ist praktischer als die verwendung eines Gummibandes und durch das Hooksche Gesetz beschreibar.

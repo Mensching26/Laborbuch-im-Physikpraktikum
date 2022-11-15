@@ -1,0 +1,186 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Hausaufgabe 1},
+  pdfauthor={Team 4 (Milena Mensching, Justus Weyers)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Hausaufgabe 1}
+\author{Team 4 (Milena Mensching, Justus Weyers)}
+\date{2022-11-14}
+
+\begin{document}
+\maketitle
+
+\hypertarget{aufgabe-1}{%
+\section{Aufgabe 1}\label{aufgabe-1}}
+
+\textbf{Sie wiegen mit einer digitalen Waage, deren kleinste
+Schrittweite (d.h. Auflösung) 0,1 g beträgt, einen Apfel. Der Apfel
+wiegt laut Anzeige 120,0 g. Stellen Sie sich vor, nach der Messung
+stellen Sie fest, dass der Tisch auf dem die Waage steht, schief steht.
+Die Schieflage beträgt ca. 1-2 Grad.}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Berechnen Sie welche systematische Abweichung dadurch
+  entsteht.}
+\item
+  \textbf{Ist es richtig anzunehmen, dass die Messung dennoch korrekt
+  war und die Messung aufgrund der Messunsicherheiten als richtig
+  angenommen werden kann?}
+\end{itemize}
+
+\textbf{geg.:} Bestwert Masse \(m = 120,0\); Geräteart: digital;
+Auflösung \(a=0,1g\). Als Winkel \(\alpha\) wird der Extremfall gewählt,
+bei dem die Neigung 2° beträgt.
+
+\textbf{ges.:} Systematische Abweichung \(e\)
+
+\textbf{Rechnung:}
+
+Bei einer schiefen Ebene nimmt der Betrag der Normalkraft um den Kosinus
+des Neigunswinkels ab:
+\[e = m*(1-cos(\alpha)) = 120,0g*(1-cos(2)) = 0,073g\]
+
+Die Messunsicherheit beträgt:
+\[ u = \frac{a}{2\sqrt{3}} \Rightarrow \frac{0,1g}{2\sqrt{3}} = 0,029g\]
+Damit ist die Systematische Abweichung größer, als die Messunsicherheit.
+Das Ergebnis ist also im Rahmen der Messunsicherheit nicht korrekt.
+
+\hypertarget{aufgabe-2}{%
+\section{Aufgabe 2:}\label{aufgabe-2}}
+
+\textbf{Es wurden 3 verschiedene Techniken genutzt, um den Durchmesser
+und Umfang eines runden Objektes zu messen und daraus experimentell die
+Größe \(\pi\) zu bestimmen. Methode 1 ergibt: 3,133 ± 0,007, Methode 2
+3,1609 ± 0,0002 und Methode 3 war 3,14 ± 0,03. Welche der 3 Methoden ist
+die präziseste? Begründen Sie Ihre Antwort.}
+
+Methode 2 liefert das präziseste Ergebnis. Dieses wurde hier auf vier
+Nachkommastellen genau angegeben. Die hohe Präzision sagt allerdings
+nichts über die Richtigkeit des Ergebnisses aus.
+
+\hypertarget{aufgabe-4}{%
+\section{Aufgabe 4}\label{aufgabe-4}}
+
+\textbf{Tom hängt drei Gewichte an eine Feder. Er benutzt eine Waage
+(die Messunsicherheit des Gerätes \(u_{Waage}\) beträgt 0,05g, die
+Auflösung der Waage beträgt 0,1g) um die drei Massen einmalig zu
+bestimmen. Tom liest auf der Waage folgenden Werte für die Massen ab:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(M_1= 30,2 g\)
+\item
+  \(M_2= 9,8 g\)
+\item
+  \(M_3= 5,1 g\)
+\end{itemize}
+
+\textbf{Wie schwer ist die gesamte Masse? Vergessen Sie nicht die
+Messunsicherheit dazu.}
+
+Berechnung der Skalen-Unsicherheit \(u_{Skala}\) mit \(a=0,1g\):
+\[u_{Skala} = \frac{a}{2\sqrt{6}} = \frac{0,1g}{2\sqrt{6}}\] Berechnung
+der Geräteunsicherheit \(u_{Gerät}\):
+\[u_{Gerät} =\pm \sqrt{u_{Skala}^2+u_{Waage}^2} =\pm \sqrt{(\frac{0,1}{2\sqrt{6}})^2+(0,05)^2}g = \pm 0,054g\]
+
+Formel für die Berechnung der Gesamtmasse \(m_{ges}\):
+\[m_{ges} = m_1+m_2+m_3\]
+
+Berechnung der Messunsicherheit \(u\): \begin{align*}
+\begin{split}
+u&=\pm \sqrt{(\frac{\partial m_{ges}}{\partial m_1}*u_{Gerät})^2+(\frac{\partial m_{ges}}{\partial m_2}*u_{Gerät})^2+(\frac{\partial m_{ges}}{\partial m_3}*u_{Gerät})^2}\\
+ &= \sqrt{((1+m_2+m_3)*u_{Gerät})^2+((m_1+1+m_3)*u_{Gerät})^2+((m_1+m_2+1)*u_{Gerät})^2}\\
+\Rightarrow &= \sqrt{((1+9,8+5,1)*0,054)^2+((30,2+1+5,1)*0,054)^2+((30,2+9,8+1)*0,054)^2}\\
+&= 3,1g\\
+\end{split}
+\end{align*}
+
+Die Gesamtmasse \(m_{ges}\) beträgt also:
+\[m_{ges}=((30,2+9,8+5,1)\pm 3,1)g = (45,1 \pm 3,1)g\] \# Aufgabe 6
+\textbf{Jo will die Periodendauer T eines Pendels experimentell
+bestimmen. Jo entscheidet statt einer einzelnen Periode 20 Perioden mit
+der Stoppuhr zu messen. Wie kann Jo die Periodendauer T und ihre
+Messunsicherheit bestimmen? Wenn Sie jetzt die Ergebnisse dieser Übung
+reflektieren, würden Sie sagen dass es um die Periodendauern eines
+Pendels zu bestimmen, besser ist mehrere Perioden zu messen oder
+wenige?}
+
+Für die mittlere Periodendauer lässt sich folgende Formel aufstellen:
+\[T = \frac{t}{n}\]
+
+\begin{itemize}
+\tightlist
+\item
+  \(T\): Gemittelte Periodendauer
+\item
+  \(t\): Gemessene Zeit
+\item
+  \(n\): Anzahl von Perioden
+\end{itemize}
+
+Die Messunsicherheit berechnetsich als:
+
+\end{document}
