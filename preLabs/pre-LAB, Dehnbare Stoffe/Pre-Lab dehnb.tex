@@ -1,0 +1,59 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+\title{Pre-LAB: Dehnbare Stoffe, Team 4}
+\author{Justus Weyers, Milena Mensching}
+
+\begin{document}
+
+\maketitle
+\section{Hookesches Gesetz}
+Das Hookesche Gesetz beschreibt die elastische Verformung dehnbarer Stoffe durch eine Kraft. Bei den Körper/ Stoff handelt es sich beispielsweise um eine Feder. Die Spannkraft F ist dabei proportional zur Längenänderung $\triangle$x.
+
+\begin{align*}
+\Rightarrow F\sim\triangle x\\
+F= -k*\triangle x
+\end{align*}
+
+
+\section{Annahmen beim Hookeschen Modell}
+\begin{itemize}
+\item{Vernachlässigung von Energieumwandlung (z.B.: durch Reibung)}
+\item{Der Stoff muss dehnbar sein, die Elastizitätsgrenze darf jedoch nicht überschritten werden.}
+\end{itemize}
+
+\section{Experimentelle Ermittlung der Federkonstante}
+Die Federkonstante einer idealen Feder kann durch einen Zugversuch ermittelt werden. Dabei wird ein (im besten Fall geeichtes) Gewicht an eine befestigte, senkrecht hängende Feder gehangen (Gewichtskraft $F_G$ wirkt). Die Längenveränderung wird mit Hilfe einer geeigneten Skala (wiederholt) gemessen.
+
+\begin{align*}
+F_G = F_k\\
+\vert m*g\vert = \vert -k*\triangle \bar{x}\vert\\
+\Rightarrow k = \frac{m*g}{k*\triangle \bar{x}} 
+\end{align*}
+
+
+\section{Messunsicherheiten}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{mehrere Messungen} & \textbf{einmalige Messung}\\
+\hline
+Standardabweichung des Mittelwerts ($\sigma_{\bar{x}}$) & Ablesefehler ($u_{skala}$)\\
+evtl. Unsicherheit aus Gewichtsmessung ($u_G$)& evtl. Unsicherheit aus Gewichtsmessung($u_G$)\\
+\hline
+\multicolumn{1}{|l}{\textbf{Formeln:}}& \\
+\hline
+$u_G$ abhängig von Art der Messung & $u_G$ abhängig von Art der Messung\\
+\hline
+Mittelwert: $\bar{x} = \frac {1}{n}\sum_{i}^n x_i$ &  $u_{skala} = \frac {a}{2\sqrt{6}}$\\
+\hline
+Standardabweichung: $\sigma = \sqrt{\frac{1}{n-1}\sum_{i}^n (x_i - \bar{x})^2}$ &  \\
+\hline
+Standardabweichung des Mittelwerts: $\sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}$ & \\
+\hline
+\end{tabular}
+
+\end{document}
