@@ -25,8 +25,8 @@ Das Hookesche Gesetz beschreibt die elastische Verformung dehnbarer Stoffe durch
 
 \begin{equation}
 \begin{split}
-\Rightarrow \Delta F&\sim\Delta x\\
-\Delta F&= -D*\Delta x
+\Rightarrow F&\sim\Delta x\\
+ F&= -D*\Delta x
 \end{split}
 \end{equation}
 
@@ -38,12 +38,14 @@ Das Hookesche Gesetz beschreibt die elastische Verformung dehnbarer Stoffe durch
 \item{Vernachlässigung von Energieumwandlung (z.B.: durch Reibung, $W=F_s*s$)}
 \item{Lineare Kraft-Auslenkungs-Beziehung}
 \item{Der Stoff muss dehnbar sein, die Elastizitätsgrenze darf jedoch nicht überschritten werden.}
+\item{Keine plastische Verformung der Feder während mehrerer Messungen.}
+\item{Gleiches Verhalten bei und Expansion und Relaxation der Feder}
 \end{itemize}
 
 \section{Experimentelle Ermittlung der Federkonstante}
 \textbf{Wie kann man die Federkonstante einer idealen Feder durch ein Experiment ermitteln?}
 
-Die Federkonstante einer idealen Feder kann durch einen Zugversuch ermittelt werden. Dabei wird ein (im besten Fall geeichtes) Gewicht ($m_{Gewicht}$) an eine befestigte, senkrecht hängende Feder gehangen (mit $m_{Feder}$, Gewichtskraft $F_G$ wirkt). Die Auslenkung $x$ gegenüber der Nullauslenkung $x_0$ durch die Zugkraft $F_{Zug}$ wird mit Hilfe einer geeigneten Skala (wiederholt) gemessen.
+Die Federkonstante einer idealen Feder kann durch einen Zugversuch ermittelt werden. Dabei werden mehrere (im besten Fall geeichte) Gewichte ($m_{i}$) an eine befestigte, senkrecht hängende Feder gehängt. Die Auslenkung $x_i$ gegenüber der Nullauslenkung $x_0$ durch die Zugkraft $F_i$ wird mit Hilfe einer geeigneten Skala gemessen.
 
 %F_G &= F_k\\
 %\vert m*g\vert &= \vert -D*\triangle \bar{x}\vert\\
@@ -52,13 +54,15 @@ Die Federkonstante einer idealen Feder kann durch einen Zugversuch ermittelt wer
 Mit Gleichung 1 ergibt sich für die Federkonstante $D$:
 \begin{equation}
 \begin{split}
-D &= -\frac{\Delta F}{\Delta x}\\
-\Rightarrow &= -\frac{F_{Zug}-F_G}{x-x_0}\\
- &=-\frac{g*(m_{Gewicht} - m_{Feder})}{x-x_0}\\
+D_i &= -\frac{F_i}{\Delta x_i}\\
+\Rightarrow  &=-\frac{g*m_i}{x_i-x_0}\\
 \end{split}
 \end{equation}
 
-$g$: Erdbeschleunigung $9,81\frac{m}{s^2}$
+\noindent $g$: Erdbeschleunigung $9,81\frac{m}{s^2}$
+
+Mit den $i$ bestimmten Werten für $D$ kann, gemäß einer Typ-A Messunsicherheit nach GUM, der Mittelwert, die Standardabweichung und die Standardabweichung des Mittelwertes berechnet werden. 
+
 \newpage
 \section{Messunsicherheiten}
 \textbf{Wie wird die dazugehörige Messunsicherheit (der Federkonstante) berechnet?}

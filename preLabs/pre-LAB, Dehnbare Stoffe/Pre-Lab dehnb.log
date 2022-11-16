@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  16 NOV 2022 13:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  16 NOV 2022 18:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -220,7 +220,7 @@ Here is how much of TeX's memory you used:
  24462 multiletter control sequences out of 15000+600000
  478995 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,16n,62p,439b,266s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 55i,15n,62p,379b,266s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\justu\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
 ppen/ec/dpi600\tcrm1200.pk> <C:\Users\justu\AppData\Local\MiKTeX\fonts/pk/ljfou
 r/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\justu\AppData\Local\MiKTeX\fonts/pk
@@ -235,9 +235,9 @@ C:/Users/justu/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/justu/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/justu/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb><C:/Users/justu/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb>
-Output written on "Pre-Lab dehnb.pdf" (2 pages, 151922 bytes).
+Output written on "Pre-Lab dehnb.pdf" (2 pages, 150563 bytes).
 PDF statistics:
- 250 PDF objects out of 1000 (max. 8388607)
+ 251 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
