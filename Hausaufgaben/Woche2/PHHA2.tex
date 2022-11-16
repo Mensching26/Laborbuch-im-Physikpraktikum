@@ -33,15 +33,47 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Hausaufgabe 2},
-  pdfauthor={Team 4 (Milena Mensching, Justus Weyers)},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -62,10 +94,18 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Hausaufgabe 2},
+  pdfauthor={Team 4 (Milena Mensching, Justus Weyers)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Hausaufgabe 2}
 \author{Team 4 (Milena Mensching, Justus Weyers)}
-\date{2022-11-15}
+\date{2022-11-16}
 
 \begin{document}
 \maketitle
@@ -112,13 +152,49 @@ Das Ergebnis ist also im Rahmen der Messunsicherheit nicht korrekt.
 
 \textbf{Es wurden 3 verschiedene Techniken genutzt, um den Durchmesser
 und Umfang eines runden Objektes zu messen und daraus experimentell die
-Größe \(\pi\) zu bestimmen. Methode 1 ergibt: 3,133 ± 0,007, Methode 2
-3,1609 ± 0,0002 und Methode 3 war 3,14 ± 0,03. Welche der 3 Methoden ist
-die präziseste? Begründen Sie Ihre Antwort.}
+Größe \(\pi\) zu bestimmen. Methode 1 ergibt: \(3,133 \pm 0,007\),
+Methode 2 \(3,1609 \pm 0,0002\) und Methode 3 war \(3,14 \pm 0,03\).
+Welche der 3 Methoden ist die präziseste? Begründen Sie Ihre Antwort.}
 
 Methode 2 liefert das präziseste Ergebnis. Dieses wurde hier auf vier
 Nachkommastellen genau angegeben. Die hohe Präzision sagt allerdings
 nichts über die Richtigkeit des Ergebnisses aus.
+
+\hypertarget{aufgabe-3}{%
+\section{Aufgabe 3}\label{aufgabe-3}}
+
+\textbf{Lara möchte das Volumen V einer Kugel bestimmen. Sie misst dafür
+den Radius \(R\) der Kugel und bekommt \(R = (8,2 \pm 0,2)mm\). Sie
+berechnet das Volumen und die Messunsicherheit des Volumens. Welches
+Ergebnis bekommt sie?}
+
+\(V_{Kugel}= \frac {4}{3}*\pi*R^3\)\\
+
+\(Bestwert: V_{Kugel}= \frac {4}{3}*\pi*(8.2mm)^3=2309.565mm^3\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DecValTok{4}\SpecialCharTok{/}\DecValTok{3}\NormalTok{)}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\FloatTok{8.2}\SpecialCharTok{**}\DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2309.565
+\end{verbatim}
+
+\(Messunsicherheit:u=\vert\frac{\partial{V}}{\partial{R}}*u_R\vert=\vert4*\pi*R^2*u_R\vert= 4*\pi*(8.2mm)^2*0.2mm \approx 170mm^3\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{4}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\FloatTok{8.2}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{*}\FloatTok{0.2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 168.9926
+\end{verbatim}
+
+\(\rightarrow V_{Kugel}= (2310\pm 170)mm^3\)
 
 \hypertarget{aufgabe-4}{%
 \section{Aufgabe 4}\label{aufgabe-4}}
@@ -159,7 +235,37 @@ u&=\pm \sqrt{(\frac{\partial m_{ges}}{\partial m_1}*u_{Gerät})^2+(\frac{\partia
 \end{align*}
 
 Die Gesamtmasse \(m_{ges}\) beträgt also:
-\[m_{ges}=((30,2+9,8+5,1)\pm 3,1)g = (45,1 \pm 3,1)g\] \# Aufgabe 6
+\[m_{ges}=((30,2+9,8+5,1)\pm 3,1)g = (45,1 \pm 3,1)g\]
+
+\hypertarget{aufgabe-5}{%
+\section{Aufgabe 5}\label{aufgabe-5}}
+
+\textbf{Lisa und Yamile messen die Höhe eines Gebäudes mit
+unterschiedlichen Methoden. Sie bekommen folgende Ergebnisse:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(h_{Lisa}= (12,25 \pm 0,25)m\)
+\item
+  \(h_{Yamile}= (14,5 \pm 0,5)m\)
+\end{itemize}
+
+\textbf{Ist der Unterschied zwischen Messung 1 und 2 signifikant?
+Begründen Sie Ihre Antwort.}
+
+\(\Rightarrow\) Der Unterschied zwischen den beiden Messungen ist
+signifikant, da sich die beiden Messintervalle nicht überlappen.
+
+\textbf{Gibt es vermutlich eine systematische Abweichung in einer der
+beiden Methoden?}
+
+\(\Rightarrow\) Es gibt wahrscheinlich bei mindestens einer der
+Messungen eine systematische Abweichung, da sich beide Intervalle trotz
+des gleichen zu messenden Gebäudes nicht überlappen
+
+\hypertarget{aufgabe-6}{%
+\section{Aufgabe 6}\label{aufgabe-6}}
 
 \textbf{Jo will die Periodendauer T eines Pendels experimentell
 bestimmen. Jo entscheidet statt einer einzelnen Periode 20 Perioden mit
@@ -170,7 +276,7 @@ Pendels zu bestimmen, besser ist mehrere Perioden zu messen oder
 wenige?}
 
 Es handelt sich bei diesem Vorgehen um eine Auswertung der Daten nach
-Typ-A (GUM), also einen statistschen Ansatz zur abschätzung der
+Typ-A (GUM), also einen statistschen Ansatz zur Abschätzung der
 Messunsicherheit.
 
 Die Verteilung der Messergebnisse wird als normalverteilt angenommen
@@ -232,9 +338,98 @@ berücksichtigen.
 
 Es wären aber auch noch präzisere Methoden zur Bestimmung der
 Periodendauer denkbar. Beispielsweise die Aufnahme des schwingenden
-Pendels mit einer Kamera mit einer möglichst hohen zeitlichen Auflösung
-(Bildwiederholungsrate). Am Computer ließen sich dann der Zeitpunkt des
-Einzelbildes der minimalen Auslenkung bestimmen. Die Reaktionszeit würde
-in diesem Falle praktisch wegfallen.
+Pendels mit einer Kamera mit einer möglichst hohen zeitlichen Auflösung.
+Am Computer ließen sich dann der Zeitpunkt des Einzelbildes der
+minimalen Auslenkung bestimmen. Die Reaktionszeit würde in diesem Falle
+praktisch wegfallen.
+
+\hypertarget{aufgabe-8}{%
+\section{Aufgabe 8}\label{aufgabe-8}}
+
+\textbf{Lina, die \((60,0 \pm 0,5)kg\) wiegt, fragt sich, welche
+kinetische Energie sie hat, wenn sie sprintet. Sie hat kein
+Geschwindigkeitsmessgerät, überlegt sich aber, dass sie aus einer festen
+Strecke und aus der Zeit, die sie für diese braucht, ihre
+Geschwindigkeit berechnen kann. Lina bittet einen Freund, ihre Zeit bei
+einem kurzen 10m-Sprint zu messen und erhält folgende Ergebnisse:}
+
+\begin{itemize}
+\tightlist
+\item
+  1,56s
+\item
+  1,34s
+\item
+  1,44s
+\item
+  1,50s
+\item
+  1,38s
+\end{itemize}
+
+\textbf{Die 10m konnte Lina nur abschätzen, sodass die Strecke
+tatsächlich \((10 \pm 1)m\) lang ist.}
+
+\textbf{Bestimmen Sie zunächst die durchschnittliche Zeit, die Lina für
+10m braucht, und ihre Unsicherheit. Der t-Wert für 5 Messwerte ist 1,11.
+Berechnen Sie dann die kinetische Energie, die Lina im Mittel beim
+Sprinten hat. Berechnen Sie auch die Unsicherheit dieses Ergebnisses.}
+
+Durchschnittliche Zeit und ihre Unsicherheit:
+
+Mittelwert: \(\bar{x} = \frac {1}{n}\sum_{i}^n x_i\)
+
+Standardabweichung:
+\(\sigma = \sqrt{\frac{1}{n-1}\sum_{i}^n (x_i - \bar{x})^2}\)
+
+Standardabweichung des Mittelwerts:
+\(\sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}\)
+
+Vertrauensabweichung bei kleinen Stichprobenumfämgen:
+\(\epsilon_{\bar{x}}= \frac{t*\sigma_x}{\sqrt(n)}\) ; mit dem
+Studentfaktor \(t(5)=1,11\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Eingabe der Zeiten}
+\NormalTok{time }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.56}\NormalTok{, }\FloatTok{1.34}\NormalTok{, }\FloatTok{1.44}\NormalTok{, }\FloatTok{1.50}\NormalTok{, }\FloatTok{1.38}\NormalTok{)}
+
+\CommentTok{\#Anzahl von Messungen}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{5}
+
+\CommentTok{\# Ausgabe}
+\FunctionTok{data.frame}\NormalTok{(Kenngröße}\OtherTok{=}\FunctionTok{c}\NormalTok{(}\StringTok{"Mittelwert"}\NormalTok{, }
+                       \StringTok{"Standardabweichung"}\NormalTok{, }
+                       \StringTok{"Vertrauensabweichung"}\NormalTok{), }
+           \AttributeTok{Wert=}\FunctionTok{c}\NormalTok{(}\FunctionTok{mean}\NormalTok{(time), }\FunctionTok{sd}\NormalTok{(time), }\FloatTok{1.11}\SpecialCharTok{*}\FunctionTok{sd}\NormalTok{(time)}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(n)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Kenngröße       Wert
+## 1           Mittelwert 1.44400000
+## 2   Standardabweichung 0.08876936
+## 3 Vertrauensabweichung 0.04406574
+\end{verbatim}
+
+Durchschnittliche Zeit und Unsicherheit: \(t=(1,444\pm 0,044)s\).
+
+Damit sind alle Größen zur Berechnung der kinetischen Energie (m, s und
+t) samt deren Unsicherheiten zusammengetragen. Die Kinetische Energie
+und deren Unsicherheit berechnet sich zu: \begin{align*}
+E_{kin} &= \frac{1}{2}\cdot m\cdot (\frac{s}{t})^2\\
+& = \frac{1}{2}\cdot 60kg\cdot (\frac{10m}{1,444s})^2\\
+&=1440.747J
+\end{align*}
+
+\begin{align*}
+u_{E} &= \sqrt{(\frac{\partial E}{\partial s}*u_{s})^2+(\frac{\partial E}{\partial m}*u_{m})^2+(\frac{\partial E}{\partial t}*u_{t})^2}\\
+ &= \sqrt{(\frac{1.0*m*s}{t^{2}}*u_{s})^2+(\frac{0.5*s^{2}}{t^{2}}*u_{m})^2+(-\frac{1.0*m*s^{2}}{t^{3}}*u_{t})^2}\\
+ &= \sqrt{(\frac{1.0*60.0*10.0}{1.444^{2}}*1)^2+(\frac{0.5*10^{2}}{1,444^{2}}*0,5)^2+(-\frac{1.0*60*10^{2}}{1,444^{3}}*0,044)^2}J\\
+ &=300J
+\end{align*}
+
+Linas kinetische Energie beträgt also:
+\(E_{kin}=(1440 \pm 300)J = (1,44\pm0,30)kJ\).
 
 \end{document}

@@ -3,10 +3,10 @@ title: "Hausaufgabe 2"
 author: "Team 4 (Milena Mensching, Justus Weyers)"
 date: '`r Sys.Date()`'
 output:
-  html_document:
-    df_print: paged
   pdf_document:
     keep_tex: yes
+  html_document:
+    df_print: paged
 ---
 
 # Aufgabe 1
@@ -35,31 +35,28 @@ Damit ist die Systematische Abweichung größer, als die Messunsicherheit. Das E
 # Aufgabe 2:
 **Es wurden 3 verschiedene Techniken genutzt, um den Durchmesser und
 Umfang eines runden Objektes zu messen und daraus experimentell die
-Größe $\pi$ zu bestimmen. Methode 1 ergibt: 3,133 ± 0,007, Methode 2 3,1609 ±
-0,0002 und Methode 3 war 3,14 ± 0,03. Welche der 3 Methoden ist die
+Größe $\pi$ zu bestimmen. Methode 1 ergibt: $3,133 \pm 0,007$, Methode 2 $3,1609 \pm 0,0002$ und Methode 3 war $3,14 \pm 0,03$. Welche der 3 Methoden ist die
 präziseste? Begründen Sie Ihre Antwort.**
 
 Methode 2 liefert das präziseste Ergebnis. Dieses wurde hier auf vier Nachkommastellen genau angegeben. Die hohe Präzision sagt allerdings nichts über die Richtigkeit des Ergebnisses aus.
 
 # Aufgabe 3
-Lara möchte das Volumen V einer Kugel bestimmen. Sie misst dafür den
-Radius R der Kugel und bekommt 𝑅 = (8,2 ± 0,2) 𝑚𝑚. Sie berechnet das
-Volumen und die Messunsicherheit des Volumens. Welches Ergebnis
-bekommt sie? 
+**Lara möchte das Volumen V einer Kugel bestimmen. Sie misst dafür den Radius $R$ der Kugel und bekommt $R = (8,2 \pm 0,2)mm$. Sie berechnet das Volumen und die Messunsicherheit des Volumens. Welches Ergebnis
+bekommt sie?**
 
 $V_{Kugel}= \frac {4}{3}*\pi*R^3$\
 
-$Bestwert: V_{Kugel}= \frac {4}{3}*\pi*(8.2mm)^3=2309.565mm$
+$Bestwert: V_{Kugel}= \frac {4}{3}*\pi*(8.2mm)^3=2309.565mm^3$
 ```{r}
 (4/3)*pi*8.2**3
 ```
 
-$Messunsicherheit:u=\vert\frac{\partial{V}}{\partial{R}}*u_R\vert=\vert4*\pi*R^2*u_R\vert= 4*\pi*(8.2mm)^2*0.2mm \approx 170mm$
+$Messunsicherheit:u=\vert\frac{\partial{V}}{\partial{R}}*u_R\vert=\vert4*\pi*R^2*u_R\vert= 4*\pi*(8.2mm)^2*0.2mm \approx 170mm^3$
 
 ```{r}
 4*pi*8.2**2*0.2
 ```
-$\rightarrow V_{Kugel}= (2310\pm 170)mm$
+$\rightarrow V_{Kugel}= (2310\pm 170)mm^3$
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -99,23 +96,22 @@ u&=\pm \sqrt{(\frac{\partial m_{ges}}{\partial m_1}*u_{Gerät})^2+(\frac{\partia
 Die Gesamtmasse $m_{ges}$ beträgt also:
 $$m_{ges}=((30,2+9,8+5,1)\pm 3,1)g = (45,1 \pm 3,1)g$$
 
-#Aufgabe 5
+# Aufgabe 5
 
-Lisa und Yamile messen die Höhe eines Gebäudes mit unterschiedlichen
-Methoden.
-Sie bekommen folgende Ergebnisse:\
-\
-$h_{Lisa}= (12,25 ± 0,25)𝑚$\
-$h_{Yamile}= (14,5 ± 0,5)m.$\
-\
-Ist der Unterschied zwischen Messung 1 und 2 signifikant? Begründen Sie
-Ihre Antwort.
+**Lisa und Yamile messen die Höhe eines Gebäudes mit unterschiedlichen
+Methoden. Sie bekommen folgende Ergebnisse:**
+
+* $h_{Lisa}= (12,25 \pm 0,25)m$
+* $h_{Yamile}= (14,5 \pm 0,5)m$
+
+**Ist der Unterschied zwischen Messung 1 und 2 signifikant? Begründen Sie
+Ihre Antwort.**
 
 $\Rightarrow$ Der Unterschied zwischen den beiden Messungen ist signifikant, da sich die beiden Messintervalle nicht überlappen.
 
 
-Gibt es vermutlich eine systematische Abweichung in einer der
-beiden Methoden?
+**Gibt es vermutlich eine systematische Abweichung in einer der
+beiden Methoden?**
 
 $\Rightarrow$ Es gibt wahrscheinlich bei mindestens einer der Messungen eine systematische Abweichung, da sich beide Intervalle trotz des gleichen zu messenden Gebäudes nicht überlappen
 
@@ -132,7 +128,7 @@ Wenn Sie jetzt die Ergebnisse dieser Übung reflektieren, würden Sie sagen
 dass es um die Periodendauern eines Pendels zu bestimmen, besser ist
 mehrere Perioden zu messen oder wenige?**
 
-Es handelt sich bei diesem Vorgehen um eine Auswertung der Daten nach Typ-A (GUM), also einen statistschen Ansatz zur abschätzung der Messunsicherheit.
+Es handelt sich bei diesem Vorgehen um eine Auswertung der Daten nach Typ-A (GUM), also einen statistschen Ansatz zur Abschätzung der Messunsicherheit.
 
 Die Verteilung der Messergebnisse wird als normalverteilt angenommen (Gauss-Verteilung).
 
@@ -162,97 +158,64 @@ Hinweis: denken Sie an die Reaktionszeit einer Person.**
 
 Vermutlich ist das der Unsicherheit eines Menschan bei der Festlegung auf einen Zeitpunkt der maximalen Auslenkung des Pendels geschuldet. Die Unsicherheit besteht dann darin, dass es schwierig ist, in dem vergleichsweise langen Zeitraum, den das Pendel in der maximalen Auslenkung und anderen Positionen der Fast-Maximalauslenkung verbringt, die Stoppuhr richtig zu betätigen. Die Periodendauer kann dann auf zufällige Art und Weise als zu kurz oder zu lang angegeben werden. Dieser Umstand muss nicht zu einer größeren systematischen Abweichung führen, allerdings zu einer kleineren Präzision. Der Durchgang durch die minimale Auslenkung ist dagegen vergleichsweise gut auszumachen und anzugeben. Die Reaktionszeit ist nachträglich aber in beiden Fällen zu berücksichtigen. 
 
-Es wären aber auch noch präzisere Methoden zur Bestimmung der Periodendauer denkbar. Beispielsweise die Aufnahme des schwingenden Pendels mit einer Kamera mit einer möglichst hohen zeitlichen Auflösung (Bildwiederholungsrate). Am Computer ließen sich dann der Zeitpunkt des Einzelbildes der minimalen Auslenkung bestimmen. Die Reaktionszeit würde in diesem Falle praktisch wegfallen.
+Es wären aber auch noch präzisere Methoden zur Bestimmung der Periodendauer denkbar. Beispielsweise die Aufnahme des schwingenden Pendels mit einer Kamera mit einer möglichst hohen zeitlichen Auflösung. Am Computer ließen sich dann der Zeitpunkt des Einzelbildes der minimalen Auslenkung bestimmen. Die Reaktionszeit würde in diesem Falle praktisch wegfallen.
 
-#Aufgabe 8
+# Aufgabe 8
 
-Lina, die (60,0 ± 0,5) kg wiegt, fragt sich, welche kinetische Energie sie hat, wenn sie
-sprintet. Sie hat kein Geschwindigkeitsmessgerät, überlegt sich aber, dass sie aus
-einer festen Strecke und aus der Zeit, die sie für diese braucht, ihre Geschwindigkeit
-berechnen kann. Lina bittet einen Freund, ihre Zeit bei einem kurzen 10m-Sprint zu
-messen und erhält folgende Ergebnisse:\
-\
-1,56s\
-1,34s\
-1,44s\
-1,50s\
-1,38s\
-\
-Die 10m konnte Lina nur abschätzen, sodass die Strecke tatsächlich (10 ± 1) m lang
-ist.
-\
-Bestimmen Sie zunächst die durchschnittliche Zeit, die Lina für 10m braucht, und ihre
-Unsicherheit. Der t-Wert für 5 Messwerte ist 1,11.
-Berechnen Sie dann die kinetische Energie, die Lina im Mittel beim Sprinten hat.
-Berechnen Sie auch die Unsicherheit dieses Ergebnisses.\
-\
-Durchschnittliche Zeit und ihre Unsicherheit:\
-\
-Mittelwert: $\bar{x} = \frac {1}{n}\sum_{i}^n x_i$ \
-Standardabweichung: $\sigma = \sqrt{\frac{1}{n-1}\sum_{i}^n (x_i - \bar{x})^2}$\
-Standardabweichung des Mittelwerts: $\sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}$\
+**Lina, die $(60,0 \pm 0,5)kg$ wiegt, fragt sich, welche kinetische Energie sie hat, wenn sie sprintet. Sie hat kein Geschwindigkeitsmessgerät, überlegt sich aber, dass sie aus einer festen Strecke und aus der Zeit, die sie für diese braucht, ihre Geschwindigkeit berechnen kann. Lina bittet einen Freund, ihre Zeit bei einem kurzen 10m-Sprint zu messen und erhält folgende Ergebnisse:**
+
+* 1,56s
+* 1,34s
+* 1,44s
+* 1,50s
+* 1,38s
+
+**Die 10m konnte Lina nur abschätzen, sodass die Strecke tatsächlich $(10 \pm 1)m$ lang ist.**
+
+**Bestimmen Sie zunächst die durchschnittliche Zeit, die Lina für 10m braucht, und ihre Unsicherheit. Der t-Wert für 5 Messwerte ist 1,11.
+Berechnen Sie dann die kinetische Energie, die Lina im Mittel beim Sprinten hat. Berechnen Sie auch die Unsicherheit dieses Ergebnisses.**
+
+Durchschnittliche Zeit und ihre Unsicherheit:
+
+Mittelwert: $\bar{x} = \frac {1}{n}\sum_{i}^n x_i$
+
+Standardabweichung: $\sigma = \sqrt{\frac{1}{n-1}\sum_{i}^n (x_i - \bar{x})^2}$
+
+Standardabweichung des Mittelwerts: $\sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}$
+
 Vertrauensabweichung bei kleinen Stichprobenumfämgen: $\epsilon_{\bar{x}}= \frac{t*\sigma_x}{\sqrt(n)}$ ; mit dem Studentfaktor $t(5)=1,11$
-\
 
 
-```{r}
-time <- c(1.56,1.34,1.44,1.50,1.38)
-n <- length(time)
-mean <- mean(time)
-mean
-sd <- sd(time)
-sd
-Vert <- 1.11*sd/sqrt(n)
-Vert
-```
-$\bar{x}=1,444$\
-$\sigma = 0,089$\
-$\epsilon_{\bar{x}}=0,044$\
-$\rightarrow t=(1,444\pm0,044)s$
-
-\
-
-Strecke und ihre Unsicherheit:\
-\
-$s=(10\pm1)m$
-\
-\
-\
-Durchschnittliche Geschwindigkeit und ihre Unsicherheit:
-\
-\
-$v=\frac{s}{t}=\frac{10m}{1,444s}=6,925 208 \frac{m}{s}$
-```{r}
-10/1.444
-```
-$u_v=\sqrt{(\frac{\partial v}{\partial s}* u_s)^2+(\frac{\partial v}{\partial t}*u_t)^2}= \sqrt{(\frac {1}{t}*u_s)^2+(\frac{-s}{t^2}*u_t)^2}=\sqrt{(\frac {1}{1,444s}*1m)^2+(\frac{-10m}{(1,444s)^2}*0,044s)^2}$\
-$u_v=0,72\frac {m}{s}$
 
 ```{r}
-sqrt(((1/1.444)*1)**2+((10/(1.444**2))*0.044)**2)
+# Eingabe der Zeiten
+time <- c(1.56, 1.34, 1.44, 1.50, 1.38)
+
+#Anzahl von Messungen
+n <- 5
+
+# Ausgabe
+data.frame(Kenngröße=c("Mittelwert", 
+                       "Standardabweichung", 
+                       "Vertrauensabweichung"), 
+           Wert=c(mean(time), sd(time), 1.11*sd(time)/sqrt(n)))
 ```
 
-$v=(6,93\pm0,72)\frac {m}{s}$
-\
-\
+Durchschnittliche Zeit und Unsicherheit: $t=(1,444\pm 0,044)s$.
 
-Kinetische Energie und ihre Unsicherheit:
+Damit sind alle Größen zur Berechnung der kinetischen Energie (m, s und t) samt deren Unsicherheiten zusammengetragen. Die Kinetische Energie und deren Unsicherheit berechnet sich zu:
+\begin{align*}
+E_{kin} &= \frac{1}{2}\cdot m\cdot (\frac{s}{t})^2\\
+& = \frac{1}{2}\cdot 60kg\cdot (\frac{10m}{1,444s})^2\\
+&=1440.747J
+\end{align*}
 
-$E_{kin}=\frac{1}{2}*m*v^2$\
-\
-$E_{kin}=\frac {1}{2}*60kg*(6,93\frac {m}{s})^2= 1440,747 J$
+\begin{align*}
+u_{E} &= \sqrt{(\frac{\partial E}{\partial s}*u_{s})^2+(\frac{\partial E}{\partial m}*u_{m})^2+(\frac{\partial E}{\partial t}*u_{t})^2}\\
+ &= \sqrt{(\frac{1.0*m*s}{t^{2}}*u_{s})^2+(\frac{0.5*s^{2}}{t^{2}}*u_{m})^2+(-\frac{1.0*m*s^{2}}{t^{3}}*u_{t})^2}\\
+ &= \sqrt{(\frac{1.0*60.0*10.0}{1.444^{2}}*1)^2+(\frac{0.5*10^{2}}{1,444^{2}}*0,5)^2+(-\frac{1.0*60*10^{2}}{1,444^{3}}*0,044)^2}J\\
+ &=300J
+\end{align*}
 
-```{r}
-0.5*60*6.93**2
-```
-
-
-$u_E=\sqrt{(\frac{\partial E}{\partial m}* u_m)^2+(\frac{\partial E}{\partial v}*u_v)^2}$
-$= \sqrt{(\frac{1}{2}*v^2*u_m)^2+(m*v*u_v)^2}$
-$= \sqrt{(\frac{1}{2}*(6,93\frac {m}{s})^2*0,5kg)^2+(60kg*6,93\frac {m}{s}*0,72\frac {m}{s})^2}$\
-$=230J$
-```{r}
-sqrt((0.5*6.93**2*0.5)**2+(60*6.93*0.72)**2)
-```
-$E_{kin}=(1440\pm300)J \lor (1,44\pm0,30)kJ$
+Linas kinetische Energie beträgt also: $E_{kin}=(1440 \pm 300)J = (1,44\pm0,30)kJ$.
 

@@ -4,6 +4,14 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 
+\usepackage[a4paper,
+            bindingoffset=0.2in,
+            left=1cm,
+            right=1cm,
+            top=1in,
+            bottom=1in,
+            footskip=.25in]{geometry}
+            
 \title{Pre-LAB: Dehnbare Stoffe, Team 4}
 \author{Justus Weyers, Milena Mensching}
 
@@ -11,35 +19,54 @@
 
 \maketitle
 \section{Hookesches Gesetz}
-Das Hookesche Gesetz beschreibt die elastische Verformung dehnbarer Stoffe durch eine Kraft. Bei den Körper/ Stoff handelt es sich beispielsweise um eine Feder. Die Spannkraft F ist dabei proportional zur Längenänderung $\triangle$x.
+\textbf{Beschreiben Sie das Hookesches Model}
 
-\begin{align*}
-\Rightarrow F\sim\triangle x\\
-F= -k*\triangle x
-\end{align*}
+Das Hookesche Gesetz beschreibt die elastische Verformung dehnbarer Stoffe durch eine Kraft. Bei dem Körper/ Stoff handelt es sich beispielsweise um eine Feder. Die Spannkraft F ist dabei proportional zur Längenänderung $\Delta x$. Die Proportionalitätskonstante heißt Federkonstante $D$.
+
+\begin{equation}
+\begin{split}
+\Rightarrow \Delta F&\sim\Delta x\\
+\Delta F&= -D*\Delta x
+\end{split}
+\end{equation}
 
 
 \section{Annahmen beim Hookeschen Modell}
+\textbf{Welche Annahmen werden beim Hookeschen Modell vorausgesetzt?}
+
 \begin{itemize}
-\item{Vernachlässigung von Energieumwandlung (z.B.: durch Reibung)}
+\item{Vernachlässigung von Energieumwandlung (z.B.: durch Reibung, $W=F_s*s$)}
+\item{Lineare Kraft-Auslenkungs-Beziehung}
 \item{Der Stoff muss dehnbar sein, die Elastizitätsgrenze darf jedoch nicht überschritten werden.}
 \end{itemize}
 
 \section{Experimentelle Ermittlung der Federkonstante}
-Die Federkonstante einer idealen Feder kann durch einen Zugversuch ermittelt werden. Dabei wird ein (im besten Fall geeichtes) Gewicht an eine befestigte, senkrecht hängende Feder gehangen (Gewichtskraft $F_G$ wirkt). Die Längenveränderung wird mit Hilfe einer geeigneten Skala (wiederholt) gemessen.
+\textbf{Wie kann man die Federkonstante einer idealen Feder durch ein Experiment ermitteln?}
 
-\begin{align*}
-F_G = F_k\\
-\vert m*g\vert = \vert -k*\triangle \bar{x}\vert\\
-\Rightarrow k = \frac{m*g}{k*\triangle \bar{x}} 
-\end{align*}
+Die Federkonstante einer idealen Feder kann durch einen Zugversuch ermittelt werden. Dabei wird ein (im besten Fall geeichtes) Gewicht ($m_{Gewicht}$) an eine befestigte, senkrecht hängende Feder gehangen (mit $m_{Feder}$, Gewichtskraft $F_G$ wirkt). Die Auslenkung $x$ gegenüber der Nullauslenkung $x_0$ durch die Zugkraft $F_{Zug}$ wird mit Hilfe einer geeigneten Skala (wiederholt) gemessen.
 
+%F_G &= F_k\\
+%\vert m*g\vert &= \vert -D*\triangle \bar{x}\vert\\
+%\Rightarrow D &= \frac{m*g}{k*\triangle \bar{x}}
 
+Mit Gleichung 1 ergibt sich für die Federkonstante $D$:
+\begin{equation}
+\begin{split}
+D &= -\frac{\Delta F}{\Delta x}\\
+\Rightarrow &= -\frac{F_{Zug}-F_G}{x-x_0}\\
+ &=-\frac{g*(m_{Gewicht} - m_{Feder})}{x-x_0}\\
+\end{split}
+\end{equation}
+
+$g$: Erdbeschleunigung $9,81\frac{m}{s^2}$
+\newpage
 \section{Messunsicherheiten}
-
+\textbf{Wie wird die dazugehörige Messunsicherheit (der Federkonstante) berechnet?}
+\begin{table}[h]
+\centering
 \begin{tabular}{|l|l|}
 \hline
-\textbf{mehrere Messungen} & \textbf{einmalige Messung}\\
+\textbf{Mehrere Messungen} & \textbf{Einmalige Messung}\\
 \hline
 Standardabweichung des Mittelwerts ($\sigma_{\bar{x}}$) & Ablesefehler ($u_{skala}$)\\
 evtl. Unsicherheit aus Gewichtsmessung ($u_G$)& evtl. Unsicherheit aus Gewichtsmessung($u_G$)\\
@@ -55,5 +82,16 @@ Standardabweichung: $\sigma = \sqrt{\frac{1}{n-1}\sum_{i}^n (x_i - \bar{x})^2}$ 
 Standardabweichung des Mittelwerts: $\sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}$ & \\
 \hline
 \end{tabular}
+\end{table}
 
+\section{Gummiband Kraftsensor}
+\textbf{Wie könnte man mit einem Gummiband ein Kraftsensor bauen?}
+
+Der Prozess der Ausdehnung eines Gummibandes lässt sich nicht unbedingt (oder nur für bestimmte Dehnungsgrade) durch das Hooksche Gesetz beschreiben.
+Die Auslenkungs-Kraft-Beziehung ist anders als zum Beispiel bei einer Feder nicht linear, es lässt sich also keine Proportionalitätskonstante (Federkonstante) festlegen.
+
+Für einen Kraftsensor, welcher ein Gummiband verwendet, muss die Auslenkungs-Kraft-Beziehung beispielsweise als Schaubild, idealerweise als mathematische Funktion, bekannt sein. 
+Dann ließe sich dieses Gerät analog zu einem Messgerät mit Feder verwenden. Zum Bestimmen der Kraft müsste dann auf dem Schaubild die der Auslenkung entsprechende Zugkraft abgelesen werden.
+
+Typischerweise beruht allerdings bei Kraftsensoren oder auch bei Waagen die Messung auf der Verwendung von Federn. Dies ist praktischer als die Verwendung eines Gummibandes und durch das Hooksche Gesetz beschreibbar.
 \end{document}
