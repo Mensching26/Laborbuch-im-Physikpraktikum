@@ -1,0 +1,103 @@
+---
+title: "Dehnbare Stoffe"
+author: "Justus Weyers"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+# Versuch 1
+
+## Thema
+
+## Fragestellung
+
+## Materialien
+
+## Durchführung
+
+Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
+Gewichte:
+```{r}
+Gewichte <- read.csv("Gewichte.csv", sep=";", dec=",")
+Gewichte[,c(1,2)]
+```
+
+Messunsicherheiten: 
+$$u_m=\frac{a}{2\sqrt{3}}= \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg$$
+
+Die Auslekung wird abgelesen (Messskala in mm). Dies bedeutet eine Ungenauigket der Skala von:
+$$u_{Skala}=\frac{a}{2\sqrt{6}}= \frac{0,001m}{2\sqrt{6}}=2,0*10^{-4}m$$
+
+
+## Fehlerquellen 
+
+## Beobachtung 
+
+## Messung
+Unsere Messergebnisse sind als csv-Datei abgespeichert:
+
+```{r}
+Messreihe <- read.csv("Messreihe.csv", sep=";", dec=",")
+colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "a", "b")
+Messreihe[,c(1,2)]
+```
+
+
+
+## Interpretation
+
+Zur besseren Interpretation der Messergebnisse wird die Anfangshöhe des Gummibandes als Nullauslenkung $x_0$ definiert und von den anderen Messwerten subtrahiert. Da die wirkende Kraft die Gewichtskraft $F=m*g$ ist gilt folgende Formel:
+
+$$F = m * g = D*x$$
+$$\rightarrow D =\frac{m*g}{x}$$
+Die Unsicherheit ergibt sich daher aus folgender Formel:
+
+$$u_D=\sqrt{(\frac{\partial{D}}{\partial{m}}*u_m)^2+(\frac{\partial{D}}{\partial{x}}*u_x)^2}$$
+Mit:
+$$\frac{\partial{D}}{\partial{m}} = \frac{g}{x}$$
+$$\frac{\partial{D}}{\partial{x}} = -\frac{m*g}{x^2}$$
+$$u_D=\sqrt{(\frac{g}{x}*u_m)^2+(-\frac{m*g}{x^2}*u_x)^2}$$
+
+
+```{r}
+# Erdbeschleunigung
+g = 9.81 #m/s^2
+u_m = 2.9*10**(-5) #kg
+u_x = 2.0*10**(-4) #m
+
+# Daten einlesen
+Messreihe <- read.csv("Messreihe.csv", sep=";", dec=",")
+colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "a", "b")
+
+# Nullwerte abziehen
+# Messreihe$Auslenkung1 <- Messreihe$Auslenkung1 - 11.2
+
+# Einheitenrechnung
+# Messreihe$Gewicht <- Messreihe$Gewicht/1000 #kg
+# Messreihe[, c(2,3)] <-  Messreihe[, c(2,3)]/100 #m
+
+# Testplot
+# plot(x=Messreihe$Auslenkung2, y=Messreihe$Gewicht, 
+#      ylim=c(0,500),
+#      xlim=c(0,50))
+# points(x=Messreihe$Auslenkung1, y=Messreihe$Gewicht)
+
+# Subset
+Messreihe1 <- Messreihe[, c(1,2)]
+Messreihe1$Kraft <- Messreihe1$Gewicht * g
+
+unsicherheit_funktion <- function(x,m){
+ 
+  return( sqrt( ((g/x)*u_m)**2 + ((-m*g/x**2)*u_x)**2 ))
+}
+
+Messreihe1$u_Federkonstante <- unsicherheit_funktion(x=Messreihe1$Auslenkung1,m=Messreihe1$Gewicht)
+
+Messreihe1$Federkonstante <- Messreihe1$Kraft/Messreihe1$Auslenkung1
+
+plot(x=Messreihe1$Auslenkung1, y=Messreihe1$Federkonstante)
+plot(x=Messreihe1$Auslenkung1, y=Messreihe1$Kraft)
+```
+

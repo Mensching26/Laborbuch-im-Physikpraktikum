@@ -21,42 +21,42 @@
 \section{Hookesches Gesetz}
 \textbf{Beschreiben Sie das Hookesches Model}
 
-Das Hookesche Gesetz beschreibt die elastische Verformung dehnbarer Stoffe durch eine Kraft. Bei dem Körper/ Stoff handelt es sich beispielsweise um eine Feder. Die Spannkraft F ist dabei proportional zur Längenänderung $\Delta x$. Die Proportionalitätskonstante heißt Federkonstante $D$.
+Das Hookesche Gesetz beschreibt die elastische Verformung dehnbarer Stoffe durch eine Kraft.
+Bei dem Körper/ Stoff handelt es sich beispielsweise um eine Feder. 
+Die Spannkraft F ist dabei proportional zur Längenänderung $\Delta x$. 
+Die Proportionalitätskonstante heißt Federkonstante $D$.
 
 \begin{equation}
-\begin{split}
-\Rightarrow F&\sim\Delta x\\
- F&= -D*\Delta x
-\end{split}
+	\begin{split}
+		\Rightarrow F&\sim\Delta x\\
+		F&= -D*\Delta x
+	\end{split}
 \end{equation}
-
 
 \section{Annahmen beim Hookeschen Modell}
 \textbf{Welche Annahmen werden beim Hookeschen Modell vorausgesetzt?}
 
 \begin{itemize}
-\item{Vernachlässigung von Energieumwandlung (z.B.: durch Reibung, $W=F_s*s$)}
-\item{Lineare Kraft-Auslenkungs-Beziehung}
-\item{Der Stoff muss dehnbar sein, die Elastizitätsgrenze darf jedoch nicht überschritten werden.}
-\item{Keine plastische Verformung der Feder während mehrerer Messungen.}
-\item{Gleiches Verhalten bei und Expansion und Relaxation der Feder}
+	\item{Vernachlässigung von Energieumwandlung (z.B.: durch Reibung, $W=F_s*s$)}
+	\item{Lineare Kraft-Auslenkungs-Beziehung}
+	\item{Der Stoff muss dehnbar sein, die Elastizitätsgrenze darf jedoch nicht überschritten werden.}
+	\item{Keine plastische Verformung der Feder während mehrerer Messungen.}
+	\item{Gleiches Verhalten bei und Expansion und Relaxation der Feder}
 \end{itemize}
 
 \section{Experimentelle Ermittlung der Federkonstante}
 \textbf{Wie kann man die Federkonstante einer idealen Feder durch ein Experiment ermitteln?}
 
-Die Federkonstante einer idealen Feder kann durch einen Zugversuch ermittelt werden. Dabei werden mehrere (im besten Fall geeichte) Gewichte ($m_{i}$) an eine befestigte, senkrecht hängende Feder gehängt. Die Auslenkung $x_i$ gegenüber der Nullauslenkung $x_0$ durch die Zugkraft $F_i$ wird mit Hilfe einer geeigneten Skala gemessen.
-
-%F_G &= F_k\\
-%\vert m*g\vert &= \vert -D*\triangle \bar{x}\vert\\
-%\Rightarrow D &= \frac{m*g}{k*\triangle \bar{x}}
+Die Federkonstante einer idealen Feder kann durch einen Zugversuch ermittelt werden. 
+Dabei werden mehrere (im besten Fall geeichte) Gewichte ($m_{i}$) an eine befestigte, senkrecht hängende Feder gehängt. 
+Die Auslenkung $x_i$ gegenüber der Nullauslenkung $x_0$ durch die Zugkraft $F_i$ wird mit Hilfe einer geeigneten Skala gemessen.
 
 Mit Gleichung 1 ergibt sich für die Federkonstante $D$:
 \begin{equation}
-\begin{split}
-D_i &= -\frac{F_i}{\Delta x_i}\\
-\Rightarrow  &=-\frac{g*m_i}{x_i-x_0}\\
-\end{split}
+	\begin{split}
+		D_i &= -\frac{F_i}{\Delta x_i}\\
+		\Rightarrow  &=-\frac{g*m_i}{x_i-x_0}\\
+	\end{split}
 \end{equation}
 
 \noindent $g$: Erdbeschleunigung $9,81\frac{m}{s^2}$
@@ -67,25 +67,25 @@ Mit den $i$ bestimmten Werten für $D$ kann, gemäß einer Typ-A Messunsicherhei
 \section{Messunsicherheiten}
 \textbf{Wie wird die dazugehörige Messunsicherheit (der Federkonstante) berechnet?}
 \begin{table}[h]
-\centering
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Mehrere Messungen} & \textbf{Einmalige Messung}\\
-\hline
-Standardabweichung des Mittelwerts ($\sigma_{\bar{x}}$) & Ablesefehler ($u_{skala}$)\\
-evtl. Unsicherheit aus Gewichtsmessung ($u_G$)& evtl. Unsicherheit aus Gewichtsmessung($u_G$)\\
-\hline
-\multicolumn{1}{|l}{\textbf{Formeln:}}& \\
-\hline
-$u_G$ abhängig von Art der Messung & $u_G$ abhängig von Art der Messung\\
-\hline
-Mittelwert: $\bar{x} = \frac {1}{n}\sum_{i}^n x_i$ &  $u_{skala} = \frac {a}{2\sqrt{6}}$\\
-\hline
-Standardabweichung: $\sigma = \sqrt{\frac{1}{n-1}\sum_{i}^n (x_i - \bar{x})^2}$ &  \\
-\hline
-Standardabweichung des Mittelwerts: $\sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}$ & \\
-\hline
-\end{tabular}
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Mehrere Messungen} & \textbf{Einmalige Messung}\\
+		\hline
+		Standardabweichung des Mittelwerts ($\sigma_{\bar{x}}$) & Ablesefehler ($u_{skala}$)\\
+		evtl. Unsicherheit aus Gewichtsmessung ($u_G$)& evtl. Unsicherheit aus Gewichtsmessung($u_G$)\\
+		\hline
+		\multicolumn{1}{|l}{\textbf{Formeln:}}& \\
+		\hline
+		$u_G$ abhängig von Art der Messung & $u_G$ abhängig von Art der Messung\\
+		\hline
+		Mittelwert: $\bar{x} = \frac {1}{n}\sum_{i}^n x_i$ &  $u_{skala} = \frac {a}{2\sqrt{6}}$\\
+		\hline
+		Standardabweichung: $\sigma = \sqrt{\frac{1}{n-1}\sum_{i}^n (x_i - \bar{x})^2}$ &  \\
+		\hline
+		Standardabweichung des Mittelwerts: $\sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}$ & \\
+		\hline
+	\end{tabular}
 \end{table}
 
 \section{Gummiband Kraftsensor}
@@ -95,7 +95,9 @@ Der Prozess der Ausdehnung eines Gummibandes lässt sich nicht unbedingt (oder n
 Die Auslenkungs-Kraft-Beziehung ist anders als zum Beispiel bei einer Feder nicht linear, es lässt sich also keine Proportionalitätskonstante (Federkonstante) festlegen.
 
 Für einen Kraftsensor, welcher ein Gummiband verwendet, muss die Auslenkungs-Kraft-Beziehung beispielsweise als Schaubild, idealerweise als mathematische Funktion, bekannt sein. 
-Dann ließe sich dieses Gerät analog zu einem Messgerät mit Feder verwenden. Zum Bestimmen der Kraft müsste dann auf dem Schaubild die der Auslenkung entsprechende Zugkraft abgelesen werden.
+Dann ließe sich dieses Gerät analog zu einem Messgerät mit Feder verwenden. 
+Zum Bestimmen der Kraft müsste dann auf dem Schaubild die der Auslenkung entsprechende Zugkraft abgelesen werden.
 
-Typischerweise beruht allerdings bei Kraftsensoren oder auch bei Waagen die Messung auf der Verwendung von Federn. Dies ist praktischer als die Verwendung eines Gummibandes und durch das Hooksche Gesetz beschreibbar.
+Typischerweise beruht allerdings bei Kraftsensoren oder auch bei Waagen die Messung auf der Verwendung von Federn. 
+Dies ist praktischer als die Verwendung eines Gummibandes und durch das Hooksche Gesetz beschreibbar.
 \end{document}

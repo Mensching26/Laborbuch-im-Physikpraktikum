@@ -10,14 +10,13 @@ output:
 ---
 
 # Aufgabe 1
-**Sie wiegen mit einer digitalen Waage, deren kleinste Schrittweite (d.h. Auflösung) 0,1
-g beträgt, einen Apfel. Der Apfel wiegt laut Anzeige 120,0 g. Stellen Sie sich vor, nach
-der Messung stellen Sie fest, dass der Tisch auf dem die Waage steht, schief steht.
+**Sie wiegen mit einer digitalen Waage, deren kleinste Schrittweite (d.h. Auflösung) 0,1g beträgt, einen Apfel. 
+Der Apfel wiegt laut Anzeige 120,0 g. 
+Stellen Sie sich vor, nach der Messung stellen Sie fest, dass der Tisch auf dem die Waage steht, schief steht.
 Die Schieflage beträgt ca. 1-2 Grad.**
 
 *  **Berechnen Sie welche systematische Abweichung dadurch entsteht.**
-*  **Ist es richtig anzunehmen, dass die Messung dennoch korrekt war und die Messung aufgrund der Messunsicherheiten als richtig angenommen werden
-kann?**
+*  **Ist es richtig anzunehmen, dass die Messung dennoch korrekt war und die Messung aufgrund der Messunsicherheiten als richtig angenommen werden kann?**
 
 **geg.:** Bestwert Masse $m = 120,0$; Geräteart: digital; Auflösung $a=0,1g$. Als Winkel $\alpha$ wird der Extremfall gewählt, bei dem die Neigung 2° beträgt.
 
@@ -30,19 +29,25 @@ $$e = m*(1-cos(\alpha)) = 120,0g*(1-cos(2)) = 0,073g$$
 
 Die Messunsicherheit beträgt:
 $$ u = \frac{a}{2\sqrt{3}} \Rightarrow \frac{0,1g}{2\sqrt{3}} = 0,029g$$
-Damit ist die Systematische Abweichung größer, als die Messunsicherheit. Das Ergebnis ist also im Rahmen der Messunsicherheit nicht korrekt.
+Damit ist die Systematische Abweichung größer, als die Messunsicherheit. 
+Das Ergebnis ist also im Rahmen der Messunsicherheit nicht korrekt.
 
 # Aufgabe 2:
 **Es wurden 3 verschiedene Techniken genutzt, um den Durchmesser und
 Umfang eines runden Objektes zu messen und daraus experimentell die
-Größe $\pi$ zu bestimmen. Methode 1 ergibt: $3,133 \pm 0,007$, Methode 2 $3,1609 \pm 0,0002$ und Methode 3 war $3,14 \pm 0,03$. Welche der 3 Methoden ist die
-präziseste? Begründen Sie Ihre Antwort.**
+Größe $\pi$ zu bestimmen. 
+Methode 1 ergibt: $3,133 \pm 0,007$, Methode 2 $3,1609 \pm 0,0002$ und Methode 3 war $3,14 \pm 0,03$. 
+Welche der 3 Methoden ist die präziseste? Begründen Sie Ihre Antwort.**
 
-Methode 2 liefert das präziseste Ergebnis. Dieses wurde hier auf vier Nachkommastellen genau angegeben. Die hohe Präzision sagt allerdings nichts über die Richtigkeit des Ergebnisses aus.
+Methode 2 liefert das präziseste Ergebnis. 
+Dieses wurde hier auf vier Nachkommastellen genau angegeben. 
+Die hohe Präzision sagt allerdings nichts über die Richtigkeit des Ergebnisses aus.
 
 # Aufgabe 3
-**Lara möchte das Volumen V einer Kugel bestimmen. Sie misst dafür den Radius $R$ der Kugel und bekommt $R = (8,2 \pm 0,2)mm$. Sie berechnet das Volumen und die Messunsicherheit des Volumens. Welches Ergebnis
-bekommt sie?**
+**Lara möchte das Volumen V einer Kugel bestimmen. 
+Sie misst dafür den Radius $R$ der Kugel und bekommt $R = (8,2 \pm 0,2)mm$.
+Sie berechnet das Volumen und die Messunsicherheit des Volumens. 
+Welches Ergebnis bekommt sie?**
 
 $V_{Kugel}= \frac {4}{3}*\pi*R^3$\
 
@@ -63,17 +68,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Aufgabe 4
-**Tom hängt drei Gewichte an eine Feder. Er benutzt eine Waage (die
-Messunsicherheit des Gerätes $u_{Waage}$ beträgt 0,05g, die Auflösung der Waage
-beträgt 0,1g) um die drei Massen einmalig zu bestimmen. Tom liest auf der
-Waage folgenden Werte für die Massen ab:**
+**Tom hängt drei Gewichte an eine Feder. 
+Er benutzt eine Waage (die Messunsicherheit des Gerätes $u_{Waage}$ beträgt 0,05g, die Auflösung der Waage beträgt 0,1g) um die drei Massen einmalig zu bestimmen. 
+Tom liest auf der Waage folgenden Werte für die Massen ab:**
 
 * $M_1= 30,2 g$
 * $M_2= 9,8 g$
 * $M_3= 5,1 g$
 
-**Wie schwer ist die gesamte Masse? Vergessen Sie nicht die
-Messunsicherheit dazu.**
+**Wie schwer ist die gesamte Masse? 
+Vergessen Sie nicht die Messunsicherheit dazu.**
 
 Berechnung der Skalen-Unsicherheit $u_{Skala}$ mit $a=0,1g$:
 $$u_{Skala} = \frac{a}{2\sqrt{6}} = \frac{0,1g}{2\sqrt{6}}$$
@@ -99,7 +103,8 @@ $$m_{ges}=((30,2+9,8+5,1)\pm 3,1)g = (45,1 \pm 3,1)g$$
 # Aufgabe 5
 
 **Lisa und Yamile messen die Höhe eines Gebäudes mit unterschiedlichen
-Methoden. Sie bekommen folgende Ergebnisse:**
+Methoden. 
+Sie bekommen folgende Ergebnisse:**
 
 * $h_{Lisa}= (12,25 \pm 0,25)m$
 * $h_{Yamile}= (14,5 \pm 0,5)m$
@@ -110,22 +115,16 @@ Ihre Antwort.**
 $\Rightarrow$ Der Unterschied zwischen den beiden Messungen ist signifikant, da sich die beiden Messintervalle nicht überlappen.
 
 
-**Gibt es vermutlich eine systematische Abweichung in einer der
-beiden Methoden?**
+**Gibt es vermutlich eine systematische Abweichung in einer der beiden Methoden?**
 
-$\Rightarrow$ Es gibt wahrscheinlich bei mindestens einer der Messungen eine systematische Abweichung, da sich beide Intervalle trotz des gleichen zu messenden Gebäudes nicht überlappen
-
-
-
+$\Rightarrow$ Es gibt wahrscheinlich bei mindestens einer der Messungen eine systematische Abweichung, da sich beide Intervalle trotz des gleichen zu messenden Gebäudes nicht überlappen.
 
 # Aufgabe 6
 
-**Jo will die Periodendauer T eines Pendels experimentell bestimmen. Jo
-entscheidet statt einer einzelnen Periode 20 Perioden mit der Stoppuhr zu
-messen. Wie kann Jo die Periodendauer T und ihre Messunsicherheit
-bestimmen?
-Wenn Sie jetzt die Ergebnisse dieser Übung reflektieren, würden Sie sagen
-dass es um die Periodendauern eines Pendels zu bestimmen, besser ist
+**Jo will die Periodendauer T eines Pendels experimentell bestimmen. 
+Jo entscheidet statt einer einzelnen Periode 20 Perioden mit der Stoppuhr zu messen. 
+Wie kann Jo die Periodendauer T und ihre Messunsicherheit bestimmen?
+Wenn Sie jetzt die Ergebnisse dieser Übung reflektieren, würden Sie sagen, dass es um die Periodendauern eines Pendels zu bestimmen, besser ist
 mehrere Perioden zu messen oder wenige?**
 
 Es handelt sich bei diesem Vorgehen um eine Auswertung der Daten nach Typ-A (GUM), also einen statistschen Ansatz zur Abschätzung der Messunsicherheit.
@@ -141,9 +140,12 @@ $$\overline{T} = \frac{1}{n}\sum \limits_{i=1}^nT_i$$
 
 Um die Streuung der Messwerte einschätzen zu können wird dann die Standardabweichung berechnet:
 $$\sigma_x = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (T_i - \overline{T})^2}$$
-Diese sagt aus, wie stark die Ergebnisse um den Mittelwert streuen. Da der Mittelwert für eine Teilmenge der Messungen ebenfalls streuen kann wird auch die Standardabweichung des Mittelwertes berechnet:
+Diese sagt aus, wie stark die Ergebnisse um den Mittelwert streuen. 
+Da der Mittelwert für eine Teilmenge der Messungen ebenfalls streuen kann, wird auch die Standardabweichung des Mittelwertes berechnet:
 $$\sigma_{\overline{T}}=\frac{\sigma_x}{\sqrt{n}}$$
-Diese ist für normalverteilte Stichproben der entscheidende Parameter. "Dieser gibt das Intervall an, in dem sich 68,3% aller Mittelwerte, noch folgender Messreihen befinden werden" [Skript: "Umgang mit Messunsicherheiten Teil 1", S.5]. Die **Standardmessunsicherheit** der n-mal geessenen Periodendauer lässt sich so statistisch abschätzen [ebd.].
+Diese ist für normalverteilte Stichproben der entscheidende Parameter. 
+"Dieser gibt das Intervall an, in dem sich 68,3% aller Mittelwerte, noch folgender Messreihen befinden werden" [Skript: "Umgang mit Messunsicherheiten Teil 1", S.5]. 
+Die **Standardmessunsicherheit** der n-mal geessenen Periodendauer lässt sich so statistisch abschätzen [ebd.].
 
 Das Messergebnis wird mit $\overline{T} \pm \sigma_{\overline{T}}$ angegeben.
 
@@ -151,18 +153,26 @@ Aus der Formel für die Standardabweichung des Mittelwertes wird ersichtlich, da
 
 # Aufgabe 7:
 
-**Wieso ist die Messung der Periodendauer eines Pendels präziser, wenn man
-die Stoppuhr beim Punkt der maximalen Geschwindigkeit des Pendels und
-nicht beim Punkt der minimalen Geschwindigkeit startet (bzw. stoppt)?
+**Wieso ist die Messung der Periodendauer eines Pendels präziser, wenn man die Stoppuhr beim Punkt der maximalen Geschwindigkeit des Pendels und nicht beim Punkt der minimalen Geschwindigkeit startet (bzw. stoppt)?
 Hinweis: denken Sie an die Reaktionszeit einer Person.**
 
-Vermutlich ist das der Unsicherheit eines Menschan bei der Festlegung auf einen Zeitpunkt der maximalen Auslenkung des Pendels geschuldet. Die Unsicherheit besteht dann darin, dass es schwierig ist, in dem vergleichsweise langen Zeitraum, den das Pendel in der maximalen Auslenkung und anderen Positionen der Fast-Maximalauslenkung verbringt, die Stoppuhr richtig zu betätigen. Die Periodendauer kann dann auf zufällige Art und Weise als zu kurz oder zu lang angegeben werden. Dieser Umstand muss nicht zu einer größeren systematischen Abweichung führen, allerdings zu einer kleineren Präzision. Der Durchgang durch die minimale Auslenkung ist dagegen vergleichsweise gut auszumachen und anzugeben. Die Reaktionszeit ist nachträglich aber in beiden Fällen zu berücksichtigen. 
+Vermutlich ist das der Unsicherheit eines Menschen bei der Festlegung auf einen Zeitpunkt der maximalen Auslenkung des Pendels geschuldet. 
+Die Unsicherheit besteht dann darin, dass es schwierig ist, in dem vergleichsweise langen Zeitraum, den das Pendel in der maximalen Auslenkung und anderen Positionen der Fast-Maximalauslenkung verbringt, die Stoppuhr richtig zu betätigen. 
+Die Periodendauer kann dann auf zufällige Art und Weise als zu kurz oder zu lang angegeben werden. 
+Dieser Umstand muss nicht zu einer größeren systematischen Abweichung führen, allerdings zu einer kleineren Präzision. 
+Der Durchgang durch die minimale Auslenkung ist dagegen vergleichsweise gut auszumachen und anzugeben. 
+Die Reaktionszeit ist nachträglich aber in beiden Fällen zu berücksichtigen. 
 
-Es wären aber auch noch präzisere Methoden zur Bestimmung der Periodendauer denkbar. Beispielsweise die Aufnahme des schwingenden Pendels mit einer Kamera mit einer möglichst hohen zeitlichen Auflösung. Am Computer ließen sich dann der Zeitpunkt des Einzelbildes der minimalen Auslenkung bestimmen. Die Reaktionszeit würde in diesem Falle praktisch wegfallen.
+Es wären aber auch noch präzisere Methoden zur Bestimmung der Periodendauer denkbar. 
+Beispielsweise die Aufnahme des schwingenden Pendels mit einer Kamera mit einer möglichst hohen zeitlichen Auflösung. 
+Am Computer ließen sich dann der Zeitpunkt des Einzelbildes der minimalen Auslenkung bestimmen. 
+Die Reaktionszeit würde in diesem Falle praktisch wegfallen.
 
 # Aufgabe 8
 
-**Lina, die $(60,0 \pm 0,5)kg$ wiegt, fragt sich, welche kinetische Energie sie hat, wenn sie sprintet. Sie hat kein Geschwindigkeitsmessgerät, überlegt sich aber, dass sie aus einer festen Strecke und aus der Zeit, die sie für diese braucht, ihre Geschwindigkeit berechnen kann. Lina bittet einen Freund, ihre Zeit bei einem kurzen 10m-Sprint zu messen und erhält folgende Ergebnisse:**
+**Lina, die $(60,0 \pm 0,5)kg$ wiegt, fragt sich, welche kinetische Energie sie hat, wenn sie sprintet. 
+Sie hat kein Geschwindigkeitsmessgerät, überlegt sich aber, dass sie aus einer festen Strecke und aus der Zeit, die sie für diese braucht, ihre Geschwindigkeit berechnen kann. 
+Lina bittet einen Freund, ihre Zeit bei einem kurzen 10m-Sprint zu messen und erhält folgende Ergebnisse:**
 
 * 1,56s
 * 1,34s
@@ -172,8 +182,10 @@ Es wären aber auch noch präzisere Methoden zur Bestimmung der Periodendauer de
 
 **Die 10m konnte Lina nur abschätzen, sodass die Strecke tatsächlich $(10 \pm 1)m$ lang ist.**
 
-**Bestimmen Sie zunächst die durchschnittliche Zeit, die Lina für 10m braucht, und ihre Unsicherheit. Der t-Wert für 5 Messwerte ist 1,11.
-Berechnen Sie dann die kinetische Energie, die Lina im Mittel beim Sprinten hat. Berechnen Sie auch die Unsicherheit dieses Ergebnisses.**
+**Bestimmen Sie zunächst die durchschnittliche Zeit, die Lina für 10m braucht, und ihre Unsicherheit. 
+Der t-Wert für 5 Messwerte ist 1,11.
+Berechnen Sie dann die kinetische Energie, die Lina im Mittel beim Sprinten hat. 
+Berechnen Sie auch die Unsicherheit dieses Ergebnisses.**
 
 Durchschnittliche Zeit und ihre Unsicherheit:
 
@@ -184,8 +196,6 @@ Standardabweichung: $\sigma = \sqrt{\frac{1}{n-1}\sum_{i}^n (x_i - \bar{x})^2}$
 Standardabweichung des Mittelwerts: $\sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}$
 
 Vertrauensabweichung bei kleinen Stichprobenumfämgen: $\epsilon_{\bar{x}}= \frac{t*\sigma_x}{\sqrt(n)}$ ; mit dem Studentfaktor $t(5)=1,11$
-
-
 
 ```{r}
 # Eingabe der Zeiten
@@ -203,7 +213,8 @@ data.frame(Kenngröße=c("Mittelwert",
 
 Durchschnittliche Zeit und Unsicherheit: $t=(1,444\pm 0,044)s$.
 
-Damit sind alle Größen zur Berechnung der kinetischen Energie (m, s und t) samt deren Unsicherheiten zusammengetragen. Die Kinetische Energie und deren Unsicherheit berechnet sich zu:
+Damit sind alle Größen zur Berechnung der kinetischen Energie (m, s und t) samt deren Unsicherheiten zusammengetragen. 
+Die Kinetische Energie und deren Unsicherheit berechnet sich zu:
 \begin{align*}
 E_{kin} &= \frac{1}{2}\cdot m\cdot (\frac{s}{t})^2\\
 & = \frac{1}{2}\cdot 60kg\cdot (\frac{10m}{1,444s})^2\\
