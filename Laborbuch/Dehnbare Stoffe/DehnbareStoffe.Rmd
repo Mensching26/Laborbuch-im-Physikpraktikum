@@ -29,18 +29,19 @@ $$u_m=\frac{a}{2\sqrt{3}}= \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg$$
 
 Die Auslekung wird abgelesen (Messskala in mm). Dies bedeutet eine Ungenauigket der Skala von:
 $$u_{Skala}=\frac{a}{2\sqrt{6}}= \frac{0,001m}{2\sqrt{6}}=2,0*10^{-4}m$$
-
+!Ruhezustand erklären!
 
 ## Fehlerquellen 
 
 ## Beobachtung 
 
 ## Messung
-Unsere Messergebnisse sind als csv-Datei abgespeichert:
+Mittels Excel werden die Daten aufgenommen und als csv-Datei exportiert.
+An dieser Stelle können die erhobenen Messwerte zum Zwecke der Interpretatuion aus dieser csv-Datei eingelesen und aufgeführt werden.
 
 ```{r}
 Messreihe <- read.csv("Messreihe.csv", sep=";", dec=",")
-colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "a", "b")
+colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende")
 Messreihe[,c(1,2)]
 ```
 
@@ -48,57 +49,90 @@ Messreihe[,c(1,2)]
 
 ## Interpretation
 
-Zur besseren Interpretation der Messergebnisse wird die Anfangshöhe des Gummibandes als Nullauslenkung $x_0$ definiert und von den anderen Messwerten subtrahiert. 
-Da die wirkende Kraft die Gewichtskraft $F=m*g$ ist gilt folgende Formel:
+### Berechnung der Gewichts- und Zugkraft
 
-$$F = m * g = D*x$$
-$$\rightarrow D =\frac{m*g}{x}$$
-Die Unsicherheit ergibt sich daher aus folgender Formel:
+Zur Interpretation der Messergebnisse wird die Anfangshöhe des Gummibandes $x_0$, diese beträgt $11,2 cm$, von den anderen Messwerten subtrahiert, siehe entsprechenden Messwert für ein Gewicht von $0g$.
+Zudem werden die Einheiten in die SI-Einheite umgerechnet, um den Einheitenbezug korrekt zu halten.
 
-$$u_D=\sqrt{(\frac{\partial{D}}{\partial{m}}*u_m)^2+(\frac{\partial{D}}{\partial{x}}*u_x)^2}$$
-Mit:
-$$\frac{\partial{D}}{\partial{m}} = \frac{g}{x}$$
-$$\frac{\partial{D}}{\partial{x}} = -\frac{m*g}{x^2}$$
-$$u_D=\sqrt{(\frac{g}{x}*u_m)^2+(-\frac{m*g}{x^2}*u_x)^2}$$
+Im Anschluss wird die Kraft $F_{G,i}$ in Newton berechnet, die für das Gewicht $m_i$ auf das Gummiband wirkt.
+Im Folgenden wird, wenn die Unterscheidung zwischen Gewichts- und Zugkraft aufgrund des gleichen Betrages im zu untersuchenden Ruhezustand unsinnig ist, von einer sematischen Unterscheidung von $F_G$ und $F_{Zug}$ abgesehen und stattdessen verallgemeinernd von der wirkenden Kraft $F$ gesprochen.
 
+Im Anschluss wird ein Kraft-Auslenkung Schaubild erstellt.
+
+Wird $F$ gegen $x_i$ aufgetragen, ergibt sich  optisch ab einer Auslenkung von $5cm$ ein etwa linearer Zusammenhang. 
+Im Bereich zwischen einer Auslenkung von $0cm$ und $5cm$ kann das Ausdehnungsverhalten des Gummibandes unter einer Gewichtsbelastung nicht als linear und somit nicht durch eine Federkonstante beschrieben werden.
 
 ```{r}
-# Erdbeschleunigung
+# Nullwerte(x_0 = 11,2cm) abziehen
+Messreihe$Auslenkung1_x0 <- Messreihe$Auslenkung1 - 11.2
+
+# Einheitenbezug
+Messreihe$Gewicht_kg <- Messreihe$Gewicht/1000 #g -> kg
+Messreihe$Auslenkung1_x0_m <-  Messreihe$Auslenkung1_x0/100 #cm -> m
+
+# ERDBESCHLEUNIGUNG
 g = 9.81 #m/s^2
-u_m = 2.9*10**(-5) #kg
-u_x = 2.0*10**(-4) #m
 
-# Daten einlesen
-Messreihe <- read.csv("Messreihe.csv", sep=";", dec=",")
-colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "a", "b")
-
-# Nullwerte abziehen
-# Messreihe$Auslenkung1 <- Messreihe$Auslenkung1 - 11.2
-
-# Einheitenrechnung
-# Messreihe$Gewicht <- Messreihe$Gewicht/1000 #kg
-# Messreihe[, c(2,3)] <-  Messreihe[, c(2,3)]/100 #m
+# Berechnung von F_G
+Messreihe$Kraft <- Messreihe$Gewicht_kg * g #N
 
 # Testplot
-# plot(x=Messreihe$Auslenkung2, y=Messreihe$Gewicht, 
-#      ylim=c(0,500),
-#      xlim=c(0,50))
-# points(x=Messreihe$Auslenkung1, y=Messreihe$Gewicht)
+plot(x=Messreihe$Auslenkung1_x0_m, y=Messreihe$Kraft,#, 
+     xlab="Auslenkung x [m]",
+     ylab="Kraft F [N]",
+     las = 1, main = "Kraft-Auslenkungs-Schaubild"
+     )
+```
 
-# Subset
-Messreihe1 <- Messreihe[, c(1,2)]
-Messreihe1$Kraft <- Messreihe1$Gewicht * g
+### Berechnung der Federkonstanten
 
-unsicherheit_funktion <- function(x,m){
- 
-  return( sqrt( ((g/x)*u_m)**2 + ((-m*g/x**2)*u_x)**2 ))
+Da die Gewichtskraft $F_G=m*g$ und die Zugkraft des Gummibandes $F_{Zug} = x * D$ im Ruhezustand im Gleichgewicht zueinander stehen, gilt folgende Formel:
+
+$$F_G = m * g = D*x = F_{Zug}$$
+
+Mit:
+* $D$: Federkonstante
+* $m$: Masse des Gewichtes,
+* $x$: Auslenkung,
+* $g$: Erdbeschleunigung ($9,81\frac{m}{s^2}$).
+
+Daraus ergibt sich für die Federkonstante D:
+$$D =\frac{m*g}{x}$$
+Wird diese für jede Auslenkung $x_i$ berechnet und über diese aufgetragen ergibt sich folgendes Schaubild:
+```{r}
+Messreihe$Federkonstante <- Messreihe$Gewicht_kg*g/Messreihe$Auslenkung1_x0_m
+plot(x=Messreihe$Auslenkung1_x0_m, y=Messreihe$Federkonstante,
+     xlab="Auslenkung x [m]",
+     ylab="Wert der Federkonstante [N/m]",
+     las = 1, main = "Federkonstante-Auslenkungs-Schaubild"
+     )
+```
+
+Auch hier wird auf optische Weise ersichtlich, dass es erst ab einer Auslenkung von ca. $5cm$ sinnvoll ist von einer Federkonstanten zu sprechen.
+
+Die Unsicherheit der Federkonstanten $u_D$ ergibt sich gemäß der Gaussschen-Fehlerfortpflanzung aus folgender Formel:
+
+\begin{equation}
+\begin{split}
+u_D &= \sqrt{(\frac{\partial{D}}{\partial{m}}*u_m)^2+(\frac{\partial{D}}{\partial{x}}*u_x)^2}\\
+u_D &=\sqrt{(\frac{g}{x}*u_m)^2+(-\frac{m*g}{x^2}*u_x)^2}\\
+\end{split}
+\end{equation}
+
+Dabei berechnet sich die Unsicherheit der Masse $u_m$ aus der bereits im Teil \textit{Durchführung} festgestellten Skalenungenauigkeit und der Geräteungenauigkeit.
+Die Unsicherheit der Auslenkung besteht aus der ebenfalls dort festgestellten Skalenungenauigkeit.
+
+```{r}
+# BAUSTELLE: Hier fehlt noch die Geräteungenauigkeit der Waage
+u_m = 2.9*10**(-5) #kg
+# Auslenkungsungenauigkeit 
+u_x = 2.0*10**(-4) #m
+
+# Berechnung der Messunsicherheit der Federkonstanten
+u_D_funktion <- function(x,m){
+  sqrt(((g/x)*u_m)**2+((-m*g/x**2)*u_x)**2)
 }
-
-Messreihe1$u_Federkonstante <- unsicherheit_funktion(x=Messreihe1$Auslenkung1,m=Messreihe1$Gewicht)
-
-Messreihe1$Federkonstante <- Messreihe1$Kraft/Messreihe1$Auslenkung1
-
-plot(x=Messreihe1$Auslenkung1, y=Messreihe1$Federkonstante)
-plot(x=Messreihe1$Auslenkung1, y=Messreihe1$Kraft)
+ 
+Messreihe$u_Federkonstante <- u_D_funktion(x=Messreihe$Auslenkung1_x0_m, m=Messreihe$Gewicht_kg)
 ```
 
