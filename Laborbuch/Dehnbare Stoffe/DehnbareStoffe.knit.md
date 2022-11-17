@@ -1,7 +1,7 @@
 ---
 title: "Dehnbare Stoffe"
 author: "Justus Weyers & Milena Mensching, Team 4"
-date: "`r Sys.Date()`"
+date: "2022-11-17"
 output:
   pdf_document: default
   html_document:
@@ -40,9 +40,20 @@ output:
 
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
 Gewichte:
-```{r}
+
+```r
 Gewichte <- read.csv("Gewichte.csv", sep=";", dec=",")
 Gewichte[,c(1,2)]
+```
+
+```
+##        Name Masse..g.
+## 1        5g       4.8
+## 2  10g (2x)      10.0
+## 3       20g      19.8
+## 4       50g      49.9
+## 5 100g (2x)      99.5
+## 6      200g     198.5
 ```
 
 Messunsicherheiten: 
@@ -65,10 +76,75 @@ Besonders wichtig ist zu erwähnen, dass die Länge $x_0$ am Anfang und am Ende 
 ## Messung
 Unsere Messergebnisse sind als csv-Datei abgespeichert:
 
-```{r}
+
+```r
 Messreihe <- read.csv("Messreihe.csv", sep=";", dec=",")
 colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "a", "b")
 Messreihe[,c(1,2)]
+```
+
+```
+##    Gewicht Auslenkung1
+## 1        0        11.2
+## 2        5        13.0
+## 3       10        13.3
+## 4       15        13.5
+## 5       20        13.6
+## 6       25        13.8
+## 7       30        13.8
+## 8       35        13.9
+## 9       40        14.0
+## 10      45        14.1
+## 11      50        14.0
+## 12      55        14.1
+## 13      60        14.2
+## 14      65        14.3
+## 15      70        14.4
+## 16      75        14.5
+## 17      80        14.5
+## 18      85        14.6
+## 19      90        14.6
+## 20      95        14.7
+## 21     100        14.8
+## 22     110        15.1
+## 23     120        15.3
+## 24     130        15.4
+## 25     140        15.6
+## 26     150        15.8
+## 27     160        16.0
+## 28     170        16.4
+## 29     180        16.6
+## 30     190        16.9
+## 31     200        17.3
+## 32     210        17.5
+## 33     220        17.8
+## 34     230        18.2
+## 35     240        18.5
+## 36     250        18.9
+## 37     260        19.3
+## 38     270        19.8
+## 39     280        20.0
+## 40     290        20.3
+## 41     300        20.9
+## 42     310        21.2
+## 43     320        21.5
+## 44     330        22.0
+## 45     340        22.3
+## 46     350        22.7
+## 47     360        23.0
+## 48     370        23.3
+## 49     380        23.6
+## 50     390        23.9
+## 51     400        24.5
+## 52     410        24.7
+## 53     420        25.0
+## 54     430        25.2
+## 55     440        25.5
+## 56     450        25.7
+## 57     460        26.1
+## 58     470        26.2
+## 59     480        26.5
+## 60     490        26.8
 ```
 
 
@@ -88,7 +164,8 @@ $$\frac{\partial{D}}{\partial{x}} = -\frac{m*g}{x^2}$$
 $$u_D=\sqrt{(\frac{g}{x}*u_m)^2+(-\frac{m*g}{x^2}*u_x)^2}$$
 
 
-```{r}
+
+```r
 # Erdbeschleunigung
 g = 9.81 #m/s^2
 u_m = 2.9*10**(-5) #kg
@@ -125,8 +202,15 @@ Messreihe1$u_Federkonstante <- unsicherheit_funktion(x=Messreihe1$Auslenkung1,m=
 Messreihe1$Federkonstante <- Messreihe1$Kraft/Messreihe1$Auslenkung1
 
 plot(x=Messreihe1$Auslenkung1, y=Messreihe1$Federkonstante)
+```
+
+![](DehnbareStoffe_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
+
+```r
 plot(x=Messreihe1$Auslenkung1, y=Messreihe1$Kraft)
 ```
+
+![](DehnbareStoffe_files/figure-latex/unnamed-chunk-3-2.pdf)<!-- --> 
 
 ## Interpretation
 
