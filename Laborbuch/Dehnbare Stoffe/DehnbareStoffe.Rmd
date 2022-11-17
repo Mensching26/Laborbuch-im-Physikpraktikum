@@ -48,7 +48,8 @@ Messreihe[,c(1,2)]
 
 ## Interpretation
 
-Zur besseren Interpretation der Messergebnisse wird die Anfangshöhe des Gummibandes als Nullauslenkung $x_0$ definiert und von den anderen Messwerten subtrahiert. Da die wirkende Kraft die Gewichtskraft $F=m*g$ ist gilt folgende Formel:
+Zur besseren Interpretation der Messergebnisse wird die Anfangshöhe des Gummibandes als Nullauslenkung $x_0$ definiert und von den anderen Messwerten subtrahiert. 
+Da die wirkende Kraft die Gewichtskraft $F=m*g$ ist gilt folgende Formel:
 
 $$F = m * g = D*x$$
 $$\rightarrow D =\frac{m*g}{x}$$
