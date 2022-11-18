@@ -3,11 +3,9 @@ title: "Dehnbare Stoffe"
 author: "Justus Weyers & Milena Mensching, Team 4"
 date: "`r Sys.Date()`"
 output:
-  html_document:
-    df_print: paged
-    html_document:
-    css: "style.css"
   pdf_document: default
+  html_document:
+    df_print: kable
 ---
 # Versuch 1
 
@@ -121,7 +119,7 @@ Messreihe <- read.csv("Daten/Messreihe.csv", sep=";", dec = ",")
 # Anbindung der bereits errechneten Unsicherheit der Masse
 Messreihe <- cbind(Messreihe, u_m)
 
-colnames(Messreihe) <- c("n_Gewichte", "Sollwert_g", "Gewicht_g", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende", "u_m")
+colnames(Messreihe) <- c("n_Gewichte", "Sollwert_g", "Gewicht_g", "Auslenkung1_cm",  "Auslenkung2", "x_Haken", "x_0_Ende", "u_m")
 Messreihe[,1:4]
 ```
 
@@ -139,15 +137,15 @@ Neben der Kraft kann auch die Unsicherheit der Kraft berechnet werden.
 Diese berechnet sich als:
 \begin{equation}
 \begin{split}
-u_F &= \frac{\partial F}{\partial {m}}*u_m
-    &= g*u_m
+u_F &= \frac{\partial F}{\partial {m}}*u_m\\
+    &= g*u_m\\
 \end{split}
 \end{equation}
 
 Nach der Rechnung Anschluss wird ein Kraft-Auslenkung Schaubild erstellt.
 ```{r}
 # Nullwerte(x_0 = 11,2cm) abziehen
-Messreihe$Auslenkung1_x0 <- Messreihe$Auslenkung1 - 11.2
+Messreihe$Auslenkung1_x0 <- Messreihe$Auslenkung1_cm - 11.2
 
 # Einheitenbezug
 Messreihe$Gewicht_kg <- Messreihe$Gewicht_g/1000 #g -> kg
@@ -214,13 +212,12 @@ data.frame(Statistische_Kenngröße=c("Mittelwert_MW",
 ```
 Die bestimmte Federkonstante, für eine Auslenkung des Gummibandes im Bereich von $5,0$ bis $26.8cm$, beträgt also $D=(30,91\pm 0,17)\frac{N}{m}$
 
-%# Plotten
-%ggplot(subset(Messreihe, !is.na(Federkonstante)), 
-%            aes(x = Auslenkung1_x0_m, y = Federkonstante, 
-%                ymin = Federkonstante-u_Federkonstante, 
-%                ymax = Federkonstante+u_Federkonstante)
-%  ) + geom_point() + geom_errorbar(width = 0.005)
-%
+# Plotten
+ggplot(subset(Messreihe, !is.na(Federkonstante)), 
+            aes(x = Auslenkung1_x0_m, y = Federkonstante, 
+                ymin = Federkonstante-u_Federkonstante, 
+                ymax = Federkonstante+u_Federkonstante)
+  ) + geom_point() + geom_errorbar(width = 0.005)
 
 #### Fehlerrechnung Federkonstante
 Die Unsicherheit der Federkonstanten $u_D$ ergibt sich gemäß der Gaussschen-Fehlerfortpflanzung aus folgender Formel:
