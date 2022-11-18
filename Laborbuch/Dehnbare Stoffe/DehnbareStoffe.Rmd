@@ -23,7 +23,7 @@ output:
 * Gewichte
 * Maßband
 * Haken
-* Klebeband
+* Klebeband 
 
 ## Versuchsaufbau
 
@@ -41,28 +41,44 @@ output:
 ## Durchführung
 
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
+Die 10g und die 100g Gewichte lagen doppelt vor und waren jeweils gleich schwer.
+Die Gewichte stellten sich generell als zu leicht heraus. 
+Nur die zwei 10g Gewichte wogen nach einer Beschriftung mit Klebeband $10,0g$.
 Gewichte:
 ```{r}
-Gewichte <- read.csv("Daten/Gewichte.csv", sep=";", dec=",")
-Gewichte[,c(1,2)]
+Gewichte <- read.csv("Daten/Gewichte.csv", 
+                     col.names = c("Name", "Einzelmasse", 
+                                   "n_Gewichte", "Sollwert", "Gewicht_g"),
+                     sep=";", dec=",")
+Gewichte[1:6,1:2]
 ```
+Die Gesamtmasse $m_{ges}$ einer Gewichtskombination wird durch Addition der Teilmassen berechnet.
 
-Unsicherheit der Masse: $u_m= \sqrt{u_{Skala}^2+u_{Gerät}^2}$ 
-Dabei ist $u_{Skala}$ konstant bei $u_{Skala} = \frac{a}{2\sqrt{3}}= \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg$.
-Für $u_{Gerät}$ gilt der Zusammenhang:
+Die Geräteungenauigkeit berechnet sich zu: $u_{Gerät}= \sqrt{u_{Skala}^2+u_{Waage}^2}$ 
+Dabei ist $u_{Skala}$ konstant bei $u_{Skala} = \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg$.
+Für $u_{Waage}$ wurde eine Messunsicherheit von ... am Gerät abgelesen.
+Damit errechnet sich eine Geräteungenauigkeit von $u_{Gerät}=$ ... .
 
-
-n: Anzahl von kombinierten Gewichten
-
+Für die Unsicherheit der aus $n$ Gewichten kombinierten Masse M $u_{m}$ gilt, da für alle Messungen die gleiche Waage benutzt wurde, der Zusammenhang:
+$$u_m = \sum\limits_{i=1}^{n}u_{m,i} = n*u_{Gerät}$$
 ```{r}
-# BAUSTELLE: Hier fehlt noch die Geräteungenauigkeit der Waage
-u_m = 2.9*10**(-5) #kg
+# Skalenunsicherheit
+u_Skala = 1*10**(-4)/(2*sqrt(3)) #kg
+# BAUSTELLE: Hier fehlt noch die Geräteungenauigkeit der Waage (Waagenunsicherheit)
+u_Waage = 0.05*10**(-3) #Geschätzt in kg
+# Geräteunsicherheit
+u_Gerät = sqrt((u_Skala)^2+(u_Waage)^2)
+# Massenunsicherheit
+
+# Massenungenauigkeit
+u_m = Gewichte$n_Gewichte*u_Gerät #kg
 ```
 
-Zunächst wird die Länge des Gummibandes ohne zusätzliches Gewicht gemessen. Die Länge betrug 11,2 cm. Diese Länge muss später von allen Messwerten abgezogen werden, um nur die Auslenkung aus dem Nullzustand als Datensatz aufzunehmen.
+Zunächst wird die Länge des Gummibandes ohne zusätzliches Gewicht gemessen. 
+Die Länge betrug 11,2 cm. Diese Länge muss später von allen Messwerten abgezogen werden, um nur die Auslenkung aus dem Nullzustand als Datensatz aufzunehmen.
 
 Danach werden nacheinander verschiedene Gewichte an das Gummiband gehängt und die entsprechende Auslenkung gemessen. 
-Diese wird an der Unterkante des Gummibandes, sobald dieses nicht mehr schwingt, abgelesen.
+Diese wird an der Unterkante des Gummibandes, sobald dieses nach dem Anbringen der Gewichte nicht mehr schwingt, abgelesen.
 Unsere Gruppe entschied sich zunächst dafür, eine Messreihe mit Intervallen von $5g$ durchzuführen. 
 Nach den ersten 20 Messungen ($100g$) entschieden wir uns dafür, die Intervalle auf $10g$ zu erhöhen, da wir zunächst den Aufwand unterschätzten und Daten mit einem Abstand von 10g immer noch zur Beurteilung der Federkonstante ausreichen.
 
@@ -101,31 +117,27 @@ An dieser Stelle können die erhobenen Messwerte zum Zwecke der Interpretatuion 
 
 ```{r}
 Messreihe = read.csv("Daten/Messreihe.csv", sep=";", dec = ",")
-colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende")
-Messreihe[,c(1,2)]
+colnames(Messreihe)=c("n_Gewichte", "Sollwert_g", "Gewicht_g", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende")
+Messreihe[,1:4]
 ```
 
 ## Interpretation
 
 ### Berechnung der Gewichts- und Zugkraft
 
-Zur Interpretation der Messergebnisse wird die Anfangshöhe des Gummibandes $x_0$, diese beträgt $11,2 cm$, von den anderen Messwerten subtrahiert, siehe entsprechenden Messwert für ein Gewicht von $0g$.
+Zur Interpretation der Messergebnisse wird die Auslenkung $x_i$ normiert, indem die Nullauslenkung, diese beträgt $11,2 cm$ auf dem Maßband, von den anderen Messwerten subtrahiert wird, siehe entsprechenden Messwert für ein Gewicht von $0g$.
 Zudem werden die Einheiten in die SI-Einheite umgerechnet, um den Einheitenbezug korrekt zu halten.
 
 Im Anschluss wird die Kraft $F_{G,i}$ in Newton berechnet, die für das Gewicht $m_i$ auf das Gummiband wirkt.
-Im Folgenden wird, wenn die Unterscheidung zwischen Gewichts- und Zugkraft aufgrund des gleichen Betrages im zu untersuchenden Ruhezustand unsinnig ist, von einer sematischen Unterscheidung von $F_G$ und $F_{Zug}$ abgesehen und stattdessen verallgemeinernd von der wirkenden Kraft $F$ gesprochen.
+Im Folgenden wird, wenn die Unterscheidung zwischen Gewichts- und Zugkraft aufgrund der Betragsgleichheit im zu untersuchenden Ruhezustand unsinnig ist, von einer sematischen Unterscheidung von $F_G$ und $F_{Zug}$ abgesehen und stattdessen verallgemeinernd von der wirkenden Kraft $F$ gesprochen.
 
-Im Anschluss wird ein Kraft-Auslenkung Schaubild erstellt.
-
-Wird $F$ gegen $x_i$ aufgetragen, ergibt sich  optisch ab einer Auslenkung von $5cm$ ein etwa linearer Zusammenhang. 
-Im Bereich zwischen einer Auslenkung von $0cm$ und $5cm$ kann das Ausdehnungsverhalten des Gummibandes unter einer Gewichtsbelastung nicht als linear und somit nicht durch eine Federkonstante beschrieben werden.
-
+Nach der Rechnung Anschluss wird ein Kraft-Auslenkung Schaubild erstellt.
 ```{r}
 # Nullwerte(x_0 = 11,2cm) abziehen
 Messreihe$Auslenkung1_x0 <- Messreihe$Auslenkung1 - 11.2
 
 # Einheitenbezug
-Messreihe$Gewicht_kg <- Messreihe$Gewicht/1000 #g -> kg
+Messreihe$Gewicht_kg <- Messreihe$Gewicht_g/1000 #g -> kg
 Messreihe$Auslenkung1_x0_m <-  Messreihe$Auslenkung1_x0/100 #cm -> m
 
 # ERDBESCHLEUNIGUNG
@@ -137,12 +149,15 @@ Messreihe$u_Kraft <- g*u_m
 
 # Plotten
 library(ggplot2)
-ggplot(Messreihe, 
-            aes(x = Auslenkung1_x0_m, y = Kraft, 
-                ymin = Kraft-u_Kraft, 
-                ymax = Kraft+u_Kraft)
-  ) + geom_point()+ geom_errorbar(width = 0.001)
+ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft, 
+                      ymax = Kraft+u_Kraft)) + 
+  geom_point(size=0.1) + 
+  geom_errorbar(width = 0.001) + 
+  geom_errorbar(width = 0.001) +
+  xlab("Auslenkung x [m]") + ylab("Kraft F [N]")
 ```
+Wird $F$ gegen $x_i$ aufgetragen, ergibt sich  optisch ab einer Auslenkung von $5cm$ ein etwa linearer Zusammenhang. 
+Im Bereich zwischen einer Auslenkung von $0cm$ und $5cm$ kann das Ausdehnungsverhalten des Gummibandes unter einer Gewichtsbelastung nicht als linear und somit nicht durch eine Federkonstante beschrieben werden.
 
 #### Fehlerrechnung Zugkraft
 
@@ -161,7 +176,7 @@ Mit:
 
 Daraus ergibt sich für die Federkonstante D:
 $$D =\frac{m*g}{x}$$
-Wird diese für jede Auslenkung $x_i$ berechnet und über diese aufgetragen ergibt sich folgendes Schaubild:
+Diese wird für jede Auslenkung $x_i$ berechnet.
 ```{r}
 Messreihe$Federkonstante <- Messreihe$Gewicht_kg*g/Messreihe$Auslenkung1_x0_m
 
