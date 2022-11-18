@@ -42,7 +42,7 @@ output:
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
 Gewichte:
 ```{r}
-Gewichte <- read.csv("Gewichte.csv", sep=";", dec=",")
+Gewichte <- read.csv("Daten/Gewichte.csv", sep=";", dec=",")
 Gewichte[,c(1,2)]
 ```
 
@@ -70,8 +70,7 @@ Mittels Excel werden die Daten aufgenommen und als csv-Datei exportiert.
 An dieser Stelle können die erhobenen Messwerte zum Zwecke der Interpretatuion aus dieser csv-Datei eingelesen und aufgeführt werden.
 
 ```{r}
-Messreihe <- read.csv("Messreihe.csv", sep=";", dec=",")
-colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende")
+colnames(Messreihe)=c("Daten/Gewicht", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende")
 Messreihe[,c(1,2)]
 ```
 
