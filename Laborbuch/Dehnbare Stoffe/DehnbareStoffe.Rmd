@@ -1,22 +1,44 @@
 ---
 title: "Dehnbare Stoffe"
-author: "Justus Weyers"
+author: "Justus Weyers & Milena Mensching, Team 4"
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
-  pdf_document: default
 ---
 # Versuch 1
 
-## Thema
+## Ziel
 
-## Fragestellung
+Überprüfung der Anwendbarkeit des Hookeschen Modells auf ein Gummiband durch Bestimmung der Federkonstante
+
 
 ## Materialien
 
+* Stativ 
+* Gummiband
+* Gewichte
+* Maßband
+* Haken
+* Klebeband
+
+## Versuchsaufbau
+
+* Aufstellung des Stativs, Befestigung am Tisch
+* Befestigung des Hakens am Stativ
+* Befestigung des Maßbandes am Stativ mit Hilfe von Klebeband
+* Aufhängung des Gummibandes am Haken
+* In das Gummiband werden die Gewichte gehängt
+
+![Versuchsaufbau 1](Bilder/Versuch 1, Bild 2.jpeg)
+
+![Versuchsaufbau 1, Nahansicht](Bilder/Versuch 1, Bild 1.jpeg)
+
+
 ## Durchführung
 
+!Ruhezustand erklären!
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
 Gewichte:
 ```{r}
@@ -26,14 +48,22 @@ Gewichte[,c(1,2)]
 
 Messunsicherheiten: 
 $$u_m=\frac{a}{2\sqrt{3}}= \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg$$
+Zunächst wird die Länge des Gummibandes ohne zusätzliches Gewicht gemessen. Die Länge betrug 11,2 cm. Diese Länge muss später von allen Messwerten abgezogen werden, um nur die Auslenkung aus dem Nullzustand als Datensatz aufzunehmen.
 
-Die Auslekung wird abgelesen (Messskala in mm). Dies bedeutet eine Ungenauigket der Skala von:
+Danach werden nacheinander verschiedene Gewichte an das Gummiband gehängt und die entsprechende Auslenkung gemessen. Unsere Gruppe entschied sich zunächst dafür, eine Messreihe mit Intervalen von 5g durchzuführen. Nach den ersten 20 Messungen (100g) entschieden wir uns dafür, die Intervalle auf 10g zu erhöhen, da wir zunächst den Aufwand unterschätzten und Daten mit einem Abstand von 10g immer noch zur Beurteilung der Federkonstante ausreichen.
+
+Die Auslenkung wird am Maßband abgelesen (Messskala in mm). Dies bedeutet eine Ungenauigket der Skala von:
 $$u_{Skala}=\frac{a}{2\sqrt{6}}= \frac{0,001m}{2\sqrt{6}}=2,0*10^{-4}m$$
-!Ruhezustand erklären!
 
-## Fehlerquellen 
 
-## Beobachtung 
+## Fehlerquellen
+
+Bei den Fehlerquellen ist zunächst der **personenbezogene Ablesefehler** zu erwähnen. Diesen versuchten wir weitestgehend zu eliminieren, indem nur eine Person eine vollständige Datenreihe aufnahm.\
+
+Eine weitere Fehlerquelle kann die **Zeitabhängigkeit der Auslenkung** sein. Ein Gummiband kann nach einer gewissen Zeit mehr nachgeben, als bei der direkten Messung. Wir haben uns bemüht, die Messungen sehr direkt und ohne Verzug vorzunehmen. Die Zeitanghängigkeit haben wir jedoch nicht näher untersucht.\
+
+Besonders wichtig ist zu erwähnen, dass die Länge $x_0$ am Anfang und am Ende nicht übereinstimmten (11,2cm am Anfang zu 11,6cm am Ende). Dies ist auf die **konstante Dehnung des Gummibandes** zurückzuführen und wurde ebenfalls bei der Messung vernachlässigt.
+
 
 ## Messung
 Mittels Excel werden die Daten aufgenommen und als csv-Datei exportiert.
@@ -44,8 +74,6 @@ Messreihe <- read.csv("Messreihe.csv", sep=";", dec=",")
 colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende")
 Messreihe[,c(1,2)]
 ```
-
-
 
 ## Interpretation
 
@@ -80,7 +108,7 @@ Messreihe$Kraft <- Messreihe$Gewicht_kg * g #N
 plot(x=Messreihe$Auslenkung1_x0_m, y=Messreihe$Kraft,#, 
      xlab="Auslenkung x [m]",
      ylab="Kraft F [N]",
-     las = 1, main = "Kraft-Auslenkungs-Schaubild"
+     las = 1
      )
 ```
 
@@ -104,7 +132,7 @@ Messreihe$Federkonstante <- Messreihe$Gewicht_kg*g/Messreihe$Auslenkung1_x0_m
 plot(x=Messreihe$Auslenkung1_x0_m, y=Messreihe$Federkonstante,
      xlab="Auslenkung x [m]",
      ylab="Wert der Federkonstante [N/m]",
-     las = 1, main = "Federkonstante-Auslenkungs-Schaubild"
+     las = 1
      )
 ```
 
@@ -135,4 +163,45 @@ u_D_funktion <- function(x,m){
  
 Messreihe$u_Federkonstante <- u_D_funktion(x=Messreihe$Auslenkung1_x0_m, m=Messreihe$Gewicht_kg)
 ```
+
+## Interpretation
+
+
+# Versuch 2
+
+## Ziel
+
+Untersuchung der Fragestellung, ob sich der Zusammenhang zwischen Kraft und Auslenkung verändert, wenn man die Angrifffskraft auf einen Strang des Gummibandes anstatt auf zwei verteilt.
+
+Eine Hypothese ist, dass die Auslenkung bei gleicher Gewichtskraft doppelt so hoch ist, weil die Kraft auf nur einen Strang wirkt.
+
+
+## Materialien 
+
+* Stativ 
+* Gummiband
+* Gewichte
+* Maßband
+* Haken
+* Klebeband
+* Schere
+
+## Versuchsaufbau
+
+* Analog zu Versuch 1, aber das Gummiband wurde vorher mit einer Schere zerschnitten und durch geknotete Schlaufen an Haken und Gewicht befestigt.
+
+![Versuchsaufbau 2](Bilder/Versuch 2, Bild 2.jpeg)
+
+![Versuchsaufbau 2, Nahansicht](Bilder/Versuch 2, Bild 1.jpeg)
+
+## Durchführung
+
+Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von 100g in 5g - Intervallen und danach in 10g- Schriiten zu messen, um die Daten mit den Daten aus der ersten Versuchsreihe gut vergleichen können. Da das Band allerdings viel stärker durch das Anbringen von Gewicht gedehnt wurde, konnten wir ab 360g keine Messungewn mehr durchführen, da die Gewichte durch ihre Länge anfingen am Tisch aufzuliegen und so die Normalkraft die Gewichtskraft verfälscht hätte. Stattdessen haben wir den aus platztechnisch noch gut messbaren Wert für 400g genommen und den Rest der Tabelle nicht ausgefüllt.
+$x_0$ lag bei uns in diesem Fall bei 15,8cm.
+
+## Messung
+
+## Auswertung
+
+## Interpretation
 
