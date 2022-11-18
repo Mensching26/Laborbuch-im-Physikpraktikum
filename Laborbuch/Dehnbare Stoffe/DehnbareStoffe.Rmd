@@ -3,9 +3,11 @@ title: "Dehnbare Stoffe"
 author: "Justus Weyers & Milena Mensching, Team 4"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+    html_document:
+    css: "style.css"
+  pdf_document: default
 ---
 # Versuch 1
 
@@ -70,7 +72,8 @@ Mittels Excel werden die Daten aufgenommen und als csv-Datei exportiert.
 An dieser Stelle können die erhobenen Messwerte zum Zwecke der Interpretatuion aus dieser csv-Datei eingelesen und aufgeführt werden.
 
 ```{r}
-colnames(Messreihe)=c("Daten/Gewicht", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende")
+Messreihe = read.csv("Daten/Messreihe.csv", sep=";", dec = ",")
+colnames(Messreihe)=c("Gewicht", "Auslenkung1",  "Auslenkung2", "x_Haken", "x_0_Ende")
 Messreihe[,c(1,2)]
 ```
 
@@ -162,9 +165,6 @@ u_D_funktion <- function(x,m){
  
 Messreihe$u_Federkonstante <- u_D_funktion(x=Messreihe$Auslenkung1_x0_m, m=Messreihe$Gewicht_kg)
 ```
-
-## Interpretation
-
 
 # Versuch 2
 
