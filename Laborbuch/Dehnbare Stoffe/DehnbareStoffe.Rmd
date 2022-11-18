@@ -40,7 +40,6 @@ output:
 
 ## Durchführung
 
-!Ruhezustand erklären!
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
 Gewichte:
 ```{r}
@@ -48,24 +47,53 @@ Gewichte <- read.csv("Daten/Gewichte.csv", sep=";", dec=",")
 Gewichte[,c(1,2)]
 ```
 
-Messunsicherheiten: 
-$$u_m=\frac{a}{2\sqrt{3}}= \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg$$
+Unsicherheit der Masse: $u_m= \sqrt{u_{Skala}^2+u_{Gerät}^2}$ 
+Dabei ist $u_{Skala}$ konstant bei $u_{Skala} = \frac{a}{2\sqrt{3}}= \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg$.
+Für $u_{Gerät}$ gilt der Zusammenhang:
+
+
+n: Anzahl von kombinierten Gewichten
+
+```{r}
+# BAUSTELLE: Hier fehlt noch die Geräteungenauigkeit der Waage
+u_m = 2.9*10**(-5) #kg
+```
+
 Zunächst wird die Länge des Gummibandes ohne zusätzliches Gewicht gemessen. Die Länge betrug 11,2 cm. Diese Länge muss später von allen Messwerten abgezogen werden, um nur die Auslenkung aus dem Nullzustand als Datensatz aufzunehmen.
 
-Danach werden nacheinander verschiedene Gewichte an das Gummiband gehängt und die entsprechende Auslenkung gemessen. Unsere Gruppe entschied sich zunächst dafür, eine Messreihe mit Intervalen von 5g durchzuführen. Nach den ersten 20 Messungen (100g) entschieden wir uns dafür, die Intervalle auf 10g zu erhöhen, da wir zunächst den Aufwand unterschätzten und Daten mit einem Abstand von 10g immer noch zur Beurteilung der Federkonstante ausreichen.
+Danach werden nacheinander verschiedene Gewichte an das Gummiband gehängt und die entsprechende Auslenkung gemessen. 
+Diese wird an der Unterkante des Gummibandes, sobald dieses nicht mehr schwingt, abgelesen.
+Unsere Gruppe entschied sich zunächst dafür, eine Messreihe mit Intervallen von $5g$ durchzuführen. 
+Nach den ersten 20 Messungen ($100g$) entschieden wir uns dafür, die Intervalle auf $10g$ zu erhöhen, da wir zunächst den Aufwand unterschätzten und Daten mit einem Abstand von 10g immer noch zur Beurteilung der Federkonstante ausreichen.
 
-Die Auslenkung wird am Maßband abgelesen (Messskala in mm). Dies bedeutet eine Ungenauigket der Skala von:
-$$u_{Skala}=\frac{a}{2\sqrt{6}}= \frac{0,001m}{2\sqrt{6}}=2,0*10^{-4}m$$
+Die Auslenkung wird am Maßband abgelesen (Messskala in mm). Dies bedeutet eine Ungenauigket der Auslenkung von:
+$$u_{x}=\frac{a}{2\sqrt{6}}= \frac{0,001m}{2\sqrt{6}}=2,0*10^{-4}m$$
+```{r}
+# Auslenkungsungenauigkeit 
+u_x = 2.0*10**(-4) #m
+```
 
 
 ## Fehlerquellen
 
-Bei den Fehlerquellen ist zunächst der **personenbezogene Ablesefehler** zu erwähnen. Diesen versuchten wir weitestgehend zu eliminieren, indem nur eine Person eine vollständige Datenreihe aufnahm.\
+Bei den Fehlerquellen ist zunächst der **personenbezogene Ablesefehler** zu erwähnen.
+Diesen versuchten wir weitestgehend zu eliminieren, indem nur eine Person eine vollständige Datenreihe aufnahm.
 
-Eine weitere Fehlerquelle kann die **Zeitabhängigkeit der Auslenkung** sein. Ein Gummiband kann nach einer gewissen Zeit mehr nachgeben, als bei der direkten Messung. Wir haben uns bemüht, die Messungen sehr direkt und ohne Verzug vorzunehmen. Die Zeitanghängigkeit haben wir jedoch nicht näher untersucht.\
+Eine weitere Fehlerquelle kann die **Zeitabhängigkeit der Auslenkung** sein. 
+Ein Gummiband kann nach einer gewissen Zeit mehr nachgeben, als bei der direkten Messung. 
+Wir haben uns bemüht, die Messungen sehr direkt und ohne Verzug vorzunehmen. 
+Die Zeitanghängigkeit haben wir jedoch nicht näher untersucht.
 
 Besonders wichtig ist zu erwähnen, dass die Länge $x_0$ am Anfang und am Ende nicht übereinstimmten (11,2cm am Anfang zu 11,6cm am Ende). Dies ist auf die **konstante Dehnung des Gummibandes** zurückzuführen und wurde ebenfalls bei der Messung vernachlässigt.
 
+Neben diesen Versuchsbezogenen Fehlerquellen sind Annahmen zu nennen, die das Hooksche Gesetz voraussetzt, die sich aber in der Realität unter Umständen anders darstellen.
+Dabei sind zu nennen:
+
+*	Vernachlässigung von Energieumwandlung (z.B.: durch Reibung, $W=F_s*s$)
+*	Lineare Kraft-Auslenkungs-Beziehung (Speziell im Falle des Gummibandes nur eingeschränkt anwendbar)
+*	Der Stoff soll dehnbar sein, die Elastizitätsgrenze darf jedoch nicht überschritten werden.
+* Keine plastische Verformung der Feder während mehrerer Messungen.
+* Gleiches Verhalten bei und Expansion und Relaxation der Feder
 
 ## Messung
 Mittels Excel werden die Daten aufgenommen und als csv-Datei exportiert.
@@ -103,16 +131,20 @@ Messreihe$Auslenkung1_x0_m <-  Messreihe$Auslenkung1_x0/100 #cm -> m
 # ERDBESCHLEUNIGUNG
 g = 9.81 #m/s^2
 
-# Berechnung von F_G
+# Berechnung von Kraft und u_Kraft
 Messreihe$Kraft <- Messreihe$Gewicht_kg * g #N
+Messreihe$u_Kraft <- g*u_m
 
-# Testplot
-plot(x=Messreihe$Auslenkung1_x0_m, y=Messreihe$Kraft,#, 
-     xlab="Auslenkung x [m]",
-     ylab="Kraft F [N]",
-     las = 1
-     )
+# Plotten
+library(ggplot2)
+ggplot(Messreihe, 
+            aes(x = Auslenkung1_x0_m, y = Kraft, 
+                ymin = Kraft-u_Kraft, 
+                ymax = Kraft+u_Kraft)
+  ) + geom_point()+ geom_errorbar(width = 0.001)
 ```
+
+#### Fehlerrechnung Zugkraft
 
 ### Berechnung der Federkonstanten
 
@@ -121,6 +153,7 @@ Da die Gewichtskraft $F_G=m*g$ und die Zugkraft des Gummibandes $F_{Zug} = x * D
 $$F_G = m * g = D*x = F_{Zug}$$
 
 Mit:
+
 * $D$: Federkonstante
 * $m$: Masse des Gewichtes,
 * $x$: Auslenkung,
@@ -131,15 +164,38 @@ $$D =\frac{m*g}{x}$$
 Wird diese für jede Auslenkung $x_i$ berechnet und über diese aufgetragen ergibt sich folgendes Schaubild:
 ```{r}
 Messreihe$Federkonstante <- Messreihe$Gewicht_kg*g/Messreihe$Auslenkung1_x0_m
-plot(x=Messreihe$Auslenkung1_x0_m, y=Messreihe$Federkonstante,
-     xlab="Auslenkung x [m]",
-     ylab="Wert der Federkonstante [N/m]",
-     las = 1
-     )
+
+# Plotten
+ggplot(subset(Messreihe, !is.na(Federkonstante)), 
+            aes(x = Auslenkung1_x0_m, y = Federkonstante, 
+                ymin = Federkonstante-u_Federkonstante, 
+                ymax = Federkonstante+u_Federkonstante)
+  ) + geom_point() + geom_errorbar(width = 0.005)
 ```
 
-Auch hier wird auf optische Weise ersichtlich, dass es erst ab einer Auslenkung von ca. $5cm$ sinnvoll ist von einer Federkonstanten zu sprechen.
+Auch hier wird auf optische Weise ersichtlich, dass es erst ab einer Auslenkung von ca. $5cm$ sinnvoll ist von einer Federkonstanten zu sprechen. 
+Für die Berechnung der Federkonstanten haben wir uns daher entschieden, die Werte für $x<0,05m$ auszuschließen. 
+Zugleich müssen wir damit allerdings feststellen, dass die errechnete Federkonstante nur im Intervall $x \in (0,05m,\ x_{max}]$ gilt.
 
+Bei der hier vorliegenden Typ-A Messunsicherheit für die Werte der Federkonstante, in dem soeben beschriebenen Intervall, wird nach GUM der Mittelwert und die Standardabweichung des Mittelwertes berechnet, um ein Messergebnis und dessen Unsicherheit zu erhalten.
+
+* Mittelwert: $\overline{D} = \frac{1}{n}\sum \limits_{i=1}^nD_i$
+* Standardabweichung: $\sigma_D = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (D_i - \overline{D})^2}$
+* Standardabweichung des Mittelwertes: $\sigma_{\overline{D}}=\frac{\sigma_D}{\sqrt{n}}$
+
+```{r}
+# Ausschließen der Werte der Federkonstante mit x<=0,05
+D <- Messreihe$Federkonstante[Messreihe$Auslenkung1_x0_m>0.05]
+
+# Ausgabe als Dataframe
+data.frame(Statistische_Kenngröße=c("Mittelwert_MW", 
+                                   "Standardabweichung_SD", 
+                                   "SD_von_MW"),
+          Werte=c(mean(D), sd(D), sd(D)/sqrt(length(D))))
+```
+Die bestimmte Federkonstante, für eine Auslenkung des Gummibandes im Bereich von $5,0$ bis $26.8cm$, beträgt also $D=(30,91\pm 0,17)\frac{N}{m}$
+
+#### Fehlerrechnung Federkonstante
 Die Unsicherheit der Federkonstanten $u_D$ ergibt sich gemäß der Gaussschen-Fehlerfortpflanzung aus folgender Formel:
 
 \begin{equation}
@@ -153,11 +209,6 @@ Dabei berechnet sich die Unsicherheit der Masse $u_m$ aus der bereits im Teil \t
 Die Unsicherheit der Auslenkung besteht aus der ebenfalls dort festgestellten Skalenungenauigkeit.
 
 ```{r}
-# BAUSTELLE: Hier fehlt noch die Geräteungenauigkeit der Waage
-u_m = 2.9*10**(-5) #kg
-# Auslenkungsungenauigkeit 
-u_x = 2.0*10**(-4) #m
-
 # Berechnung der Messunsicherheit der Federkonstanten
 u_D_funktion <- function(x,m){
   sqrt(((g/x)*u_m)**2+((-m*g/x**2)*u_x)**2)
