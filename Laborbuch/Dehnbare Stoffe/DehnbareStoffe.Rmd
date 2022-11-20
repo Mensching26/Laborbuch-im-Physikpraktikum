@@ -1,16 +1,19 @@
 ---
 title: "Dehnbare Stoffe"
-image-includes:
 author: "Justus Weyers & Milena Mensching, Team 4"
 date: "`r Sys.Date()`"
 lang: de
+fontsize: 9pt
 output:
   pdf_document: 
-    fig_caption: yes
     keep_tex: yes
+    df_print: kable
+    fig_crop: no
+    fig_caption: yes
   html_document:
     df_print: kable
 ---
+
 # Versuch 1
 
 ## Ziel
@@ -46,13 +49,12 @@ Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
 Die 10g und die 100g Gewichte lagen doppelt vor und waren jeweils gleich schwer.
 Die Gewichte stellten sich generell als zu leicht heraus. 
 Nur die zwei 10g Gewichte wogen nach einer Beschriftung mit Klebeband $10,0g$.
-Gewichte:
-```{r}
+```{r, echo=FALSE}
 Gewichte <- read.csv("Daten/Gewichte.csv", 
-                     col.names = c("Name", "Einzelmasse", 
+                     col.names = c("Nominalgewicht", "Einzelmasse_g", 
                                    "n_Gewichte", "Sollwert", "Gewicht_g"),
                      sep=";", dec=",")
-Gewichte[1:6,1:2]
+knitr::kable(Gewichte[1:6,1:2], caption = "Verwendete Gewichte")
 ```
 Die Gesamtmasse $m_{ges}$ einer Gewichtskombination wird durch Addition der Teilmassen berechnet.
 
@@ -123,7 +125,9 @@ Messreihe <- read.csv("Daten/Messreihe.csv", sep=";", dec = ",")
 # Anbindung der bereits errechneten Unsicherheit der Masse
 Messreihe <- cbind(Messreihe, u_m)
 
-colnames(Messreihe) <- c("n_Gewichte", "Sollwert_g", "Gewicht_g", "Auslenkung1_cm",  "Auslenkung2", "x_Haken", "x_0_Ende", "u_m")
+colnames(Messreihe) <- c("n_Gewichte", "Sollwert_g", "Gewicht_g", 
+                         "Auslenkung1_cm",  "Auslenkung2", "x_Haken", 
+                         "x_0_Ende", "u_m")
 ```
 
 ## Interpretation
@@ -148,7 +152,7 @@ u_F &= \frac{\partial F}{\partial {m}}*u_m\\
 \end{equation}
 
 Nach der Rechnung wird ein Kraft-Auslenkung Schaubild erstellt.
-```{r}
+```{r, fig.cap="\\label{fig:figs}plotting example"}
 # Nullwerte(x_0 = 11,2cm) abziehen
 Messreihe$Auslenkung1_x0 <- Messreihe$Auslenkung1_cm - 11.2
 
@@ -222,7 +226,7 @@ Messreihe$u_Federkonstante <- u_D_funktion(x=Messreihe$Auslenkung1_x0_m,
                                            UM=Messreihe$u_m)
 ```
 Wird die Federkonstante über die Elongation geplottet, zeigt sich wieder, dass diese erst ab einer Auslenkung von etwa 5 cm einen vergleichsweise Stabilen Wert annimmt.
-```{r}
+```{r, fig.cap="figure caption"}
 # Plotten
 ggplot(subset(Messreihe, !is.na(Federkonstante)), aes(x = Auslenkung1_x0_m, 
                                                       y = Federkonstante,
@@ -231,7 +235,10 @@ ggplot(subset(Messreihe, !is.na(Federkonstante)), aes(x = Auslenkung1_x0_m,
   #geom_point() + 
   geom_errorbar(width = 0.001) +
   geom_errorbarh(aes(xmin = Auslenkung1_x0_m-u_x,
-                     xmax = Auslenkung1_x0_m+u_x))
+                     xmax = Auslenkung1_x0_m+u_x)) +
+  geom_vline(xintercept=0.05, linetype='dotted', col = 'black')+
+  xlab("Auslenkung x [m]") + 
+  ylab("Federkonstante D [N/m]")
 ```
 Daher haben wir uns entschiden, nur in dem beschriebenen Intervall $x \in (0,05m,\ x_{max}]$ zu mitteln. Dort wird nach GUM der Mittelwert und die Standardabweichung des Mittelwertes berechnet, um ein Messergebnis und dessen Unsicherheit zu erhalten.
 
@@ -246,13 +253,13 @@ D <- Messreihe$Federkonstante[Messreihe$Auslenkung1_x0_m>0.05]
 # Ausgabe als Dataframe
 d <- data.frame(Werte=c(mean(D), sd(D), sd(D)/sqrt(length(D))))
 rownames(d) <- c("Mittelwert_MW", "Standardabweichung_SD", "SD_von_MW")
-d
+knitr::kable(d, caption = "Statistische Größen zur bestimmten Federkonstante")
 ```
 Die bestimmte Federkonstante, für eine Auslenkung des Gummibandes im Bereich von $5,0$ bis $26.8cm$, beträgt also $D=(30,91\pm 0,17)\frac{N}{m}$
 
-Hire wird die Federkonstante als Gerade im Kraft-Auslenkungsschaubild dargestellt. Die blau eingefärbten Punkte sind diejenigen Punkte, die in die Berechnung mit eingingen. 
+Hier wird die Federkonstante als Gerade nocheinmal im Kraft-Auslenkungsschaubild dargestellt. Die blau eingefärbten Punkte sind diejenigen Punkte, die nicht in die Berechnung mit eingingen. 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.cap="Elongation eingezeichnet im Kraft-Auslenkung Schaubild"}
 ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft, 
                       ymax = Kraft+u_Kraft)) + 
   labs(x = "Auslenkung x [m]", y = "Kraft F [N]", color = "") +
@@ -270,18 +277,34 @@ ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft,
   theme(legend.position = "bottom",
           legend.box = "vertical")
 ```
-Angemerkt sei, dass für die Steigung der Federkonstanten der Mittelwert und die Mittelwerte ab- bzw. zuzüglich der Standardabweichung des Mittelwertes angenommen wurden. Die Drei Geraden überlagern sich sehr stark.
-Ebenso sei angemerkt, dass die Fehlerbalken vorhanden sind, wie auch in den Diagrammen zuvor, nur dass diee ehr klein ausfallen, vergleiche entsprechend errechnete Werte im Abschnitt \textit{Messwerte und errechnete Größen}.
+Angemerkt sei, dass für die Steigung der Federkonstanten der Mittelwert und die Mittelwerte ab- bzw. zuzüglich der Standardabweichung des Mittelwertes angenommen wurden. 
+Die Drei Geraden überlagern sich sehr stark.
+Ebenso wurde ein Nulldurchgang festgelegt, da bei keiner Krafteinwirkung keine Elongation stattfindet.
+Ebenso sei angemerkt, dass die Fehlerbalken vorhanden sind, wie auch in den Diagrammen zuvor, nur dass diese eher klein ausfallen, vergleiche entsprechend errechnete Werte im Abschnitt \textit{Messwerte und errechnete Größen}.
 
 ### Messwerte und errechnete Größen
 
 Im Folgenden eine Auflistung der in diesem Versuch erhobenen Messwerte und der daraus errechneten Größen:
+
+Mit:
+
+* n_m[-]: Anzahl kombinierter Gewichte 
+* m[kg]: Masse der kombinierten Gewichte in Kilogramm
+* u_m[kg]: Unsicherheit der Masse in Kilogramm
+* L[cm]: Abgelesener Wert an Maßband in Zentimeter
+* El[m]: Elongation des Gummibandes in Meter
+* F[N]: Kraft F in Newton 
+* u_F[N]: Unsicherheit der Kraft in Newton
+* D[N/m]: Federkonstante D in Newton pro Meter
+* u_D[N/m]: Unsicherheit der Federkonstante in Newton pro Meter
+
 ```{r, echo=FALSE}
 printdf <- cbind(Messreihe[,c(1,4,10,11)], round(Messreihe[,8], 7),
                  round(Messreihe[,12], 4), round(Messreihe[,13], 5),
                  round(Messreihe[,14], 4), round(Messreihe[,15], 4))
-colnames(printdf) <- c("n_m", "L[cm]", "m[kg]", "El[m]", "u_m[kg]", "F[N]", "u_F", "D[N/m]", "u_D")
-printdf[, c(1,3,5,2,4,6:9)]
+colnames(printdf) <- c("n_m[-]", "L[cm]", "m[kg]", "El[m]", "u_m[kg]", "F[N]", "u_F[N]", "D[N/m]", "u_D[N/m]")
+knitr::kable(printdf[, c(1,3,5,2,4,6:9)],
+             caption = "Messwerte")
 ```
 
 # Versuch 2
