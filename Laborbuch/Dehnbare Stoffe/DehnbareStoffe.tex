@@ -330,8 +330,9 @@ zugehörigen Unsicherheiten.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{interpretation}{%
-\subsection{Interpretation}\label{interpretation}}
+\hypertarget{auswertung-und-interpretation}{%
+\subsection{Auswertung und
+Interpretation}\label{auswertung-und-interpretation}}
 
 \hypertarget{berechnung-der-gewichts--und-zugkraft}{%
 \subsubsection{Berechnung der Gewichts- und
@@ -427,8 +428,12 @@ Mit:
   \(g\): Erdbeschleunigung (\(9,81\frac{m}{s^2}\)).
 \end{itemize}
 
-Daraus ergibt sich für die Federkonstante D: \[D =\frac{m*g}{x}\] Diese
-wird für jede Auslenkung \(x_i\) berechnet.
+Daraus ergibt sich für die Federkonstante D:
+\begin{equation}\label{hook:eq:Federkonstante}
+  D =\frac{m*g}{x}
+\end{equation}
+
+Diese wird für jede Auslenkung \(x_i\) berechnet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -439,7 +444,7 @@ wird für jede Auslenkung \(x_i\) berechnet.
 Die Unsicherheit der einzelnen Werte der Federkonstanten \(u_D\) ergibt
 sich gemäß der Gaussschen-Fehlerfortpflanzung aus folgender Formel:
 
-\begin{equation}
+\begin{equation}\label{hook:eq:u_Federkonstante}
 \begin{split}
 u_D &= \sqrt{(\frac{\partial{D}}{\partial{m}}*u_m)^2+(\frac{\partial{D}}{\partial{x}}*u_x)^2}\\
 u_D &=\sqrt{(\frac{g}{x}*u_m)^2+(-\frac{m*g}{x^2}*u_x)^2}\\
@@ -828,13 +833,165 @@ den aus platztechnisch noch gut messbaren Wert für 400g genommen und den
 Rest der Tabelle nicht ausgefüllt. \(x_0\) lag bei uns in diesem Fall
 bei 15,8cm.
 
+\hypertarget{fehlerquellen-1}{%
+\subsection{Fehlerquellen}\label{fehlerquellen-1}}
+
+Ein möglicher Faktor, der die Federkonstane verfälschen kann, ist neben
+den im Versuch 1 genannten Problemen, die Art der Befestigung des nun
+einsträngigen Gummibandes. Diese geschaf in Form eines Knotens am Haken.
+Dabei wurde ein Teil des Gummibandes verwendet, der im folgenden Versuch
+dann nicht gedehnt wurde.
+
 \hypertarget{messung-1}{%
 \subsection{Messung}\label{messung-1}}
+
+Auch hier wurden die gemessenen Längen in einer csv-Datei gespeichert.
+Die Massen der Gewichte sind ebenfalls bekannt. Die Unsicherheiten der
+Waage und der Skala (Maßband) könen ebenfalls übernommen werden, da es
+sich um die selben Geräte handelt. Da die Massen dieselben sind sind
+auch die Gewichtskräfte und deren Unsicherheiten dieselben.
 
 \hypertarget{auswertung}{%
 \subsection{Auswertung}\label{auswertung}}
 
-\hypertarget{interpretation-1}{%
-\subsection{Interpretation}\label{interpretation-1}}
+Die Elongation muss erneut berechnet werden. Dafür wird die
+Anfangsausdehnung \(x_0\) von den Ausdehnungen \(x_i\) abgezugen und in
+Meter umgerechnet werden.
+
+Die Federkonstante wird gemäß Gleichung \ref{hook:eq:Federkonstante}
+berechnet. Ebenso deren Unsicherheiten für jeden einzelnen Wert gemäß
+Gleichung \ref{hook:eq:u_Federkonstante}. Die Berechnung erfolgt mit
+Hilfe der Funktion ``u\_D\_funktion'', welche in Versuch 1 definiert
+wurde.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Entfernen von NA{-}Zeilen}
+\NormalTok{Messreihe2 }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe[}\FunctionTok{complete.cases}\NormalTok{(Messreihe[ , }\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{15}\NormalTok{)]),]}
+\CommentTok{\# Normierung der Auslenkung}
+\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0 }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2}\FloatTok{{-}15.8}
+\CommentTok{\# Umrechnung in kg}
+\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0\_m }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0}\SpecialCharTok{/}\DecValTok{1000}
+
+\CommentTok{\# Berechnung der Federkonstanten}
+\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Federkonstante2 }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe2}\SpecialCharTok{$}\NormalTok{Gewicht\_kg}\SpecialCharTok{*}\NormalTok{g}\SpecialCharTok{/}\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0\_m}
+
+\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{u\_Federkonstante2 }\OtherTok{\textless{}{-}} \FunctionTok{u\_D\_funktion}\NormalTok{(}\AttributeTok{x=}\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0\_m, }
+                                           \AttributeTok{m=}\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Gewicht\_kg,}
+                                           \AttributeTok{UM=}\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{u\_m)}
+\end{Highlighting}
+\end{Shaded}
+
+Kraft-Auslenkung Diagramm:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(Messreihe2, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Auslenkung2\_x0\_m, }\AttributeTok{y =}\NormalTok{ Kraft, }
+                      \AttributeTok{ymin =}\NormalTok{ Kraft}\SpecialCharTok{{-}}\NormalTok{u\_Kraft, }\AttributeTok{ymax =}\NormalTok{ Kraft}\SpecialCharTok{+}\NormalTok{u\_Kraft)) }\SpecialCharTok{+} 
+  \CommentTok{\#geom\_point(size=0.1) + }
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.0005}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.0005}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Auslenkung x [m]"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ylab}\NormalTok{(}\StringTok{"Kraft F [N]"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_errorbarh}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xmin =}\NormalTok{ Auslenkung2\_x0\_m}\SpecialCharTok{{-}}\NormalTok{u\_x,}
+                     \AttributeTok{xmax =}\NormalTok{ Auslenkung2\_x0\_m}\SpecialCharTok{+}\NormalTok{u\_x))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-13-1.pdf}
+Federkonstante-Auslenkung Diagramm:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ymini }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe2}\SpecialCharTok{$}\NormalTok{Federkonstante2}\SpecialCharTok{{-}}\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{u\_Federkonstante2}
+\NormalTok{ymini[}\FunctionTok{which}\NormalTok{(ymini}\SpecialCharTok{\textless{}}\DecValTok{0}\NormalTok{)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\FunctionTok{ggplot}\NormalTok{(Messreihe2, }
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Auslenkung2\_x0\_m, }\AttributeTok{y =}\NormalTok{ Federkonstante2, }
+       \AttributeTok{ymin =}\NormalTok{ Federkonstante2}\SpecialCharTok{{-}}\NormalTok{u\_Federkonstante2, }
+       \AttributeTok{ymax =}\NormalTok{ Federkonstante2}\SpecialCharTok{+}\NormalTok{u\_Federkonstante2)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size=}\FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.001}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.001}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Auslenkung x [m]"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ylab}\NormalTok{(}\StringTok{"Federkonstante D [N/m]"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_errorbarh}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xmin =}\NormalTok{ Auslenkung2\_x0\_m}\SpecialCharTok{{-}}\NormalTok{u\_x,}
+                     \AttributeTok{xmax =}\NormalTok{ Auslenkung2\_x0\_m}\SpecialCharTok{+}\NormalTok{u\_x))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\hypertarget{interpretation}{%
+\subsection{Interpretation}\label{interpretation}}
+
+\hypertarget{messwerte-und-errechnete-gruxf6uxdfen-1}{%
+\subsubsection{Messwerte und errechnete
+Größen}\label{messwerte-und-errechnete-gruxf6uxdfen-1}}
+
+Hier eine Zusammenfassung der Werte aus Versuch 2:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{printdf2 }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(Messreihe[,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{)], }\FunctionTok{round}\NormalTok{(Messreihe[,}\DecValTok{8}\NormalTok{], }\DecValTok{7}\NormalTok{),}
+                 \FunctionTok{round}\NormalTok{(Messreihe[,}\DecValTok{12}\NormalTok{], }\DecValTok{4}\NormalTok{), }\FunctionTok{round}\NormalTok{(Messreihe[,}\DecValTok{13}\NormalTok{], }\DecValTok{5}\NormalTok{))}
+\FunctionTok{colnames}\NormalTok{(printdf2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"n\_m[{-}]"}\NormalTok{, }\StringTok{"L2[cm]"}\NormalTok{, }\StringTok{"m[kg]"}\NormalTok{, }\StringTok{"u\_m[kg]"}\NormalTok{, }\StringTok{"F[N]"}\NormalTok{, }\StringTok{"u\_F[N]"}\NormalTok{)}
+\NormalTok{printdf2 }\OtherTok{\textless{}{-}}\NormalTok{ printdf2[}\FunctionTok{which}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(printdf2}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{L2[cm]}\StringTok{\textasciigrave{}}\NormalTok{)}\SpecialCharTok{==}\ConstantTok{FALSE}\NormalTok{),]}
+\NormalTok{printdf2[, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrrrrrr@{}}
+\toprule()
+& n\_m{[}-{]} & m{[}kg{]} & u\_m{[}kg{]} & L2{[}cm{]} & F{[}N{]} &
+u\_F{[}N{]} \\
+\midrule()
+\endhead
+1 & 0 & 0.0000 & 0.0000000 & 15.8 & 0.0000 & 0.00000 \\
+2 & 1 & 0.0048 & 0.0000577 & 16.5 & 0.0471 & 0.00057 \\
+3 & 1 & 0.0100 & 0.0000577 & 16.7 & 0.0981 & 0.00057 \\
+4 & 2 & 0.0148 & 0.0001155 & 16.9 & 0.1452 & 0.00113 \\
+5 & 1 & 0.0198 & 0.0000577 & 17.0 & 0.1942 & 0.00057 \\
+6 & 2 & 0.0246 & 0.0001155 & 17.0 & 0.2413 & 0.00113 \\
+7 & 2 & 0.0298 & 0.0001155 & 17.3 & 0.2923 & 0.00113 \\
+8 & 3 & 0.0346 & 0.0001732 & 17.4 & 0.3394 & 0.00170 \\
+9 & 3 & 0.0398 & 0.0001732 & 17.7 & 0.3904 & 0.00170 \\
+10 & 4 & 0.0446 & 0.0002309 & 17.9 & 0.4375 & 0.00227 \\
+11 & 1 & 0.0499 & 0.0000577 & 18.0 & 0.4895 & 0.00057 \\
+12 & 2 & 0.0547 & 0.0001155 & 18.3 & 0.5366 & 0.00113 \\
+13 & 2 & 0.0599 & 0.0001155 & 18.5 & 0.5876 & 0.00113 \\
+14 & 3 & 0.0647 & 0.0001732 & 18.8 & 0.6347 & 0.00170 \\
+15 & 2 & 0.0699 & 0.0001155 & 19.0 & 0.6857 & 0.00113 \\
+16 & 3 & 0.0747 & 0.0001732 & 19.3 & 0.7328 & 0.00170 \\
+17 & 3 & 0.0797 & 0.0001732 & 19.7 & 0.7819 & 0.00170 \\
+18 & 4 & 0.0845 & 0.0002309 & 20.3 & 0.8289 & 0.00227 \\
+19 & 4 & 0.0897 & 0.0002309 & 20.5 & 0.8800 & 0.00227 \\
+20 & 5 & 0.0945 & 0.0002887 & 21.0 & 0.9270 & 0.00283 \\
+21 & 1 & 0.0995 & 0.0000577 & 21.5 & 0.9761 & 0.00057 \\
+22 & 2 & 0.1095 & 0.0001155 & 22.3 & 1.0742 & 0.00113 \\
+23 & 2 & 0.1193 & 0.0001155 & 23.4 & 1.1703 & 0.00113 \\
+24 & 3 & 0.1293 & 0.0001732 & 24.5 & 1.2684 & 0.00170 \\
+25 & 4 & 0.1393 & 0.0002309 & 25.9 & 1.3665 & 0.00227 \\
+26 & 2 & 0.1494 & 0.0001155 & 26.6 & 1.4656 & 0.00113 \\
+27 & 3 & 0.1594 & 0.0001732 & 27.9 & 1.5637 & 0.00170 \\
+28 & 3 & 0.1692 & 0.0001732 & 28.7 & 1.6599 & 0.00170 \\
+29 & 4 & 0.1792 & 0.0002309 & 30.2 & 1.7580 & 0.00227 \\
+30 & 5 & 0.1892 & 0.0002887 & 31.1 & 1.8561 & 0.00283 \\
+31 & 1 & 0.1985 & 0.0000577 & 32.2 & 1.9473 & 0.00057 \\
+32 & 2 & 0.2085 & 0.0001155 & 33.4 & 2.0454 & 0.00113 \\
+33 & 2 & 0.2183 & 0.0001155 & 34.0 & 2.1415 & 0.00113 \\
+34 & 3 & 0.2283 & 0.0001732 & 34.9 & 2.2396 & 0.00170 \\
+35 & 4 & 0.2383 & 0.0002309 & 35.8 & 2.3377 & 0.00227 \\
+36 & 2 & 0.2484 & 0.0001155 & 36.5 & 2.4368 & 0.00113 \\
+37 & 3 & 0.2584 & 0.0001732 & 37.1 & 2.5349 & 0.00170 \\
+38 & 3 & 0.2682 & 0.0001732 & 37.7 & 2.6310 & 0.00170 \\
+39 & 4 & 0.2782 & 0.0002309 & 38.1 & 2.7291 & 0.00227 \\
+40 & 5 & 0.2882 & 0.0002887 & 39.0 & 2.8272 & 0.00283 \\
+41 & 2 & 0.2980 & 0.0001155 & 39.6 & 2.9234 & 0.00113 \\
+42 & 3 & 0.3080 & 0.0001732 & 40.1 & 3.0215 & 0.00170 \\
+43 & 3 & 0.3178 & 0.0001732 & 40.7 & 3.1176 & 0.00170 \\
+44 & 4 & 0.3278 & 0.0002309 & 41.0 & 3.2157 & 0.00227 \\
+45 & 5 & 0.3378 & 0.0002887 & 41.8 & 3.3138 & 0.00283 \\
+46 & 3 & 0.3479 & 0.0001732 & 42.0 & 3.4129 & 0.00170 \\
+51 & 4 & 0.3990 & 0.0002309 & 44.7 & 3.9142 & 0.00227 \\
+\bottomrule()
+\end{longtable}
 
 \end{document}

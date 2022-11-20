@@ -130,7 +130,7 @@ colnames(Messreihe) <- c("n_Gewichte", "Sollwert_g", "Gewicht_g",
                          "x_0_Ende", "u_m")
 ```
 
-## Interpretation
+## Auswertung und Interpretation
 
 ### Berechnung der Gewichts- und Zugkraft
 
@@ -197,7 +197,10 @@ Mit:
 * $g$: Erdbeschleunigung ($9,81\frac{m}{s^2}$).
 
 Daraus ergibt sich für die Federkonstante D:
-$$D =\frac{m*g}{x}$$
+\begin{equation}\label{hook:eq:Federkonstante}
+  D =\frac{m*g}{x}
+\end{equation}
+
 Diese wird für jede Auslenkung $x_i$ berechnet.
 ```{r}
 Messreihe$Federkonstante <- Messreihe$Gewicht_kg*g/Messreihe$Auslenkung1_x0_m
@@ -205,7 +208,7 @@ Messreihe$Federkonstante <- Messreihe$Gewicht_kg*g/Messreihe$Auslenkung1_x0_m
 
 Die Unsicherheit der einzelnen Werte der Federkonstanten $u_D$ ergibt sich gemäß der Gaussschen-Fehlerfortpflanzung aus folgender Formel:
 
-\begin{equation}
+\begin{equation}\label{hook:eq:u_Federkonstante}
 \begin{split}
 u_D &= \sqrt{(\frac{\partial{D}}{\partial{m}}*u_m)^2+(\frac{\partial{D}}{\partial{x}}*u_x)^2}\\
 u_D &=\sqrt{(\frac{g}{x}*u_m)^2+(-\frac{m*g}{x^2}*u_x)^2}\\
@@ -307,6 +310,7 @@ knitr::kable(printdf[, c(1,3,5,2,4,6:9)],
              caption = "Messwerte")
 ```
 
+
 # Versuch 2
 
 ## Ziel
@@ -336,12 +340,78 @@ Eine Hypothese ist, dass die Auslenkung bei gleicher Gewichtskraft doppelt so ho
 
 ## Durchführung
 
-Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von 100g in 5g - Intervallen und danach in 10g- Schriiten zu messen, um die Daten mit den Daten aus der ersten Versuchsreihe gut vergleichen können. Da das Band allerdings viel stärker durch das Anbringen von Gewicht gedehnt wurde, konnten wir ab 360g keine Messungewn mehr durchführen, da die Gewichte durch ihre Länge anfingen am Tisch aufzuliegen und so die Normalkraft die Gewichtskraft verfälscht hätte. Stattdessen haben wir den aus platztechnisch noch gut messbaren Wert für 400g genommen und den Rest der Tabelle nicht ausgefüllt.
+Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von 100g in 5g - Intervallen und danach in 10g- Schriiten zu messen, um die Daten mit den Daten aus der ersten Versuchsreihe gut vergleichen können. 
+Da das Band allerdings viel stärker durch das Anbringen von Gewicht gedehnt wurde, konnten wir ab 360g keine Messungewn mehr durchführen, da die Gewichte durch ihre Länge anfingen am Tisch aufzuliegen und so die Normalkraft die Gewichtskraft verfälscht hätte. 
+Stattdessen haben wir den aus platztechnisch noch gut messbaren Wert für 400g genommen und den Rest der Tabelle nicht ausgefüllt.
 $x_0$ lag bei uns in diesem Fall bei 15,8cm.
 
-## Messung
+## Fehlerquellen
+Ein möglicher Faktor, der die Federkonstane verfälschen kann, ist neben den im Versuch 1 genannten Problemen, die Art der Befestigung des nun einsträngigen Gummibandes.
+Diese geschaf in Form eines Knotens am Haken.
+Dabei wurde ein Teil des Gummibandes verwendet, der im folgenden Versuch dann nicht gedehnt wurde.
 
-## Auswertung
+## Messung
+Auch hier wurden die gemessenen Längen in einer csv-Datei gespeichert. 
+Die Massen der Gewichte sind ebenfalls bekannt.
+Die Unsicherheiten der Waage und der Skala (Maßband) könen ebenfalls übernommen werden, da es sich um die selben Geräte handelt.
+Da die Massen dieselben sind sind auch die Gewichtskräfte und deren Unsicherheiten dieselben.
+
+## Auswertung 
+Die Elongation muss erneut berechnet werden. Dafür wird die Anfangsausdehnung $x_0$ von den Ausdehnungen $x_i$ abgezugen und in Meter umgerechnet werden.
+
+Die Federkonstante wird gemäß Gleichung \ref{hook:eq:Federkonstante} berechnet. Ebenso deren Unsicherheiten für jeden einzelnen Wert gemäß Gleichung \ref{hook:eq:u_Federkonstante}. Die Berechnung erfolgt mit Hilfe der Funktion "u_D_funktion", welche in Versuch 1 definiert wurde.
+
+```{r}
+# Entfernen von NA-Zeilen
+Messreihe2 <- Messreihe[complete.cases(Messreihe[ , c(5,14,15)]),]
+# Normierung der Auslenkung
+Messreihe2$Auslenkung2_x0 <- Messreihe2$Auslenkung2-15.8
+# Umrechnung in kg
+Messreihe2$Auslenkung2_x0_m <- Messreihe2$Auslenkung2_x0/1000
+
+# Berechnung der Federkonstanten
+Messreihe2$Federkonstante2 <- Messreihe2$Gewicht_kg*g/Messreihe2$Auslenkung2_x0_m
+
+Messreihe2$u_Federkonstante2 <- u_D_funktion(x=Messreihe2$Auslenkung2_x0_m, 
+                                           m=Messreihe2$Gewicht_kg,
+                                           UM=Messreihe2$u_m)
+```
+Kraft-Auslenkung Diagramm:
+```{r}
+ggplot(Messreihe2, aes(x = Auslenkung2_x0_m, y = Kraft, 
+                      ymin = Kraft-u_Kraft, ymax = Kraft+u_Kraft)) + 
+  #geom_point(size=0.1) + 
+  geom_errorbar(width = 0.0005) + 
+  geom_errorbar(width = 0.0005) +
+  xlab("Auslenkung x [m]") + ylab("Kraft F [N]") +
+  geom_errorbarh(aes(xmin = Auslenkung2_x0_m-u_x,
+                     xmax = Auslenkung2_x0_m+u_x))
+```
+Federkonstante-Auslenkung Diagramm:
+```{r}
+ymini <- Messreihe2$Federkonstante2-Messreihe2$u_Federkonstante2
+ymini[which(ymini<0)] <- 0
+ggplot(Messreihe2, 
+       aes(x = Auslenkung2_x0_m, y = Federkonstante2, 
+       ymin = Federkonstante2-u_Federkonstante2, 
+       ymax = Federkonstante2+u_Federkonstante2)) + 
+  geom_point(size=0.1) + 
+  geom_errorbar(width = 0.001) + 
+  geom_errorbar(width = 0.001) +
+  xlab("Auslenkung x [m]") + ylab("Federkonstante D [N/m]") +
+  geom_errorbarh(aes(xmin = Auslenkung2_x0_m-u_x,
+                     xmax = Auslenkung2_x0_m+u_x))
+```
 
 ## Interpretation
 
+
+### Messwerte und errechnete Größen
+Hier eine Zusammenfassung der Werte aus Versuch 2:
+```{r}
+printdf2 <- cbind(Messreihe[,c(1,5,10)], round(Messreihe[,8], 7),
+                 round(Messreihe[,12], 4), round(Messreihe[,13], 5))
+colnames(printdf2) <- c("n_m[-]", "L2[cm]", "m[kg]", "u_m[kg]", "F[N]", "u_F[N]")
+printdf2 <- printdf2[which(is.na(printdf2$`L2[cm]`)==FALSE),]
+printdf2[, c(1,3,4,2,5,6)]
+```
