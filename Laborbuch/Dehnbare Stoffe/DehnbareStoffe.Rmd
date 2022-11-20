@@ -228,7 +228,7 @@ ggplot(subset(Messreihe, !is.na(Federkonstante)), aes(x = Auslenkung1_x0_m,
                                                       y = Federkonstante,
                                                       ymin = Federkonstante-u_Federkonstante,
                                                       ymax = Federkonstante+u_Federkonstante)) + 
-  geom_point() + 
+  #geom_point() + 
   geom_errorbar(width = 0.001) +
   geom_errorbarh(aes(xmin = Auslenkung1_x0_m-u_x,
                      xmax = Auslenkung1_x0_m+u_x))
