@@ -451,6 +451,10 @@ Berechnung in R:
 \end{Highlighting}
 \end{Shaded}
 
+Wird die Federkonstante über die Elongation geplottet, zeigt sich
+wieder, dass diese erst ab einer Auslenkung von etwa 5 cm einen
+vergleichsweise Stabilen Wert annimmt.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Plotten}
@@ -466,8 +470,8 @@ Berechnung in R:
 \end{Shaded}
 
 \includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-8-1.pdf}
-Bei der hier vorliegenden Typ-A Messunsicherheit für die Werte der
-Federkonstante, in dem soeben beschriebenen Intervall, wird nach GUM der
+Daher haben wir uns entschiden, nur in dem beschriebenen Intervall
+\(x \in (0,05m,\ x_{max}]\) zu mitteln. Dort wird nach GUM der
 Mittelwert und die Standardabweichung des Mittelwertes berechnet, um ein
 Messergebnis und dessen Unsicherheit zu erhalten.
 
@@ -506,7 +510,18 @@ Die bestimmte Federkonstante, für eine Auslenkung des Gummibandes im
 Bereich von \(5,0\) bis \(26.8cm\), beträgt also
 \(D=(30,91\pm 0,17)\frac{N}{m}\)
 
+Hire wird die Federkonstante als Gerade im Kraft-Auslenkungsschaubild
+dargestellt. Die blau eingefärbten Punkte sind diejenigen Punkte, die in
+die Berechnung mit eingingen.
+
 \includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-10-1.pdf}
+Angemerkt sei, dass für die Steigung der Federkonstanten der Mittelwert
+und die Mittelwerte ab- bzw. zuzüglich der Standardabweichung des
+Mittelwertes angenommen wurden. Die Drei Geraden überlagern sich sehr
+stark. Ebenso sei angemerkt, dass die Fehlerbalken vorhanden sind, wie
+auch in den Diagrammen zuvor, nur dass diee ehr klein ausfallen,
+vergleiche entsprechend errechnete Werte im Abschnitt
+\textit{Messwerte und errechnete Größen}.
 
 \hypertarget{messwerte-und-errechnete-gruxf6uxdfen}{%
 \subsubsection{Messwerte und errechnete

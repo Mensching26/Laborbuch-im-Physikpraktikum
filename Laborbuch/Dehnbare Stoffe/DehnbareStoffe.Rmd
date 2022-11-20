@@ -221,7 +221,7 @@ Messreihe$u_Federkonstante <- u_D_funktion(x=Messreihe$Auslenkung1_x0_m,
                                            m=Messreihe$Gewicht_kg,
                                            UM=Messreihe$u_m)
 ```
-
+Wird die Federkonstante über die Elongation geplottet, zeigt sich wieder, dass diese erst ab einer Auslenkung von etwa 5 cm einen vergleichsweise Stabilen Wert annimmt.
 ```{r}
 # Plotten
 ggplot(subset(Messreihe, !is.na(Federkonstante)), aes(x = Auslenkung1_x0_m, 
@@ -233,7 +233,7 @@ ggplot(subset(Messreihe, !is.na(Federkonstante)), aes(x = Auslenkung1_x0_m,
   geom_errorbarh(aes(xmin = Auslenkung1_x0_m-u_x,
                      xmax = Auslenkung1_x0_m+u_x))
 ```
-Bei der hier vorliegenden Typ-A Messunsicherheit für die Werte der Federkonstante, in dem soeben beschriebenen Intervall, wird nach GUM der Mittelwert und die Standardabweichung des Mittelwertes berechnet, um ein Messergebnis und dessen Unsicherheit zu erhalten.
+Daher haben wir uns entschiden, nur in dem beschriebenen Intervall $x \in (0,05m,\ x_{max}]$ zu mitteln. Dort wird nach GUM der Mittelwert und die Standardabweichung des Mittelwertes berechnet, um ein Messergebnis und dessen Unsicherheit zu erhalten.
 
 * Mittelwert: $\overline{D} = \frac{1}{n}\sum \limits_{i=1}^nD_i$
 * Standardabweichung: $\sigma_D = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (D_i - \overline{D})^2}$
@@ -249,6 +249,8 @@ rownames(d) <- c("Mittelwert_MW", "Standardabweichung_SD", "SD_von_MW")
 d
 ```
 Die bestimmte Federkonstante, für eine Auslenkung des Gummibandes im Bereich von $5,0$ bis $26.8cm$, beträgt also $D=(30,91\pm 0,17)\frac{N}{m}$
+
+Hire wird die Federkonstante als Gerade im Kraft-Auslenkungsschaubild dargestellt. Die blau eingefärbten Punkte sind diejenigen Punkte, die in die Berechnung mit eingingen. 
 
 ```{r, echo=FALSE}
 ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft, 
@@ -268,6 +270,8 @@ ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft,
   theme(legend.position = "bottom",
           legend.box = "vertical")
 ```
+Angemerkt sei, dass für die Steigung der Federkonstanten der Mittelwert und die Mittelwerte ab- bzw. zuzüglich der Standardabweichung des Mittelwertes angenommen wurden. Die Drei Geraden überlagern sich sehr stark.
+Ebenso sei angemerkt, dass die Fehlerbalken vorhanden sind, wie auch in den Diagrammen zuvor, nur dass diee ehr klein ausfallen, vergleiche entsprechend errechnete Werte im Abschnitt \textit{Messwerte und errechnete Größen}.
 
 ### Messwerte und errechnete Größen
 
