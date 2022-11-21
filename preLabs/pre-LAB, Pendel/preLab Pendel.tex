@@ -1,0 +1,92 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+\usepackage[a4paper,
+            bindingoffset=0.2in,
+            left=1cm,
+            right=1cm,
+            top=1in,
+            bottom=1in,
+            footskip=.25in]{geometry}
+            
+\title{Pre-LAB: Pendel, Team 4}
+\author{Justus Weyers, Milena Mensching}
+
+\begin{document}
+\maketitle
+\section{Amplitude und Periodendauer}
+\textbf{Wie hängt die Periodendauer eines Pendels mit der Amplitude zusammen? Erklären Sie
+unter welchen Annahmen Ihre Aussage gilt?}
+
+Die Amplitude $x_0$ beeinflusst die Periodendauer eines Pendels nicht, die zwar die Rückstellkraft $F_{res}$ vergrößert wird (höhere Geschwindigkeit), gleichzeitig aber auch die Strecke beim Hin- und Herschwingen vergrößert wird. Beide Effekte gleichen sich aus. Dies gilt nur wenn folgende Annahmen erfüllt sind:
+\begin{itemize}
+\item{Bewegung des Pendelkörpers und des Fadens verläuft reibungsfrei}
+\item{Masse des Fadens wird vernachlässigt}
+\item{Der Pendelkörper wird nur um eine kleine Strecke ausgelenkt}
+\end{itemize}  
+
+\section{Pendellänge und Periodendauer}
+\textbf{Wie hängt die Periodendauer eines Pendels von der Länge des Pendels ab? Geben Sie
+eine Gleichung dazu an, und erklären Sie unter welchen Annahmen die Gleichung gilt?}
+
+Je größer die Länge des Pendels, desto länger die Periodendauer. Die Periodendauer $T$ ergibt sich mit:
+
+\begin{equation*}
+\begin{split}
+T=\frac{2*\pi}{\omega} \land \omega = \sqrt{\frac{g}{l}}\\
+\rightarrow T=2*\pi*\sqrt{\frac{l}{g}}
+\end{split} 
+\end{equation*}
+
+\noindent $\omega$: Winkelfrequenz\\
+\noindent $g$: Erdbeschleunigung $9,81\frac{m}{s^2}$\\
+\noindent $l$: Pendellänge\\
+
+Wird die Pendellänge vergrößert, so verkleinert sich der Winkel zwischen Faden und Gewichtskraft. Resultierend werden auch die tangentiale Kraftkomponente $F_{G,tan}$ und die resultierende Kraft $F_{res}$ kleiner. Bei kleinerer Rückstellkraft verringert sich die Geschwindigkeit des Pendels und die Periodendauer erhöht sich. Die Annahmen sind die gleichen wie in Aufgabe 1. 
+
+\section{Messunsicherheiten der Zeitmessung}
+\textbf{Welche Messunsicherheiten der Zeitmessung würden Sie betrachen, wenn Sie die Periodendauer eines Pendels mit einer digitalen Stoppuhr messen würden?}
+
+\begin{itemize}
+\item{Messunsicherheit der digitalen Stoppuhr $u_{Skala}=\frac{a}{2\sqrt{3}}$.}
+\item{Verzögerung beim Starten $\rightarrow$ Verzögerung zwischen Loslassen des Pendels und Start der Messung}
+\item{Verzögerung beim Stoppen $\rightarrow$ Reaktionszeit}
+\end{itemize}
+
+\section{Bestimmung der Erdbeschleunigung}
+\textbf{Wie können Sie mit einem Pendel die Erdbeschleunigung $g$ bestimmen?}
+
+Aus $T=2*\pi*\sqrt{\frac{l}{g}}$ ergibt sich:
+
+$$g=\frac{4*\pi^2*l}{T^2}$$
+
+\section{Rechenbeispiel}
+\textbf{Berechnen Sie die Messunsicherheit ($\Delta g$) für den Fall, dass Sie für die Periodendauer $T=
+(1,85 \pm 0,10)s$ und für die Länge des Pendels $L= (0,845 \pm 0,010)m$ gemessen haben.}
+
+\begin{equation*}
+\begin{split}
+u_g=\sqrt{(\frac{\delta g}{\delta T}*u_T)^2+(\frac{\delta g}{\delta l}*u_l)^2}\\
+u_g=\sqrt{(\frac{-8*\pi^2*l}{T^3}*u_T)^2+(\frac{4*\pi^2}{T^2}*u_l)^2}\\
+u_g=\sqrt{(\frac{-8*\pi^2*0,845m}{(1,85s)^3}*0,10s)^2+(\frac{4*\pi^2}{(1,85s)^2}*0,010m)^2}\\
+u_g\approx \pm 1,06 \frac{m}{s^2}
+\end{split}
+\end{equation*}
+
+\section{Geschwindigkeit des Fadenpendels}
+\textbf{Bei welchem Auslenkwinkel ist die Geschwindigkeit des Fadenpendels am höchsten und
+bei welchem am niedrigsten?}
+
+Erreicht das Pendel seine größste Auslenkung $x_0$ besitzt es dort nur potentielle Energie $E_{pot}$. Am untersten Punkt beträgt die potentielle Energie null, dafür ist die kinetische Energie maximal. Hier bewegt sich das Pendel mit der maximalen Geschwindigkeit. Die beiden Energieformen werden während der Schwingung ständig ineinander umgewandelt.
+
+\section{Verkürzung der Reaktionszeit}
+\textbf{Wieso ist die Messung der Periodendauer eines Pendels präziser, wenn man die Stoppuhr beim Punkt der maximalen Geschwindigkeit des Pendels und nicht beim Punkt der minimalen Geschwindigkeit startet (bzw. stoppt)?}
+
+Vermutlich ist das der Unsicherheit eines Menschen bei der Festlegung auf einen Zeitpunkt der maximalen Auslenkung des Pendels geschuldet. Die Unsicherheit besteht dann darin, dass es schwierig ist, in dem vergleichsweise langen Zeitraum, den das Pendel in der maximalen Auslenkung und anderen Positionen der Fast-Maximalauslenkung verbringt, die Stoppuhr richtig zu betätigen. Die Periodendauer kann dann auf zufällige Art und Weise als zu kurz oder zu lang angegeben werden. Dieser Umstand muss nicht zu einer größeren systematischen Abweichung führen, allerdings zu einer kleineren Präzision. Der Durchgang durch die minimale Auslenkung ist dagegen vergleichsweise gut auszumachen und anzugeben. Die Reaktionszeit ist
+nachträglich aber in beiden Fällen zu berücksichtigen
+
+
+\end{document}
