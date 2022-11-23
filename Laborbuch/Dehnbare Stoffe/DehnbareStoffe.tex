@@ -126,7 +126,7 @@
 
 \title{Dehnbare Stoffe}
 \author{Justus Weyers \& Milena Mensching, Team 4}
-\date{2022-11-21}
+\date{2022-11-23}
 
 \begin{document}
 \maketitle
@@ -173,18 +173,18 @@ durch Bestimmung der Federkonstante
 \item
   Aufhängung des Gummibandes am Haken
 \item
-  In das Gummiband werden die Gewichte gehängt
+  In das Gummiband aufgehangen werden die Gewichte darann aufgehängt
 \end{itemize}
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/V1B1.jpeg}
+\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/V1B2.jpeg}
 \caption{Versuchsaufbau 1}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/V2B2.jpeg}
+\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/V2B1.jpeg}
 \caption{Versuchsaufbau 1, Nahansicht}
 \end{figure}
 
@@ -193,8 +193,8 @@ durch Bestimmung der Federkonstante
 
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet. Die
 10g und die 100g Gewichte lagen doppelt vor und waren jeweils gleich
-schwer. Die Gewichte stellten sich generell als zu leicht heraus. Nur
-die zwei 10g Gewichte wogen nach einer Beschriftung mit Klebeband
+schwer. Sämtliche Gewichte stellten sich als zu leicht heraus. Nur die
+zwei 10g Gewichte wogen nach einer Beschriftung mit dem Klebeband
 \(10,0g\).
 
 \begin{longtable}[]{@{}lr@{}}
@@ -222,21 +222,21 @@ Addition der Teilmassen berechnet.
 Die Geräteungenauigkeit berechnet sich zu:
 \(u_{Gerät}= \sqrt{u_{Skala}^2+u_{Waage}^2}\). Dabei ist \(u_{Skala}\)
 konstant bei \(u_{Skala} = \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg\).
-Für \(u_{Waage}\) wurde eine Messunsicherheit von \ldots{} am Gerät
+Für \(u_{Waage}\) wurde eine Messunsicherheit von 0,02g am Gerät
 abgelesen. Damit errechnet sich eine Geräteungenauigkeit von
-\(u_{Gerät}=\) \ldots{} .
+\(u_{Gerät}=\sqrt{(2,9*10^{-5})^2+(2*10^{-5})^2}kg=3,5*10^{-5}kg\).
 
 Für die Unsicherheit der aus \(n\) Gewichten kombinierten Masse M
-\(u_{m}\) gilt, da für alle Messungen die gleiche Waage benutzt wurde,
-der Zusammenhang: \[u_m = \sum\limits_{i=1}^{n}u_{m,i} = n*u_{Gerät}\]
-Mit \(n\): Anzahl der kombinierten Gewichte
+\(u_{m}\) gilt, da für alle Messungen dieselbe Waage benutzt wurde, der
+Zusammenhang: \[u_m = \sum\limits_{i=1}^{n}u_{m,i} = n*u_{Gerät}\] Mit
+\(n\): Anzahl der kombinierten Gewichte
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Skalenunsicherheit}
+\CommentTok{\# Skalenunsicherheit der Waage}
 \NormalTok{u\_Skala }\OtherTok{=}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\DecValTok{2}\SpecialCharTok{*}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{3}\NormalTok{)) }\CommentTok{\#kg}
-\CommentTok{\# BAUSTELLE: Hier fehlt noch die Geräteungenauigkeit der Waage (Waagenunsicherheit)}
-\NormalTok{u\_Waage }\OtherTok{=} \FloatTok{0.05}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{) }\CommentTok{\#Geschätzt in kg}
+\CommentTok{\# Wagenunsicherheit}
+\NormalTok{u\_Waage }\OtherTok{=} \FloatTok{0.02}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{) }\CommentTok{\# kg}
 \CommentTok{\# Geräteunsicherheit}
 \NormalTok{u\_Gerät }\OtherTok{=} \FunctionTok{sqrt}\NormalTok{((u\_Skala)}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(u\_Waage)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
 \CommentTok{\# Massenunsicherheit}
@@ -249,15 +249,15 @@ gemessen. Die Länge betrug 11,2 cm. Diese Länge muss später von allen
 Messwerten abgezogen werden, um nur die Auslenkung aus dem Nullzustand
 als Datensatz aufzunehmen.
 
-Danach werden nacheinander verschiedene Gewichte an das Gummiband
-gehängt und die entsprechende Elongation gemessen. Diese wird an der
-Unterkante des Gummibandes, sobald dieses nach dem Anbringen der
-Gewichte nicht mehr schwingt, abgelesen. Unsere Gruppe entschied sich
-zunächst dafür, eine Messreihe mit Intervallen von \(5g\) durchzuführen.
-Nach den ersten 20 Messungen (\(100g\)) entschieden wir uns dafür, die
-Intervalle auf \(10g\) zu erhöhen, da wir zunächst den Aufwand
-unterschätzten und Daten mit einem Abstand von 10g immer noch zur
-Beurteilung der Federkonstante ausreichen.
+Danach werden verschiedene Gewichte an das Gummiband gehängt und die
+entsprechende Elongation gemessen. Diese wird an der Unterkante des
+Gummibandes, sobald dieses nach dem Anbringen der Gewichte nicht mehr
+schwingt, abgelesen. Unsere Gruppe entschied sich zunächst dafür, eine
+Messreihe mit Intervallen von \(5g\) durchzuführen. Nach den ersten 20
+Messungen (bis \(100g\)) entschieden wir uns dafür, die Intervalle auf
+\(10g\) zu erhöhen, da wir zunächst den Aufwand unterschätzten und Daten
+mit einem Abstand von 10g immer noch zur Beurteilung der Federkonstante
+ausreichen.
 
 Die Auslenkung wird am Maßband abgelesen (Messskala in mm). Dies
 bedeutet eine Ungenauigket der Elongation von:
@@ -319,11 +319,12 @@ zugehörigen Unsicherheiten.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Einlesen der csv{-}Datei}
 \NormalTok{Messreihe }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"Daten/Messreihe.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{";"}\NormalTok{, }\AttributeTok{dec =} \StringTok{","}\NormalTok{)}
 
 \CommentTok{\# Anbindung der bereits errechneten Unsicherheit der Masse}
 \NormalTok{Messreihe }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(Messreihe, u\_m)}
-
+\CommentTok{\# Umbenennung der Spalten}
 \FunctionTok{colnames}\NormalTok{(Messreihe) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"n\_Gewichte"}\NormalTok{, }\StringTok{"Sollwert\_g"}\NormalTok{, }\StringTok{"Gewicht\_g"}\NormalTok{, }
                          \StringTok{"Auslenkung1\_cm"}\NormalTok{,  }\StringTok{"Auslenkung2"}\NormalTok{, }\StringTok{"x\_Haken"}\NormalTok{, }
                          \StringTok{"x\_0\_Ende"}\NormalTok{, }\StringTok{"u\_m"}\NormalTok{)}
@@ -341,7 +342,8 @@ Zugkraft}\label{berechnung-der-gewichts--und-zugkraft}}
 Zur Interpretation der Messergebnisse wird die Elongation \(x_i\)
 normiert, indem die Nullauslenkung, diese beträgt \(11,2 cm\) auf dem
 Maßband, von den anderen Messwerten subtrahiert wird, siehe
-entsprechenden Messwert für ein Gewicht von \(0g\).
+entsprechenden Messwert für ein Gewicht von \(0g\) im Abschnitt
+\textit{Messwerte und errechnete Größen}.
 
 Zudem wird, wie bei allen anderen Messgrößen auch, die Einheit in eine
 SI-Einheit umgerechnet, um den Einheitenbezug korrekt zu halten. In
@@ -355,7 +357,7 @@ aufgrund der Betragsgleichheit im zu untersuchenden Ruhezustand unsinnig
 ist, von einer sematischen Unterscheidung von \(F_G\) und \(F_{Zug}\)
 abgesehen und stattdessen verallgemeinernd von der wirkenden Kraft \(F\)
 gesprochen. Neben der Kraft \(F\) wird auch die Unsicherheit der Kraft
-berechnet. Diese berechnet sich als: \begin{align*}
+\(u_F\) berechnet. Diese berechnet sich als: \begin{align*}
 \begin{split}
 u_F &= \frac{\partial F}{\partial {m}}*u_m\\
     &= g*u_m\\
@@ -378,20 +380,22 @@ Nach der Rechnung wird ein Kraft-Auslenkung Schaubild erstellt.
 
 \CommentTok{\# Berechnung von Kraft und u\_Kraft}
 \NormalTok{Messreihe}\SpecialCharTok{$}\NormalTok{Kraft }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe}\SpecialCharTok{$}\NormalTok{Gewicht\_kg }\SpecialCharTok{*}\NormalTok{ g }\CommentTok{\#N}
-\NormalTok{Messreihe}\SpecialCharTok{$}\NormalTok{u\_Kraft }\OtherTok{\textless{}{-}}\NormalTok{ g}\SpecialCharTok{*}\NormalTok{u\_m}
+\NormalTok{Messreihe}\SpecialCharTok{$}\NormalTok{u\_Kraft }\OtherTok{\textless{}{-}}\NormalTok{ g}\SpecialCharTok{*}\NormalTok{u\_m }\CommentTok{\#N}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-6-1.pdf}
 Wird \(F\) gegen \(x_i\) aufgetragen, ergibt sich optisch ab einer
-Auslenkung von \(5cm\) ein etwa linearer Zusammenhang. Im Bereich
-zwischen einer Elongation von \(0cm\) und \(5cm\) kann das
-Ausdehnungsverhalten des Gummibandes unter einer Gewichtsbelastung nicht
-als linear betrachtet und nicht durch eine Federkonstante beschrieben
-werden. Für die Berechnung der Federkonstanten haben wir uns daher
-entschieden, die Werte für \(x_i<0,05m\) auszuschließen. Zugleich müssen
-wir dann allerdings feststellen, dass die errechnete Federkonstante nur
-im Intervall \(x \in (0,05m,\ x_{max}]\) gilt.
+Auslenkung von \(5cm\) ein etwa linearer Zusammenhang. Fehlerbalken sind
+sowohl für die Auslenkung, als auch für die Kraft vorhanden, fallen aber
+sehr klein aus. Im Bereich zwischen einer Elongation von \(0cm\) und
+\(5cm\) kann das Ausdehnungsverhalten des Gummibandes unter einer
+Gewichtsbelastung nicht als linear betrachtet und nicht durch eine
+Federkonstante beschrieben werden. Für die Berechnung der
+Federkonstanten haben wir uns daher entschieden, die Werte für
+\(x_i<0,05m\) auszuschließen. Zugleich müssen wir dann allerdings
+feststellen, dass die errechnete Federkonstante nur im Intervall
+\(x \in (0,05m,\ x_{max}]\) gilt.
 
 \hypertarget{berechnung-der-federkonstanten}{%
 \subsubsection{Berechnung der
@@ -445,7 +449,7 @@ Berechnung in R:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Funktion zur Berechnung der Messunsicherheit der Federkonstanten}
-\CommentTok{\# INPUT: x, m, u\_m, u\_x (glob)}
+\CommentTok{\# INPUT: x, m, u\_m (glob: u\_x)}
 \CommentTok{\# OUTPUT: u\_D}
 \NormalTok{u\_D\_funktion }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x,m, UM)\{}
   \FunctionTok{sqrt}\NormalTok{(((g}\SpecialCharTok{/}\NormalTok{x)}\SpecialCharTok{*}\NormalTok{UM)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{((}\SpecialCharTok{{-}}\NormalTok{m}\SpecialCharTok{*}\NormalTok{g}\SpecialCharTok{/}\NormalTok{x}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\NormalTok{u\_x)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
@@ -464,7 +468,7 @@ vergleichsweise Stabilen Wert annimmt.
 
 \begin{center}\includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-9-1} \end{center}
 
-Daher haben wir uns entschiden, nur in dem beschriebenen Intervall
+Daher haben wir uns entschieden, nur in dem beschriebenen Intervall
 \(x \in (0,05m,\ x_{max}]\) zu mitteln. Dort wird nach GUM der
 Mittelwert und die Standardabweichung des Mittelwertes berechnet, um ein
 Messergebnis und dessen Unsicherheit zu erhalten.
@@ -506,18 +510,20 @@ Bereich von \(5,0\) bis \(26.8cm\), beträgt also
 \newpage
 
 Hier wird die Federkonstante als Gerade nocheinmal im
-Kraft-Auslenkungsschaubild dargestellt. Die blau eingefärbten Punkte
-sind diejenigen Punkte, die nicht in die Berechnung mit eingingen.
+Kraft-Auslenkungsschaubild dargestellt. Die in Blau eingefärbten Punkte
+sind diejenigen Punkte, die nicht in die Berechnung eingingen.
 
 \includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-11-1.pdf}
 Angemerkt sei, dass für die Steigung der Federkonstanten der Mittelwert
 und die Mittelwerte ab- bzw. zuzüglich der Standardabweichung des
-Mittelwertes angenommen wurden. Die Drei Geraden überlagern sich sehr
+Mittelwertes angenommen wurden. Die drei Geraden überlagern sich sehr
 stark. Ebenso wurde ein Nulldurchgang festgelegt, da bei keiner
 Krafteinwirkung keine Elongation stattfindet. Ebenso sei angemerkt, dass
-die Fehlerbalken vorhanden sind, wie auch in den Diagrammen zuvor, nur
-dass diese eher klein ausfallen, vergleiche entsprechend errechnete
-Werte im Abschnitt \textit{Messwerte und errechnete Größen}.
+auf Fehlerbalken verzichtet wurde, da diese bereits im ersten
+Kraft-Auslenkungs Schaubild eingezeichnet wurden und zudem, aufgrund der
+kleinen Unsicherheiten, keinen grsphischen Mehrwert bieten. Die
+Fehlerwerte könne außerdem im Abschnitt
+\textit{Messwerte und errechnete Größen} nachgeschlagen werden.
 
 \hypertarget{messwerte-und-errechnete-gruxf6uxdfen}{%
 \subsubsection{Messwerte und errechnete
@@ -606,124 +612,124 @@ u\_D{[}N/m{]}
 \midrule()
 \endhead
 0 & 0.0000 & 0.0000000 & 11.2 & 0.000 & 0.0000 & 0.00000 & NaN & NaN \\
-1 & 0.0048 & 0.0000577 & 13.0 & 0.018 & 0.0471 & 0.00057 & 2.6160 &
-0.0428 \\
-1 & 0.0100 & 0.0000577 & 13.3 & 0.021 & 0.0981 & 0.00057 & 4.6714 &
-0.0520 \\
-2 & 0.0148 & 0.0001155 & 13.5 & 0.023 & 0.1452 & 0.00113 & 6.3125 &
-0.0737 \\
-1 & 0.0198 & 0.0000577 & 13.6 & 0.024 & 0.1942 & 0.00057 & 8.0932 &
-0.0715 \\
-2 & 0.0246 & 0.0001155 & 13.8 & 0.026 & 0.2413 & 0.00113 & 9.2818 &
-0.0836 \\
-2 & 0.0298 & 0.0001155 & 13.8 & 0.026 & 0.2923 & 0.00113 & 11.2438 &
-0.0968 \\
-3 & 0.0346 & 0.0001732 & 13.9 & 0.027 & 0.3394 & 0.00170 & 12.5713 &
-0.1124 \\
-3 & 0.0398 & 0.0001732 & 14.0 & 0.028 & 0.3904 & 0.00170 & 13.9442 &
-0.1166 \\
-4 & 0.0446 & 0.0002309 & 14.1 & 0.029 & 0.4375 & 0.00227 & 15.0871 &
-0.1301 \\
-1 & 0.0499 & 0.0000577 & 14.0 & 0.028 & 0.4895 & 0.00057 & 17.4828 &
-0.1265 \\
-2 & 0.0547 & 0.0001155 & 14.1 & 0.029 & 0.5366 & 0.00113 & 18.5037 &
-0.1335 \\
-2 & 0.0599 & 0.0001155 & 14.2 & 0.030 & 0.5876 & 0.00113 & 19.5873 &
-0.1359 \\
-3 & 0.0647 & 0.0001732 & 14.3 & 0.031 & 0.6347 & 0.00170 & 20.4744 &
-0.1430 \\
-2 & 0.0699 & 0.0001155 & 14.4 & 0.032 & 0.6857 & 0.00113 & 21.4287 &
-0.1385 \\
-3 & 0.0747 & 0.0001732 & 14.5 & 0.033 & 0.7328 & 0.00170 & 22.2063 &
-0.1441 \\
-3 & 0.0797 & 0.0001732 & 14.5 & 0.033 & 0.7819 & 0.00170 & 23.6926 &
-0.1525 \\
-4 & 0.0845 & 0.0002309 & 14.6 & 0.034 & 0.8289 & 0.00227 & 24.3807 &
-0.1581 \\
-4 & 0.0897 & 0.0002309 & 14.6 & 0.034 & 0.8800 & 0.00227 & 25.8811 &
-0.1662 \\
-5 & 0.0945 & 0.0002887 & 14.7 & 0.035 & 0.9270 & 0.00283 & 26.4870 &
-0.1716 \\
-1 & 0.0995 & 0.0000577 & 14.8 & 0.036 & 0.9761 & 0.00057 & 27.1137 &
-0.1515 \\
-2 & 0.1095 & 0.0001155 & 15.1 & 0.039 & 1.0742 & 0.00113 & 27.5435 &
-0.1442 \\
-2 & 0.1193 & 0.0001155 & 15.3 & 0.041 & 1.1703 & 0.00113 & 28.5447 &
-0.1420 \\
-3 & 0.1293 & 0.0001732 & 15.4 & 0.042 & 1.2684 & 0.00170 & 30.2008 &
-0.1494 \\
-4 & 0.1393 & 0.0002309 & 15.6 & 0.044 & 1.3665 & 0.00227 & 31.0576 &
-0.1503 \\
-2 & 0.1494 & 0.0001155 & 15.8 & 0.046 & 1.4656 & 0.00113 & 31.8612 &
-0.1407 \\
-3 & 0.1594 & 0.0001732 & 16.0 & 0.048 & 1.5637 & 0.00170 & 32.5774 &
-0.1403 \\
-3 & 0.1692 & 0.0001732 & 16.4 & 0.052 & 1.6599 & 0.00170 & 31.9202 &
-0.1270 \\
-4 & 0.1792 & 0.0002309 & 16.6 & 0.054 & 1.7580 & 0.00227 & 32.5547 &
-0.1277 \\
-5 & 0.1892 & 0.0002887 & 16.9 & 0.057 & 1.8561 & 0.00283 & 32.5623 &
-0.1246 \\
-1 & 0.1985 & 0.0000577 & 17.3 & 0.061 & 1.9473 & 0.00057 & 31.9227 &
-0.1051 \\
-2 & 0.2085 & 0.0001155 & 17.5 & 0.063 & 2.0454 & 0.00113 & 32.4664 &
-0.1046 \\
-2 & 0.2183 & 0.0001155 & 17.8 & 0.066 & 2.1415 & 0.00113 & 32.4473 &
-0.0998 \\
-3 & 0.2283 & 0.0001732 & 18.2 & 0.070 & 2.2396 & 0.00170 & 31.9946 &
-0.0946 \\
-4 & 0.2383 & 0.0002309 & 18.5 & 0.073 & 2.3377 & 0.00227 & 32.0236 &
-0.0931 \\
-2 & 0.2484 & 0.0001155 & 18.9 & 0.077 & 2.4368 & 0.00113 & 31.6468 &
-0.0835 \\
-3 & 0.2584 & 0.0001732 & 19.3 & 0.081 & 2.5349 & 0.00170 & 31.2951 &
-0.0801 \\
-3 & 0.2682 & 0.0001732 & 19.8 & 0.086 & 2.6310 & 0.00170 & 30.5935 &
-0.0738 \\
-4 & 0.2782 & 0.0002309 & 20.0 & 0.088 & 2.7291 & 0.00227 & 31.0130 &
-0.0750 \\
-5 & 0.2882 & 0.0002887 & 20.3 & 0.091 & 2.8272 & 0.00283 & 31.0686 &
-0.0750 \\
-2 & 0.2980 & 0.0001155 & 20.9 & 0.097 & 2.9234 & 0.00113 & 30.1379 &
-0.0632 \\
-3 & 0.3080 & 0.0001732 & 21.2 & 0.100 & 3.0215 & 0.00170 & 30.2148 &
-0.0628 \\
-3 & 0.3178 & 0.0001732 & 21.5 & 0.103 & 3.1176 & 0.00170 & 30.2681 &
-0.0610 \\
-4 & 0.3278 & 0.0002309 & 22.0 & 0.108 & 3.2157 & 0.00227 & 29.7752 &
-0.0590 \\
-5 & 0.3378 & 0.0002887 & 22.3 & 0.111 & 3.3138 & 0.00283 & 29.8542 &
-0.0595 \\
-3 & 0.3479 & 0.0001732 & 22.7 & 0.115 & 3.4129 & 0.00170 & 29.6774 &
-0.0537 \\
-4 & 0.3579 & 0.0002309 & 23.0 & 0.118 & 3.5110 & 0.00227 & 29.7542 &
-0.0540 \\
-4 & 0.3777 & 0.0002309 & 23.3 & 0.121 & 3.7052 & 0.00227 & 30.6218 &
-0.0540 \\
-5 & 0.3877 & 0.0002887 & 23.6 & 0.124 & 3.8033 & 0.00283 & 30.6721 &
-0.0545 \\
-6 & 0.3977 & 0.0003464 & 23.9 & 0.127 & 3.9014 & 0.00340 & 30.7200 &
-0.0553 \\
-4 & 0.3990 & 0.0002309 & 24.5 & 0.133 & 3.9142 & 0.00227 & 29.4300 &
+1 & 0.0048 & 0.0000351 & 13.0 & 0.018 & 0.0471 & 0.00034 & 2.6160 &
+0.0348 \\
+1 & 0.0100 & 0.0000351 & 13.3 & 0.021 & 0.0981 & 0.00034 & 4.6714 &
 0.0474 \\
-5 & 0.4090 & 0.0002887 & 24.7 & 0.135 & 4.0123 & 0.00283 & 29.7207 &
-0.0488 \\
-5 & 0.4188 & 0.0002887 & 25.0 & 0.138 & 4.1084 & 0.00283 & 29.7712 &
-0.0478 \\
-6 & 0.4288 & 0.0003464 & 25.2 & 0.140 & 4.2065 & 0.00340 & 30.0466 &
-0.0493 \\
-7 & 0.4388 & 0.0004041 & 25.5 & 0.143 & 4.3046 & 0.00396 & 30.1023 &
-0.0504 \\
-5 & 0.4489 & 0.0002887 & 25.7 & 0.145 & 4.4037 & 0.00283 & 30.3704 &
-0.0462 \\
-6 & 0.4589 & 0.0003464 & 26.1 & 0.149 & 4.5018 & 0.00340 & 30.2135 &
-0.0465 \\
-6 & 0.4687 & 0.0003464 & 26.2 & 0.150 & 4.5979 & 0.00340 & 30.6530 &
-0.0467 \\
-7 & 0.4787 & 0.0004041 & 26.5 & 0.153 & 4.6960 & 0.00396 & 30.6931 &
-0.0478 \\
-8 & 0.4887 & 0.0004619 & 26.8 & 0.156 & 4.7941 & 0.00453 & 30.7317 &
-0.0489 \\
+2 & 0.0148 & 0.0000702 & 13.5 & 0.023 & 0.1452 & 0.00069 & 6.3125 &
+0.0625 \\
+1 & 0.0198 & 0.0000351 & 13.6 & 0.024 & 0.1942 & 0.00034 & 8.0932 &
+0.0690 \\
+2 & 0.0246 & 0.0000702 & 13.8 & 0.026 & 0.2413 & 0.00069 & 9.2818 &
+0.0762 \\
+2 & 0.0298 & 0.0000702 & 13.8 & 0.026 & 0.2923 & 0.00069 & 11.2438 &
+0.0905 \\
+3 & 0.0346 & 0.0001054 & 13.9 & 0.027 & 0.3394 & 0.00103 & 12.5713 &
+0.1007 \\
+3 & 0.0398 & 0.0001054 & 14.0 & 0.028 & 0.3904 & 0.00103 & 13.9442 &
+0.1062 \\
+4 & 0.0446 & 0.0001405 & 14.1 & 0.029 & 0.4375 & 0.00138 & 15.0871 &
+0.1144 \\
+1 & 0.0499 & 0.0000351 & 14.0 & 0.028 & 0.4895 & 0.00034 & 17.4828 &
+0.1255 \\
+2 & 0.0547 & 0.0000702 & 14.1 & 0.029 & 0.5366 & 0.00069 & 18.5037 &
+0.1298 \\
+2 & 0.0599 & 0.0000702 & 14.2 & 0.030 & 0.5876 & 0.00069 & 19.5873 &
+0.1326 \\
+3 & 0.0647 & 0.0001054 & 14.3 & 0.031 & 0.6347 & 0.00103 & 20.4744 &
+0.1362 \\
+2 & 0.0699 & 0.0000702 & 14.4 & 0.032 & 0.6857 & 0.00069 & 21.4287 &
+0.1356 \\
+3 & 0.0747 & 0.0001054 & 14.5 & 0.033 & 0.7328 & 0.00103 & 22.2063 &
+0.1382 \\
+3 & 0.0797 & 0.0001054 & 14.5 & 0.033 & 0.7819 & 0.00103 & 23.6926 &
+0.1470 \\
+4 & 0.0845 & 0.0001405 & 14.6 & 0.034 & 0.8289 & 0.00138 & 24.3807 &
+0.1490 \\
+4 & 0.0897 & 0.0001405 & 14.6 & 0.034 & 0.8800 & 0.00138 & 25.8811 &
+0.1575 \\
+5 & 0.0945 & 0.0001756 & 14.7 & 0.035 & 0.9270 & 0.00172 & 26.4870 &
+0.1592 \\
+1 & 0.0995 & 0.0000351 & 14.8 & 0.036 & 0.9761 & 0.00034 & 27.1137 &
+0.1509 \\
+2 & 0.1095 & 0.0000702 & 15.1 & 0.039 & 1.0742 & 0.00069 & 27.5435 &
+0.1423 \\
+2 & 0.1193 & 0.0000702 & 15.3 & 0.041 & 1.1703 & 0.00069 & 28.5447 &
+0.1403 \\
+3 & 0.1293 & 0.0001054 & 15.4 & 0.042 & 1.2684 & 0.00103 & 30.2008 &
+0.1459 \\
+4 & 0.1393 & 0.0001405 & 15.6 & 0.044 & 1.3665 & 0.00138 & 31.0576 &
+0.1446 \\
+2 & 0.1494 & 0.0000702 & 15.8 & 0.046 & 1.4656 & 0.00069 & 31.8612 &
+0.1393 \\
+3 & 0.1594 & 0.0001054 & 16.0 & 0.048 & 1.5637 & 0.00103 & 32.5774 &
+0.1374 \\
+3 & 0.1692 & 0.0001054 & 16.4 & 0.052 & 1.6599 & 0.00103 & 31.9202 &
+0.1244 \\
+4 & 0.1792 & 0.0001405 & 16.6 & 0.054 & 1.7580 & 0.00138 & 32.5547 &
+0.1232 \\
+5 & 0.1892 & 0.0001756 & 16.9 & 0.057 & 1.8561 & 0.00172 & 32.5623 &
+0.1182 \\
+1 & 0.1985 & 0.0000351 & 17.3 & 0.061 & 1.9473 & 0.00034 & 31.9227 &
+0.1048 \\
+2 & 0.2085 & 0.0000702 & 17.5 & 0.063 & 2.0454 & 0.00069 & 32.4664 &
+0.1036 \\
+2 & 0.2183 & 0.0000702 & 17.8 & 0.066 & 2.1415 & 0.00069 & 32.4473 &
+0.0989 \\
+3 & 0.2283 & 0.0001054 & 18.2 & 0.070 & 2.2396 & 0.00103 & 31.9946 &
+0.0926 \\
+4 & 0.2383 & 0.0001405 & 18.5 & 0.073 & 2.3377 & 0.00138 & 32.0236 &
+0.0897 \\
+2 & 0.2484 & 0.0000702 & 18.9 & 0.077 & 2.4368 & 0.00069 & 31.6468 &
+0.0827 \\
+3 & 0.2584 & 0.0001054 & 19.3 & 0.081 & 2.5349 & 0.00103 & 31.2951 &
+0.0783 \\
+3 & 0.2682 & 0.0001054 & 19.8 & 0.086 & 2.6310 & 0.00103 & 30.5935 &
+0.0722 \\
+4 & 0.2782 & 0.0001405 & 20.0 & 0.088 & 2.7291 & 0.00138 & 31.0130 &
+0.0722 \\
+5 & 0.2882 & 0.0001756 & 20.3 & 0.091 & 2.8272 & 0.00172 & 31.0686 &
+0.0709 \\
+2 & 0.2980 & 0.0000702 & 20.9 & 0.097 & 2.9234 & 0.00069 & 30.1379 &
+0.0625 \\
+3 & 0.3080 & 0.0001054 & 21.2 & 0.100 & 3.0215 & 0.00103 & 30.2148 &
+0.0613 \\
+3 & 0.3178 & 0.0001054 & 21.5 & 0.103 & 3.1176 & 0.00103 & 30.2681 &
+0.0596 \\
+4 & 0.3278 & 0.0001405 & 22.0 & 0.108 & 3.2157 & 0.00138 & 29.7752 &
+0.0566 \\
+5 & 0.3378 & 0.0001756 & 22.3 & 0.111 & 3.3138 & 0.00172 & 29.8542 &
+0.0560 \\
+3 & 0.3479 & 0.0001054 & 22.7 & 0.115 & 3.4129 & 0.00103 & 29.6774 &
+0.0524 \\
+4 & 0.3579 & 0.0001405 & 23.0 & 0.118 & 3.5110 & 0.00138 & 29.7542 &
+0.0518 \\
+4 & 0.3777 & 0.0001405 & 23.3 & 0.121 & 3.7052 & 0.00138 & 30.6218 &
+0.0519 \\
+5 & 0.3877 & 0.0001756 & 23.6 & 0.124 & 3.8033 & 0.00172 & 30.6721 &
+0.0514 \\
+6 & 0.3977 & 0.0002107 & 23.9 & 0.127 & 3.9014 & 0.00207 & 30.7200 &
+0.0510 \\
+4 & 0.3990 & 0.0001405 & 24.5 & 0.133 & 3.9142 & 0.00138 & 29.4300 &
+0.0455 \\
+5 & 0.4090 & 0.0001756 & 24.7 & 0.135 & 4.0123 & 0.00172 & 29.7207 &
+0.0458 \\
+5 & 0.4188 & 0.0001756 & 25.0 & 0.138 & 4.1084 & 0.00172 & 29.7712 &
+0.0449 \\
+6 & 0.4288 & 0.0002107 & 25.2 & 0.140 & 4.2065 & 0.00207 & 30.0466 &
+0.0454 \\
+7 & 0.4388 & 0.0002458 & 25.5 & 0.143 & 4.3046 & 0.00241 & 30.1023 &
+0.0454 \\
+5 & 0.4489 & 0.0001756 & 25.7 & 0.145 & 4.4037 & 0.00172 & 30.3704 &
+0.0435 \\
+6 & 0.4589 & 0.0002107 & 26.1 & 0.149 & 4.5018 & 0.00207 & 30.2135 &
+0.0429 \\
+6 & 0.4687 & 0.0002107 & 26.2 & 0.150 & 4.5979 & 0.00207 & 30.6530 &
+0.0431 \\
+7 & 0.4787 & 0.0002458 & 26.5 & 0.153 & 4.6960 & 0.00241 & 30.6931 &
+0.0431 \\
+8 & 0.4887 & 0.0002810 & 26.8 & 0.156 & 4.7941 & 0.00276 & 30.7317 &
+0.0432 \\
 \bottomrule()
 \end{longtable}
 
@@ -788,31 +794,35 @@ doppelt so hoch ist, weil die Kraft auf nur einen Strang wirkt.
 \subsection{Durchführung}\label{durchfuxfchrung-1}}
 
 Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von
-100g in 5g - Intervallen und danach in 10g- Schriiten zu messen, um die
-Daten mit den Daten aus der ersten Versuchsreihe gut vergleichen können.
-Da das Band allerdings viel stärker durch das Anbringen von Gewicht
-gedehnt wurde, konnten wir ab 360g keine Messungewn mehr durchführen, da
-die Gewichte durch ihre Länge anfingen am Tisch aufzuliegen und so die
-Normalkraft die Gewichtskraft verfälscht hätte. Stattdessen haben wir
-den aus platztechnisch noch gut messbaren Wert für 400g genommen und den
-Rest der Tabelle nicht ausgefüllt. \(x_0\) lag bei uns in diesem Fall
-bei 15,8cm.
+100g in 5g - Intervallen und danach in 10g- Schritten zu messen, um die
+Daten dieser Zwei Versuche gut vergleichen können. Da das Band
+allerdings viel stärker durch das Anbringen von Gewicht gedehnt wurde,
+konnten wir ab 360g keine Messungewn mehr durchführen, da die Gewichte
+durch ihre Länge anfingen am Tisch aufzuliegen und so die Normalkraft
+die Gewichtskraft verfälscht hätte. Stattdessen haben wir den aus
+platztechnisch noch gut messbaren Wert für 400g (nur drei Gewichte)
+genommen und den Rest der Tabelle nicht ausgefüllt. Die
+Anfangsausdehnung \(x_0\) lag in diesem Fall bei 15,8cm.
 
 \hypertarget{fehlerquellen-1}{%
 \subsection{Fehlerquellen}\label{fehlerquellen-1}}
 
 Ein möglicher Faktor, der die Federkonstane verfälschen kann, ist neben
-den im Versuch 1 genannten Problemen, die Art der Befestigung des nun
-einsträngigen Gummibandes. Diese geschaf in Form eines Knotens am Haken.
+den im Versuch 1 genannten Problemen, die Art der Befestigung, des nun
+einsträngigen Gummibandes. Diese geschah in Form eines Knotens am Haken.
 Dabei wurde ein Teil des Gummibandes verwendet, der im folgenden Versuch
 dann nicht gedehnt wurde.
+
+Die dauerhafte Verlängerung des Gummibandes, die auch in Versuch 1
+festgestellt wurde, beträgt für Versuch 2 \(6mm\), von \(15,8cm\) auf
+\(16,4cm\).
 
 \hypertarget{messung-1}{%
 \subsection{Messung}\label{messung-1}}
 
 Auch hier wurden die gemessenen Längen in die gleiche csv-Datei
 gespeichert, wie in Versuch 1. Die Massen der Gewichte sind ebenfalls
-bekannt. Die Unsicherheiten der Waage und der Skala (Maßband) könen
+bekannt. Die Unsicherheiten der Waage und der Skala (Maßband) können
 ebenfalls übernommen werden, da es sich um die selben Geräte handelt. Da
 die Massen dieselben sind sind auch die Gewichtskräfte und deren
 Unsicherheiten dieselben.
@@ -821,7 +831,7 @@ Unsicherheiten dieselben.
 \subsection{Auswertung}\label{auswertung}}
 
 Die Elongation muss erneut berechnet werden. Dafür wird die
-Anfangsausdehnung \(x_0\) von den Ausdehnungen \(x_i\) abgezugen und in
+Anfangsausdehnung \(x_0\) von den Ausdehnungen \(x_i\) abgezogen und in
 Meter umgerechnet werden.
 
 Die Federkonstante wird gemäß Gleichung \ref{hook:eq:Federkonstante}
@@ -835,13 +845,15 @@ wurde.
 \CommentTok{\# Entfernen von NA{-}Zeilen. Die Werte werden aus dem in Versuch 1 erstellten }
 \CommentTok{\# Dataframe kopiert}
 \NormalTok{Messreihe2 }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe[}\FunctionTok{complete.cases}\NormalTok{(Messreihe[ ,}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{15}\NormalTok{)]),]}
+
 \CommentTok{\# Normierung der Auslenkung}
 \NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0 }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2}\FloatTok{{-}15.8}
+
 \CommentTok{\# Umrechnung in m}
 \NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0\_m }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0}\SpecialCharTok{/}\DecValTok{100} \CommentTok{\#cm {-}\textgreater{} m}
 
 \CommentTok{\# Berechnung der Federkonstanten}
-\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Federkonstante2 }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe2}\SpecialCharTok{$}\NormalTok{Gewicht\_kg}\SpecialCharTok{*}\NormalTok{g}\SpecialCharTok{/}\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0\_m}
+\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Federkonstante2 }\OtherTok{\textless{}{-}}\NormalTok{ Messreihe2}\SpecialCharTok{$}\NormalTok{Kraft}\SpecialCharTok{/}\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0\_m}
 
 \CommentTok{\# Berechnung der Unsicherheit der Federkonstanten}
 \NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{u\_Federkonstante2 }\OtherTok{\textless{}{-}} \FunctionTok{u\_D\_funktion}\NormalTok{(}\AttributeTok{x=}\NormalTok{Messreihe2}\SpecialCharTok{$}\NormalTok{Auslenkung2\_x0\_m, }
@@ -853,20 +865,21 @@ wurde.
 Kraft-Auslenkung Diagramm:
 
 \begin{center}\includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-14-1} \end{center}
+\newpage
 
 Federkonstante-Auslenkung Diagramm:
 
 \begin{center}\includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-15-1} \end{center}
 
-Sowohl aus Gründen der Vergleichbarkeit werden auch bei der Berechnung
-eines Mittelwertes der Federkonstante in diesem Versuch die Werte für
-\(x_i<0,05m\) verworfen. Zudem wird in dem
-Federkonstante-Auslenkung-Schaubild auch deutlich, dass für die Werte
-kleiner als \textasciitilde5cm Auslenkung die Federkonstante keinen
-Stabilen Wert annimmt. Berechnung des Mittelwertes, der
-Standardabweichung und der Standardabweichung des Mittelwertes gemäß der
-Formeln \ref{Mittelwert}, \ref{Standardabweichung},
-\ref{StandardabweichungDesMittelwertes}.
+Auch aus Gründen der Vergleichbarkeit werden bei der Berechnung eines
+Mittelwertes der Federkonstante in diesem Versuch die Werte für
+\(x_i<0,05m\) verworfen. Zudem wird in dem Federkonstante-Auslenkung
+Schaubild auch deutlich, dass für die Werte kleiner als
+\textasciitilde5cm Auslenkung die Federkonstante ebenfalls keinen
+Stabilen Wert annimmt, auch daher erscheint dieses Vorgehen sinnvoll.
+Berechnung des Mittelwertes, der Standardabweichung und der
+Standardabweichung des Mittelwertes gemäß der Formeln \ref{Mittelwert},
+\ref{Standardabweichung}, \ref{StandardabweichungDesMittelwertes}.
 
 \begin{longtable}[]{@{}lr@{}}
 \caption{Statistische Größen zur zweiten bestimmten
@@ -886,7 +899,7 @@ SD\_von\_MW & 0.3195239 \\
 \end{longtable}
 
 Die in Versuch 2 bestimmte Federkonstante für eine Ausdehnung des Gummis
-über \(5cm\) beträgt: \(D_2=(13,10 \pm 0,31)\frac{N}{m}\).
+über \(5cm\) beträgt: \(D_2=(13,10 \pm 0,32)\frac{N}{m}\).
 
 \hypertarget{interpretation}{%
 \subsection{Interpretation}\label{interpretation}}
@@ -895,6 +908,14 @@ Damit ist die Federkonstante \(D_2\) in etwa halb so groß wie \(D_1\).
 Für die gleiche Ausdehnung des Gummibandes aus Versuch 2 um eine Strecke
 x ist nur etwa die halbe Kraft vonnöten, wie sie für die gleiche
 Ausdehnung des ringförmign Gummibandes aus Versuch 1 nötig wäre.
+
+Aus diesem Grund nehmen wir die aufgestellte Hypothese erstmal an.
+
+In einem weiteren Versuch würden wir testen, ob bei einer geeigneteren
+Befestigung des Gummibandes am Haken bzw. am Gewicht als durch die
+verwendeten Knoten, die bestimmte Gewichtskraft genauer der Hälfte der
+Federkonstante \(D_1\) aus Versuch 1 entspricht. Denkbar wäre z.B. eine
+Befestigung mit Krokodilklemmen oder Ähnlichem.
 
 \newpage
 
@@ -939,98 +960,98 @@ u\_D2{[}N/m{]}
 \end{minipage} \\
 \midrule()
 \endhead
-2 & 1 & 0.0048 & 0.0000577 & 16.5 & 0.007 & 0.0471 & 0.00057 & 2.6160 &
-0.2085 \\
-3 & 1 & 0.0100 & 0.0000577 & 16.7 & 0.009 & 0.0981 & 0.00057 & 4.6714 &
-0.2503 \\
-4 & 2 & 0.0148 & 0.0001155 & 16.9 & 0.011 & 0.1452 & 0.00113 & 6.3125 &
-0.2611 \\
-5 & 1 & 0.0198 & 0.0000577 & 17.0 & 0.012 & 0.1942 & 0.00057 & 8.0932 &
-0.2739 \\
-6 & 2 & 0.0246 & 0.0001155 & 17.0 & 0.012 & 0.2413 & 0.00113 & 9.2818 &
-0.3482 \\
-7 & 2 & 0.0298 & 0.0001155 & 17.3 & 0.015 & 0.2923 & 0.00113 & 11.2438 &
-0.2706 \\
-8 & 3 & 0.0346 & 0.0001732 & 17.4 & 0.016 & 0.3394 & 0.00170 & 12.5713 &
-0.2857 \\
-9 & 3 & 0.0398 & 0.0001732 & 17.7 & 0.019 & 0.3904 & 0.00170 & 13.9442 &
-0.2341 \\
-10 & 4 & 0.0446 & 0.0002309 & 17.9 & 0.021 & 0.4375 & 0.00227 & 15.0871
-& 0.2259 \\
-11 & 1 & 0.0499 & 0.0000577 & 18.0 & 0.022 & 0.4895 & 0.00057 & 17.4828
-& 0.2039 \\
-12 & 2 & 0.0547 & 0.0001155 & 18.3 & 0.025 & 0.5366 & 0.00113 & 18.5037
-& 0.1776 \\
-13 & 2 & 0.0599 & 0.0001155 & 18.5 & 0.027 & 0.5876 & 0.00113 & 19.5873
-& 0.1666 \\
-14 & 3 & 0.0647 & 0.0001732 & 18.8 & 0.030 & 0.6347 & 0.00170 & 20.4744
-& 0.1520 \\
-15 & 2 & 0.0699 & 0.0001155 & 19.0 & 0.032 & 0.6857 & 0.00113 & 21.4287
-& 0.1385 \\
-16 & 3 & 0.0747 & 0.0001732 & 19.3 & 0.035 & 0.7328 & 0.00170 & 22.2063
-& 0.1291 \\
-17 & 3 & 0.0797 & 0.0001732 & 19.7 & 0.039 & 0.7819 & 0.00170 & 23.6926
-& 0.1117 \\
-18 & 4 & 0.0845 & 0.0002309 & 20.3 & 0.045 & 0.8289 & 0.00227 & 24.3807
-& 0.0961 \\
-19 & 4 & 0.0897 & 0.0002309 & 20.5 & 0.047 & 0.8800 & 0.00227 & 25.8811
-& 0.0931 \\
-20 & 5 & 0.0945 & 0.0002887 & 21.0 & 0.052 & 0.9270 & 0.00283 & 26.4870
-& 0.0876 \\
-21 & 1 & 0.0995 & 0.0000577 & 21.5 & 0.057 & 0.9761 & 0.00057 & 27.1137
-& 0.0609 \\
-22 & 2 & 0.1095 & 0.0001155 & 22.3 & 0.065 & 1.0742 & 0.00113 & 27.5435
-& 0.0538 \\
-23 & 2 & 0.1193 & 0.0001155 & 23.4 & 0.076 & 1.1703 & 0.00113 & 28.5447
-& 0.0432 \\
-24 & 3 & 0.1293 & 0.0001732 & 24.5 & 0.087 & 1.2684 & 0.00170 & 30.2008
-& 0.0388 \\
-25 & 4 & 0.1393 & 0.0002309 & 25.9 & 0.101 & 1.3665 & 0.00227 & 31.0576
-& 0.0349 \\
-26 & 2 & 0.1494 & 0.0001155 & 26.6 & 0.108 & 1.4656 & 0.00113 & 31.8612
-& 0.0272 \\
-27 & 3 & 0.1594 & 0.0001732 & 27.9 & 0.121 & 1.5637 & 0.00170 & 32.5774
-& 0.0256 \\
-28 & 3 & 0.1692 & 0.0001732 & 28.7 & 0.129 & 1.6599 & 0.00170 & 31.9202
-& 0.0239 \\
-29 & 4 & 0.1792 & 0.0002309 & 30.2 & 0.144 & 1.7580 & 0.00227 & 32.5547
-& 0.0231 \\
-30 & 5 & 0.1892 & 0.0002887 & 31.1 & 0.153 & 1.8561 & 0.00283 & 32.5623
-& 0.0244 \\
-31 & 1 & 0.1985 & 0.0000577 & 32.2 & 0.164 & 1.9473 & 0.00057 & 31.9227
-& 0.0149 \\
-32 & 2 & 0.2085 & 0.0001155 & 33.4 & 0.176 & 2.0454 & 0.00113 & 32.4664
-& 0.0147 \\
-33 & 2 & 0.2183 & 0.0001155 & 34.0 & 0.182 & 2.1415 & 0.00113 & 32.4473
-& 0.0144 \\
-34 & 3 & 0.2283 & 0.0001732 & 34.9 & 0.191 & 2.2396 & 0.00170 & 31.9946
-& 0.0152 \\
-35 & 4 & 0.2383 & 0.0002309 & 35.8 & 0.200 & 2.3377 & 0.00227 & 32.0236
-& 0.0163 \\
-36 & 2 & 0.2484 & 0.0001155 & 36.5 & 0.207 & 2.4368 & 0.00113 & 31.6468
-& 0.0126 \\
-37 & 3 & 0.2584 & 0.0001732 & 37.1 & 0.213 & 2.5349 & 0.00170 & 31.2951
-& 0.0137 \\
-38 & 3 & 0.2682 & 0.0001732 & 37.7 & 0.219 & 2.6310 & 0.00170 & 30.5935
-& 0.0134 \\
-39 & 4 & 0.2782 & 0.0002309 & 38.1 & 0.223 & 2.7291 & 0.00227 & 31.0130
-& 0.0150 \\
-40 & 5 & 0.2882 & 0.0002887 & 39.0 & 0.232 & 2.8272 & 0.00283 & 31.0686
-& 0.0161 \\
-41 & 2 & 0.2980 & 0.0001155 & 39.6 & 0.238 & 2.9234 & 0.00113 & 30.1379
-& 0.0114 \\
-42 & 3 & 0.3080 & 0.0001732 & 40.1 & 0.243 & 3.0215 & 0.00170 & 30.2148
-& 0.0124 \\
-43 & 3 & 0.3178 & 0.0001732 & 40.7 & 0.249 & 3.1176 & 0.00170 & 30.2681
-& 0.0122 \\
-44 & 4 & 0.3278 & 0.0002309 & 41.0 & 0.252 & 3.2157 & 0.00227 & 29.7752
+2 & 1 & 0.0048 & 0.0000351 & 16.5 & 0.007 & 0.0471 & 0.00034 & 2.6160 &
+0.1984 \\
+3 & 1 & 0.0100 & 0.0000351 & 16.7 & 0.009 & 0.0981 & 0.00034 & 4.6714 &
+0.2452 \\
+4 & 2 & 0.0148 & 0.0000702 & 16.9 & 0.011 & 0.1452 & 0.00069 & 6.3125 &
+0.2480 \\
+5 & 1 & 0.0198 & 0.0000351 & 17.0 & 0.012 & 0.1942 & 0.00034 & 8.0932 &
+0.2713 \\
+6 & 2 & 0.0246 & 0.0000702 & 17.0 & 0.012 & 0.2413 & 0.00069 & 9.2818 &
+0.3401 \\
+7 & 2 & 0.0298 & 0.0000702 & 17.3 & 0.015 & 0.2923 & 0.00069 & 11.2438 &
+0.2639 \\
+8 & 3 & 0.0346 & 0.0001054 & 17.4 & 0.016 & 0.3394 & 0.00103 & 12.5713 &
+0.2729 \\
+9 & 3 & 0.0398 & 0.0001054 & 17.7 & 0.019 & 0.3904 & 0.00103 & 13.9442 &
+0.2230 \\
+10 & 4 & 0.0446 & 0.0001405 & 17.9 & 0.021 & 0.4375 & 0.00138 & 15.0871
+& 0.2090 \\
+11 & 1 & 0.0499 & 0.0000351 & 18.0 & 0.022 & 0.4895 & 0.00034 & 17.4828
+& 0.2029 \\
+12 & 2 & 0.0547 & 0.0000702 & 18.3 & 0.025 & 0.5366 & 0.00069 & 18.5037
+& 0.1739 \\
+13 & 2 & 0.0599 & 0.0000702 & 18.5 & 0.027 & 0.5876 & 0.00069 & 19.5873
+& 0.1632 \\
+14 & 3 & 0.0647 & 0.0001054 & 18.8 & 0.030 & 0.6347 & 0.00103 & 20.4744
+& 0.1452 \\
+15 & 2 & 0.0699 & 0.0000702 & 19.0 & 0.032 & 0.6857 & 0.00069 & 21.4287
+& 0.1356 \\
+16 & 3 & 0.0747 & 0.0001054 & 19.3 & 0.035 & 0.7328 & 0.00103 & 22.2063
+& 0.1232 \\
+17 & 3 & 0.0797 & 0.0001054 & 19.7 & 0.039 & 0.7819 & 0.00103 & 23.6926
+& 0.1062 \\
+18 & 4 & 0.0845 & 0.0001405 & 20.3 & 0.045 & 0.8289 & 0.00138 & 24.3807
+& 0.0874 \\
+19 & 4 & 0.0897 & 0.0001405 & 20.5 & 0.047 & 0.8800 & 0.00138 & 25.8811
+& 0.0849 \\
+20 & 5 & 0.0945 & 0.0001756 & 21.0 & 0.052 & 0.9270 & 0.00172 & 26.4870
+& 0.0762 \\
+21 & 1 & 0.0995 & 0.0000351 & 21.5 & 0.057 & 0.9761 & 0.00034 & 27.1137
+& 0.0604 \\
+22 & 2 & 0.1095 & 0.0000702 & 22.3 & 0.065 & 1.0742 & 0.00069 & 27.5435
+& 0.0519 \\
+23 & 2 & 0.1193 & 0.0000702 & 23.4 & 0.076 & 1.1703 & 0.00069 & 28.5447
+& 0.0415 \\
+24 & 3 & 0.1293 & 0.0001054 & 24.5 & 0.087 & 1.2684 & 0.00103 & 30.2008
+& 0.0356 \\
+25 & 4 & 0.1393 & 0.0001405 & 25.9 & 0.101 & 1.3665 & 0.00138 & 31.0576
+& 0.0301 \\
+26 & 2 & 0.1494 & 0.0000702 & 26.6 & 0.108 & 1.4656 & 0.00069 & 31.8612
+& 0.0259 \\
+27 & 3 & 0.1594 & 0.0001054 & 27.9 & 0.121 & 1.5637 & 0.00103 & 32.5774
+& 0.0230 \\
+28 & 3 & 0.1692 & 0.0001054 & 28.7 & 0.129 & 1.6599 & 0.00103 & 31.9202
+& 0.0215 \\
+29 & 4 & 0.1792 & 0.0001405 & 30.2 & 0.144 & 1.7580 & 0.00138 & 32.5547
+& 0.0195 \\
+30 & 5 & 0.1892 & 0.0001756 & 31.1 & 0.153 & 1.8561 & 0.00172 & 32.5623
+& 0.0194 \\
+31 & 1 & 0.1985 & 0.0000351 & 32.2 & 0.164 & 1.9473 & 0.00034 & 31.9227
+& 0.0146 \\
+32 & 2 & 0.2085 & 0.0000702 & 33.4 & 0.176 & 2.0454 & 0.00069 & 32.4664
+& 0.0138 \\
+33 & 2 & 0.2183 & 0.0000702 & 34.0 & 0.182 & 2.1415 & 0.00069 & 32.4473
 & 0.0135 \\
-45 & 5 & 0.3378 & 0.0002887 & 41.8 & 0.260 & 3.3138 & 0.00283 & 29.8542
-& 0.0147 \\
-46 & 3 & 0.3479 & 0.0001732 & 42.0 & 0.262 & 3.4129 & 0.00170 & 29.6774
+34 & 3 & 0.2283 & 0.0001054 & 34.9 & 0.191 & 2.2396 & 0.00103 & 31.9946
+& 0.0134 \\
+35 & 4 & 0.2383 & 0.0001405 & 35.8 & 0.200 & 2.3377 & 0.00138 & 32.0236
+& 0.0136 \\
+36 & 2 & 0.2484 & 0.0000702 & 36.5 & 0.207 & 2.4368 & 0.00069 & 31.6468
 & 0.0119 \\
-51 & 4 & 0.3990 & 0.0002309 & 44.7 & 0.289 & 3.9142 & 0.00227 & 29.4300
+37 & 3 & 0.2584 & 0.0001054 & 37.1 & 0.213 & 2.5349 & 0.00103 & 31.2951
 & 0.0122 \\
+38 & 3 & 0.2682 & 0.0001054 & 37.7 & 0.219 & 2.6310 & 0.00103 & 30.5935
+& 0.0119 \\
+39 & 4 & 0.2782 & 0.0001405 & 38.1 & 0.223 & 2.7291 & 0.00138 & 31.0130
+& 0.0126 \\
+40 & 5 & 0.2882 & 0.0001756 & 39.0 & 0.232 & 2.8272 & 0.00172 & 31.0686
+& 0.0129 \\
+41 & 2 & 0.2980 & 0.0000702 & 39.6 & 0.238 & 2.9234 & 0.00069 & 30.1379
+& 0.0107 \\
+42 & 3 & 0.3080 & 0.0001054 & 40.1 & 0.243 & 3.0215 & 0.00103 & 30.2148
+& 0.0111 \\
+43 & 3 & 0.3178 & 0.0001054 & 40.7 & 0.249 & 3.1176 & 0.00103 & 30.2681
+& 0.0109 \\
+44 & 4 & 0.3278 & 0.0001405 & 41.0 & 0.252 & 3.2157 & 0.00138 & 29.7752
+& 0.0115 \\
+45 & 5 & 0.3378 & 0.0001756 & 41.8 & 0.260 & 3.3138 & 0.00172 & 29.8542
+& 0.0118 \\
+46 & 3 & 0.3479 & 0.0001054 & 42.0 & 0.262 & 3.4129 & 0.00103 & 29.6774
+& 0.0107 \\
+51 & 4 & 0.3990 & 0.0001405 & 44.7 & 0.289 & 3.9142 & 0.00138 & 29.4300
+& 0.0105 \\
 \bottomrule()
 \end{longtable}
 

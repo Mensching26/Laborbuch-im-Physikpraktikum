@@ -36,19 +36,19 @@ output:
 * Befestigung des Hakens am Stativ
 * Befestigung des Maßbandes am Stativ mit Hilfe von Klebeband
 * Aufhängung des Gummibandes am Haken
-* In das Gummiband werden die Gewichte gehängt
+* In das Gummiband aufgehangen werden die Gewichte darann aufgehängt
 
-![Versuchsaufbau 1](Bilder/V1B1.jpeg){width=20%, height=20%}
+![Versuchsaufbau 1](Bilder/V1B2.jpeg){width=20%, height=20%}
 
-![Versuchsaufbau 1, Nahansicht](Bilder/V2B2.jpeg){width=20%, height=20%}
+![Versuchsaufbau 1, Nahansicht](Bilder/V2B1.jpeg){width=20%, height=20%}
 
 
 ## Durchführung
 
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
 Die 10g und die 100g Gewichte lagen doppelt vor und waren jeweils gleich schwer.
-Die Gewichte stellten sich generell als zu leicht heraus. 
-Nur die zwei 10g Gewichte wogen nach einer Beschriftung mit Klebeband $10,0g$.
+Sämtliche Gewichte stellten sich als zu leicht heraus. 
+Nur die zwei 10g Gewichte wogen nach einer Beschriftung mit dem Klebeband $10,0g$.
 ```{r, echo=FALSE}
 Gewichte <- read.csv("Daten/Gewichte.csv", 
                      col.names = c("Nominalgewicht", "Einzelmasse_g", 
@@ -60,17 +60,17 @@ Die Gesamtmasse $m_{ges}$ einer Gewichtskombination wird durch Addition der Teil
 
 Die Geräteungenauigkeit berechnet sich zu: $u_{Gerät}= \sqrt{u_{Skala}^2+u_{Waage}^2}$. 
 Dabei ist $u_{Skala}$ konstant bei $u_{Skala} = \frac{0,0001kg}{2\sqrt{3}}=2,9*10^{-5}kg$.
-Für $u_{Waage}$ wurde eine Messunsicherheit von ... am Gerät abgelesen.
-Damit errechnet sich eine Geräteungenauigkeit von $u_{Gerät}=$ ... .
+Für $u_{Waage}$ wurde eine Messunsicherheit von 0,02g am Gerät abgelesen.
+Damit errechnet sich eine Geräteungenauigkeit von $u_{Gerät}=\sqrt{(2,9*10^{-5})^2+(2*10^{-5})^2}kg=3,5*10^{-5}kg$.
 
-Für die Unsicherheit der aus $n$ Gewichten kombinierten Masse M $u_{m}$ gilt, da für alle Messungen die gleiche Waage benutzt wurde, der Zusammenhang:
+Für die Unsicherheit der aus $n$ Gewichten kombinierten Masse M $u_{m}$ gilt, da für alle Messungen dieselbe Waage benutzt wurde, der Zusammenhang:
 $$u_m = \sum\limits_{i=1}^{n}u_{m,i} = n*u_{Gerät}$$
 Mit $n$: Anzahl der kombinierten Gewichte
 ```{r}
-# Skalenunsicherheit
+# Skalenunsicherheit der Waage
 u_Skala = (1*10**(-4))/(2*sqrt(3)) #kg
-# BAUSTELLE: Hier fehlt noch die Geräteungenauigkeit der Waage (Waagenunsicherheit)
-u_Waage = 0.05*10**(-3) #Geschätzt in kg
+# Wagenunsicherheit
+u_Waage = 0.02*10**(-3) # kg
 # Geräteunsicherheit
 u_Gerät = sqrt((u_Skala)^2+(u_Waage)^2)
 # Massenunsicherheit
@@ -80,10 +80,10 @@ u_m = Gewichte$n_Gewichte*u_Gerät #kg
 Zunächst wird die Länge des Gummibandes ohne zusätzliches Gewicht gemessen. 
 Die Länge betrug 11,2 cm. Diese Länge muss später von allen Messwerten abgezogen werden, um nur die Auslenkung aus dem Nullzustand als Datensatz aufzunehmen.
 
-Danach werden nacheinander verschiedene Gewichte an das Gummiband gehängt und die entsprechende Elongation gemessen. 
+Danach werden verschiedene Gewichte an das Gummiband gehängt und die entsprechende Elongation gemessen. 
 Diese wird an der Unterkante des Gummibandes, sobald dieses nach dem Anbringen der Gewichte nicht mehr schwingt, abgelesen.
 Unsere Gruppe entschied sich zunächst dafür, eine Messreihe mit Intervallen von $5g$ durchzuführen. 
-Nach den ersten 20 Messungen ($100g$) entschieden wir uns dafür, die Intervalle auf $10g$ zu erhöhen, da wir zunächst den Aufwand unterschätzten und Daten mit einem Abstand von 10g immer noch zur Beurteilung der Federkonstante ausreichen.
+Nach den ersten 20 Messungen (bis $100g$) entschieden wir uns dafür, die Intervalle auf $10g$ zu erhöhen, da wir zunächst den Aufwand unterschätzten und Daten mit einem Abstand von 10g immer noch zur Beurteilung der Federkonstante ausreichen.
 
 Die Auslenkung wird am Maßband abgelesen (Messskala in mm). Dies bedeutet eine Ungenauigket der Elongation von:
 $$u_{x}=\frac{a}{2\sqrt{6}}= \frac{0,001m}{2\sqrt{6}}=2,0*10^{-4}m$$
@@ -120,11 +120,12 @@ An dieser Stelle können die erhobenen Messwerte zum Zwecke der Interpretation a
 Die Werte sind auf der letzten Seite aufgeführt, zusammen mit errechneten Größen und zugehörigen Unsicherheiten.
 
 ```{r}
+# Einlesen der csv-Datei
 Messreihe <- read.csv("Daten/Messreihe.csv", sep=";", dec = ",")
 
 # Anbindung der bereits errechneten Unsicherheit der Masse
 Messreihe <- cbind(Messreihe, u_m)
-
+# Umbenennung der Spalten
 colnames(Messreihe) <- c("n_Gewichte", "Sollwert_g", "Gewicht_g", 
                          "Auslenkung1_cm",  "Auslenkung2", "x_Haken", 
                          "x_0_Ende", "u_m")
@@ -134,7 +135,7 @@ colnames(Messreihe) <- c("n_Gewichte", "Sollwert_g", "Gewicht_g",
 
 ### Berechnung der Gewichts- und Zugkraft
 
-Zur Interpretation der Messergebnisse wird die Elongation $x_i$ normiert, indem die Nullauslenkung, diese beträgt $11,2 cm$ auf dem Maßband, von den anderen Messwerten subtrahiert wird, siehe entsprechenden Messwert für ein Gewicht von $0g$.
+Zur Interpretation der Messergebnisse wird die Elongation $x_i$ normiert, indem die Nullauslenkung, diese beträgt $11,2 cm$ auf dem Maßband, von den anderen Messwerten subtrahiert wird, siehe entsprechenden Messwert für ein Gewicht von $0g$ im Abschnitt \textit{Messwerte und errechnete Größen}.
 
 Zudem wird, wie bei allen anderen Messgrößen auch, die Einheit in eine SI-Einheit umgerechnet, um den Einheitenbezug korrekt zu halten. 
 In diesem Falle also in Meter.
@@ -142,7 +143,7 @@ In diesem Falle also in Meter.
 Im Anschluss wird die Kraft $F_{G,i} = m_i * g$ in Newton berechnet, die für das Gewicht $m_i$ auf das Gummiband wirkt.
 Die Erdbeschleunigung $g$ wird auf $9,81\frac{m}{s^2}$ festgesetzt.
 Im Folgenden wird, wenn die Unterscheidung zwischen Gewichts- und Zugkraft aufgrund der Betragsgleichheit im zu untersuchenden Ruhezustand unsinnig ist, von einer sematischen Unterscheidung von $F_G$ und $F_{Zug}$ abgesehen und stattdessen verallgemeinernd von der wirkenden Kraft $F$ gesprochen.
-Neben der Kraft $F$ wird auch die Unsicherheit der Kraft berechnet.
+Neben der Kraft $F$ wird auch die Unsicherheit der Kraft $u_F$ berechnet.
 Diese berechnet sich als:
 \begin{align*}
 \begin{split}
@@ -165,7 +166,7 @@ g = 9.81 #m/s^2
 
 # Berechnung von Kraft und u_Kraft
 Messreihe$Kraft <- Messreihe$Gewicht_kg * g #N
-Messreihe$u_Kraft <- g*u_m
+Messreihe$u_Kraft <- g*u_m #N
 ```
 
 
@@ -181,7 +182,8 @@ ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft,
                      xmax = Auslenkung1_x0_m+u_x),
                  height=0.1)
 ```
-Wird $F$ gegen $x_i$ aufgetragen, ergibt sich  optisch ab einer Auslenkung von $5cm$ ein etwa linearer Zusammenhang. 
+Wird $F$ gegen $x_i$ aufgetragen, ergibt sich  optisch ab einer Auslenkung von $5cm$ ein etwa linearer Zusammenhang.
+Fehlerbalken sind sowohl für die Auslenkung, als auch für die Kraft vorhanden, fallen aber sehr klein aus.
 Im Bereich zwischen einer Elongation von $0cm$ und $5cm$ kann das Ausdehnungsverhalten des Gummibandes unter einer Gewichtsbelastung nicht als linear betrachtet und nicht durch eine Federkonstante beschrieben werden.
 Für die Berechnung der Federkonstanten haben wir uns daher entschieden, die Werte für $x_i<0,05m$ auszuschließen. 
 Zugleich müssen wir dann allerdings feststellen, dass die errechnete Federkonstante nur im Intervall $x \in (0,05m,\ x_{max}]$ gilt.
@@ -221,7 +223,7 @@ u_D &=\sqrt{(\frac{g}{x}*u_m)^2+(-\frac{m*g}{x^2}*u_x)^2}\\
 Berechnung in R:
 ```{r}
 # Funktion zur Berechnung der Messunsicherheit der Federkonstanten
-# INPUT: x, m, u_m, u_x (glob)
+# INPUT: x, m, u_m (glob: u_x)
 # OUTPUT: u_D
 u_D_funktion <- function(x,m, UM){
   sqrt(((g/x)*UM)**2+((-m*g/x**2)*u_x)**2)
@@ -251,7 +253,7 @@ ggplot(subset(Messreihe, !is.na(Federkonstante)),
   ylab("Federkonstante D [N/m]") +
   ylim(c(0,35))
 ```
-Daher haben wir uns entschiden, nur in dem beschriebenen Intervall $x \in (0,05m,\ x_{max}]$ zu mitteln. Dort wird nach GUM der Mittelwert und die Standardabweichung des Mittelwertes berechnet, um ein Messergebnis und dessen Unsicherheit zu erhalten.
+Daher haben wir uns entschieden, nur in dem beschriebenen Intervall $x \in (0,05m,\ x_{max}]$ zu mitteln. Dort wird nach GUM der Mittelwert und die Standardabweichung des Mittelwertes berechnet, um ein Messergebnis und dessen Unsicherheit zu erhalten.
 
 Mittelwert: 
 \begin{equation}\label{Mittelwert}
@@ -280,7 +282,8 @@ knitr::kable(d, caption = "Statistische Größen zur bestimmten Federkonstante")
 Die bestimmte Federkonstante, für eine Auslenkung des Gummibandes im Bereich von $5,0$ bis $26.8cm$, beträgt also $D_1=(30,82\pm 0,17)\frac{N}{m}$
 
 \newpage
-Hier wird die Federkonstante als Gerade nocheinmal im Kraft-Auslenkungsschaubild dargestellt. Die blau eingefärbten Punkte sind diejenigen Punkte, die nicht in die Berechnung mit eingingen. 
+Hier wird die Federkonstante als Gerade nocheinmal im Kraft-Auslenkungsschaubild dargestellt. 
+Die in Blau eingefärbten Punkte sind diejenigen Punkte, die nicht in die Berechnung eingingen. 
 
 ```{r, echo=FALSE, fig.cap="Elongation eingezeichnet im Kraft-Auslenkung Schaubild"}
 ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft, 
@@ -289,10 +292,6 @@ ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft,
   scale_color_manual(labels = c("El<0.05m", "El>0.05m"), values = c("lightblue", "red"))+
   geom_point(aes(colour = cut(Auslenkung1_x0_m, c(-Inf, 0.05, Inf))),
              size = 1.8) + 
-  geom_errorbar(width = 0.001) + 
-  geom_errorbarh(aes(xmin = Auslenkung1_x0_m-u_x,
-                     xmax = Auslenkung1_x0_m+u_x),
-                 height=0.1)+
   geom_abline(slope=d["Mittelwert",], intercept = 0)+
   geom_abline(slope=d["Mittelwert",]-d["SD_von_MW",], intercept = 0)+
   geom_abline(slope=d["Mittelwert",]+d["SD_von_MW",], intercept = 0)+
@@ -302,9 +301,10 @@ ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft,
           legend.box = "vertical")
 ```
 Angemerkt sei, dass für die Steigung der Federkonstanten der Mittelwert und die Mittelwerte ab- bzw. zuzüglich der Standardabweichung des Mittelwertes angenommen wurden. 
-Die Drei Geraden überlagern sich sehr stark.
+Die drei Geraden überlagern sich sehr stark.
 Ebenso wurde ein Nulldurchgang festgelegt, da bei keiner Krafteinwirkung keine Elongation stattfindet.
-Ebenso sei angemerkt, dass die Fehlerbalken vorhanden sind, wie auch in den Diagrammen zuvor, nur dass diese eher klein ausfallen, vergleiche entsprechend errechnete Werte im Abschnitt \textit{Messwerte und errechnete Größen}.
+Ebenso sei angemerkt, dass auf Fehlerbalken verzichtet wurde, da diese bereits im ersten Kraft-Auslenkungs Schaubild eingezeichnet wurden und zudem, aufgrund der kleinen Unsicherheiten, keinen grsphischen Mehrwert bieten. 
+Die Fehlerwerte könne außerdem im Abschnitt \textit{Messwerte und errechnete Größen} nachgeschlagen werden.
 
 ### Messwerte und errechnete Größen
 
@@ -361,38 +361,45 @@ Eine Hypothese ist, dass die Auslenkung bei gleicher Gewichtskraft doppelt so ho
 
 ## Durchführung
 
-Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von 100g in 5g - Intervallen und danach in 10g- Schriiten zu messen, um die Daten mit den Daten aus der ersten Versuchsreihe gut vergleichen können. 
+Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von 100g in 5g - Intervallen und danach in 10g- Schritten zu messen, um die Daten dieser Zwei Versuche gut vergleichen können.
 Da das Band allerdings viel stärker durch das Anbringen von Gewicht gedehnt wurde, konnten wir ab 360g keine Messungewn mehr durchführen, da die Gewichte durch ihre Länge anfingen am Tisch aufzuliegen und so die Normalkraft die Gewichtskraft verfälscht hätte. 
-Stattdessen haben wir den aus platztechnisch noch gut messbaren Wert für 400g genommen und den Rest der Tabelle nicht ausgefüllt.
-$x_0$ lag bei uns in diesem Fall bei 15,8cm.
+Stattdessen haben wir den aus platztechnisch noch gut messbaren Wert für 400g (nur drei Gewichte) genommen und den Rest der Tabelle nicht ausgefüllt.
+Die Anfangsausdehnung $x_0$ lag in diesem Fall bei 15,8cm.
 
 ## Fehlerquellen
-Ein möglicher Faktor, der die Federkonstane verfälschen kann, ist neben den im Versuch 1 genannten Problemen, die Art der Befestigung des nun einsträngigen Gummibandes.
-Diese geschaf in Form eines Knotens am Haken.
+Ein möglicher Faktor, der die Federkonstane verfälschen kann, ist neben den im Versuch 1 genannten Problemen, die Art der Befestigung, des nun einsträngigen Gummibandes.
+Diese geschah in Form eines Knotens am Haken.
 Dabei wurde ein Teil des Gummibandes verwendet, der im folgenden Versuch dann nicht gedehnt wurde.
 
+Die dauerhafte Verlängerung des Gummibandes, die auch in Versuch 1 festgestellt wurde, beträgt für Versuch 2 $6mm$, von $15,8cm$ auf $16,4cm$.
+
 ## Messung
+
 Auch hier wurden die gemessenen Längen in die gleiche csv-Datei gespeichert, wie in Versuch 1. 
 Die Massen der Gewichte sind ebenfalls bekannt.
-Die Unsicherheiten der Waage und der Skala (Maßband) könen ebenfalls übernommen werden, da es sich um die selben Geräte handelt.
+Die Unsicherheiten der Waage und der Skala (Maßband) können ebenfalls übernommen werden, da es sich um die selben Geräte handelt.
 Da die Massen dieselben sind sind auch die Gewichtskräfte und deren Unsicherheiten dieselben.
 
 ## Auswertung 
-Die Elongation muss erneut berechnet werden. Dafür wird die Anfangsausdehnung $x_0$ von den Ausdehnungen $x_i$ abgezugen und in Meter umgerechnet werden.
+Die Elongation muss erneut berechnet werden. Dafür wird die Anfangsausdehnung $x_0$ von den Ausdehnungen $x_i$ abgezogen und in Meter umgerechnet werden.
 
-Die Federkonstante wird gemäß Gleichung \ref{hook:eq:Federkonstante} berechnet. Ebenso deren Unsicherheiten für jeden einzelnen Wert gemäß Gleichung \ref{hook:eq:u_Federkonstante}. Die Berechnung erfolgt mit Hilfe der Funktion "u_D_funktion", welche in Versuch 1 definiert wurde.
+Die Federkonstante wird gemäß Gleichung \ref{hook:eq:Federkonstante} berechnet. 
+Ebenso deren Unsicherheiten für jeden einzelnen Wert gemäß Gleichung \ref{hook:eq:u_Federkonstante}. 
+Die Berechnung erfolgt mit Hilfe der Funktion "u_D_funktion", welche in Versuch 1 definiert wurde.
 
 ```{r}
 # Entfernen von NA-Zeilen. Die Werte werden aus dem in Versuch 1 erstellten 
 # Dataframe kopiert
 Messreihe2 <- Messreihe[complete.cases(Messreihe[ ,c(5,14,15)]),]
+
 # Normierung der Auslenkung
 Messreihe2$Auslenkung2_x0 <- Messreihe2$Auslenkung2-15.8
+
 # Umrechnung in m
 Messreihe2$Auslenkung2_x0_m <- Messreihe2$Auslenkung2_x0/100 #cm -> m
 
 # Berechnung der Federkonstanten
-Messreihe2$Federkonstante2 <- Messreihe2$Gewicht_kg*g/Messreihe2$Auslenkung2_x0_m
+Messreihe2$Federkonstante2 <- Messreihe2$Kraft/Messreihe2$Auslenkung2_x0_m
 
 # Berechnung der Unsicherheit der Federkonstanten
 Messreihe2$u_Federkonstante2 <- u_D_funktion(x=Messreihe2$Auslenkung2_x0_m, 
@@ -410,6 +417,7 @@ ggplot(Messreihe2, aes(x = Auslenkung2_x0_m, y = Kraft,
                      xmax = Auslenkung2_x0_m+u_x),
                  height=0.05) 
 ```
+\newpage
 Federkonstante-Auslenkung Diagramm:
 ```{r, echo=FALSE, fig.height=3, fig.align = 'center'}
 ymini <- Messreihe2$Federkonstante2-Messreihe2$u_Federkonstante2
@@ -429,8 +437,8 @@ ggplot(Messreihe2,
   geom_vline(xintercept=0.05, linetype='dotted', col = 'black')+
   geom_text(x=0.07, y=0, label="x=0,05m") 
 ```
-Sowohl aus Gründen der Vergleichbarkeit werden auch bei der Berechnung eines Mittelwertes der Federkonstante in diesem Versuch die Werte für $x_i<0,05m$ verworfen.
-Zudem wird in dem Federkonstante-Auslenkung-Schaubild auch deutlich, dass für die Werte kleiner als ~5cm Auslenkung die Federkonstante keinen Stabilen Wert annimmt.
+Auch aus Gründen der Vergleichbarkeit werden bei der Berechnung eines Mittelwertes der Federkonstante in diesem Versuch die Werte für $x_i<0,05m$ verworfen.
+Zudem wird in dem Federkonstante-Auslenkung Schaubild auch deutlich, dass für die Werte kleiner als ~5cm Auslenkung die Federkonstante ebenfalls keinen Stabilen Wert annimmt, auch daher erscheint dieses Vorgehen sinnvoll.
 Berechnung des Mittelwertes, der Standardabweichung und der Standardabweichung des Mittelwertes gemäß der Formeln \ref{Mittelwert}, \ref{Standardabweichung}, \ref{StandardabweichungDesMittelwertes}.
 
 ```{r, echo=FALSE}
@@ -442,12 +450,17 @@ d <- data.frame(Werte=c(mean(D), sd(D), sd(D)/sqrt(length(D))))
 rownames(d) <- c("Mittelwert_MW", "Standardabweichung_SD", "SD_von_MW")
 knitr::kable(d, caption = "Statistische Größen zur zweiten bestimmten Federkonstante")
 ```
-Die in Versuch 2 bestimmte Federkonstante für eine Ausdehnung des Gummis über $5cm$ beträgt: $D_2=(13,10 \pm 0,31)\frac{N}{m}$.
+Die in Versuch 2 bestimmte Federkonstante für eine Ausdehnung des Gummis über $5cm$ beträgt: $D_2=(13,10 \pm 0,32)\frac{N}{m}$.
 
 ## Interpretation
 
 Damit ist die Federkonstante $D_2$ in etwa halb so groß wie $D_1$. 
 Für die gleiche Ausdehnung des Gummibandes aus Versuch 2 um eine Strecke x ist nur etwa die halbe Kraft vonnöten, wie sie für die gleiche Ausdehnung des ringförmign Gummibandes aus Versuch 1 nötig wäre.
+
+Aus diesem Grund nehmen wir die aufgestellte Hypothese erstmal an.
+
+In einem weiteren Versuch würden wir testen, ob bei einer geeigneteren Befestigung des Gummibandes am Haken bzw. am Gewicht als durch die verwendeten Knoten, die bestimmte Gewichtskraft genauer der Hälfte der Federkonstante $D_1$ aus Versuch 1 entspricht.
+Denkbar wäre z.B. eine Befestigung mit Krokodilklemmen oder Ähnlichem.
 
 \newpage
 ### Messwerte und errechnete Größen
