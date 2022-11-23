@@ -34,6 +34,15 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Dehnbare Stoffe},
+  pdfauthor={Justus Weyers \& Milena Mensching, Team 4},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -114,15 +123,6 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={Dehnbare Stoffe},
-  pdfauthor={Justus Weyers \& Milena Mensching, Team 4},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
 
 \title{Dehnbare Stoffe}
 \author{Justus Weyers \& Milena Mensching, Team 4}
@@ -173,7 +173,7 @@ durch Bestimmung der Federkonstante
 \item
   Aufhängung des Gummibandes am Haken
 \item
-  In das Gummiband aufgehangen werden die Gewichte darann aufgehängt
+  In das Gummiband aufgehangen werden die Gewichte daran aufgehängt
 \end{itemize}
 
 \begin{figure}
@@ -194,18 +194,17 @@ durch Bestimmung der Federkonstante
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet. Die
 10g und die 100g Gewichte lagen doppelt vor und waren jeweils gleich
 schwer. Sämtliche Gewichte stellten sich als zu leicht heraus. Nur die
-zwei 10g Gewichte wogen nach einer Beschriftung mit dem Klebeband
-\(10,0g\).
+zwei 10g Gewichte wogen exakt \(10,0g\).
 
 \begin{longtable}[]{@{}lr@{}}
 \caption{Verwendete Gewichte}\tabularnewline
-\toprule()
+\toprule
 Nominalgewicht & Einzelmasse\_g \\
-\midrule()
+\midrule
 \endfirsthead
-\toprule()
+\toprule
 Nominalgewicht & Einzelmasse\_g \\
-\midrule()
+\midrule
 \endhead
 5g & 4.8 \\
 10g (2x) & 10.0 \\
@@ -213,7 +212,7 @@ Nominalgewicht & Einzelmasse\_g \\
 50g & 49.9 \\
 100g (2x) & 99.5 \\
 200g & 198.5 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 Die Gesamtmasse \(m_{ges}\) einer Gewichtskombination wird durch
@@ -489,18 +488,18 @@ Standardabweichung des Mittelwertes:
 \begin{longtable}[]{@{}lr@{}}
 \caption{Statistische Größen zur bestimmten
 Federkonstante}\tabularnewline
-\toprule()
+\toprule
 & Werte \\
-\midrule()
+\midrule
 \endfirsthead
-\toprule()
+\toprule
 & Werte \\
-\midrule()
+\midrule
 \endhead
 Mittelwert\_MW & 30.8162757 \\
 Standardabweichung\_SD & 0.9579652 \\
 SD\_von\_MW & 0.1667603 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 Die bestimmte Federkonstante, für eine Auslenkung des Gummibandes im
@@ -521,7 +520,7 @@ stark. Ebenso wurde ein Nulldurchgang festgelegt, da bei keiner
 Krafteinwirkung keine Elongation stattfindet. Ebenso sei angemerkt, dass
 auf Fehlerbalken verzichtet wurde, da diese bereits im ersten
 Kraft-Auslenkungs Schaubild eingezeichnet wurden und zudem, aufgrund der
-kleinen Unsicherheiten, keinen grsphischen Mehrwert bieten. Die
+kleinen Unsicherheiten, keinen graphischen Mehrwert bieten. Die
 Fehlerwerte könne außerdem im Abschnitt
 \textit{Messwerte und errechnete Größen} nachgeschlagen werden.
 
@@ -567,7 +566,7 @@ Mit:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1176}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1324}}@{}}
 \caption{Messwerte}\tabularnewline
-\toprule()
+\toprule
 \begin{minipage}[b]{\linewidth}\raggedleft
 n\_m{[}-{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
@@ -587,9 +586,9 @@ D{[}N/m{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 u\_D{[}N/m{]}
 \end{minipage} \\
-\midrule()
+\midrule
 \endfirsthead
-\toprule()
+\toprule
 \begin{minipage}[b]{\linewidth}\raggedleft
 n\_m{[}-{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
@@ -609,7 +608,7 @@ D{[}N/m{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 u\_D{[}N/m{]}
 \end{minipage} \\
-\midrule()
+\midrule
 \endhead
 0 & 0.0000 & 0.0000000 & 11.2 & 0.000 & 0.0000 & 0.00000 & NaN & NaN \\
 1 & 0.0048 & 0.0000351 & 13.0 & 0.018 & 0.0471 & 0.00034 & 2.6160 &
@@ -730,7 +729,7 @@ u\_D{[}N/m{]}
 0.0431 \\
 8 & 0.4887 & 0.0002810 & 26.8 & 0.156 & 4.7941 & 0.00276 & 30.7317 &
 0.0432 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 \hypertarget{versuch-2}{%
@@ -795,9 +794,9 @@ doppelt so hoch ist, weil die Kraft auf nur einen Strang wirkt.
 
 Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von
 100g in 5g - Intervallen und danach in 10g- Schritten zu messen, um die
-Daten dieser Zwei Versuche gut vergleichen können. Da das Band
+Daten dieser zwei Versuche gut vergleichen können. Da das Band
 allerdings viel stärker durch das Anbringen von Gewicht gedehnt wurde,
-konnten wir ab 360g keine Messungewn mehr durchführen, da die Gewichte
+konnten wir ab 360g keine Messungen mehr durchführen, da die Gewichte
 durch ihre Länge anfingen am Tisch aufzuliegen und so die Normalkraft
 die Gewichtskraft verfälscht hätte. Stattdessen haben wir den aus
 platztechnisch noch gut messbaren Wert für 400g (nur drei Gewichte)
@@ -876,7 +875,7 @@ Mittelwertes der Federkonstante in diesem Versuch die Werte für
 \(x_i<0,05m\) verworfen. Zudem wird in dem Federkonstante-Auslenkung
 Schaubild auch deutlich, dass für die Werte kleiner als
 \textasciitilde5cm Auslenkung die Federkonstante ebenfalls keinen
-Stabilen Wert annimmt, auch daher erscheint dieses Vorgehen sinnvoll.
+stabilen Wert annimmt, auch daher erscheint dieses Vorgehen sinnvoll.
 Berechnung des Mittelwertes, der Standardabweichung und der
 Standardabweichung des Mittelwertes gemäß der Formeln \ref{Mittelwert},
 \ref{Standardabweichung}, \ref{StandardabweichungDesMittelwertes}.
@@ -884,18 +883,18 @@ Standardabweichung des Mittelwertes gemäß der Formeln \ref{Mittelwert},
 \begin{longtable}[]{@{}lr@{}}
 \caption{Statistische Größen zur zweiten bestimmten
 Federkonstante}\tabularnewline
-\toprule()
+\toprule
 & Werte \\
-\midrule()
+\midrule
 \endfirsthead
-\toprule()
+\toprule
 & Werte \\
-\midrule()
+\midrule
 \endhead
 Mittelwert\_MW & 13.0996077 \\
 Standardabweichung\_SD & 1.6907616 \\
 SD\_von\_MW & 0.3195239 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 Die in Versuch 2 bestimmte Federkonstante für eine Ausdehnung des Gummis
@@ -937,7 +936,7 @@ Benennung in Versuch 1:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1081}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1081}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1351}}@{}}
-\toprule()
+\toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 n\_m{[}-{]}
@@ -958,7 +957,7 @@ D2{[}N/m{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 u\_D2{[}N/m{]}
 \end{minipage} \\
-\midrule()
+\midrule
 \endhead
 2 & 1 & 0.0048 & 0.0000351 & 16.5 & 0.007 & 0.0471 & 0.00034 & 2.6160 &
 0.1984 \\
@@ -1052,7 +1051,7 @@ u\_D2{[}N/m{]}
 & 0.0107 \\
 51 & 4 & 0.3990 & 0.0001405 & 44.7 & 0.289 & 3.9142 & 0.00138 & 29.4300
 & 0.0105 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 \end{document}

@@ -36,7 +36,7 @@ output:
 * Befestigung des Hakens am Stativ
 * Befestigung des Maßbandes am Stativ mit Hilfe von Klebeband
 * Aufhängung des Gummibandes am Haken
-* In das Gummiband aufgehangen werden die Gewichte darann aufgehängt
+* In das Gummiband aufgehangen werden die Gewichte daran aufgehängt
 
 ![Versuchsaufbau 1](Bilder/V1B2.jpeg){width=20%, height=20%}
 
@@ -48,7 +48,7 @@ output:
 Die Gewichte werden gewogen und die Messunsicherheiten berechnet.
 Die 10g und die 100g Gewichte lagen doppelt vor und waren jeweils gleich schwer.
 Sämtliche Gewichte stellten sich als zu leicht heraus. 
-Nur die zwei 10g Gewichte wogen nach einer Beschriftung mit dem Klebeband $10,0g$.
+Nur die zwei 10g Gewichte wogen exakt $10,0g$.
 ```{r, echo=FALSE}
 Gewichte <- read.csv("Daten/Gewichte.csv", 
                      col.names = c("Nominalgewicht", "Einzelmasse_g", 
@@ -303,7 +303,7 @@ ggplot(Messreihe, aes(x = Auslenkung1_x0_m, y = Kraft, ymin = Kraft-u_Kraft,
 Angemerkt sei, dass für die Steigung der Federkonstanten der Mittelwert und die Mittelwerte ab- bzw. zuzüglich der Standardabweichung des Mittelwertes angenommen wurden. 
 Die drei Geraden überlagern sich sehr stark.
 Ebenso wurde ein Nulldurchgang festgelegt, da bei keiner Krafteinwirkung keine Elongation stattfindet.
-Ebenso sei angemerkt, dass auf Fehlerbalken verzichtet wurde, da diese bereits im ersten Kraft-Auslenkungs Schaubild eingezeichnet wurden und zudem, aufgrund der kleinen Unsicherheiten, keinen grsphischen Mehrwert bieten. 
+Ebenso sei angemerkt, dass auf Fehlerbalken verzichtet wurde, da diese bereits im ersten Kraft-Auslenkungs Schaubild eingezeichnet wurden und zudem, aufgrund der kleinen Unsicherheiten, keinen graphischen Mehrwert bieten. 
 Die Fehlerwerte könne außerdem im Abschnitt \textit{Messwerte und errechnete Größen} nachgeschlagen werden.
 
 ### Messwerte und errechnete Größen
@@ -361,8 +361,8 @@ Eine Hypothese ist, dass die Auslenkung bei gleicher Gewichtskraft doppelt so ho
 
 ## Durchführung
 
-Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von 100g in 5g - Intervallen und danach in 10g- Schritten zu messen, um die Daten dieser Zwei Versuche gut vergleichen können.
-Da das Band allerdings viel stärker durch das Anbringen von Gewicht gedehnt wurde, konnten wir ab 360g keine Messungewn mehr durchführen, da die Gewichte durch ihre Länge anfingen am Tisch aufzuliegen und so die Normalkraft die Gewichtskraft verfälscht hätte. 
+Analog zu Versuch 1. Wir haben uns dafür entschieden bis zur Marke von 100g in 5g - Intervallen und danach in 10g- Schritten zu messen, um die Daten dieser zwei Versuche gut vergleichen können.
+Da das Band allerdings viel stärker durch das Anbringen von Gewicht gedehnt wurde, konnten wir ab 360g keine Messungen mehr durchführen, da die Gewichte durch ihre Länge anfingen am Tisch aufzuliegen und so die Normalkraft die Gewichtskraft verfälscht hätte. 
 Stattdessen haben wir den aus platztechnisch noch gut messbaren Wert für 400g (nur drei Gewichte) genommen und den Rest der Tabelle nicht ausgefüllt.
 Die Anfangsausdehnung $x_0$ lag in diesem Fall bei 15,8cm.
 
@@ -438,7 +438,7 @@ ggplot(Messreihe2,
   geom_text(x=0.07, y=0, label="x=0,05m") 
 ```
 Auch aus Gründen der Vergleichbarkeit werden bei der Berechnung eines Mittelwertes der Federkonstante in diesem Versuch die Werte für $x_i<0,05m$ verworfen.
-Zudem wird in dem Federkonstante-Auslenkung Schaubild auch deutlich, dass für die Werte kleiner als ~5cm Auslenkung die Federkonstante ebenfalls keinen Stabilen Wert annimmt, auch daher erscheint dieses Vorgehen sinnvoll.
+Zudem wird in dem Federkonstante-Auslenkung Schaubild auch deutlich, dass für die Werte kleiner als ~5cm Auslenkung die Federkonstante ebenfalls keinen stabilen Wert annimmt, auch daher erscheint dieses Vorgehen sinnvoll.
 Berechnung des Mittelwertes, der Standardabweichung und der Standardabweichung des Mittelwertes gemäß der Formeln \ref{Mittelwert}, \ref{Standardabweichung}, \ref{StandardabweichungDesMittelwertes}.
 
 ```{r, echo=FALSE}
