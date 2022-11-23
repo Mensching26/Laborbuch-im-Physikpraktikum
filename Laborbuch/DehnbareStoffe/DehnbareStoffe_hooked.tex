@@ -1,10 +1,11 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage[subpreambles=false]{standalone}
+\usepackage{import}
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[
-  9pt,
-]{article}
+
+
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -34,15 +35,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Dehnbare Stoffe},
-  pdfauthor={Justus Weyers \& Milena Mensching, Team 4},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -123,13 +115,22 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Dehnbare Stoffe},
+  pdfauthor={Justus Weyers \& Milena Mensching, Team 4},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Dehnbare Stoffe}
 \author{Justus Weyers \& Milena Mensching, Team 4}
 \date{2022-11-23}
 
 \begin{document}
-\maketitle
+
 
 \hypertarget{versuch-1}{%
 \section{Versuch 1}\label{versuch-1}}
@@ -137,8 +138,8 @@
 \hypertarget{ziel}{%
 \subsection{Ziel}\label{ziel}}
 
-Überprüfung der Anwendbarkeit des Hookeschen Modells auf ein Gummiband
-durch Bestimmung der Federkonstante
+Testi Überprüfung der Anwendbarkeit des Hookeschen Modells auf ein
+Gummiband durch Bestimmung der Federkonstante
 
 \hypertarget{materialien}{%
 \subsection{Materialien}\label{materialien}}
@@ -198,13 +199,13 @@ zwei 10g Gewichte wogen exakt \(10,0g\).
 
 \begin{longtable}[]{@{}lr@{}}
 \caption{Verwendete Gewichte}\tabularnewline
-\toprule
+\toprule()
 Nominalgewicht & Einzelmasse\_g \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 Nominalgewicht & Einzelmasse\_g \\
-\midrule
+\midrule()
 \endhead
 5g & 4.8 \\
 10g (2x) & 10.0 \\
@@ -212,7 +213,7 @@ Nominalgewicht & Einzelmasse\_g \\
 50g & 49.9 \\
 100g (2x) & 99.5 \\
 200g & 198.5 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Die Gesamtmasse \(m_{ges}\) einer Gewichtskombination wird durch
@@ -463,7 +464,7 @@ Berechnung in R:
 
 Wird die Federkonstante über die Elongation geplottet, zeigt sich
 wieder, dass diese erst ab einer Auslenkung von etwa 5 cm einen
-vergleichsweise Stabilen Wert annimmt.
+vergleichsweise stabilen Wert annimmt.
 
 \begin{center}\includegraphics{DehnbareStoffe_files/figure-latex/unnamed-chunk-9-1} \end{center}
 
@@ -488,18 +489,18 @@ Standardabweichung des Mittelwertes:
 \begin{longtable}[]{@{}lr@{}}
 \caption{Statistische Größen zur bestimmten
 Federkonstante}\tabularnewline
-\toprule
+\toprule()
 & Werte \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 & Werte \\
-\midrule
+\midrule()
 \endhead
 Mittelwert\_MW & 30.8162757 \\
 Standardabweichung\_SD & 0.9579652 \\
 SD\_von\_MW & 0.1667603 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Die bestimmte Federkonstante, für eine Auslenkung des Gummibandes im
@@ -566,7 +567,7 @@ Mit:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1176}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1324}}@{}}
 \caption{Messwerte}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 n\_m{[}-{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
@@ -586,9 +587,9 @@ D{[}N/m{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 u\_D{[}N/m{]}
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 n\_m{[}-{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
@@ -608,7 +609,7 @@ D{[}N/m{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 u\_D{[}N/m{]}
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 0 & 0.0000 & 0.0000000 & 11.2 & 0.000 & 0.0000 & 0.00000 & NaN & NaN \\
 1 & 0.0048 & 0.0000351 & 13.0 & 0.018 & 0.0471 & 0.00034 & 2.6160 &
@@ -729,7 +730,7 @@ u\_D{[}N/m{]}
 0.0431 \\
 8 & 0.4887 & 0.0002810 & 26.8 & 0.156 & 4.7941 & 0.00276 & 30.7317 &
 0.0432 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{versuch-2}{%
@@ -883,18 +884,18 @@ Standardabweichung des Mittelwertes gemäß der Formeln \ref{Mittelwert},
 \begin{longtable}[]{@{}lr@{}}
 \caption{Statistische Größen zur zweiten bestimmten
 Federkonstante}\tabularnewline
-\toprule
+\toprule()
 & Werte \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 & Werte \\
-\midrule
+\midrule()
 \endhead
 Mittelwert\_MW & 13.0996077 \\
 Standardabweichung\_SD & 1.6907616 \\
 SD\_von\_MW & 0.3195239 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Die in Versuch 2 bestimmte Federkonstante für eine Ausdehnung des Gummis
@@ -936,7 +937,7 @@ Benennung in Versuch 1:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1081}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1081}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1351}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 n\_m{[}-{]}
@@ -957,7 +958,7 @@ D2{[}N/m{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 u\_D2{[}N/m{]}
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 2 & 1 & 0.0048 & 0.0000351 & 16.5 & 0.007 & 0.0471 & 0.00034 & 2.6160 &
 0.1984 \\
@@ -1051,7 +1052,7 @@ u\_D2{[}N/m{]}
 & 0.0107 \\
 51 & 4 & 0.3990 & 0.0001405 & 44.7 & 0.289 & 3.9142 & 0.00138 & 29.4300
 & 0.0105 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \end{document}

@@ -1,18 +1,31 @@
-%! Author = justus
-%! Date = 04.11.2022
+\input{../preamble/preamble}
 
-% Preamble
-\documentclass[11pt]{article}
+\title{\textsc{Laborbuch im Physikpraktikum}}
+\author{Milena Mensching \and Justus Weyers}
 
-% Packages
-\usepackage{amsmath}
-
-% Document
 \begin{document}
-    Hello.
-    Zitieren:\cite{CitekeyArticle}.
-    Diesen Eintrag habe ich im Zwischennetz eingefügt.
-    Diesen hier auch.
+	% Titelseite
+	\maketitle
+	\newpage	
+	% Inhaltsverzeichnis    
+    \tableofcontents
+    \newpage
+    
+    % Hauptteil
+    \part{Dehnbare Stoffe}
+	\import{../DehnbareStoffe/}{DehnbareStoffe_hooked}
+	
+	%
+	% Hier weitere Praktika einfügen ...
+	%
+	
+	% Literaturverzeichnis
+	\newpage
     \bibliography{main}
     \bibliographystyle{plain}
+    % Abbildungsverzeichnis	
+	\newpage
+	\listoffigures
+	% Tabellenverzeichnis
+	\listoftables
 \end{document}
