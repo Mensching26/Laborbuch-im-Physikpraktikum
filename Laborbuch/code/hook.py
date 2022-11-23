@@ -1,6 +1,17 @@
 import os
 import pandas
 
+'''
+Mittels dieses Programmes werden durch R-Markdown erstellte tex-Dateien dahingehend verändert, 
+dass sich diese mittels des Latex-Paketes "standalone" zu einem Laborbuch zusammenfügen lassen.
+
+Dafür wird die Dokumentklasse verändert und das Paket "standalone" sowie "import" hinzugefügt.
+Einträge wie "\maketitle" werden entfernt. Die neue Datei wird als "_hooked" abgespeichert und 
+kann als solche in ../src/main.tex eingebunden werden. 
+
+Dieses Programm verändert tex-Dateien, deren Verzeichnisse als "../Verzeichnis" in der txt-Datei
+"chapters" aufgelistet sind.
+'''
 # Take note of original workingdirectory (owd)
 owd = os.getcwd()
 
@@ -11,9 +22,9 @@ os.chdir(os.path.split(__file__)[0])
 chap_list = pandas.read_csv('chapters.txt', header=None)
 
 # For each chapter...
-for chapter in chap_list.values.tolist()[0]:
+for chapter in chap_list.values.tolist():
     # ... change into chapters directory
-    os.chdir(chapter)
+    os.chdir(chapter[0])
     # List directory
     dir = os.listdir()
     # Search first tex-file
@@ -31,6 +42,7 @@ for chapter in chap_list.values.tolist()[0]:
     # Printout
     if filedata != filedata_c:
         print(f"Hooked {os.path.abspath(texfile)}")
+    # Change to parent workingdirectory
 
 # Change back to owd
 os.chdir(owd)

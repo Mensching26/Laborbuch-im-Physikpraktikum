@@ -18,7 +18,6 @@ output:
 
 ## Ziel
 
-Testi
 Überprüfung der Anwendbarkeit des Hookeschen Modells auf ein Gummiband durch Bestimmung der Federkonstante
 
 
@@ -418,7 +417,6 @@ ggplot(Messreihe2, aes(x = Auslenkung2_x0_m, y = Kraft,
                      xmax = Auslenkung2_x0_m+u_x),
                  height=0.05) 
 ```
-\newpage
 Federkonstante-Auslenkung Diagramm:
 ```{r, echo=FALSE, fig.height=3, fig.align = 'center'}
 ymini <- Messreihe2$Federkonstante2-Messreihe2$u_Federkonstante2
@@ -463,7 +461,6 @@ Aus diesem Grund nehmen wir die aufgestellte Hypothese erstmal an.
 In einem weiteren Versuch würden wir testen, ob bei einer geeigneteren Befestigung des Gummibandes am Haken bzw. am Gewicht als durch die verwendeten Knoten, die bestimmte Gewichtskraft genauer der Hälfte der Federkonstante $D_1$ aus Versuch 1 entspricht.
 Denkbar wäre z.B. eine Befestigung mit Krokodilklemmen oder Ähnlichem.
 
-\newpage
 ### Messwerte und errechnete Größen
 Zusammenfassung der Werte aus Versuch 2, Spaltenbenennung analog zur Benennung in Versuch 1:
 ```{r, echo=FALSE}
