@@ -42,7 +42,6 @@ for chapter in chap_list.values.tolist():
     # Printout
     if filedata != filedata_c:
         print(f"Hooked {os.path.abspath(texfile)}")
-    # Change to parent workingdirectory
 
 # Change back to owd
 os.chdir(owd)
