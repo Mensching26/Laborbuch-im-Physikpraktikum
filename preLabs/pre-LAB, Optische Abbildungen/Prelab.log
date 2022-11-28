@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.23)  28 NOV 2022 12:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.23)  28 NOV 2022 12:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -400,12 +400,12 @@ Package hyperref Info: Link coloring OFF on input line 19.
 <A.png, id=27, 1445.4pt x 633.86812pt>
 File: A.png Graphic file (type png)
 <use A.png>
-Package pdftex.def Info: A.png  used on input line 39.
+Package pdftex.def Info: A.png  used on input line 42.
 (pdftex.def)             Requested size: 404.70924pt x 177.48186pt.
 <B.png, id=29, 1445.4pt x 631.60968pt>
 File: B.png Graphic file (type png)
 <use B.png>
-Package pdftex.def Info: B.png  used on input line 44.
+Package pdftex.def Info: B.png  used on input line 47.
 (pdftex.def)             Requested size: 404.70924pt x 176.8495pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -417,25 +417,31 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <mikroskop.png, id=54, 2128.95375pt x 904.37875pt>
 File: mikroskop.png Graphic file (type png)
 <use mikroskop.png>
-Package pdftex.def Info: mikroskop.png  used on input line 68.
+Package pdftex.def Info: mikroskop.png  used on input line 72.
 (pdftex.def)             Requested size: 526.14862pt x 223.49979pt.
 <Abbe.png, id=55, 1159.33125pt x 1159.33125pt>
 File: Abbe.png Graphic file (type png)
 <use Abbe.png>
-Package pdftex.def Info: Abbe.png  used on input line 85.
+Package pdftex.def Info: Abbe.png  used on input line 94.
 (pdftex.def)             Requested size: 231.86214pt x 231.86214pt.
- [3 <./mikroskop.png> <./Abbe.png>] [4] (Prelab.aux)
-Package rerunfilecheck Info: File `Prelab.out' has not changed.
-(rerunfilecheck)             Checksum: AAA8309D5B0C4DF0188AF0B76BF2C622;939.
+ [3 <./mikroskop.png>] [4 <./Abbe.png>] (Prelab.aux)
+
+Package rerunfilecheck Warning: File `Prelab.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Prelab.out':
+(rerunfilecheck)             Before: 001C02F1E811617E083D565B5B58239A;945
+(rerunfilecheck)             After:  AAA8309D5B0C4DF0188AF0B76BF2C622;939.
  ) 
 Here is how much of TeX's memory you used:
  10617 strings out of 475285
- 166079 string characters out of 2784906
+ 166363 string characters out of 2784906
  533109 words of memory out of 3000000
  31947 multiletter control sequences out of 15000+600000
  480101 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,9n,77p,448b,502s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,9n,77p,278b,452s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\justu\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 0600.pk> <C:\Users\justu\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecrm0600.pk> <C:\Users\justu\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -448,9 +454,9 @@ eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/justu/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/justu/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmr12.pfb><C:/Users/justu/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb>
-Output written on Prelab.pdf (4 pages, 5991411 bytes).
+Output written on Prelab.pdf (4 pages, 5992667 bytes).
 PDF statistics:
- 337 PDF objects out of 1000 (max. 8388607)
+ 339 PDF objects out of 1000 (max. 8388607)
  15 named destinations out of 1000 (max. 500000)
  69 words of extra memory for PDF output out of 10000 (max. 10000000)
 
