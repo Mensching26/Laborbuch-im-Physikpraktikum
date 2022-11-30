@@ -115,6 +115,17 @@
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
+
+% Erweiterte Einstellungen zur Kopf- und Fußzeile
+\usepackage[headings]{fancyhdr}
+\pagestyle{fancy}
+\lhead{\slshape \leftmark}
+\chead{-}
+\rhead{\slshape \rightmark}
+\lfoot{ }
+\cfoot{\thepage}
+\rfoot{ }
+
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -127,3 +138,5 @@
   pdflang={de},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
+  
+  
