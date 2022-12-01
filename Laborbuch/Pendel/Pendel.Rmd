@@ -20,20 +20,20 @@ Bestimmung der Erdbeschleunigung $g$.
 ## Materialien
  
 * Stativ
-* Pendel
+* Pendel aus Angelschnur und Metallzylinder
 * Maßband
 * Messschieber
 * Klebeband
 * Stoppuhr
 
-# Versuchsaufbau
+## Versuchsaufbau
 
 * Aufstellung des Stativs, Befestigung oberhalb des Tisches
 * Befestigung des Maßbandes am Stativ mit Hilfe von Klebeband
 
 ![Versuchsaufbau 1](Bilder/1.jpeg){width=20%, height=20%}
 
-# Durchführung
+## Durchführung
 
 Zuerst wird die Länge des Pendels bestimmt. Dafür wird vereinfacht angenommen, dass der Massenmittelpunkt des zum Pendel gehörigen Zylinders in der Mitte liegt. Daher werden die Fadenlänge und die halbe Länge des Zylinders addiert. Der Faden wird mit dem Maßband (kleinste Ableseskala 1mm) und der Zylinder mit einem Messschieber (kleinste ABleseskala 0,1mm) gemessen.
 
@@ -47,7 +47,7 @@ Zuerst wird die Länge des Pendels bestimmt. Dafür wird vereinfacht angenommen,
 
 Es werden insgesamt 5 Messungen mit insgesamt 10 Periodendurchläufen durchgeführt. Die Zeit wird zum Zeitpunkt der maximalen Geschwindigkeit sowohl gestartet als auch gestoppt, um die Reaktionszeit möglichst kurz zu halten.
 
-# Fehlerquellen
+## Fehlerquellen
 
 Beim Auslenken des Pendels gibt es **unregelmäßige Bewegungen (Wackeln)**, die entgegen der Pendelbahn laufen. 
 
@@ -62,8 +62,26 @@ Folgende Annahmen mussten darüber hinaus getroffen werden:
 * Der Pendelkörper wird nur um eine kleine Strecke ausgelenkt
 
 
-# Messungen
+## Messungen
+```{r}
+Werte <- read.csv("Daten/Daten.csv", sep = ";", dec = ",")
+colnames(Werte) <- c("A","M1","M2","M3","M4","M5","M6","M7")
+Werte <- Werte[,1:8]
+```
 
-# Auswertung
 
-# Interpretation
+
+
+## Auswertung
+
+## Interpretation
+
+# Versuch 2
+
+Der zweite Versuch läuft analog zum ersten Versuch. Allerdings werden statt nur einer Messreihe 5 verschiedene - jeweils mit einer anderen Fadenlänge - gemessen. Um die Pendellängen zu variieren wurde der Faden für kürzere Fadenlängen mit Klebeband am Zylinder stückchenweise festgeklebt. Für längere Pendellängen wurden weitere Stücke Angelschnur an das Pendel geknotet. 
+
+## Fehlerquellen
+Die Fehlerquellen sind ebenfalls die selben wie beim ersten Versuch. Allerdings ist hierbei zu bemerken, dass die Reaktioszeit bei kürzeren Fadenlängen und daraus resultierenden kürzeren Periodendauern verhältnismäßig zunimmt. Auch von der Bahn abweichende Bewegungen nehmen bei kürzeren Pendellängen zu. 
+Auch ist nicht unterscuht, wie sich Klebeband bzw. Knoten im Faden auf das Pendelverhalten auswirken.
+
+## Messungen

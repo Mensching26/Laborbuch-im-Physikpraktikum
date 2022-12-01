@@ -373,16 +373,15 @@ pre code {
 <h2>Materialien</h2>
 <ul>
 <li>Stativ</li>
-<li>Pendel</li>
+<li>Pendel aus Angelschnur und Metallzylinder</li>
 <li>Maßband</li>
 <li>Messschieber</li>
 <li>Klebeband</li>
 <li>Stoppuhr</li>
 </ul>
 </div>
-</div>
-<div id="versuchsaufbau" class="section level1">
-<h1>Versuchsaufbau</h1>
+<div id="versuchsaufbau" class="section level2">
+<h2>Versuchsaufbau</h2>
 <ul>
 <li>Aufstellung des Stativs, Befestigung oberhalb des Tisches</li>
 <li>Befestigung des Maßbandes am Stativ mit Hilfe von Klebeband</li>
@@ -392,8 +391,8 @@ pre code {
 <p class="caption">Versuchsaufbau 1</p>
 </div>
 </div>
-<div id="durchführung" class="section level1">
-<h1>Durchführung</h1>
+<div id="durchführung" class="section level2">
+<h2>Durchführung</h2>
 <p>Zuerst wird die Länge des Pendels bestimmt. Dafür wird vereinfacht
 angenommen, dass der Massenmittelpunkt des zum Pendel gehörigen
 Zylinders in der Mitte liegt. Daher werden die Fadenlänge und die halbe
@@ -411,8 +410,8 @@ durchgeführt. Die Zeit wird zum Zeitpunkt der maximalen Geschwindigkeit
 sowohl gestartet als auch gestoppt, um die Reaktionszeit möglichst kurz
 zu halten.</p>
 </div>
-<div id="fehlerquellen" class="section level1">
-<h1>Fehlerquellen</h1>
+<div id="fehlerquellen" class="section level2">
+<h2>Fehlerquellen</h2>
 <p>Beim Auslenken des Pendels gibt es <strong>unregelmäßige Bewegungen
 (Wackeln)</strong>, die entgegen der Pendelbahn laufen.</p>
 <p>Beim Abmessen der Pendellänge ist der <strong>personenbezogene
@@ -432,14 +431,39 @@ Reaktionszeit ähnlich zu halten.</p>
 <li>Der Pendelkörper wird nur um eine kleine Strecke ausgelenkt</li>
 </ul>
 </div>
-<div id="messungen" class="section level1">
-<h1>Messungen</h1>
+<div id="messungen" class="section level2">
+<h2>Messungen</h2>
+<pre class="r"><code>Werte &lt;- read.csv(&quot;Daten/Daten.csv&quot;, sep = &quot;;&quot;, dec = &quot;,&quot;)
+colnames(Werte) &lt;- c(&quot;A&quot;,&quot;M1&quot;,&quot;M2&quot;,&quot;M3&quot;,&quot;M4&quot;,&quot;M5&quot;,&quot;M6&quot;,&quot;M7&quot;)
+Werte &lt;- Werte[,1:8]</code></pre>
 </div>
-<div id="auswertung" class="section level1">
-<h1>Auswertung</h1>
+<div id="auswertung" class="section level2">
+<h2>Auswertung</h2>
 </div>
-<div id="interpretation" class="section level1">
-<h1>Interpretation</h1>
+<div id="interpretation" class="section level2">
+<h2>Interpretation</h2>
+</div>
+</div>
+<div id="versuch-2" class="section level1">
+<h1>Versuch 2</h1>
+<p>Der zweite Versuch läuft analog zum ersten Versuch. Allerdings werden
+statt nur einer Messreihe 5 verschiedene - jeweils mit einer anderen
+Fadenlänge - gemessen. Um die Pendellängen zu variieren wurde der Faden
+für kürzere Fadenlängen mit Klebeband am Zylinder stückchenweise
+festgeklebt. Für längere Pendellängen wurden weitere Stücke Angelschnur
+an das Pendel geknotet.</p>
+<div id="fehlerquellen-1" class="section level2">
+<h2>Fehlerquellen</h2>
+<p>Die Fehlerquellen sind ebenfalls die selben wie beim ersten Versuch.
+Allerdings ist hierbei zu bemerken, dass die Reaktioszeit bei kürzeren
+Fadenlängen und daraus resultierenden kürzeren Periodendauern
+verhältnismäßig zunimmt. Auch von der Bahn abweichende Bewegungen nehmen
+bei kürzeren Pendellängen zu. Auch ist nicht unterscuht, wie sich
+Klebeband bzw. Knoten im Faden auf das Pendelverhalten auswirken.</p>
+</div>
+<div id="messungen-1" class="section level2">
+<h2>Messungen</h2>
+</div>
 </div>
 
 
