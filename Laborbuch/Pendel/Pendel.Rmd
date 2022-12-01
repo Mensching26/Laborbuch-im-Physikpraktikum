@@ -70,9 +70,52 @@ Werte <- Werte[,1:8]
 ```
 
 
-
-
 ## Auswertung
+
+Messunsicherheit der digitalen Stoppuhr:
+\begin{equation*}
+\begin{split}
+u_{Stoppuhr}&= \frac{a}{2\sqrt{3}}\\
+u_{Stoppuhr}&= \frac{0,01s}{2\sqrt{3}}\\
+u_{Stoppuhr}&\approx 0,0029s
+\end{split}
+\end{equation*}
+
+```{r}
+0.01/(2*sqrt(3))
+```
+
+ 
+Messunsicherheit der Erdbeschleunigung $g$:
+\begin{equation*}
+\begin{split}
+u_g&=\sqrt{(\frac{\delta g}{\delta T}*u_T)^2+(\frac{\delta g}{\delta l}*u_l)^2}\\
+u_g&=\sqrt{(\frac{-8*\pi^2*l}{T^3}*u_T)^2+(\frac{4*\pi^2}{T^2}*u_l)^2}\\
+\\
+u_g&\approx \pm ?? \frac{m}{s^2}
+\end{split}
+\end{equation*}
+
+Bestwert der Erdbeschleunigung $g$:\
+
+Aus $T=2*\pi*\sqrt{\frac{l}{g}}$ ergibt sich:
+
+\begin{equation*}
+\begin{split}
+g&=\frac{4*\pi^2*l}{T^2}\\
+g&=\frac{4*\pi^2*0,8744m}{(1,878s)^2}\\
+g&\approx 9.79 \frac{m}{s^2} 
+\end{split}
+\end{equation*}
+
+Mit $l = 0,8744m$\
+und $T = 1,878s$
+```{r}
+(4*pi**2*0.8744)/(1.878**2)
+```
+
+
+
 
 ## Interpretation
 
