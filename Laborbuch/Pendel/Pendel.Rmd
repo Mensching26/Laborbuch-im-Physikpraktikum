@@ -5,22 +5,62 @@ date: "`r Sys.Date()`"
 lang: de
 fontsize: 9pt
 output:
+  html_document:
+    df_print: kable
   pdf_document:
     keep_tex: yes
     df_print: kable
-  html_document:
-    df_print: kable
 ---
+# Versuch 1 
 
-# Ziel
+## Ziel
 
-# Materialien
+Bestimmung der Erdbeschleunigung $g$. 
+
+## Materialien
+ 
+* Stativ
+* Pendel
+* Maßband
+* Messschieber
+* Klebeband
+* Stoppuhr
 
 # Versuchsaufbau
 
+* Aufstellung des Stativs, Befestigung oberhalb des Tisches
+* Befestigung des Maßbandes am Stativ mit Hilfe von Klebeband
+
+![Versuchsaufbau 1](Bilder/1.jpeg){width=20%, height=20%}
+
 # Durchführung
 
+Zuerst wird die Länge des Pendels bestimmt. Dafür wird vereinfacht angenommen, dass der Massenmittelpunkt des zum Pendel gehörigen Zylinders in der Mitte liegt. Daher werden die Fadenlänge und die halbe Länge des Zylinders addiert. Der Faden wird mit dem Maßband (kleinste Ableseskala 1mm) und der Zylinder mit einem Messschieber (kleinste ABleseskala 0,1mm) gemessen.
+
+![Versuchsaufbau 1](Bilder/2.jpeg){width=20%, height=20%}
+\
+\
+
+![Versuchsaufbau 1](Bilder/3.jpeg){width=20%, height=20%}
+\
+\
+
+Es werden insgesamt 5 Messungen mit insgesamt 10 Periodendurchläufen durchgeführt. Die Zeit wird zum Zeitpunkt der maximalen Geschwindigkeit sowohl gestartet als auch gestoppt, um die Reaktionszeit möglichst kurz zu halten.
+
 # Fehlerquellen
+
+Beim Auslenken des Pendels gibt es **unregelmäßige Bewegungen (Wackeln)**, die entgegen der Pendelbahn laufen. 
+
+Beim Abmessen der Pendellänge ist der **personenbezogene Ablesefehler** zu erwähnen. Diesen versuchten wir weitestgehend zu eliminieren, indem nur eine Person eine vollständige Datenreihe aufnahm.
+
+Außerdem verlängert die **Reaktionszeit** sowohl bei Start als auch bei Stopp der Messung tendenziell die gemessene Periodendauer. Um diesen Fehler möglichst gering zu halten, wurden meherere Periodendurchläufe (10) gemessen und die Periodendauer danach gemittelt. Auch hier nahm nur eine Person die Datenreihe auf, um die Reaktionszeit ähnlich zu halten.
+
+Folgende Annahmen mussten darüber hinaus getroffen werden:
+
+* Bewegung des Pendelkörpers und des Fadens verläuft reibungsfrei 
+* Masse des Fadens wird vernachlässigt
+* Der Pendelkörper wird nur um eine kleine Strecke ausgelenkt
+
 
 # Messungen
 
