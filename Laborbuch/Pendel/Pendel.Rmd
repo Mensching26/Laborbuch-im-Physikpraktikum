@@ -85,3 +85,31 @@ Die Fehlerquellen sind ebenfalls die selben wie beim ersten Versuch. Allerdings 
 Auch ist nicht unterscuht, wie sich Klebeband bzw. Knoten im Faden auf das Pendelverhalten auswirken.
 
 ## Messungen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Die Pendellänge wurde bestimmt, indem das obere und das untere Ende des Fadens am Maßband  abgelesen und die Differenz berechnet wurde. 
+Es wurde auch darauf geachtet, die Distanz von der Pendeloberkante bis zum Massenschwerpunkt des Pendels dazuzurechnen. 
+Dazu wurde die Massenverteilung in dem Metallzylinder-Gewicht als homogen angenommen und die Höhe des Zylinders mit dem Messschieber ausgemessen. 
+Die zu der Fadenlänge zu addierende Länge entspricht dannn der halben Zylinderhöhe.  
+Die Unsicherheit der Pendellänge setzt sich aus den zu diesen Messungen zugehörigen Messunsicherheiten zusammen:
+\begin{align}
+u_L &= \sqrt{u_{Maßband}^2+u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
+    &= \sqrt{2*u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
+    &= \sqrt{2 (\frac{10^{-3}m}{2\sqrt{6}})^2+(\frac{}{})^2}
+\end{align}
