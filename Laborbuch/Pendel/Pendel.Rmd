@@ -5,10 +5,10 @@ date: "`r Sys.Date()`"
 lang: de
 fontsize: 9pt
 output:
-  html_document:
-    df_print: kable
-  pdf_document:
+  pdf_document: 
     keep_tex: yes
+    df_print: kable
+  html_document:
     df_print: kable
 ---
 # Versuch 1 
@@ -34,32 +34,14 @@ Bestimmung der Erdbeschleunigung $g$.
 ![Versuchsaufbau 1](Bilder/1.jpeg){width=20%, height=20%}
 
 ## Durchführung
+Nach dem Versuchsaufbau wird mit der Versuchsdurchführung begonnen.
+Dazu wird die Pendellänge vermessen, indem am Maßband die Position des Drehpunktes und die Position der Oberkante des Zylindergewichtes abgelesen werden.
+Die Höhe des Zylindergewichtes wird mit einem Messschieber vermessen.
 
-Die Pendellänge wurde bestimmt, indem das obere und das untere Ende des Fadens am Maßband  abgelesen und die Differenz berechnet wurde. 
-Es wurde auch darauf geachtet, die Distanz von der Pendeloberkante bis zum Massenschwerpunkt des Pendels dazuzurechnen. 
-Dazu wurde die Massenverteilung in dem Metallzylinder-Gewicht als homogen angenommen und die Höhe des Zylinders mit dem Messschieber ausgemessen. 
-Die zu der Fadenlänge zu addierende Länge entspricht dann der halben Zylinderhöhe.  
-Die Unsicherheit der Pendellänge setzt sich aus den zu diesen Messungen zugehörigen Messunsicherheiten zusammen:
-\begin{align}
-u_L &= \sqrt{u_{Maßband}^2+u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
-    &= \sqrt{2 \cdot u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
-    &= \sqrt{2 \cdot (\frac{10^{-3}m}{2\sqrt{6}})^2+(\frac{10^{-4}m}{2\sqrt{6}})^2}\\
-    &\approx 2,9*10^{-4}m\\
-\end{align}
-
-```{r}
-sqrt(2*(((10**-3)/(2*sqrt(6)))**2)+((10**-4)/(2*sqrt(6)))**2)
-```
-
-![Versuchsaufbau 1](Bilder/2.jpeg){width=20%, height=20%}
-\
-\
-
-![Versuchsaufbau 1](Bilder/3.jpeg){width=20%, height=20%}
-\
-\
-
-Es werden insgesamt 5 Messungen mit insgesamt 10 Periodendurchläufen durchgeführt. Die Zeit wird zum Zeitpunkt der maximalen Geschwindigkeit sowohl gestartet als auch gestoppt, um die Reaktionszeit möglichst kurz zu halten. Nach der Messung wurde zur weiteren Berechnung der Mittelwert der 10-Periodendauern ermittelt. 
+Im Anschluss wird die Periodendauer für diese Pendellänge bestimmt.
+Dazu wird das Pendel aus der Ruheposition ausgelenkt und nach ein paar Pendelschlägen mit der Zeitmessung begonnen.
+Die Zeit wird beim Durchgang durch den Ort der maximalen Geschwindigkeit sowohl gestartet als auch gestoppt, um die Reaktionszeit möglichst kurz zu halten. 
+Es werden insgesamt 5 Messungen durchgeführt um einen Mittelwert bilden zu können. 
 
 ## Fehlerquellen
 
@@ -74,92 +56,107 @@ Folgende Annahmen mussten darüber hinaus getroffen werden:
 * Bewegung des Pendelkörpers und des Fadens verläuft reibungsfrei 
 * Masse des Fadens wird vernachlässigt
 * Der Pendelkörper wird nur um eine kleine Strecke ausgelenkt
+* Die Angelschnur wird als inelastisch angenommen
 
 
 ## Messungen
-```{r}
-Werte <- read.csv("Daten/Daten.csv", sep = ";", dec = ",")
-colnames(Werte) <- c("A","M1","M2","M3","M4","M5","M6","M7")
-Werte <- Werte[,1:8]
+
+Im Laufe des Versuches wurden folgende Messwerte aufgenommen, auf die sich in der folgenden Auswertung bezogen wird: 
+```{r, echo = FALSE}
+Werte <- data.frame(read.csv("Daten/Daten.csv", sep = ";", dec = ",", header=FALSE))
+colnames(Werte) <- c("Namen","M1","M2","M3","M4","M5","M6","M7")
+Werte <- Werte[c(1,2,3,5:9),2]
+# Ausgabe der Messwerte:
+knitr::kable(data.frame(Messgröße = c("L1: Position Drehpunkt [cm]", "L2: Position Fadenende [cm]", "L3: Höhe Zylinder [cm]",
+                                      rep("10-Periodendauer [s]", 5)),
+                        Wert = Werte), 
+             caption = "Messwerte aus Versuch 1")
 ```
 
+Die fünf Punkte "10-Periodendauer [s]" sind die fünfmal durchgeführten Messungen, as denen der Mittelwert berechnet werden soll.
 
 ## Auswertung
-Die Periodendauer $T$ wird wie folgt berechnet:
-\begin{equation*}
-\begin{split}
-T&= \frac{T_{10T}}{n}\\
-T&= \frac{18,78s}{10}\\
-T&= 1,878s
-\end{split}
-\end{equation*}
 
-Die Standardabweichung berechnet sich wie folgt:
-\begin{equation*}
-\begin{split}
-\sigma_x &= \sqrt{\frac{1}{n-1} \sum_{i=1}^n (T_i - \overline{T})^2}\\
-\sigma_x &= \sqrt{\frac{1}{4} \sum_{i=1}^5 (T_i - \overline{T})^2}\\
-\sigma_x &\approx 6,686*10^{-2}s
-\end{split}
-\end{equation*}
+### Pendellänge L und Unsicherheit $u_L$
+
+Die Pendellänge $L$ wird bestimmt, indem  Differenz von $L_1$ und $L_2$ berechnet wird, siehe Tabelle im Abschnitt \textit{Messungen}. 
+Es wird auch darauf geachtet, die Distanz von der Pendeloberkante bis zum Massenschwerpunkt des Pendels dazuzurechnen.
+Dafür wird die Massenverteilung in dem Metallzylinder-Gewicht als homogen angenommen. 
+Die zu der Fadenlänge zu addierende Länge entspricht dann der halben Zylinderhöhe $L_3$.
+Der Bestwert der errechneten Pendellänge $L$ beträgt dann:
+
+\begin{align*}
+L&= L_2-L_1+\frac{L_{3}}{2}\\
+ &=0,885m-0,04m+\frac{0,0587}{2}m\\
+ &=0,87435m.\\
+\end{align*}
 
 ```{r}
-sd(Werte$M1[4:8])
+# Bestwert Pendellänge in Metern
+0.885-0.04+0.0587/2
 ```
-
-Standardabweichung des Mittelwerts:
-
-\begin{equation*}
-\begin{split}
-\sigma_{\overline{T}}&=\frac{\sigma_x * t }{\sqrt{n}}\\
-\sigma_{\overline{T}}&=\frac{6,686*10^{-2}s * 1,15 }{\sqrt{5}}\\
-\sigma_{\overline{T}}&\approx 0,034s
-\end{split}
-\end{equation*}
-mit $t=$ Studentfaktor
-
+Die Unsicherheit der Pendellänge setzt sich aus den zu $L_1$, $L_2$ und $L_3$ gehörigen Messunsicherheiten zusammen:
+\begin{align*}
+u_L&= \sqrt{(\frac{\partial L}{\partial L_2} \cdot u_{Massband})^2+(\frac{\partial L}{\partial L_1} \cdot u_{Massband})^2+(\frac{\partial L}{\partial L_{3}} \cdot u_{Messchieber})^2}\\
+&= \sqrt{u_{Massband}^2*(\frac{\partial L}{\partial L_2}^2+\frac{\partial L}{\partial L_1}^2)+(\frac{\partial L}{\partial L_{3}}*u_{Messschieber})^2}\\
+&=\sqrt{(\frac{10^{-3}m}{2\sqrt{6}})^2*(1^2+(-1)^2)+(0,5*\frac{10^{-4}m}{2\sqrt{6}})^2}\\
+&\approx 0,29 \cdot 10^{-4}m\\
+\end{align*}
+Mit:
+\begin{itemize}
+  \item Messunsicherheit des Maßbandes: $u_{Massband}=\frac{10^{-3}m}{2\sqrt{6}}$
+  \item Messunsicherheit des Messschiebers: $u_{Messschieber}=\frac{10^{-4}m}{2\sqrt{6}}$
+\end{itemize}
 ```{r}
-(6.686*(10**-2)*1.15)/sqrt(5)
+# Berechnung von u_L in R
+sqrt(2*(((10**-3)/(2*sqrt(6)))**2)+((10**-4)/(2*sqrt(6)))**2)
 ```
+Damit beträgt die Pendellänge in diesem Versuch $L = (0,87435 \pm 0.00029)m$.
 
 
-Messunsicherheit der digitalen Stoppuhr:
-\begin{equation*}
-\begin{split}
-u_{Stoppuhr}&= \frac{a}{2\sqrt{3}}\\
-u_{Stoppuhr}&= \frac{0,01s}{2\sqrt{3}}\\
-u_{Stoppuhr}&\approx 0,0029s
-\end{split}
-\end{equation*}
+### Periodendauer T und Unsicherheit $u_T$
 
+Als Zeit für zehn Perioden $T_{10T}$ in Sekunden wird der Mittelwert der fünf Messungen aus der Tabelle im Abschnitt \textit{Messungen} berechnet.
 ```{r}
-0.01/(2*sqrt(3))
+T10 <- mean(Werte[4:8])
+T10
 ```
-Die Messunsicherheit der Periodendauer $u_T$ setzt sich aus der Unsicherheit der digitalen Stoppuhr sowie der Standardabweichung des Mittelwerts der Perioden zusammen:
 
-\begin{equation*}
-\begin{split}
-u_T &= \sqrt{u_{Stoppuhr}^2+\sigma_{\overline{T}}^2}\\
-u_T &= \sqrt{0,0029s^2+0,034s^2}\\
-u_T &= 0,034s
-\end{split}
-\end{equation*}
+Die Periodendauer $T$ in Sekunden wird bestimmt, indem $T_{10T}$ durch die Anzahl von Perioden $n=10$ geteilt wird.
 
+\begin{equation}\label{Pendel:T}
+T_{10T} = n*T \Leftrightarrow T = \frac{T_{10T}}{10}
+\end{equation}
 ```{r}
-sqrt((0.0029**2) + (0.034**2))
+# Berechnung der Periodendauer
+T10*1/10
 ```
-$T$ ergibt sich damit zu $T = (1,878 \pm 0,034)s$ 
+
+Die Messunsicherheit der digitalen Stoppuhr $u_{Stoppuhr}$ ist die Unsicherheit für $T_{10T}$. 
+Deren kleinste ablesbare Größenordnung waren zehn Millisekunden. 
+Damit folgt für $u_{10T}$: $u_{10T}= \frac{a}{2\sqrt{3}} = \frac{0,01s}{2\sqrt{3}} \approx 0,0029s$.
+
+Die Unsicherheit der Periodendauer $u_T$ ist für zehn Perioden dann ein Zehntel der Messunsicherheit für zehn Perioden, also $u_T=0.00029s$.
+
+Damit ergibt sich die Periodendauer als:
+$T=(1.87800 \pm 0.00029)s$.
 
 
-Bestwert der Erdbeschleunigung $g$:\
 
+
+
+
+
+# Ab hier noch weiterarbeiten
+
+Damit kann der Bestwert der Erdbeschleunigung $g$ berechnet werden.
 Aus $T=2*\pi*\sqrt{\frac{l}{g}}$ ergibt sich:
 
 \begin{equation*}
 \begin{split}
 g&=\frac{4*\pi^2*l}{T^2}\\
-g&=\frac{4*\pi^2*0,8744m}{(1,878s)^2}\\
-g&\approx 9.79 \frac{m}{s^2} 
+ &=\frac{4*\pi^2*0,8744m}{(1,878s)^2}\\
+ &\approx 9.79 \frac{m}{s^2} 
 \end{split}
 \end{equation*}
 
@@ -175,23 +172,12 @@ Messunsicherheit der Erdbeschleunigung $g$:
 u_g&=\sqrt{(\frac{\delta g}{\delta T}*u_T)^2+(\frac{\delta g}{\delta l}*u_l)^2}\\
 u_g&=\sqrt{(\frac{-8*\pi^2*l}{T^3}*u_T)^2+(\frac{4*\pi^2}{T^2}*u_l)^2}\\
 \\
-u_g&=\sqrt{(\frac{-8*\pi^2*0,8744m}{(1,878s)^3}*0,034s)^2+(\frac{4*\pi^2}{(1,878s)^2}*2,9*10^{-4})^2}\\
-u_g&\approx \pm 0,35 \frac{m}{s^2}
+u_g&\approx \pm ?? \frac{m}{s^2}
 \end{split}
 \end{equation*}
 
-```{r}
-sqrt((((-8*pi**2*0.8744)/1.878**3)*0.034)**2+(((4*pi**2)/1.878**2)*2.9*10**(-4))**2)
-```
 
 ## Interpretation
-
-Der experimentell bestimmte Wert für die Erdbeschleunigung $g$ liegt bei:
-
-$g=(9,79\pm 0,35)\frac{m}{s^2}$
-
-Das Intervall beinhaltet den Literaturwert von $g=9,81\frac{m}{s^2}$.
-
 
 # Versuch 2
 
@@ -202,32 +188,3 @@ Die Fehlerquellen sind ebenfalls die selben wie beim ersten Versuch. Allerdings 
 Auch ist nicht unterscuht, wie sich Klebeband bzw. Knoten im Faden auf das Pendelverhalten auswirken.
 
 ## Messungen
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Die Pendellänge wurde bestimmt, indem das obere und das untere Ende des Fadens am Maßband  abgelesen und die Differenz berechnet wurde. 
-Es wurde auch darauf geachtet, die Distanz von der Pendeloberkante bis zum Massenschwerpunkt des Pendels dazuzurechnen. 
-Dazu wurde die Massenverteilung in dem Metallzylinder-Gewicht als homogen angenommen und die Höhe des Zylinders mit dem Messschieber ausgemessen. 
-Die zu der Fadenlänge zu addierende Länge entspricht dann der halben Zylinderhöhe.  
-Die Unsicherheit der Pendellänge setzt sich aus den zu diesen Messungen zugehörigen Messunsicherheiten zusammen:
-\begin{align}
-u_L &= \sqrt{u_{Maßband}^2+u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
-    &= \sqrt{2 \cdot u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
-    &= \sqrt{2 \cdot (\frac{10^{-3}m}{2\sqrt{6}})^2+(\frac{10^{-4}m}{2\sqrt{6}})^2}\\
-    &= \sqrt{2,9*10^{-4}m}\\
-\end{align}
