@@ -110,6 +110,7 @@ Die zu der Fadenlänge zu addierende Länge entspricht dannn der halben Zylinder
 Die Unsicherheit der Pendellänge setzt sich aus den zu diesen Messungen zugehörigen Messunsicherheiten zusammen:
 \begin{align}
 u_L &= \sqrt{u_{Maßband}^2+u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
-    &= \sqrt{2*u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
-    &= \sqrt{2 (\frac{10^{-3}m}{2\sqrt{6}})^2+(\frac{}{})^2}
+    &= \sqrt{2 \cdot u_{Maßband}^2+u_{Zylinderhöhe}^2}\\
+    &= \sqrt{2 \cdot (\frac{10^{-3}m}{2\sqrt{6}})^2+(\frac{10^{-4}m}{2\sqrt{6}})^2}\\
+    &= \sqrt{2,9*10^{-4}m}\\
 \end{align}
