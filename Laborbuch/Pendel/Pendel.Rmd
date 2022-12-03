@@ -31,7 +31,7 @@ Bestimmung der Erdbeschleunigung $g$.
 * Aufstellung des Stativs, Befestigung oberhalb des Tisches
 * Befestigung des Maßbandes am Stativ mit Hilfe von Klebeband
 
-![Versuchsaufbau 1](Bilder/1.jpeg){width=20%, height=20%}
+![Versuchsaufbau](Bilder/Versuchsaufbau.png){width=30%, height=30%}
 
 ## Durchführung
 Nach dem Versuchsaufbau wird mit der Versuchsdurchführung begonnen.
@@ -47,9 +47,12 @@ Es werden insgesamt 5 Messungen durchgeführt um einen Mittelwert bilden zu kön
 
 Beim Auslenken des Pendels gibt es **unregelmäßige Bewegungen (Wackeln)**, die entgegen der Pendelbahn laufen. 
 
-Beim Abmessen der Pendellänge ist der **personenbezogene Ablesefehler** zu erwähnen. Diesen versuchten wir weitestgehend zu eliminieren, indem nur eine Person eine vollständige Datenreihe aufnahm.
+Beim Abmessen der Pendellänge ist der **personenbezogene Ablesefehler** zu erwähnen. 
+Diesen versuchten wir weitestgehend zu eliminieren, indem nur eine Person eine vollständige Datenreihe aufnahm.
 
-Außerdem verlängert die **Reaktionszeit** sowohl bei Start als auch bei Stopp der Messung tendenziell die gemessene Periodendauer. Um diesen Fehler möglichst gering zu halten, wurden meherere Periodendurchläufe (10) gemessen und die Periodendauer danach gemittelt. Auch hier nahm nur eine Person die Datenreihe auf, um die Reaktionszeit ähnlich zu halten.
+Außerdem verlängert die **Reaktionszeit** sowohl bei Start als auch bei Stopp der Messung tendenziell die gemessene Periodendauer. 
+Um diesen Fehler möglichst gering zu halten, wurden meherere Periodendurchläufe (10) gemessen und die Periodendauer danach gemittelt. 
+Auch hier nahm nur eine Person die Datenreihe auf, um die Reaktionszeit ähnlich zu halten.
 
 Folgende Annahmen mussten darüber hinaus getroffen werden:
 
@@ -73,7 +76,7 @@ knitr::kable(data.frame(Messgröße = c("L1: Position Drehpunkt [cm]", "L2: Posi
              caption = "Messwerte aus Versuch 1")
 ```
 
-Die fünf Punkte "10-Periodendauer [s]" sind die fünfmal durchgeführten Messungen, as denen der Mittelwert berechnet werden soll.
+Die fünf Punkte "10-Periodendauer [s]" sind die fünfmal durchgeführten Messungen, aus denen der Mittelwert berechnet werden soll.
 
 ## Auswertung
 
@@ -122,15 +125,9 @@ T10 <- mean(Werte[4:8])
 T10
 ```
 
-Die Periodendauer $T$ in Sekunden wird bestimmt, indem $T_{10T}$ durch die Anzahl von Perioden $n=10$ geteilt wird.
+Die mittlere Periodendauer $T$ in Sekunden wird bestimmt, indem $T_{10T}$ durch die Anzahl von Perioden $n=10$ geteilt wird.
 
-\begin{equation}\label{Pendel:T}
-T_{10T} = n*T \Leftrightarrow T = \frac{T_{10T}}{10}
-\end{equation}
-```{r}
-# Berechnung der Periodendauer
-T10*1/10
-```
+$$T_{10T} = n*T \Leftrightarrow T = \frac{18,778s}{10}=1.8778s$$
 
 Die Messunsicherheit der digitalen Stoppuhr $u_{Stoppuhr}$ ist die Unsicherheit für $T_{10T}$. 
 Deren kleinste ablesbare Größenordnung waren zehn Millisekunden. 
@@ -139,45 +136,49 @@ Damit folgt für $u_{10T}$: $u_{10T}= \frac{a}{2\sqrt{3}} = \frac{0,01s}{2\sqrt{
 Die Unsicherheit der Periodendauer $u_T$ ist für zehn Perioden dann ein Zehntel der Messunsicherheit für zehn Perioden, also $u_T=0.00029s$.
 
 Damit ergibt sich die Periodendauer als:
-$T=(1.87800 \pm 0.00029)s$.
+$T=(1.87780 \pm 0.00029)s$.
 
 
 
+### Berechnung der Erdbeschläunugung g und der Unsicherheit $u_g$
 
-
-
-
-# Ab hier noch weiterarbeiten
-
-Damit kann der Bestwert der Erdbeschleunigung $g$ berechnet werden.
-Aus $T=2*\pi*\sqrt{\frac{l}{g}}$ ergibt sich:
+Mit den Bestwerten für die Pendellänge $L$ und die Periodendauer $T$ kann der Bestwert der Erdbeschleunigung $g$ berechnet werden.
+Aus dem Zusammenhang $T=2*\pi*\sqrt{\frac{l}{g}}$ ergibt sich mit $L = 0,8744m$ und $T = 1,878s$:
 
 \begin{equation*}
 \begin{split}
 g&=\frac{4*\pi^2*l}{T^2}\\
- &=\frac{4*\pi^2*0,8744m}{(1,878s)^2}\\
- &\approx 9.79 \frac{m}{s^2} 
+\Rightarrow &=\frac{4*\pi^2*0,87435m}{(1,8778s)^2}\\
+ &= 9,789182 \frac{m}{s^2} 
 \end{split}
 \end{equation*}
 
-Mit $l = 0,8744m$\
-und $T = 1,878s$
+
 ```{r}
-(4*pi**2*0.8744)/(1.878**2)
+(4*pi**2*0.87435)/(1.8778**2)
 ```
 
-Messunsicherheit der Erdbeschleunigung $g$:
+Messunsicherheit $u_g$ der Erdbeschleunigung $g$:
 \begin{equation*}
 \begin{split}
-u_g&=\sqrt{(\frac{\delta g}{\delta T}*u_T)^2+(\frac{\delta g}{\delta l}*u_l)^2}\\
-u_g&=\sqrt{(\frac{-8*\pi^2*l}{T^3}*u_T)^2+(\frac{4*\pi^2}{T^2}*u_l)^2}\\
-\\
-u_g&\approx \pm ?? \frac{m}{s^2}
+u_g&=\sqrt{(\frac{\partial g}{\partial T}*u_T)^2+(\frac{\partial g}{\partial l}*u_l)^2}\\
+   &=\sqrt{(\frac{-8*\pi^2*l}{T^3}*u_T)^2+(\frac{4*\pi^2}{T^2}*u_l)^2}\\
+\Rightarrow &= \sqrt{(\frac{-8\pi^2*(0,87435m)}{(1,8778s)^3}*(0,00029s))^2+(\frac{4\pi^2}{(1,8778s)^2}*(0,00029m))^2}\\
+u_g&\approx \pm 0,0044 \frac{m}{s^2}
 \end{split}
 \end{equation*}
 
+```{r}
+# Berechnung von u_g in R
+sqrt(( (-8*pi**2*0.87435)/(1.8778)**3 *0.00029)**2+( (4*pi**2)/(1.8778)**2 *0.00029 )**2)
+```
+
+Damit haben wir in unserem Versuch eine Erdebschleunigung von $g=(9,7891 \pm 0,0044)\frac{m}{s^2}$ gemessen.
 
 ## Interpretation
+
+Der Literaturwert von $g=9,81\frac{m}{s^2}$ liegt damit nicht im Fehlerintervall. 
+Eventuell kann in einem Versuch, bei dem die Pendellänge varriiert wird ein besseres Ergebnis erziehlt werden.
 
 # Versuch 2
 
