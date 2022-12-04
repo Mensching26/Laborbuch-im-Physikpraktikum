@@ -59,8 +59,7 @@ Folgende Annahmen mussten darüber hinaus getroffen werden:
 * Bewegung des Pendelkörpers und des Fadens verläuft reibungsfrei 
 * Masse des Fadens wird vernachlässigt
 * Der Pendelkörper wird nur um eine kleine Strecke ausgelenkt
-* Die Angelschnur wird als inelastisch angenommen
-
+* Die Angelschnur ist inelastisch
 
 ## Messungen
 
