@@ -112,7 +112,7 @@ Zur Validierung der Messwerte wurde die Funktion $T(L)=2\pi\sqrt{\frac{L}{g}}$ m
 Daran wird ersichtlich, dass die Messwerte alles in allem ganz gut sind.
 Mittels einer Linearisierung erfolgt die Berechnung von g für diesen Versuch.
 Bekannt ist, dass $T^2 \propto 4\pi^2\frac{L}{g}$, vergleiche Formel (ref...). 
-Daraus folgt eine Geradengleichung mit der Steigung $a=\frac{4\pi^2}{g}$ und dem y-Achsenabschnitt $y$.
+Daraus folgt eine Geradengleichung mit der Steigung $a=\frac{4\pi^2}{g}L$ und dem y-Achsenabschnitt $y$.
 Nach der Quadrierung der Messwerte für $T$ kann eine lineare Regression durchgeführt werden.
 Eine Prüfung der Korellation liefert einen Korrelationskoeffizient von $0,9998$.
 ```{r}
@@ -129,13 +129,15 @@ lm(ylin~xlin)
 ```
 Im folgenden Schaubild ist die Funktionsgerade der linearen Regression zusehen.
 Dabei ist die Steigung $a=\frac{4\pi^2}{g}=4,04209$ und der y-Achsenabschnitt $y=0,01952$.
-Ebenfalls eingezeichnet sind die quadrierten Messwerten für die Periodendauer $T$.
+Ebenfalls eingezeichnet sind die quadrierten Mittelwerte Messwerten für die Periodendauer $T$ bei den untersuchten Pendellängen.
 
 ```{r, echo=FALSE}
 #Plotten
 {par(mar=c(5,5,2,2))
 plot(xlin, ylin, col="transparent",
-      xlab="Pendellänge L [m]",
+     xlim=c(0, max(xlin)),
+     ylim=c(0, max(ylin)),
+     xlab="Pendellänge L [m]",
       ylab=expression(paste("Quadrierte Periodendauer T"^"2", "[s"^"2","]")))
 abline(coef=c(0.01952, 4.04209))
 points(xlin, ylin, pch=17, col="red")
