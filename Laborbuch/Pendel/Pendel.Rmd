@@ -11,6 +11,10 @@ output:
   html_document:
     df_print: kable
 ---
+```{r setup, include=FALSE, echo=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
 # Versuch 1 
 
 ## Ziel
@@ -35,8 +39,8 @@ Bestimmung der Erdbeschleunigung $g$.
 
 ## Durchführung
 Nach dem Versuchsaufbau wird mit der Versuchsdurchführung begonnen.
-Dazu wird die Pendellänge vermessen, indem am Maßband die Position des Drehpunktes und die Position der Oberkante des Zylindergewichtes abgelesen werden.
-Die Höhe des Zylindergewichtes wird mit einem Messschieber vermessen.
+Dazu wird die Pendellänge vermessen, indem am Maßband die Position des Drehpunktes (L1) und die Position der Oberkante des Zylindergewichtes abgelesen werden (L2).
+Die Höhe des Zylindergewichtes wird mit einem Messschieber vermessen (L3).
 
 Im Anschluss wird die Periodendauer für diese Pendellänge bestimmt.
 Dazu wird das Pendel aus der Ruheposition ausgelenkt und nach ein paar Pendelschlägen mit der Zeitmessung begonnen.
@@ -51,7 +55,7 @@ Beim Abmessen der Pendellänge ist der **personenbezogene Ablesefehler** zu erw�
 Diesen versuchten wir weitestgehend zu eliminieren, indem nur eine Person eine vollständige Datenreihe aufnahm.
 
 Außerdem verlängert die **Reaktionszeit** sowohl bei Start als auch bei Stopp der Messung tendenziell die gemessene Periodendauer. 
-Um diesen Fehler möglichst gering zu halten, wurden meherere Periodendurchläufe (10) gemessen und die Periodendauer danach gemittelt. 
+Um diesen Fehler möglichst gering zu halten, wurden zehn Periodendurchläufe gemessen und die Periodendauer danach gemittelt. 
 Auch hier nahm nur eine Person die Datenreihe auf, um die Reaktionszeit ähnlich zu halten.
 
 Folgende Annahmen mussten darüber hinaus getroffen werden:
@@ -63,7 +67,7 @@ Folgende Annahmen mussten darüber hinaus getroffen werden:
 
 ## Messungen
 
-Im Laufe des Versuches wurden folgende Messwerte aufgenommen, auf die sich in der folgenden Auswertung bezogen wird: 
+Im Laufe don Versuch 1 wurden folgende Messwerte aufgenommen, auf die sich in der folgenden Auswertung bezogen wird: 
 ```{r, echo = FALSE}
 Werte <- data.frame(read.csv("Daten/Daten.csv", sep = ";", dec = ",", header=FALSE))
 colnames(Werte) <- c("Namen","M1","M2","M3","M4","M5","M6","M7")
@@ -97,13 +101,17 @@ L&= L_2-L_1+\frac{L_{3}}{2}\\
 # Bestwert Pendellänge in Metern
 0.885-0.04+0.0587/2
 ```
+
 Die Unsicherheit der Pendellänge setzt sich aus den zu $L_1$, $L_2$ und $L_3$ gehörigen Messunsicherheiten zusammen:
-\begin{align*}
+\begin{equation}\label{Pendel:U_L}
+\begin{split}
 u_L&= \sqrt{(\frac{\partial L}{\partial L_2} \cdot u_{Massband})^2+(\frac{\partial L}{\partial L_1} \cdot u_{Massband})^2+(\frac{\partial L}{\partial L_{3}} \cdot u_{Messchieber})^2}\\
 &= \sqrt{u_{Massband}^2*(\frac{\partial L}{\partial L_2}^2+\frac{\partial L}{\partial L_1}^2)+(\frac{\partial L}{\partial L_{3}}*u_{Messschieber})^2}\\
 &=\sqrt{(\frac{10^{-3}m}{2\sqrt{6}})^2*(1^2+(-1)^2)+(0,5*\frac{10^{-4}m}{2\sqrt{6}})^2}\\
 &\approx 0,29 \cdot 10^{-4}m\\
-\end{align*}
+\end{split}
+\end{equation}
+
 Mit:
 \begin{itemize}
   \item Messunsicherheit des Maßbandes: $u_{Massband}=\frac{10^{-3}m}{2\sqrt{6}}$
@@ -113,7 +121,7 @@ Mit:
 # Berechnung von u_L in R
 sqrt(2*(((10**-3)/(2*sqrt(6)))**2)+((10**-4)/(2*sqrt(6)))**2)
 ```
-Damit beträgt die Pendellänge in diesem Versuch $L = (0,87435 \pm 0.00029)m$.
+Damit beträgt die Pendellänge für Versuch 1 $L = (0,87435 \pm 0.00029)m$.
 
 
 ### Periodendauer T und Unsicherheit $u_T$
@@ -129,7 +137,7 @@ Die mittlere Periodendauer $T$ in Sekunden wird bestimmt, indem $T_{10T}$ durch 
 $$T_{10T} = n*T \Leftrightarrow T = \frac{18,778s}{10}=1.8778s$$
 
 Die Messunsicherheit der digitalen Stoppuhr $u_{Stoppuhr}$ ist die Unsicherheit für $T_{10T}$. 
-Deren kleinste ablesbare Größenordnung waren zehn Millisekunden. 
+Deren kleinste ablesbare Größenordnung waren sind Millisekunden. 
 Damit folgt für $u_{10T}$: $u_{10T}= \frac{a}{2\sqrt{3}} = \frac{0,01s}{2\sqrt{3}} \approx 0,0029s$.
 
 Die Unsicherheit der Periodendauer $u_T$ ist für zehn Perioden dann ein Zehntel der Messunsicherheit für zehn Perioden, also $u_T=0.00029s$.
@@ -172,7 +180,7 @@ u_g&\approx \pm 0,0044 \frac{m}{s^2}
 sqrt(( (-8*pi**2*0.87435)/(1.8778)**3 *0.00029)**2+( (4*pi**2)/(1.8778)**2 *0.00029 )**2)
 ```
 
-Damit haben wir in unserem Versuch eine Erdebschleunigung von $g=(9,7891 \pm 0,0044)\frac{m}{s^2}$ gemessen.
+Damit haben wir in Versuch 1 eine Erdbeschleunigung von $g=(9,7891 \pm 0,0044)\frac{m}{s^2}$ gemessen.
 
 ## Interpretation
 
@@ -184,7 +192,161 @@ Eventuell kann in einem Versuch, bei dem die Pendellänge varriiert wird ein bes
 Der zweite Versuch läuft analog zum ersten Versuch. Allerdings werden statt nur einer Messreihe 5 verschiedene - jeweils mit einer anderen Fadenlänge - gemessen. Um die Pendellängen zu variieren wurde der Faden für kürzere Fadenlängen mit Klebeband am Zylinder stückchenweise festgeklebt. Für längere Pendellängen wurden weitere Stücke Angelschnur an das Pendel geknotet. 
 
 ## Fehlerquellen
+
 Die Fehlerquellen sind ebenfalls die selben wie beim ersten Versuch. Allerdings ist hierbei zu bemerken, dass die Reaktioszeit bei kürzeren Fadenlängen und daraus resultierenden kürzeren Periodendauern verhältnismäßig zunimmt. Auch von der Bahn abweichende Bewegungen nehmen bei kürzeren Pendellängen zu. 
 Auch ist nicht unterscuht, wie sich Klebeband bzw. Knoten im Faden auf das Pendelverhalten auswirken.
 
 ## Messungen
+
+In die zu diesem Versuch gehörigen Werte wurden auch die Messwerte aus Versuch 1 integriert. 
+Es wurde wieder so verfahren, dass pro Pendellänge fünf Messungen der Zeit für 10 Perioden gemessen und der Mittelwert berechnet wurde.
+
+Die Messwerte sind die folgenden:
+
+```{r, echo=FALSE}
+# csv-Datei einlesen
+Werte <- read.csv('Daten/Daten.csv', sep=";", dec=",", header=FALSE)
+# Spaltennamen umbenennen
+colnames(Werte) <- c("Messwert", paste("Versuch", 1:7))
+# Zeilennamen umbenennen
+rownames(Werte) <- c("L1:Oberes_Ende_in_cm",
+                    "L2:UnteresEnde_in_cm",
+                    "L3:Zylinderhoehe_in_cm",
+                    "Pendellaenge_L",
+                    paste("Zeit_fuer_10-Perioden_", 1:5),
+                    "10-Perioden_Mittelwert")
+#Ausgabe
+Werte[2:ncol(Werte)]
+
+# Transponieren der Werte für die Analyse
+WerteT <- as.data.frame(t(Werte[,-1]))
+```
+
+## Auswertung
+
+### Bereits aus Versuch 1 bekannte Größen
+
+Damit sind die Werte für die Pendellänge sowie deren konstante Unsicherheit $u_L=0,00029m$, siehe Formel \ref{Pendel:U_L}, bekannt.
+Ebenso sind die Werte für die Periodendauer $T$ bekannt, diese entsprechen einem Zehntel der Zeit für die gemessenen zehn Perioden.
+Die Unsicherheit für T ist auch aus Versuch 1 übernehmbar, diese beträgt $u_T =  0,00029s$.
+
+### Graphische Darstellung der Messwerte
+
+Zur Veranschaulichung der Messwerte wird die Periodendauer $T$ gegen die Pendellänge aufgetragen:
+```{r, echo=FALSE}
+# Einbindung von benötigen Bibliotheken
+library(tidyverse)
+
+# Funktion zum einzeichnen der Fehlerbalken
+errorbar <- function(x, ux, y, uy, headwidth=c(1,1)) {
+
+  arrows(x0=x, x1=x, y0=y, y1=y+uy, 
+         length=headwidth[1], angle=90)
+  arrows(x0=x, x1=x, y0=y, y1=y-uy, 
+         length=headwidth[1], angle=90)
+  arrows(x0=x, x1=x+ux, y0=y, y1=y, 
+         length=headwidth[2], angle=90)
+  arrows(x0=x, x1=x-uy, y0=y, y1=y, 
+         length=headwidth[2], angle=90)
+}
+
+# Eingabe von Unsicherheiten
+u_T = 0.00029
+u_L = 0.00029
+
+# Selektion von  x- und y-Werten
+x <- WerteT$Pendellaenge_L/100
+y <- data.matrix(Werte[5:10,2:8], rownames.force = NA)/10
+
+# Gruppierung der Daten
+pltdf <- data.frame(x, t(y)) %>% gather(k, v,-x) %>% 
+  mutate(MW = (k=="X10.Perioden_Mittelwert"))
+
+# Plotten
+{TFun <- function(x) 2*pi*sqrt(x/9.81)
+TFuntxt <- expression("T(L)" == 2*pi*sqrt(frac("L", frac("9.81 m","s^2"))))
+plot(x=pltdf$x, y=pltdf$v, 
+     # Fenstergröße
+     xlim=c(0, max(pltdf$x)),
+     ylim=c(0, max(pltdf$v)),
+     # Aesthetics
+     pch=20, col="black",
+     xlab="Pendellänge L [m]",
+     ylab="Periodendauer T [s]")
+errorbar(x=pltdf$x, ux=u_L, y=pltdf$v, uy=u_T, headwidth=c(1, 0.001))
+curve(TFun(x), add=TRUE)
+points(x=pltdf$x[pltdf$k=="X10.Perioden_Mittelwert"], 
+       y=pltdf$v[pltdf$k=="X10.Perioden_Mittelwert"], 
+       pch=17, col="red", cex=0.7)
+legend("bottomright", 
+       legend=c(TFuntxt, "Mittelwert", "Einzelwert"),
+       col=c("black", "red", "black"), 
+       pch=c(26, 17,20), lty=c(1,0,0), cex=0.8)}
+```
+
+In diesem Diagramm sind die Fehlerbalken nicht sichtbar, was an den kleinen Fehlern liegt.
+Zur Validierung der Messwerte wurde die Funktion $T(L)=2\pi\sqrt{\frac{L}{g}}$ mit dem Literaturwert der Erdbeschleunigung für Berlin von $g\approx 9,81\frac{m}{s^2}$ eingezeichnet. 
+Daran wird ersichtlich, dass die Messwerte alles in allem ganz gut sind.
+
+### Linearisierung
+
+Mittels einer Linearisierung erfolgt die Berechnung von $g$ für diesen Versuch.
+Bekannt ist: $T^2 = 4\pi^2\frac{L}{g}$.
+Daraus folgt eine Geradengleichung der Form $T^2=a*L+y$ mit der Steigung $a=\frac{4\pi^2}{g}$ und dem y-Achsenabschnitt $y$.
+Nach der Quadrierung der Messwerte für $T$ kann eine lineare Regression durchgeführt werden.
+Eine Prüfung der Korellation liefert einen Korrelationskoeffizient von $0,9998$.
+```{r}
+# Berechnung der linearisierten Funktionswerte
+xlin=WerteT$Pendellaenge_L/100 # in m
+ylin=(WerteT$`10-Perioden_Mittelwert`/10)**2 # in s
+# Korellationskoeffizient
+cor(x=xlin, y=ylin, method='pearson')
+```
+
+Die lineare Regression erfolgt mittels QR-Faktorisierung.
+```{r}
+lm(ylin~xlin)
+```
+Im folgenden Schaubild ist die Funktionsgerade der linearen Regression zusehen.
+Dabei ist die Steigung $a=\frac{4\pi^2}{g}=4,04209$ und der y-Achsenabschnitt $y=0,01952$.
+Ebenfalls eingezeichnet sind die quadrierten Mittelwerte Messwerten für die Periodendauer $T$ bei den untersuchten Pendellängen.
+
+```{r, echo=FALSE, fig.height=3.5}
+#Plotten
+{par(mar=c(5,5,2,2))
+plot(xlin, ylin, col="transparent",
+     xlim=c(0, max(xlin)),
+     ylim=c(0, max(ylin)),
+     xlab="Pendellänge L [m]",
+      ylab=expression(paste("Quadrierte Periodendauer T"^"2", "[s"^"2","]")))
+abline(coef=c(0.01952, 4.04209))
+points(xlin, ylin, pch=17, col="red")
+legend("bottomright", 
+       legend=c(expression(paste("T"^2 == a*L+y )), "Mittelwert T"),
+       col=c("black", "red"), 
+       pch=c(26, 17), lty=c(1,0))}
+```
+
+### Berechnung der Erdbeschleunigung
+
+Aus der Steigung $a$ kann die Erdbeschleunigung $g$ bestimmt werden:
+
+\begin{align*}
+a&= \frac{4\pi^2}{g}\\
+\Rightarrow g &= \frac{4\pi^2}{4,04209}\\
+ &= 9,766832901879 [\frac{m}{s^2}]\\
+\end{align*}
+
+# Weiter mit Fehlerrechnung g
+wie?
+
+# Todos:
+
+* Der/Die Student/in konnte seine/ihre Messergebnisse der zwei Messmethoden vergleichen
+(5 Punkte).
+* Der/Die Student/in konnte beurteilen welche der beiden Methoden richtiger oder präziser
+ist (5 Punkte).
+* Der/Die Student/in konnte Ursachen für systematische Abweichungen bei den unter-
+schiedlichen Messmethoden finden (10 Punkte).
+* Rückschlüsse sind klar dargestellt und beziehen sich auf die eigenen Messdaten und deren
+Analyse (5 Punkte).
