@@ -53,7 +53,7 @@ WerteT <- as.data.frame(t(Werte[,-1]))
 
 Damit sind die Werte für die Pendellänge sowie deren konstante Unsicherheit $u_L=0,00029m$, siehe \textit{Versuch 1} (Vergeleich mit Formel), bekannt.
 Ebenso sind die Werte für die Periodendauer $T$ bekannt, diese entsrechen einem Zehntel der Zeit für die gemessenen zehn Perioden, vergleiche (Formel ...).
-Die Unsicherheit für T ist auch aus Versuch 1 übernehmbar, diese beträgt $u_T =  0,00029s$
+Die Unsicherheit für T ist auch aus Versuch 1 übernehmbar, diese beträgt $u_T =  0,00029s$.
 
 Zur Veranschaulichung der Messwerte wird die Periodendauer $T$ gegen die Pendellänge aufgetragen:
 ```{r, echo=FALSE}
@@ -87,7 +87,7 @@ pltdf <- data.frame(x, t(y)) %>% gather(k, v,-x) %>%
 
 # Plotten
 {TFun <- function(x) 2*pi*sqrt(x/9.81)
-TFuntxt <- expression("T" == 2*pi*sqrt(frac("L", frac("9.81 m","s^2"))))
+TFuntxt <- expression("T(L)" == 2*pi*sqrt(frac("L", frac("9.81 m","s^2"))))
 plot(x=pltdf$x, y=pltdf$v, 
      # Fenstergröße
      xlim=c(0, max(pltdf$x)),
@@ -106,4 +106,50 @@ legend("bottomright",
        col=c("black", "red", "black"), 
        pch=c(26, 20,20), lty=c(1,0,0), cex=0.8)}
 ```
+
+In diesem Diagramm sind die Fehlerbalken nicht sichtbar, was an der kleinen Fehlergröße liegt.
+Zur Validierung der Messwerte wurde die Funktion $T(L)=2\pi\sqrt{\frac{L}{g}}$ mit dem Literaturwert der Erdbeschleunigung von $g=9,81\frac{m}{s^2}$ eingezeichnet. 
+Daran wird ersichtlich, dass die Messwerte alles in allem ganz gut sind.
+Mittels einer Linearisierung erfolgt die Berechnung von g für diesen Versuch.
+Bekannt ist, dass $T^2 \propto 4\pi^2\frac{L}{g}$, vergleiche Formel (ref...). 
+Daraus folgt eine Geradengleichung mit der Steigung $a=\frac{4\pi^2}{g}$ und dem y-Achsenabschnitt $y$.
+Nach der Quadrierung der Messwerte für $T$ kann eine lineare Regression durchgeführt werden.
+Eine Prüfung der Korellation liefert einen Korrelationskoeffizient von $0,9998$.
+```{r}
+# Berechnung der linearisierten Funktionswerte
+xlin=WerteT$Pendellaenge_L/100 # in m
+ylin=(WerteT$`10-Perioden_Mittelwert`/10)**2 # in s
+# Korellationskoeffizient
+cor(x=xlin, y=ylin, method='pearson')
+```
+
+Die lineare Regression erfolgt mittels QR-Faktorisierung.
+```{r}
+lm(ylin~xlin)
+```
+Im folgenden Schaubild ist die Funktionsgerade der linearen Regression zusehen.
+Dabei ist die Steigung $a=\frac{4\pi^2}{g}=4,04209$ und der y-Achsenabschnitt $y=0,01952$.
+Ebenfalls eingezeichnet sind die quadrierten Messwerten für die Periodendauer $T$.
+
+```{r, echo=FALSE}
+#Plotten
+{par(mar=c(5,5,2,2))
+plot(xlin, ylin, col="transparent",
+      xlab="Pendellänge L [m]",
+      ylab=expression(paste("Quadrierte Periodendauer T"^"2", "[s"^"2","]")))
+abline(coef=c(0.01952, 4.04209))
+points(xlin, ylin, pch=17, col="red")
+legend("bottomright", 
+       legend=c(expression(paste("T"^2 == a*L+y )), "Mittelwert T"),
+       col=c("black", "red"), 
+       pch=c(26, 17), lty=c(1,0))}
+```
+
+Aus der Steigung $a$ kann die Erdbeschleunigung $g$ bestimmt werden:
+
+\begin{align*}
+a&= \frac{4\pi^2}{g}\\
+\Rightarrow g &= \frac{4\pi^2}{4,04209}\\
+ &= 9,766832901879 [\frac{m}{s^2}]\\
+\end{align*}
 
