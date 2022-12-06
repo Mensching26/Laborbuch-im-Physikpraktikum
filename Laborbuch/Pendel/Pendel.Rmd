@@ -65,9 +65,13 @@ Folgende Annahmen mussten darüber hinaus getroffen werden:
 * Der Pendelkörper wird nur um eine kleine Strecke ausgelenkt
 * Die Angelschnur ist inelastisch
 
+## Skizze zu wirkenden Kräften während der Durchführung
+
+![Wirkende Kräfte](Bilder/Wirkende Kräfte.jpeg){width=40%, height=40%}
+
 ## Messungen
 
-Im Laufe don Versuch 1 wurden folgende Messwerte aufgenommen, auf die sich in der folgenden Auswertung bezogen wird: 
+Im Laufe von Versuch 1 wurden folgende Messwerte aufgenommen, auf die sich in der folgenden Auswertung bezogen wird: 
 ```{r, echo = FALSE}
 Werte <- data.frame(read.csv("Daten/Daten.csv", sep = ";", dec = ",", header=FALSE))
 colnames(Werte) <- c("Namen","M1","M2","M3","M4","M5","M6","M7")
