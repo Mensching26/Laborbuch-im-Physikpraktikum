@@ -34,15 +34,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Pendel},
-  pdfauthor={Milena Mensching Justus Weyers},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -123,6 +114,15 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Pendel},
+  pdfauthor={Milena Mensching Justus Weyers},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Pendel}
 \author{Milena Mensching Justus Weyers}
@@ -137,7 +137,47 @@
 \hypertarget{ziel}{%
 \subsection{Ziel}\label{ziel}}
 
-Bestimmung der Erdbeschleunigung \(g\).
+Bestimmung der Erdbeschleunigung \(g\). Dafür soll ein Pendel verwendet
+werden. Dafür wird der Zusammenhang der Schwingungsdauer (Periodendauer)
+\(T\) mit der Pendellänge \(L\) und der Erdbeschleunigung \(g\)
+verwendet. Es gilt: \[T(L,g) = 2\pi \sqrt{\frac{L}{g}}\] In diesem
+Versuch soll \(L\) bekannt sein und \(g\) untersucht werden.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.4\textheight]{Bilder/Wirkende Kräfte.jpeg}
+\caption{Wirkende Kräfte}
+\end{figure}
+
+Der genannte Zusammenhang ergibt sich aus der Eigenschaft eines
+Fadenpendels nach einer kleinen Auslenkung \(x\) harmonisch zu
+schwingen. Die der Auslenkung entgegenwirkende Kraft, die Rückstellkraft
+\(F_{Rück}\), ist proportional und entgegengesetzt zu \(x\). Sie ist die
+resultierende Kraft aus der Gewichtskraft des Massenstücks am Pendel
+(der Faden wird als masselos angenommen) und der Zentripetalkraft
+(Zugkraft, durch den Faden in Richtung des
+Rotations-/Befestigungspunktes). Mit einer Kleinwinkelannäherung gilt
+für \(F_{Rück}\) folgender Zusammenhang:
+\begin{equation}\label{Pendel:Rueck}
+F_{Rück} = m * \ddot{x} = -\frac{g}{l}*m*x
+\end{equation} Werden neben der Luftreibung auch andere, dem System
+``Fadenpendel'' Energie entnehmende Effekte verachlässigt, handelt es
+sich bei dem Pendel und der nun periodisch stattindenden Umwandlung von
+potentieller Energie, am Punkte der Maximalauslenkung, in kinetische
+Energie, am Punkt der maximalen Geschwindigkeit, um einen harmonischen
+Oszillator. Die Auslenkung \(x\) aus Formel \label{Pendel:Ruek} ist
+dabei zeitabhängig und kann wie alle harmonischen Schwingungen duch
+Amplitude \(\hat{x}\) und Winkelgeschwindigkeit \(\omega\) beschrieben
+werden: \begin{equation}\label{Pendel:Schwingung}
+  x(t,\omega) = \hat{x} \cdot cos(\omega \cdot t)
+\end{equation} Die Winkelgeschwindigkeit ist dabei abhängig von
+Erdbeschleunigung und Pendellänge, vergleiche Formel \ref{Pendel:Rueck},
+sie beträgt \(\omega=\sqrt{\frac{g}{l}}\). Über diese
+Winkelgeschwindigkeit kann mit dem Zusammenhang \(T=2\pi\omega\) die
+Periodendauer für einen Pendelschlag bestimmt werden als:
+\begin{equation}\label{Pendel:Periodendauer}
+T(L) = 2\pi \sqrt{\frac{L}{g}}
+\end{equation}
 
 \hypertarget{materialien}{%
 \subsection{Materialien}\label{materialien}}
@@ -156,6 +196,8 @@ Bestimmung der Erdbeschleunigung \(g\).
   Klebeband
 \item
   Stoppuhr
+\item
+  Berechnungen finden in Excel und R statt
 \end{itemize}
 
 \hypertarget{versuchsaufbau}{%
@@ -222,16 +264,6 @@ Folgende Annahmen mussten darüber hinaus getroffen werden:
   Die Angelschnur ist inelastisch
 \end{itemize}
 
-\hypertarget{skizze-zu-wirkenden-kruxe4ften-wuxe4hrend-der-durchfuxfchrung}{%
-\subsection{Skizze zu wirkenden Kräften während der
-Durchführung}\label{skizze-zu-wirkenden-kruxe4ften-wuxe4hrend-der-durchfuxfchrung}}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth,height=0.4\textheight]{Bilder/Wirkende Kräfte.jpeg}
-\caption{Wirkende Kräfte}
-\end{figure}
-
 \hypertarget{messungen}{%
 \subsection{Messungen}\label{messungen}}
 
@@ -240,13 +272,13 @@ sich in der folgenden Auswertung bezogen wird:
 
 \begin{longtable}[]{@{}lr@{}}
 \caption{Messwerte aus Versuch 1}\tabularnewline
-\toprule
+\toprule()
 Messgröße & Wert \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 Messgröße & Wert \\
-\midrule
+\midrule()
 \endhead
 L1: Position Drehpunkt {[}cm{]} & 4.00 \\
 L2: Position Fadenende {[}cm{]} & 88.50 \\
@@ -256,7 +288,7 @@ L3: Höhe Zylinder {[}cm{]} & 5.87 \\
 10-Periodendauer {[}s{]} & 18.85 \\
 10-Periodendauer {[}s{]} & 18.85 \\
 10-Periodendauer {[}s{]} & 18.72 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Die fünf Punkte ``10-Periodendauer {[}s{]}'' sind die fünfmal
@@ -270,7 +302,7 @@ soll.
 \subsubsection{\texorpdfstring{Pendellänge L und Unsicherheit
 \(u_L\)}{Pendellänge L und Unsicherheit u\_L}}\label{pendelluxe4nge-l-und-unsicherheit-u_l}}
 
-Die Pendellänge \(L\) wird bestimmt, indem Differenz von \(L_1\) und
+Die Pendellänge \(L\) wird bestimmt, indem die Differenz von \(L_1\) und
 \(L_2\) berechnet wird, siehe Tabelle im Abschnitt \textit{Messungen}.
 Es wird auch darauf geachtet, die Distanz von der Pendeloberkante bis
 zum Massenschwerpunkt des Pendels dazuzurechnen. Dafür wird die
@@ -338,8 +370,8 @@ berechnet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{T10 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(Werte[}\DecValTok{4}\SpecialCharTok{:}\DecValTok{8}\NormalTok{])}
-\NormalTok{T10}
+\NormalTok{T\_10T }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(Werte[}\DecValTok{4}\SpecialCharTok{:}\DecValTok{8}\NormalTok{])}
+\NormalTok{T\_10T}
 \end{Highlighting}
 \end{Shaded}
 
@@ -369,8 +401,8 @@ der Unsicherheit
 \(u_g\)}{Berechnung der Erdbeschläunugung g und der Unsicherheit u\_g}}\label{berechnung-der-erdbeschluxe4unugung-g-und-der-unsicherheit-u_g}}
 
 Mit den Bestwerten für die Pendellänge \(L\) und die Periodendauer \(T\)
-kann der Bestwert der Erdbeschleunigung \(g\) berechnet werden. Aus dem
-Zusammenhang \(T=2*\pi*\sqrt{\frac{l}{g}}\) ergibt sich mit
+kann der Bestwert der Erdbeschleunigung \(g\) berechnet werden. In
+Formel \ref{Pendel:Periodendauer} eingesetzt ergibt sich mit
 \(L = 0,8744m\) und \(T = 1,878s\):
 
 \begin{equation*}
@@ -421,6 +453,10 @@ Der Literaturwert von \(g=9,81\frac{m}{s^2}\) liegt damit nicht im
 Fehlerintervall. Eventuell kann in einem Versuch, bei dem die
 Pendellänge varriiert wird ein besseres Ergebnis erziehlt werden.
 
+\textit{Vielleicht hier noch 'nen Ast abbrechen.}
+
+\newpage
+
 \hypertarget{versuch-2}{%
 \section{Versuch 2}\label{versuch-2}}
 
@@ -460,7 +496,7 @@ Die Messwerte sind die folgenden:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Versuch 1
@@ -477,7 +513,7 @@ Versuch 6
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Versuch 7
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 L1:Oberes\_Ende\_in\_cm & 4.0000 & 4.0000 & 4.0000 & 4.0000 & 4.0000 &
 4.0000 & 4.0000 \\
@@ -499,7 +535,7 @@ Zeit\_fuer\_10-Perioden\_ 5 & 18.7200 & 17.2500 & 15.4400 & 13.5300 &
 10.9100 & 21.4700 & 24.7300 \\
 10-Perioden\_Mittelwert & 18.7800 & 17.2400 & 15.4800 & 13.5000 &
 10.9400 & 21.4700 & 24.4900 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{auswertung-1}{%
@@ -525,8 +561,8 @@ die Pendellänge aufgetragen:
 \includegraphics{Pendel_files/figure-latex/unnamed-chunk-8-1.pdf}
 
 In diesem Diagramm sind die Fehlerbalken nicht sichtbar, was an den
-kleinen Fehlern liegt. Zur Validierung der Messwerte wurde die Funktion
-\(T(L)=2\pi\sqrt{\frac{L}{g}}\) mit dem Literaturwert der
+kleinen Fehlern liegt. Als ersatz wurde zur Validierung der Messwerte
+die Funktion \(T(L)=2\pi\sqrt{\frac{L}{g}}\) mit dem Literaturwert der
 Erdbeschleunigung für Berlin von \(g\approx 9,81\frac{m}{s^2}\)
 eingezeichnet. Daran wird ersichtlich, dass die Messwerte alles in allem
 ganz gut sind.
@@ -535,12 +571,12 @@ ganz gut sind.
 \subsubsection{Linearisierung}\label{linearisierung}}
 
 Mittels einer Linearisierung erfolgt die Berechnung von \(g\) für diesen
-Versuch. Bekannt ist: \(T^2 = 4\pi^2\frac{L}{g}\). Daraus folgt eine
-Geradengleichung der Form \(T^2=a*L+y\) mit der Steigung
-\(a=\frac{4\pi^2}{g}\) und dem y-Achsenabschnitt \(y\). Nach der
-Quadrierung der Messwerte für \(T\) kann eine lineare Regression
-durchgeführt werden. Eine Prüfung der Korellation liefert einen
-Korrelationskoeffizient von \(0,9998\).
+Versuch. Quadrierung von Formel \ref{Pendel:Periodendauer} ergibt:
+\[T^2 = 4\pi^2\frac{L}{g}\] Daraus folgt eine Geradengleichung der Form
+\(T^2(L)=:k(L)=a*L+y\) mit der Steigung \(a=\frac{4\pi^2}{g}\) und dem
+y-Achsenabschnitt \(y\). Nach der Quadrierung der Messwerte für \(T\)
+kann eine lineare Regression durchgeführt werden. Eine Prüfung der
+Korellation liefert einen Korrelationskoeffizient von \(0,9998\).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -556,7 +592,8 @@ Korrelationskoeffizient von \(0,9998\).
 ## [1] 0.9998811
 \end{verbatim}
 
-Die lineare Regression erfolgt mittels QR-Faktorisierung.
+Die lineare Regression erfolgt in R mittels QR-Faktorisierung in der
+lm()-Funktion.
 
 \begin{Shaded}
 \begin{Highlighting}[]
