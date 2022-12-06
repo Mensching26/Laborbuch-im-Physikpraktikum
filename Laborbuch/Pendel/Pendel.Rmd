@@ -334,7 +334,8 @@ cor(x=xlin, y=ylin, method='pearson')
 
 Die lineare Regression erfolgt in R mittels QR-Faktorisierung in der lm()-Funktion.
 ```{r}
-lm(ylin~xlin)
+lm <- lm(ylin~xlin)
+summary(lm)
 ```
 Im folgenden Schaubild ist die Funktionsgerade der linearen Regression zusehen.
 Dabei ist die Steigung $a=\frac{4\pi^2}{g}=4,04209$ und der y-Achsenabschnitt $y=0,01952$.
