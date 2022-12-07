@@ -19,7 +19,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 ## Ziel
 
-Bestimmung der Erdbeschleunigung $g$. Dafür soll ein Pendel verwendet werden. Dafür wird der Zusammenhang der Schwingungsdauer (Periodendauer) $T$ mit der Pendellänge $L$ und der Erdbeschleunigung $g$ verwendet. Es gilt:
+Bestimmung der Erdbeschleunigung $g$. Dafür soll ein Pendel verwendet werden. Es wird der Zusammenhang der Schwingungsdauer (Periodendauer) $T$ mit der Pendellänge $L$ und der Erdbeschleunigung $g$ verwendet. Es gilt:
 $$T(L,g) = 2\pi \sqrt{\frac{L}{g}}$$
 In diesem Versuch soll $L$ bekannt sein und $g$ untersucht werden.
 
@@ -161,7 +161,7 @@ Die mittlere Periodendauer $T$ in Sekunden wird bestimmt, indem $T_{10T}$ durch 
 $$T_{10T} = n*T \Leftrightarrow T = \frac{18,778s}{10}=1.8778s$$
 
 Die Messunsicherheit der digitalen Stoppuhr $u_{Stoppuhr}$ ist die Unsicherheit für $T_{10T}$. 
-Deren kleinste ablesbare Größenordnung waren sind Millisekunden. 
+Deren kleinste ablesbare Größenordnung sind Millisekunden. 
 Damit folgt für $u_{10T}$: $u_{10T}= \frac{a}{2\sqrt{3}} = \frac{0,01s}{2\sqrt{3}} \approx 0,0029s$.
 
 Die Unsicherheit der Periodendauer $u_T$ ist für zehn Perioden dann ein Zehntel der Messunsicherheit für zehn Perioden, also $u_T=0.00029s$.
@@ -211,18 +211,16 @@ Damit haben wir in Versuch 1 eine Erdbeschleunigung von $g=(9,7891 \pm 0,0044)\f
 Der Literaturwert von $g=9,81\frac{m}{s^2}$ liegt damit nicht im Fehlerintervall. 
 Eventuell kann in einem Versuch, bei dem die Pendellänge varriiert wird ein besseres Ergebnis erziehlt werden.
 
-\textit{Vielleicht hier noch 'nen Ast abbrechen.}
-
 \newpage
 
 # Versuch 2
 
-Der zweite Versuch läuft analog zum ersten Versuch. Allerdings werden statt nur einer Messreihe 5 verschiedene - jeweils mit einer anderen Fadenlänge - gemessen. Um die Pendellängen zu variieren wurde der Faden für kürzere Fadenlängen mit Klebeband am Zylinder stückchenweise festgeklebt. Für längere Pendellängen wurden weitere Stücke Angelschnur an das Pendel geknotet. 
+Der zweite Versuch läuft analog zum ersten Versuch. Allerdings werden statt nur einer Messreihe 5 verschiedene - jeweils mit einer anderen Fadenlänge - Messreihen aufgenommen. Um die Pendellängen zu variieren wurde der Faden für kürzere Fadenlängen mit Klebeband am Zylinder stückchenweise festgeklebt. Für längere Pendellängen wurden weitere Stücke Angelschnur an das Pendel geknotet. 
 
 ## Fehlerquellen
 
-Die Fehlerquellen sind ebenfalls die selben wie beim ersten Versuch. Allerdings ist hierbei zu bemerken, dass die Reaktioszeit bei kürzeren Fadenlängen und daraus resultierenden kürzeren Periodendauern verhältnismäßig zunimmt. Auch von der Bahn abweichende Bewegungen nehmen bei kürzeren Pendellängen zu. 
-Auch ist nicht unterscuht, wie sich Klebeband bzw. Knoten im Faden auf das Pendelverhalten auswirken.
+Die Fehlerquellen sind dieselben wie beim ersten Versuch. Allerdings ist hierbei zu bemerken, dass die Reaktioszeit bei kürzeren Fadenlängen und daraus resultierenden kürzeren Periodendauern verhältnismäßig zunimmt. Auch von der Bahn abweichende Bewegungen nehmen bei kürzeren Pendellängen zu. 
+Auch ist nicht untersucht, wie sich Klebeband bzw. Knoten im Faden auf das Pendelverhalten auswirken.
 
 ## Messungen
 
@@ -313,7 +311,7 @@ legend("bottomright",
 ```
 
 In diesem Diagramm sind die Fehlerbalken nicht sichtbar, was an den kleinen Fehlern liegt.
-Als ersatz wurde zur Validierung der Messwerte die Funktion $T(L)=2\pi\sqrt{\frac{L}{g}}$ mit dem Literaturwert der Erdbeschleunigung für Berlin von $g\approx 9,81\frac{m}{s^2}$ eingezeichnet. 
+Als Ersatz wurde zur Validierung der Messwerte die Funktion $T(L)=2\pi\sqrt{\frac{L}{g}}$ mit dem Literaturwert der Erdbeschleunigung für Berlin von $g\approx 9,81\frac{m}{s^2}$ eingezeichnet. 
 Daran wird ersichtlich, dass die Messwerte alles in allem ganz gut sind.
 
 ### Linearisierung
@@ -379,7 +377,7 @@ Damit haben wir mit dem zweiten Versuchsansatz eine Erdbechleunigung von $g=(9,7
 ## Interpretation
 
 Auch dieser Wert ist niedriger als der Literaturwert der Erdbeschleunigung für Deutschland mit $g\approx 9,81 \frac{m}{s^2}$. 
-Trotz des im Vergleich zum ersten Versuchsansatzes größeren Fehlers liegt der Literaturwert auch nicht im Fehlerintervall der bestimmten Erdbeschleunigung.
+Trotz des im Vergleich zum ersten Versuchsansatzes größeren Fehlers, liegt der Literaturwert auch nicht im Fehlerintervall der bestimmten Erdbeschleunigung.
 
 ## Vergleich der Versuche
 
