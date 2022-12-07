@@ -334,8 +334,7 @@ cor(x=xlin, y=ylin, method='pearson')
 
 Die lineare Regression erfolgt in R mittels QR-Faktorisierung in der lm()-Funktion.
 ```{r}
-lm <- lm(ylin~xlin)
-summary(lm)
+lm <- lm(ylin~xlin);lm
 ```
 Im folgenden Schaubild ist die Funktionsgerade der linearen Regression zusehen.
 Dabei ist die Steigung $a=\frac{4\pi^2}{g}=4,04209$ und der y-Achsenabschnitt $y=0,01952$.
@@ -367,16 +366,26 @@ a&= \frac{4\pi^2}{g}\\
  &= 9,766832901879 [\frac{m}{s^2}]\\
 \end{align*}
 
-# Weiter mit Fehlerrechnung g
-wie?
+### Berechnung von u_g
 
-# Todos:
+Bei der Berechnnung der Linearen Regression gibt die R funktion lm() folgenden output:
+```{r}
+summary(lm)
+```
 
-* Der/Die Student/in konnte seine/ihre Messergebnisse der zwei Messmethoden vergleichen
-(5 Punkte).
-* Der/Die Student/in konnte beurteilen welche der beiden Methoden richtiger oder präziser
-ist (5 Punkte).
-* Der/Die Student/in konnte Ursachen für systematische Abweichungen bei den unter-
-schiedlichen Messmethoden finden (10 Punkte).
-* Rückschlüsse sind klar dargestellt und beziehen sich auf die eigenen Messdaten und deren
-Analyse (5 Punkte).
+Mangels besseren Wissens nehmen wir den Standardfehler der Steigung $a$, wegen $g=4\pi^2/a$, als Unsicherheit für $g$.
+Damit haben wir mit dem zweiten Versuchsansatz eine Erdbechleunigung von $g=(9,767 \pm 0,024)\frac{m}{s^2}$.
+
+## Interpretation
+
+Auch dieser Wert ist niedriger als der Literaturwert der Erdbeschleunigung für Deutschland mit $g\approx 9,81 \frac{m}{s^2}$. 
+Trotz des im Vergleich zum ersten Versuchsansatzes größeren Fehlers liegt der Literaturwert auch nicht im Fehlerintervall der bestimmten Erdbeschleunigung.
+
+## Vergleich der Versuche
+
+\begin{itemize} 
+  \item Versuch: $g=(9,7891 \pm 0,0044)\frac{m}{s^2}$
+  \item Versuch: $g=(9,767 \pm 0,024)\frac{m}{s^2}$
+\end{itemize}
+
+In Versuch 1 ist sowohl das präzisere, als auch das akkuratere Ergebnis erzielt worden, als in Versuch 2.
