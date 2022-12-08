@@ -62,6 +62,30 @@ Durchmesser_klein:0,635
 Höhe_groß:4,515cm
 Höhe_klein:0,85mm
 Masse: 176,12
+
+# Wasserverdrängung
+Orangenes Metall:
+```{r}
+58-35
+```
+Graues Metall:
+```{r}
+57-35
+```
+# Oranges Metall
+# Wassermasse
+Wassermasse mit Becherglas:235,5g
+Becherglas leer: 97,4g
+Wassermasse ohne Becherglas:
+T_A (Warmes Wasser):  50,0°C
+T_B (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2g)
+
+# Graues Metall
+Wassermasse mit Becherglas:241,3g
+Wassermasse ohne Becherglas:
+T_A (Warmes Wasser):  49,1°C
+T_B (Mischtemp): (vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8)
+
 ## Auswertung
 
 ## Interpretation
