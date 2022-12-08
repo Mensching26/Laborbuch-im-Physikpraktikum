@@ -34,6 +34,15 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Pendel},
+  pdfauthor={Milena Mensching Justus Weyers},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -114,19 +123,10 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={Pendel},
-  pdfauthor={Milena Mensching Justus Weyers},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
 
 \title{Pendel}
 \author{Milena Mensching Justus Weyers}
-\date{2022-12-07}
+\date{2022-12-08}
 
 \begin{document}
 \maketitle
@@ -161,11 +161,11 @@ für \(F_{Rück}\) folgender Zusammenhang:
 \begin{equation}\label{Pendel:Rueck}
 F_{Rück} = m * \ddot{x} = -\frac{g}{l}*m*x
 \end{equation} Werden neben der Luftreibung auch andere, dem System
-``Fadenpendel'' Energie entnehmende Effekte verachlässigt, handelt es
-sich bei dem Pendel und der nun periodisch stattindenden Umwandlung von
+``Fadenpendel'' Energie entnehmende Effekte vernachlässigt, handelt es
+sich bei dem Pendel und der nun periodisch stattfindenden Umwandlung von
 potentieller Energie, am Punkte der Maximalauslenkung, in kinetische
 Energie, am Punkt der maximalen Geschwindigkeit, um einen harmonischen
-Oszillator. Die Auslenkung \(x\) aus Formel \label{Pendel:Ruek} ist
+Oszillator. Die Auslenkung \(x\) aus Formel 1 \label{Pendel:Ruek} ist
 dabei zeitabhängig und kann wie alle harmonischen Schwingungen duch
 Amplitude \(\hat{x}\) und Winkelgeschwindigkeit \(\omega\) beschrieben
 werden: \begin{equation}\label{Pendel:Schwingung}
@@ -272,13 +272,13 @@ sich in der folgenden Auswertung bezogen wird:
 
 \begin{longtable}[]{@{}lr@{}}
 \caption{Messwerte aus Versuch 1}\tabularnewline
-\toprule()
+\toprule
 Messgröße & Wert \\
-\midrule()
+\midrule
 \endfirsthead
-\toprule()
+\toprule
 Messgröße & Wert \\
-\midrule()
+\midrule
 \endhead
 L1: Position Drehpunkt {[}cm{]} & 4.00 \\
 L2: Position Fadenende {[}cm{]} & 88.50 \\
@@ -288,7 +288,7 @@ L3: Höhe Zylinder {[}cm{]} & 5.87 \\
 10-Periodendauer {[}s{]} & 18.85 \\
 10-Periodendauer {[}s{]} & 18.85 \\
 10-Periodendauer {[}s{]} & 18.72 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 Die fünf Punkte ``10-Periodendauer {[}s{]}'' sind die fünfmal
@@ -472,7 +472,7 @@ Die Fehlerquellen sind dieselben wie beim ersten Versuch. Allerdings ist
 hierbei zu bemerken, dass die Reaktioszeit bei kürzeren Fadenlängen und
 daraus resultierenden kürzeren Periodendauern verhältnismäßig zunimmt.
 Auch von der Bahn abweichende Bewegungen nehmen bei kürzeren
-Pendellängen zu. Auch ist nicht untersucht, wie sich Klebeband bzw.
+Pendellängen zu. Zudem ist nicht untersucht, wie sich Klebeband bzw.
 Knoten im Faden auf das Pendelverhalten auswirken.
 
 \hypertarget{messungen-1}{%
@@ -494,7 +494,7 @@ Die Messwerte sind die folgenden:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}@{}}
-\toprule()
+\toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Versuch 1
@@ -511,7 +511,7 @@ Versuch 6
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Versuch 7
 \end{minipage} \\
-\midrule()
+\midrule
 \endhead
 L1:Oberes\_Ende\_in\_cm & 4.0000 & 4.0000 & 4.0000 & 4.0000 & 4.0000 &
 4.0000 & 4.0000 \\
@@ -533,7 +533,7 @@ Zeit\_fuer\_10-Perioden\_ 5 & 18.7200 & 17.2500 & 15.4400 & 13.5300 &
 10.9100 & 21.4700 & 24.7300 \\
 10-Perioden\_Mittelwert & 18.7800 & 17.2400 & 15.4800 & 13.5000 &
 10.9400 & 21.4700 & 24.4900 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 \hypertarget{auswertung-1}{%
@@ -612,8 +612,8 @@ lm()-Funktion.
 Im folgenden Schaubild ist die Funktionsgerade der linearen Regression
 zusehen. Dabei ist die Steigung \(a=\frac{4\pi^2}{g}=4,04209\) und der
 y-Achsenabschnitt \(y=0,01952\). Ebenfalls eingezeichnet sind die
-quadrierten Mittelwerte Messwerten für die Periodendauer \(T\) bei den
-untersuchten Pendellängen.
+quadrierten Mittelwerte der Messwerte für die Periodendauer \(T\) bei
+den untersuchten Pendellängen.
 
 \includegraphics{Pendel_files/figure-latex/unnamed-chunk-11-1.pdf}
 
@@ -665,7 +665,7 @@ folgenden output:
 Mangels besseren Wissens nehmen wir den Standardfehler der Steigung
 \(a\), wegen \(g=4\pi^2/a\), als Unsicherheit für \(g\). Damit haben wir
 mit dem zweiten Versuchsansatz eine Erdbechleunigung von
-\(g=(9,767 \pm 0,024)\frac{m}{s^2}\).
+\(g=(9,767 \pm 0,028)\frac{m}{s^2}\).
 
 \hypertarget{interpretation-1}{%
 \subsection{Interpretation}\label{interpretation-1}}
