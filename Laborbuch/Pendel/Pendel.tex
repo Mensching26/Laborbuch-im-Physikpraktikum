@@ -34,15 +34,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Pendel},
-  pdfauthor={Milena Mensching Justus Weyers},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -123,6 +114,15 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Pendel},
+  pdfauthor={Milena Mensching Justus Weyers},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Pendel}
 \author{Milena Mensching Justus Weyers}
@@ -272,13 +272,13 @@ sich in der folgenden Auswertung bezogen wird:
 
 \begin{longtable}[]{@{}lr@{}}
 \caption{Messwerte aus Versuch 1}\tabularnewline
-\toprule
+\toprule()
 Messgröße & Wert \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 Messgröße & Wert \\
-\midrule
+\midrule()
 \endhead
 L1: Position Drehpunkt {[}cm{]} & 4.00 \\
 L2: Position Fadenende {[}cm{]} & 88.50 \\
@@ -288,7 +288,7 @@ L3: Höhe Zylinder {[}cm{]} & 5.87 \\
 10-Periodendauer {[}s{]} & 18.85 \\
 10-Periodendauer {[}s{]} & 18.85 \\
 10-Periodendauer {[}s{]} & 18.72 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Die fünf Punkte ``10-Periodendauer {[}s{]}'' sind die fünfmal
@@ -494,7 +494,7 @@ Die Messwerte sind die folgenden:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1053}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Versuch 1
@@ -511,7 +511,7 @@ Versuch 6
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Versuch 7
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 L1:Oberes\_Ende\_in\_cm & 4.0000 & 4.0000 & 4.0000 & 4.0000 & 4.0000 &
 4.0000 & 4.0000 \\
@@ -533,7 +533,7 @@ Zeit\_fuer\_10-Perioden\_ 5 & 18.7200 & 17.2500 & 15.4400 & 13.5300 &
 10.9100 & 21.4700 & 24.7300 \\
 10-Perioden\_Mittelwert & 18.7800 & 17.2400 & 15.4800 & 13.5000 &
 10.9400 & 21.4700 & 24.4900 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{auswertung-1}{%

@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.8)  8 DEC 2022 21:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.23)  8 DEC 2022 22:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **"./pre-Lab Brownsche Molekülbewegung.tex"
 (pre-Lab Brownsche Molekülbewegung.tex
-LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-10-26>
-(C:\Users\milen\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(C:\Users\milen\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+LaTeX2e <2022-11-01>
+L3 programming layer <2022-11-02>
+(C:\Users\justu\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(C:\Users\justu\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -21,59 +21,59 @@ File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \c@table=\count192
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen138
+\bibindent=\dimen140
 )
-(C:\Users\milen\MiKTeX\tex/generic/babel\babel.sty
+(C:\Users\justu\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2022/10/23 3.82 The Babel package
 \babel@savecnt=\count193
-\U@D=\dimen139
+\U@D=\dimen141
 \l@unhyphenated=\language79
 
-(C:\Users\milen\MiKTeX\tex/generic/babel\txtbabel.def)
+(C:\Users\justu\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count194
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\milen\MiKTeX\tex/latex/arabi\bblopts.cfg
+(C:\Users\justu\MiKTeX\tex/latex/arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\milen\MiKTeX\tex/latex/babel-german\ngerman.ldf
+(C:\Users\justu\MiKTeX\tex/latex/babel-german\ngerman.ldf
 Language: ngerman 2021/02/27 v2.13 German support for babel (post-1996 orthogra
 phy)
 
-(C:\Users\milen\MiKTeX\tex/latex/babel-german\ngermanb.ldf
+(C:\Users\justu\MiKTeX\tex/latex/babel-german\ngermanb.ldf
 Language: ngermanb 2021/02/27 v2.13 German support for babel (post-1996 orthogr
 aphy)
 Package babel Info: Making " an active character on input line 122.
 )))
-(C:\Users\milen\MiKTeX\tex/generic/babel/locale/de\babel-ngerman.tex
+(C:\Users\justu\MiKTeX\tex/generic/babel/locale/de\babel-ngerman.tex
 Package babel Info: Importing font and identification data for ngerman
 (babel)             from babel-de.ini. Reported on input line 11.
 )
-(C:\Users\milen\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Users\justu\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-(C:\Users\milen\MiKTeX\tex/latex/amsmath\amsmath.sty
+(C:\Users\justu\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
 \@mathmargin=\skip49
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\milen\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\justu\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
-(C:\Users\milen\MiKTeX\tex/latex/amsmath\amsgen.sty
+(C:\Users\justu\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
-\ex@=\dimen140
+\ex@=\dimen142
 ))
-(C:\Users\milen\MiKTeX\tex/latex/amsmath\amsbsy.sty
+(C:\Users\justu\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen141
+\pmbraise@=\dimen143
 )
-(C:\Users\milen\MiKTeX\tex/latex/amsmath\amsopn.sty
+(C:\Users\justu\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count195
@@ -93,7 +93,7 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen142
+\big@size=\dimen144
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count266
@@ -111,12 +111,12 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count271
 \maxfields@=\count272
 \andhelp@=\toks18
-\eqnshift@=\dimen143
-\alignsep@=\dimen144
-\tagshift@=\dimen145
-\tagwidth@=\dimen146
-\totwidth@=\dimen147
-\lineht@=\dimen148
+\eqnshift@=\dimen145
+\alignsep@=\dimen146
+\tagshift@=\dimen147
+\tagwidth@=\dimen148
+\totwidth@=\dimen149
+\lineht@=\dimen150
 \@envbody=\toks19
 \multlinegap=\skip50
 \multlinetaggap=\skip51
@@ -124,44 +124,42 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-(C:\Users\milen\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\justu\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\milen\MiKTeX\tex/latex/graphics\keyval.sty
+(C:\Users\justu\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks21
 )
-(C:\Users\milen\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\justu\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\milen\MiKTeX\tex/latex/graphics\trig.sty
+(C:\Users\justu\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
-(C:\Users\milen\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+(C:\Users\justu\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 
-(C:\Users\milen\MiKTeX\tex/latex/graphics-def\pdftex.def
+(C:\Users\justu\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-\stockwidth=\dimen149
-\stockheight=\dimen150
 ))
 \Gin@req@height=\dimen151
 \Gin@req@width=\dimen152
 )
-(C:\Users\milen\MiKTeX\tex/latex/base\inputenc.sty
+(C:\Users\justu\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks22
 \inpenc@posthook=\toks23
 )
-(C:\Users\milen\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\justu\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(C:\Users\milen\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\justu\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(C:\Users\milen\MiKTeX\tex/generic/iftex\iftex.sty
+(C:\Users\justu\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
 \Gm@cnth=\count273
@@ -177,8 +175,8 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutvoffset=\dimen160
 \Gm@dimlist=\toks24
 
-(C:\Users\milen\MiKTeX\tex/latex/geometry\geometry.cfg))
-(C:\Users\milen\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+(C:\Users\justu\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\justu\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count276
 \l__pdf_internal_box=\box53
@@ -201,7 +199,7 @@ LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 
-(C:\Users\milen\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+(C:\Users\justu\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count277
 \scratchdimen=\dimen161
@@ -214,12 +212,12 @@ LaTeX Font Info:    ... okay on input line 20.
 \MPnumerator=\count281
 \makeMPintoPDFobject=\count282
 \everyMPtoPDFconversion=\toks26
-) (C:\Users\milen\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+) (C:\Users\justu\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\milen\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+(C:\Users\justu\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 *geometry* driver: auto-detecting
@@ -270,7 +268,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--44
 
 [1
 
-{C:/Users/milen/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+{C:/Users/justu/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 <BeispielNormalverteilung.jpeg, id=19, 520.19344pt x 424.58624pt>
 File: BeispielNormalverteilung.jpeg Graphic file (type jpg)
 <use BeispielNormalverteilung.jpeg>
@@ -283,31 +281,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--80
 
 [3] (pre-Lab Brownsche Molekülbewegung.aux) ) 
 Here is how much of TeX's memory you used:
- 3930 strings out of 475380
- 62144 string characters out of 2787559
- 431275 words of memory out of 3000000
- 25283 multiletter control sequences out of 15000+600000
+ 3926 strings out of 475285
+ 61962 string characters out of 2784906
+ 432334 words of memory out of 3000000
+ 25374 multiletter control sequences out of 15000+600000
  479679 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,17n,62p,636b,220s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\milen\AppData\Local\Mi
-KTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\milen\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\milen\AppD
-ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\mile
-n\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\User
-s\milen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C
-:\Users\milen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.
-pk> <C:\Users\milen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
-m2074.pk><C:/Users/milen/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/U
-sers/milen/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/milen/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/milen/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb><C:/Users/milen/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmr12.pfb><C:/Users/milen/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-C:/Users/milen/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/milen/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/milen/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmsy6.pfb><C:/Users/milen/MiKTeX/fonts/type1/public/amsf
+ 55i,17n,62p,664b,220s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\justu\AppData\Local\Mi
+KTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\justu\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\justu\AppD
+ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\just
+u\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\User
+s\justu\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C
+:\Users\justu\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.
+pk> <C:\Users\justu\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
+m2074.pk><C:/Users/justu/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/U
+sers/justu/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/justu/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/justu/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb><C:/Users/justu/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmr12.pfb><C:/Users/justu/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+C:/Users/justu/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/justu/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/justu/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmsy6.pfb><C:/Users/justu/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmsy8.pfb>
-Output written on "pre-Lab Brownsche Molekülbewegung.pdf" (3 pages, 260721 byt
+Output written on "pre-Lab Brownsche Molekülbewegung.pdf" (3 pages, 260637 byt
 es).
 PDF statistics:
  291 PDF objects out of 1000 (max. 8388607)
