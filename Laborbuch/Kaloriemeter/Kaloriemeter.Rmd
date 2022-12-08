@@ -10,12 +10,26 @@ output: pdf_document
 ## Thema
 
 ## Versuchsaufbau
+Im Messzylinder werden 100 und 70 ml Wasser abgemessen und anschließendin das Kaloriemeter gefüllt.
+In diesem Zustand wird dessen Masse gemessen.
+Dann wird der in Abbildung () gezeigte Stromkreis aufgebaut.
+
+Das Kaloriemeter 
 
 ## Durchführung
 
 ## Fehlerbetrachtung
 
 ## Beobachtungen
+Erhitzung des Kaloriemeters
+```{r}
+zeitreiheErhitzung <- read.csv("Daten/Messreihe.csv", sep = ";", dec=",")[,10:11]
+colnames(zeitreiheErhitzung) <- c("Zeit_s", "Temperatur")
+plot(x=zeitreiheErhitzung$Zeit_s, y=zeitreiheErhitzung$Temperatur)
+lm <- lm(zeitreiheErhitzung$Temperatur~zeitreiheErhitzung$Zeit_s)
+summary(lm)
+```
+
 
 ## Auswertung
 
@@ -27,6 +41,7 @@ output: pdf_document
 ## Thema
 
 ## Versuchsaufbau
+""
 
 ## Durchführung
 
@@ -34,6 +49,19 @@ output: pdf_document
 
 ## Beobachtungen
 
+Oranges Metall:
+Durchmesser_Groß: 2,49cm
+Durchmesser_klein: 0,58cm
+Höhe_groß: 4,52mm
+Höhe_klein: 0,815mm
+Masse: 198,0g
+
+Graues Metall:
+Durchmesser_Groß: 2,50cm
+Durchmesser_klein:0,635
+Höhe_groß:4,515cm
+Höhe_klein:0,85mm
+Masse: 176,12
 ## Auswertung
 
 ## Interpretation
