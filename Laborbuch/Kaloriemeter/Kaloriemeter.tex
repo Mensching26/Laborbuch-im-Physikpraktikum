@@ -35,46 +35,16 @@
 \makeatother
 \usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -116,7 +86,7 @@
 
 \title{Pendel}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-08}
+\date{2022-12-12}
 
 \begin{document}
 \maketitle
@@ -164,55 +134,20 @@ beziehungsweise die an der Heizspirale anliegt.
 
 Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Einlesen der csv{-}Datei}
-\NormalTok{zeitreiheErhitzung }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"Daten/Messreihe.csv"}\NormalTok{, }\AttributeTok{sep =} \StringTok{";"}\NormalTok{, }\AttributeTok{dec=}\StringTok{","}\NormalTok{)}
-\CommentTok{\# Tidy{-}up}
-\NormalTok{zeitreiheErhitzung }\OtherTok{\textless{}{-}}\NormalTok{ zeitreiheErhitzung[}\DecValTok{2}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(zeitreiheErhitzung), }\DecValTok{10}\SpecialCharTok{:}\DecValTok{11}\NormalTok{]}
-\FunctionTok{colnames}\NormalTok{(zeitreiheErhitzung) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Zeit\_s"}\NormalTok{, }\StringTok{"Temperatur"}\NormalTok{)}
-
-\CommentTok{\# Lineare Regression}
-\NormalTok{lm }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(zeitreiheErhitzung}\SpecialCharTok{$}\NormalTok{Temperatur}\SpecialCharTok{\textasciitilde{}}\NormalTok{zeitreiheErhitzung}\SpecialCharTok{$}\NormalTok{Zeit\_s)}
-\CommentTok{\# Steigung a extrahieren}
-\NormalTok{a }\OtherTok{\textless{}{-}}\NormalTok{ lm}\SpecialCharTok{$}\NormalTok{coefficient[}\DecValTok{2}\NormalTok{]}
-\CommentTok{\# Y{-}Achsenabschnitt b extrahieren}
-\NormalTok{b }\OtherTok{\textless{}{-}}\NormalTok{ lm}\SpecialCharTok{$}\NormalTok{coefficient[}\DecValTok{1}\NormalTok{]}
-\CommentTok{\# Standardfehler R\^{}2 extrahieren}
-\NormalTok{lmsummary }\OtherTok{\textless{}{-}} \FunctionTok{summary}\NormalTok{(lm)}
-\NormalTok{R }\OtherTok{\textless{}{-}}\NormalTok{ lmsummary}\SpecialCharTok{$}\NormalTok{coefficients[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}
-
-\CommentTok{\# Ausgabe als Plot}
-\NormalTok{\{}\FunctionTok{plot}\NormalTok{(}\AttributeTok{x=}\NormalTok{zeitreiheErhitzung}\SpecialCharTok{$}\NormalTok{Zeit\_s, }\AttributeTok{y=}\NormalTok{zeitreiheErhitzung}\SpecialCharTok{$}\NormalTok{Temperatur,}
-      \CommentTok{\# Aesthetics}
-      \AttributeTok{ylab =} \StringTok{"Temperatur T in °C"}\NormalTok{,}
-      \AttributeTok{xlab =} \StringTok{"Zeit t in s"}\NormalTok{,}
-      \AttributeTok{main=} \StringTok{"Temperaturverlauf im Kaloriemeter"}\NormalTok{,}
-      \AttributeTok{pch=}\DecValTok{20}\NormalTok{, }\AttributeTok{las=}\DecValTok{1}\NormalTok{)}
-  \CommentTok{\# Einzeichnen der Regressionsgeraden}
-  \FunctionTok{abline}\NormalTok{(}\AttributeTok{coef=}\FunctionTok{c}\NormalTok{(b, a))}
-  \CommentTok{\# Einzeichen der Regressiosgeraden ab{-}/zuzüglich des Fehlers}
-  \FunctionTok{abline}\NormalTok{(}\AttributeTok{coef=}\FunctionTok{c}\NormalTok{(b, a}\SpecialCharTok{{-}}\NormalTok{R))}
-  \FunctionTok{abline}\NormalTok{(}\AttributeTok{coef=}\FunctionTok{c}\NormalTok{(b, a}\SpecialCharTok{+}\NormalTok{R))}
-  \CommentTok{\# Legendenerzeugung}
-  \FunctionTok{legend}\NormalTok{(}\AttributeTok{x=}\DecValTok{270}\NormalTok{, }\AttributeTok{y=}\NormalTok{(}\FloatTok{0.98}\SpecialCharTok{*}\FunctionTok{max}\NormalTok{(zeitreiheErhitzung}\SpecialCharTok{$}\NormalTok{Temperatur)), }
-         \AttributeTok{legend=}\FunctionTok{c}\NormalTok{(}\StringTok{"Messwerte"}\NormalTok{, }\FunctionTok{paste}\NormalTok{(}\StringTok{"Lineare Regression:"}\NormalTok{,}
-                                     \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{y=ax+b"}\NormalTok{,}
-                                     \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{a = "}\NormalTok{, }\FunctionTok{round}\NormalTok{(a,}\DecValTok{5}\NormalTok{), }
-                                     \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{b = "}\NormalTok{, }\FunctionTok{round}\NormalTok{(b,}\DecValTok{3}\NormalTok{),}
-                                     \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{R\^{}2 = "}\NormalTok{, }\FunctionTok{round}\NormalTok{(R, }\DecValTok{5}\NormalTok{))),}
-         \AttributeTok{col=}\StringTok{"black"}\NormalTok{, }\AttributeTok{pch =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{26}\NormalTok{), }\AttributeTok{lty=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}
-         \AttributeTok{bty =} \StringTok{"n"}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## Warning in plot.xy(xy.coords(x, y), type = type, ...): nicht implementierter
 ## Wert '26' für pch
 \end{verbatim}
 
-\includegraphics{Kaloriemeter_files/figure-latex/unnamed-chunk-1-1.pdf}
+\begin{figure}
+
+{\centering \includegraphics{Kaloriemeter_files/figure-latex/unnamed-chunk-1-1} 
+
+}
+
+\caption{Testi}\label{fig:unnamed-chunk-1}
+\end{figure}
+
 \emph{Abb. 1: Für sieben Minuten wurde der Temperaturverlauf der
 Erhitzung des Wassers im Kaloriemeter gemessen}
 
@@ -235,66 +170,79 @@ Eindruck. Eine Regressionsgerade hat die Steigung
 \hypertarget{versuchsaufbau}{%
 \subsection{Versuchsaufbau}\label{versuchsaufbau}}
 
-``\,''
+\hypertarget{fehlerbetrachtung-1}{%
+\subsection{Fehlerbetrachtung}\label{fehlerbetrachtung-1}}
 
 \hypertarget{durchfuxfchrung}{%
 \subsection{Durchführung}\label{durchfuxfchrung}}
 
-\hypertarget{fehlerbetrachtung-1}{%
-\subsection{Fehlerbetrachtung}\label{fehlerbetrachtung-1}}
+Im Becherglas wurden für den Versuch ca. \(150ml\) Wasser abgemessen.
+Die Bestimmung der verwendeten Wassermasse erfolgte dann durch Abwiegen
+des vollen und des leeren Becherglases und durch anschließendes
+Subtrahieren der beiden Werte. Die Messunsicherheit der Wassermasse
+beträgt zweimal die Skalenunsicherheit der verwendeten digitalen Waage,
+also \(u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=0.058g\).
+
+Die Volumenbestimmung der Metallzylinder erfolgte über die Bestimmung
+der Wasserverdrängung in einem Standzylinder. Die Skalenunsicherheit des
+Messbechers lag bei \(u_{Skala}=\frac{1ml}{2\sqrt{6}}=0,20ml\).
+
+Nach der Bestimmung des Metallvolumensvolumens und der Größen wurde das
+Wasser im Becherglas auf etwa \(50^\circ C\) erwärmt, die genaue
+Anfangstemperatur wurde im Kaloriemeter gemessen. Die Skalenunsicherheit
+des digitalen Thermometers lag bei
+\(u_T = \frac{0.1^\circ C}{2\sqrt{3}} = 0.029^\circ C\). Die gemessene
+Anfangstemperatur im Kaloriemeter betrug
+\(T_A=(50,000\pm 0,029)^\circ C\).
 
 \hypertarget{beobachtungen-1}{%
 \subsection{Beobachtungen}\label{beobachtungen-1}}
 
-Oranges Metall: Durchmesser\_Groß: 2,49cm Durchmesser\_klein: 0,58cm
-Höhe\_groß: 4,52mm Höhe\_klein: 0,815mm Masse: 198,0g
+Folgendes wurde für das orangene Metall bestimmt: (T\_B (Mischtemp):
+(vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
 
-Graues Metall: Durchmesser\_Groß: 2,50cm Durchmesser\_klein:0,635
-Höhe\_groß:4,515cm Höhe\_klein:0,85mm Masse: 176,12
+\begin{longtable}[]{@{}lrlr@{}}
+\caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
+orangene Metall}\tabularnewline
+\toprule()
+& Messwert & Geräteart & Unsicherheit \\
+\midrule()
+\endfirsthead
+\toprule()
+& Messwert & Geräteart & Unsicherheit \\
+\midrule()
+\endhead
+Becherglas mit Wasser {[}g{]} & 235.5 & digital & 0.029 \\
+Masse Becherglas {[}g{]} & 97.4 & digital & 0.029 \\
+Wassermasse {[}g{]} & 138.1 & - & 0.058 \\
+Metallvolumen {[}cm³{]} & 23.0 & analog & 0.200 \\
+Anfangstemperatur {[}°C{]} & 50.0 & digital & 0.029 \\
+Mischtemperatur {[}°C{]} & 44.2 & digital & 0.029 \\
+\bottomrule()
+\end{longtable}
 
-\hypertarget{wasserverdruxe4ngung}{%
-\section{Wasserverdrängung}\label{wasserverdruxe4ngung}}
+Folgendes wurde für das graue Metall bestimmt: (T\_B (Mischtemp):
+(vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8))
 
-Orangenes Metall:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{58{-}35}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 23
-\end{verbatim}
-
-Graues Metall:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{57{-}35}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 22
-\end{verbatim}
-
-\hypertarget{oranges-metall}{%
-\section{Oranges Metall}\label{oranges-metall}}
-
-\hypertarget{wassermasse}{%
-\section{Wassermasse}\label{wassermasse}}
-
-Wassermasse mit Becherglas:235,5g Becherglas leer: 97,4g Wassermasse
-ohne Becherglas: T\_A (Warmes Wasser): 50,0°C T\_B (Mischtemp):
-(vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2g)
-
-\hypertarget{graues-metall}{%
-\section{Graues Metall}\label{graues-metall}}
-
-Wassermasse mit Becherglas:241,3g Wassermasse ohne Becherglas: T\_A
-(Warmes Wasser): 49,1°C T\_B (Mischtemp): (vorläufig 44,1°C) (dann 43,4)
-(eigeloggt 42,8)
+\begin{longtable}[]{@{}lrlr@{}}
+\caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
+graue Metall}\tabularnewline
+\toprule()
+& Messwert & Geräteart & Unsicherheit \\
+\midrule()
+\endfirsthead
+\toprule()
+& Messwert & Geräteart & Unsicherheit \\
+\midrule()
+\endhead
+Becherglas mit Wasser {[}g{]} & 241.3 & digital & 0.029 \\
+Masse Becherglas {[}g{]} & 97.4 & digital & 0.029 \\
+Wassermasse {[}g{]} & 143.9 & - & 0.058 \\
+Metallvolumen {[}cm³{]} & 22.0 & analog & 0.200 \\
+Anfangstemperatur {[}°C{]} & 49.1 & digital & 0.029 \\
+Mischtemperatur {[}°C{]} & 42.8 & digital & 0.029 \\
+\bottomrule()
+\end{longtable}
 
 \hypertarget{auswertung-1}{%
 \subsection{Auswertung}\label{auswertung-1}}

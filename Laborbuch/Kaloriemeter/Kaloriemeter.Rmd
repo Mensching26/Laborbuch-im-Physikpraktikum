@@ -38,7 +38,7 @@ Während dieser Zeit wird zudem immer wieder die Spannung und die Stromstärke k
 
 ## Beobachtungen
 Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
-```{r}
+```{r, fig.cap = "Testi", echo=F, fig.align = 'center'}
 # Einlesen der csv-Datei
 zeitreiheErhitzung <- read.csv("Daten/Messreihe.csv", sep = ";", dec=",")
 # Tidy-up
@@ -93,48 +93,48 @@ Eine Regressionsgerade hat die Steigung $a=(1641\pm 22)\cdot 10^{-5}\ ^{\circ} C
 ## Thema
 
 ## Versuchsaufbau
-""
-
-## Durchführung
-Die Volumenbestimmung der Metallzylinder erfolgte über die Bestimmung der Wasserverdrängung.
-Im Becherglas wurden ca. $150ml$ Wasser abgemessen.
-Die Bestimmung der verwendeten Wassermasse erfolgte durch Abwiegen des vollen und des leeren Becherglases und durch anschließendes Subtrahieren der beiden Werte.
-Wassermasse mit Becherglas: $235,5g$, Masse des leeren Becherglases: $97,4g$.
-Nach der Bestimmung dieser beiden wichtigen Größen wurde das Wasser im Becherglas auf etwa $50^\circ C$ erwärmt, die genaue Anfangstemperatur wurde im Kaloriemeter gemessen.
 
 ## Fehlerbetrachtung
 
-## Beobachtungen
+## Durchführung
 
-### Volumenbestimmung der Metallzylinder
+Im Becherglas wurden für den Versuch ca. $150ml$ Wasser abgemessen.
+Die Bestimmung der verwendeten Wassermasse erfolgte dann durch Abwiegen des vollen und des leeren Becherglases und durch anschließendes Subtrahieren der beiden Werte.
+Die Messunsicherheit der Wassermasse beträgt zweimal die Skalenunsicherheit der verwendeten digitalen Waage, also $u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=0.058g$.
 
-Die Messunsicherheit des Messbechers lag bei $u_{Skala}=\frac{1ml}{2\sqrt{6}}=0,20ml$.
-Das Volumen der Metallzylinder wurde bestimmt zu:
+Die Volumenbestimmung der Metallzylinder erfolgte über die Bestimmung der Wasserverdrängung in einem Standzylinder.
+Die Skalenunsicherheit des Messbechers lag bei $u_{Skala}=\frac{1ml}{2\sqrt{6}}=0,20ml$.
 
-Orangenes Metall: $(23,00\pm0,20)cm^3$
-Graues Metall: $(22,00\pm0,20)cm^3$
-
-### Bestimmung der Wärmekapazität des orangenen Metalls
-
-Die Wassermasse, die in dem Kaloriemeter befand betrug $m_w=(138,000\pm0,029)g$.
-Die Messunsicherheit beträgt zweimal die Skalenunsicherheit der verwendeten digitalen Waage, also $u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=0.029g$.
+Nach der Bestimmung des Metallvolumensvolumens und der Größen wurde das Wasser im Becherglas auf etwa $50^\circ C$ erwärmt, die genaue Anfangstemperatur wurde im Kaloriemeter gemessen.
+Die Skalenunsicherheit des digitalen Thermometers lag bei $u_T = \frac{0.1^\circ C}{2\sqrt{3}} = 0.029^\circ C$.
 Die gemessene Anfangstemperatur im Kaloriemeter betrug $T_A=(50,000\pm 0,029)^\circ C$.
-Die Skalenunsicherheit des digitalen Thermometers lag bei $u_T = \frac{0.1^\circ C}{2\sqrt{3}} = 0.029^\circ C$
 
-T_A (Warmes Wasser):  50,0°C
-T_B (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2g)
+## Beobachtungen
+Folgendes wurde für das orangene Metall bestimmt:
+(T_B (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
+```{r, echo=FALSE}
+# Messgrößen
+groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
+messwerte <- data.frame(Messwert = c(235.5, 97.4, 235.5-97.4, 23.00, 50.000, 44.2),
+                        Geräteart = c("digital", "digital", "-", "analog", "digital", "digital"),
+                        Unsicherheit = c(0.029, 0.029, 2*0.029, 0.20, 0.029, 0.029)
+                        )
+rownames(messwerte) <- groesse
+knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten für das untersuchte orangene Metall")
+```
 
-Damit sind alle Werte zusammengetragen, die zur Berechnung der spezifischen Wärmekapazität des Metalls benötigt werden.
-Im Folgenden nochmal eine tabellarische Übersicht:
-*Tabelle*
-
-
-### Graues Metall
-alles anlog
-Wassermasse mit Becherglas:241,3g
-Wassermasse ohne Becherglas:
-T_A (Warmes Wasser):  49,1°C
-T_B (Mischtemp): (vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8)
+Folgendes wurde für das graue Metall bestimmt:
+(T_B (Mischtemp): (vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8))
+```{r, echo=FALSE}
+# Messgrößen
+groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
+messwerte <- data.frame(Messwert = c(241.3, 97.4, 241.3-97.4, 22.00, 49.100, 42.8),
+                        Geräteart = c("digital", "digital", "-", "analog", "digital", "digital"),
+                        Unsicherheit = c(0.029, 0.029, 2*0.029, 0.20, 0.029, 0.029)
+                        )
+rownames(messwerte) <- groesse
+knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten für das untersuchte graue Metall")
+```
 
 ## Auswertung
 
