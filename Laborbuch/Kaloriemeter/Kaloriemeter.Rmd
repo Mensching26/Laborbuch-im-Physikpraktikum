@@ -96,43 +96,41 @@ Eine Regressionsgerade hat die Steigung $a=(1641\pm 22)\cdot 10^{-5}\ ^{\circ} C
 ""
 
 ## Durchführung
+Die Volumenbestimmung der Metallzylinder erfolgte über die Bestimmung der Wasserverdrängung.
+Im Becherglas wurden ca. $150ml$ Wasser abgemessen.
+Die Bestimmung der verwendeten Wassermasse erfolgte durch Abwiegen des vollen und des leeren Becherglases und durch anschließendes Subtrahieren der beiden Werte.
+Wassermasse mit Becherglas: $235,5g$, Masse des leeren Becherglases: $97,4g$.
+Nach der Bestimmung dieser beiden wichtigen Größen wurde das Wasser im Becherglas auf etwa $50^\circ C$ erwärmt, die genaue Anfangstemperatur wurde im Kaloriemeter gemessen.
 
 ## Fehlerbetrachtung
 
 ## Beobachtungen
 
-Oranges Metall:
-Durchmesser_Groß: 2,49cm
-Durchmesser_klein: 0,58cm
-Höhe_groß: 4,52mm
-Höhe_klein: 0,815mm
-Masse: 198,0g
+### Volumenbestimmung der Metallzylinder
 
-Graues Metall:
-Durchmesser_Groß: 2,50cm
-Durchmesser_klein:0,635
-Höhe_groß:4,515cm
-Höhe_klein:0,85mm
-Masse: 176,12
+Die Messunsicherheit des Messbechers lag bei $u_{Skala}=\frac{1ml}{2\sqrt{6}}=0,20ml$.
+Das Volumen der Metallzylinder wurde bestimmt zu:
 
-# Wasserverdrängung
-Orangenes Metall:
-```{r}
-58-35
-```
-Graues Metall:
-```{r}
-57-35
-```
-# Oranges Metall
-# Wassermasse
-Wassermasse mit Becherglas:235,5g
-Becherglas leer: 97,4g
-Wassermasse ohne Becherglas:
+Orangenes Metall: $(23,00\pm0,20)cm^3$
+Graues Metall: $(22,00\pm0,20)cm^3$
+
+### Bestimmung der Wärmekapazität des orangenen Metalls
+
+Die Wassermasse, die in dem Kaloriemeter befand betrug $m_w=(138,000\pm0,029)g$.
+Die Messunsicherheit beträgt zweimal die Skalenunsicherheit der verwendeten digitalen Waage, also $u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=0.029g$.
+Die gemessene Anfangstemperatur im Kaloriemeter betrug $T_A=(50,000\pm 0,029)^\circ C$.
+Die Skalenunsicherheit des digitalen Thermometers lag bei $u_T = \frac{0.1^\circ C}{2\sqrt{3}} = 0.029^\circ C$
+
 T_A (Warmes Wasser):  50,0°C
 T_B (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2g)
 
-# Graues Metall
+Damit sind alle Werte zusammengetragen, die zur Berechnung der spezifischen Wärmekapazität des Metalls benötigt werden.
+Im Folgenden nochmal eine tabellarische Übersicht:
+*Tabelle*
+
+
+### Graues Metall
+alles anlog
 Wassermasse mit Becherglas:241,3g
 Wassermasse ohne Becherglas:
 T_A (Warmes Wasser):  49,1°C

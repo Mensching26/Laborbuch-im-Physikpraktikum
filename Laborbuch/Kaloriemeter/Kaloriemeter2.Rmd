@@ -1,0 +1,141 @@
+---
+title: "Pendel"
+author: "Milena Mensching, Justus Weyers"
+date: "`r Sys.Date()`"
+lang: de
+fontsize: 9pt
+output:
+  pdf_document: 
+    keep_tex: yes
+    df_print: kable
+  html_document:
+    df_print: kable
+---
+
+# Versuch 1
+
+## Thema
+
+Bestimmung der Wärmekapazität eines Kaloriemeters. 
+Dieses soll in Versuch 2 dafür verwendet werden, die spezifische Wärmekapazität zweier Metalle zu bestimmen.
+
+## Versuchsaufbau und Durchführung
+
+![Versuchsaufbau]("Bilder/Versuchsaufbau.png")
+
+Zu Beginn des eigentlichen Versuches wird die Raumtemperatur gemessen.
+
+Im Messzylinder werden 100ml und 70 ml Wasser abgemessen und anschließend in das Kaloriemeter gefüllt.
+In diesem Zustand wird dessen Masse gemessen.
+Der Deckel des Kaloriemeters mit Heizspirale, Thermometer und Rührstab wird geschlossen. 
+Die Heizspirale wird über Bananenstecker mit dem AC Netzgerät verbunden. 
+Ein Amperemeter wird in Reihe und ein Voltmeter parallel geschaltet.
+
+Am Netzgerät wird eine mittlere Leistung eingestellt (50%) und über den Zeitraum von sieben Minuten eine Temperatur-Zeit Messreihe aufgenommen. 
+Während dieser Zeit wird zudem immer wieder die Spannung und die Stromstärke kontrolliert, die das Kaloriemeter durchfließt beziehungsweise die an der Heizspirale anliegt.
+
+## Fehlerbetrachtung
+
+## Beobachtungen
+Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
+```{r, fig.cap = "Testi", echo=F, fig.align = 'center'}
+# Einlesen der csv-Datei
+zeitreiheErhitzung <- read.csv("Daten/Messreihe.csv", sep = ";", dec=",")
+# Tidy-up
+zeitreiheErhitzung <- zeitreiheErhitzung[2:nrow(zeitreiheErhitzung), 10:11]
+colnames(zeitreiheErhitzung) <- c("Zeit_s", "Temperatur")
+
+# Lineare Regression
+lm <- lm(zeitreiheErhitzung$Temperatur~zeitreiheErhitzung$Zeit_s)
+# Steigung a extrahieren
+a <- lm$coefficient[2]
+# Y-Achsenabschnitt b extrahieren
+b <- lm$coefficient[1]
+# Standardfehler R^2 extrahieren
+lmsummary <- summary(lm)
+R <- lmsummary$coefficients[2,2]
+
+# Ausgabe als Plot
+{plot(x=zeitreiheErhitzung$Zeit_s, y=zeitreiheErhitzung$Temperatur,
+      # Aesthetics
+      ylab = "Temperatur T in °C",
+      xlab = "Zeit t in s",
+      main= "Temperaturverlauf im Kaloriemeter",
+      pch=20, las=1)
+  # Einzeichnen der Regressionsgeraden
+  abline(coef=c(b, a))
+  # Einzeichen der Regressiosgeraden ab-/zuzüglich des Fehlers
+  abline(coef=c(b, a-R))
+  abline(coef=c(b, a+R))
+  # Legendenerzeugung
+  legend(x=270, y=(0.98*max(zeitreiheErhitzung$Temperatur)), 
+         legend=c("Messwerte", paste("Lineare Regression:",
+                                     "\ny=ax+b",
+                                     "\na = ", round(a,5), 
+                                     "\nb = ", round(b,3),
+                                     "\nR^2 = ", round(R, 5))),
+         col="black", pch = c(20, 26), lty=c(0,1),
+         bty = "n")
+}
+```
+*Abb. 1: Für sieben Minuten wurde der Temperaturverlauf der Erhitzung des Wassers im Kaloriemeter gemessen*
+
+Der Temperaturverlauf macht im betrachteten Zeitraum einen linearen Eindruck.
+Eine Regressionsgerade hat die Steigung $a=(1641\pm 22)\cdot 10^{-5}\ ^{\circ} C\ s^{-1}$
+
+## Auswertung
+
+## Interpretation
+
+
+# Versuch 2
+
+## Thema
+
+## Versuchsaufbau
+
+## Fehlerbetrachtung
+
+## Durchführung
+
+Im Becherglas wurden für den Versuch ca. $150ml$ Wasser abgemessen.
+Die Bestimmung der verwendeten Wassermasse erfolgte dann durch Abwiegen des vollen und des leeren Becherglases und durch anschließendes Subtrahieren der beiden Werte.
+Die Messunsicherheit der Wassermasse beträgt zweimal die Skalenunsicherheit der verwendeten digitalen Waage, also $u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=0.058g$.
+
+Die Volumenbestimmung der Metallzylinder erfolgte über die Bestimmung der Wasserverdrängung in einem Standzylinder.
+Die Skalenunsicherheit des Messbechers lag bei $u_{Skala}=\frac{1ml}{2\sqrt{6}}=0,20ml$.
+
+Nach der Bestimmung des Metallvolumensvolumens und der Größen wurde das Wasser im Becherglas auf etwa $50^\circ C$ erwärmt, die genaue Anfangstemperatur wurde im Kaloriemeter gemessen.
+Die Skalenunsicherheit des digitalen Thermometers lag bei $u_T = \frac{0.1^\circ C}{2\sqrt{3}} = 0.029^\circ C$.
+Die gemessene Anfangstemperatur im Kaloriemeter betrug $T_A=(50,000\pm 0,029)^\circ C$.
+
+## Beobachtungen
+Folgendes wurde für das orangene Metall bestimmt:
+(T_B (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
+```{r, echo=FALSE}
+# Messgrößen
+groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
+messwerte <- data.frame(Messwert = c(235.5, 97.4, 235.5-97.4, 23.00, 50.000, 44.2),
+                        Geräteart = c("digital", "digital", "-", "analog", "digital", "digital"),
+                        Unsicherheit = c(0.029, 0.029, 2*0.029, 0.20, 0.029, 0.029)
+                        )
+rownames(messwerte) <- groesse
+knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten für das untersuchte orangene Metall")
+```
+
+Folgendes wurde für das graue Metall bestimmt:
+(T_B (Mischtemp): (vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8))
+```{r, echo=FALSE}
+# Messgrößen
+groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
+messwerte <- data.frame(Messwert = c(241.3, 97.4, 241.3-97.4, 22.00, 49.100, 42.8),
+                        Geräteart = c("digital", "digital", "-", "analog", "digital", "digital"),
+                        Unsicherheit = c(0.029, 0.029, 2*0.029, 0.20, 0.029, 0.029)
+                        )
+rownames(messwerte) <- groesse
+knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten für das untersuchte graue Metall")
+```
+
+## Auswertung
+
+## Interpretation

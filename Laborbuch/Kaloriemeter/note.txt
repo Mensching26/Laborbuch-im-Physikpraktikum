@@ -1,0 +1,13 @@
+Oranges Metall:
+Durchmesser_Groß: 2,49cm
+Durchmesser_klein: 0,58cm
+Höhe_groß: 4,52mm
+Höhe_klein: 0,815mm
+Masse: 198,0g
+
+Graues Metall:
+Durchmesser_Groß: 2,50cm
+Durchmesser_klein:0,635
+Höhe_groß:4,515cm
+Höhe_klein:0,85mm
+Masse: 176,12
