@@ -112,11 +112,17 @@ Die gemessene Anfangstemperatur im Kaloriemeter betrug $T_A=(50,000\pm 0,029)^\c
 ## Beobachtungen
 Folgendes wurde für das orangene Metall bestimmt:
 (T_B (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
+
+Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit folgenden Formeln bestimmt:
+
+Digitale Anzeigen: $\frac{a}{2\sqrt{3}}$ \\
+Analoge Anzeigen: $\frac{a}{2\sqrt{6}}$
 ```{r, echo=FALSE}
 # Messgrößen
-groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
+groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [ml]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
 messwerte <- data.frame(Messwert = c(235.5, 97.4, 235.5-97.4, 23.00, 50.000, 44.2),
                         Geräteart = c("digital", "digital", "-", "analog", "digital", "digital"),
+                        kleinste_ablesbare_Einheit_a = c(0.1, 0.1, "-", 1, 0.1, 0.1),
                         Unsicherheit = c(0.029, 0.029, 2*0.029, 0.20, 0.029, 0.029)
                         )
 rownames(messwerte) <- groesse
@@ -137,5 +143,12 @@ knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten f�
 ```
 
 ## Auswertung
+DIe Unsicherheit der spezifische Wärmekapazität des FEststoffes:
+
+
+$u_{c_F} = \sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}$
+
+$u_{c_F} = \sqrt{(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}*u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{mF(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{mF(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{mF(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{mF(1-T_M)}*u_{T_A})^2}$
+
 
 ## Interpretation

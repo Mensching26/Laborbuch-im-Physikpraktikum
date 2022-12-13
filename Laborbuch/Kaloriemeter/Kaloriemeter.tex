@@ -34,6 +34,15 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Pendel},
+  pdfauthor={Milena Mensching, Justus Weyers},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -74,19 +83,10 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={Pendel},
-  pdfauthor={Milena Mensching, Justus Weyers},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
 
 \title{Pendel}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-12}
+\date{2022-12-13}
 
 \begin{document}
 \maketitle
@@ -201,24 +201,53 @@ Anfangstemperatur im Kaloriemeter betrug
 Folgendes wurde für das orangene Metall bestimmt: (T\_B (Mischtemp):
 (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
 
-\begin{longtable}[]{@{}lrlr@{}}
+Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit
+folgenden Formeln bestimmt:
+
+Digitale Anzeigen: \(\frac{a}{2\sqrt{3}}\) \textbackslash{} Analoge
+Anzeigen: \(\frac{a}{2\sqrt{6}}\)
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2989}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1034}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1149}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3333}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1494}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 orangene Metall}\tabularnewline
-\toprule()
-& Messwert & Geräteart & Unsicherheit \\
-\midrule()
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Messwert
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Geräteart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+kleinste\_ablesbare\_Einheit\_a
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsicherheit
+\end{minipage} \\
+\midrule
 \endfirsthead
-\toprule()
-& Messwert & Geräteart & Unsicherheit \\
-\midrule()
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Messwert
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Geräteart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+kleinste\_ablesbare\_Einheit\_a
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsicherheit
+\end{minipage} \\
+\midrule
 \endhead
-Becherglas mit Wasser {[}g{]} & 235.5 & digital & 0.029 \\
-Masse Becherglas {[}g{]} & 97.4 & digital & 0.029 \\
-Wassermasse {[}g{]} & 138.1 & - & 0.058 \\
-Metallvolumen {[}cm³{]} & 23.0 & analog & 0.200 \\
-Anfangstemperatur {[}°C{]} & 50.0 & digital & 0.029 \\
-Mischtemperatur {[}°C{]} & 44.2 & digital & 0.029 \\
-\bottomrule()
+Becherglas mit Wasser {[}g{]} & 235.5 & digital & 0.1 & 0.029 \\
+Masse Becherglas {[}g{]} & 97.4 & digital & 0.1 & 0.029 \\
+Wassermasse {[}g{]} & 138.1 & - & - & 0.058 \\
+Metallvolumen {[}ml{]} & 23.0 & analog & 1 & 0.200 \\
+Anfangstemperatur {[}°C{]} & 50.0 & digital & 0.1 & 0.029 \\
+Mischtemperatur {[}°C{]} & 44.2 & digital & 0.1 & 0.029 \\
+\bottomrule
 \end{longtable}
 
 Folgendes wurde für das graue Metall bestimmt: (T\_B (Mischtemp):
@@ -227,13 +256,13 @@ Folgendes wurde für das graue Metall bestimmt: (T\_B (Mischtemp):
 \begin{longtable}[]{@{}lrlr@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 graue Metall}\tabularnewline
-\toprule()
+\toprule
 & Messwert & Geräteart & Unsicherheit \\
-\midrule()
+\midrule
 \endfirsthead
-\toprule()
+\toprule
 & Messwert & Geräteart & Unsicherheit \\
-\midrule()
+\midrule
 \endhead
 Becherglas mit Wasser {[}g{]} & 241.3 & digital & 0.029 \\
 Masse Becherglas {[}g{]} & 97.4 & digital & 0.029 \\
@@ -241,11 +270,19 @@ Wassermasse {[}g{]} & 143.9 & - & 0.058 \\
 Metallvolumen {[}cm³{]} & 22.0 & analog & 0.200 \\
 Anfangstemperatur {[}°C{]} & 49.1 & digital & 0.029 \\
 Mischtemperatur {[}°C{]} & 42.8 & digital & 0.029 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 \hypertarget{auswertung-1}{%
 \subsection{Auswertung}\label{auswertung-1}}
+
+DIe Unsicherheit der spezifische Wärmekapazität des FEststoffes:
+
+\(u_{c_F} = \sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}\)
+
+\begin{multiline}
+$u_{c_F} = \sqrt{(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}*u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{mF(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{mF(T_A-1)}*u_{T_M})^2\\\\+(\frac{(C_K+m_w*c_w)*(T_M-1)}{mF(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{mF(1-T_M)}*u_{T_A})^2}$
+\end{multiline}
 
 \hypertarget{interpretation-1}{%
 \subsection{Interpretation}\label{interpretation-1}}
