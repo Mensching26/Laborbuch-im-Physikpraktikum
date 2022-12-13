@@ -83,6 +83,25 @@ R <- lmsummary$coefficients[2,2]
 Der Temperaturverlauf macht im betrachteten Zeitraum einen linearen Eindruck.
 Eine Regressionsgerade hat die Steigung $a=(1641\pm 22)\cdot 10^{-5}\ ^{\circ} C\ s^{-1}$
 
+Es gilt: (Eventuell noch Herkunft erklären)
+$$T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A$$
+Wird diese gleichung nach C_K umgestellt erhält man für $C_K$:
+$$C_K = \frac{U*I}{A}-C_W$$
+
+Mit:
+\begin{itemize}
+  \item $C_K$: Wärmekapazität Kaloriemeter ohne Wasser
+  \item $C_W$: Wärmekapazität des Wassers
+  \item $U$: Angelegte Spannung
+  \item $I$: Stromstärke
+  \item $T(t)$: Temperatur zum Zeitpunkt $t$
+  \item $A$: Steigung der Regressionsgeraden
+  \item $T_A$: Anfangstemperatur
+  \item $t$: Zeit
+\end{itemize}
+
+Formel
+
 ## Auswertung
 
 ## Interpretation

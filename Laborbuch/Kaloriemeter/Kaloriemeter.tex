@@ -86,7 +86,7 @@
 
 \title{Pendel}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-12}
+\date{2022-12-13}
 
 \begin{document}
 \maketitle
@@ -154,6 +154,32 @@ Erhitzung des Wassers im Kaloriemeter gemessen}
 Der Temperaturverlauf macht im betrachteten Zeitraum einen linearen
 Eindruck. Eine Regressionsgerade hat die Steigung
 \(a=(1641\pm 22)\cdot 10^{-5}\ ^{\circ} C\ s^{-1}\)
+
+Es gilt: (Eventuell noch Herkunft erklären)
+\[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Wird diese gleichung
+nach C\_K umgestellt erhält man für \(C_K\): \[C_K = \frac{U*I}{A}-C_W\]
+
+Mit:
+
+\begin{itemize}
+  \item $C_K$: Wärmekapazität Kaloriemeter ohne Wasser
+  \item $C_W$: Wärmekapazität des Wassers
+  \item $U$: Angelegte Spannung
+  \item $I$: Stromstärke
+  \item $T(t)$: Temperatur zum Zeitpunkt $t$
+  \item $A$: Steigung der Regressionsgeraden
+  \item $T_A$: Anfangstemperatur
+  \item $t$: Zeit
+\end{itemize}
+
+Formel \begin{equation}\label{eq:c_F}
+\begin{split}
+u_{c_F} &= \sqrt{(\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+(\frac{\partial c_F}{\partial c_w}*u_{c_w})^2+(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+(\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}\\
+ &= \sqrt{(0*u_{T_{B}})^2+(0*u_{m_{w}})^2+(0*u_{T_{M}})^2+(0*u_{c_{w}})^2+(0*u_{C_{K}})^2+(0*u_{m_{F}})^2+(0*u_{T_{A}})^2}\\
+ &= \sqrt{(0*u_{T_{B}})^2+(0*u_{m_{w}})^2+(0*u_{T_{M}})^2+(0*u_{c_{w}})^2+(0*u_{C_{K}})^2+(0*u_{m_{F}})^2+(0*u_{T_{A}})^2}\\
+\\
+\end{split}
+\end{equation}
 
 \hypertarget{auswertung}{%
 \subsection{Auswertung}\label{auswertung}}
