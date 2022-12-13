@@ -10,7 +10,7 @@ cd Arbeitsverzeichnis
 
 cd Laborbuch-im-Physikpraktikum
 
-# Practice craziness
+# Sachen machen
 
 2) git add .
 
