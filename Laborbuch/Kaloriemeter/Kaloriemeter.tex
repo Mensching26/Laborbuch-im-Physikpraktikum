@@ -35,6 +35,46 @@
 \makeatother
 \usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -111,20 +151,27 @@ Durchführung}\label{versuchsaufbau-und-durchfuxfchrung}}
 \caption{Versuchsaufbau}
 \end{figure}
 
-Zu Beginn des eigentlichen Versuches wird die Raumtemperatur gemessen.
+Zu Beginn des eigentlichen Versuches wird die Raumtemperatur gemessen,
+für eventuell später auftretende Fragestellungen.
 
-Im Messzylinder werden 100ml und 70 ml Wasser abgemessen und
-anschließend in das Kaloriemeter gefüllt. In diesem Zustand wird dessen
-Masse gemessen. Der Deckel des Kaloriemeters mit Heizspirale,
-Thermometer und Rührstab wird geschlossen. Die Heizspirale wird über
-Bananenstecker mit dem AC Netzgerät verbunden. Ein Amperemeter wird in
-Reihe und ein Voltmeter parallel geschaltet.
+Das Kaloriemeter wird leer gewogen. Im Messzylinder werden ca. 170ml
+Wasser abgemessen und anschließend in das Kaloriemeter gefüllt. In
+diesem Zustand wird noch einmal die Masse des nun vollen Kaloriemeters
+gemessen, um die Wassermasse bestimmen zu können.
+
+Der Deckel des Kaloriemeters mit Heizspirale, Thermometer und Rührstab
+wird verschlossen. Die Heizspirale wird über Bananenstecker mit dem AC
+Netzgerät verbunden. Ein Amperemeter wird in Reihe und ein Voltmeter
+parallel geschaltet.
 
 Am Netzgerät wird eine mittlere Leistung eingestellt (50\%) und über den
 Zeitraum von sieben Minuten eine Temperatur-Zeit Messreihe aufgenommen.
-Während dieser Zeit wird zudem immer wieder die Spannung und die
-Stromstärke kontrolliert, die das Kaloriemeter durchfließt
-beziehungsweise die an der Heizspirale anliegt.
+Während der Erhitzung werden die Stromspannung und die Stromstärke
+abgelesen. Diese Schwanken zwar leicht in der Zeit, jedoch immer um
+einen festen Wert.
+
+Die steigende Innentemperatur im Kaloriemeter wird alle dreißig Sekunden
+notiert.
 
 \hypertarget{fehlerbetrachtung}{%
 \subsection{Fehlerbetrachtung}\label{fehlerbetrachtung}}
@@ -132,12 +179,17 @@ beziehungsweise die an der Heizspirale anliegt.
 \hypertarget{beobachtungen}{%
 \subsection{Beobachtungen}\label{beobachtungen}}
 
-Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
+Die Wassermasse, welche sich als Differenz aus Leer- und Vollgewicht des
+Kaloriemeters berechnet beträgt \((328,8-165,1)g=163,7g\). Die
+Messunsicherheit ist die doppelte Skalenunsicherheit der verwendeten
+digitalen Waage, also \(u_m=2\cdot \frac{0,1g}{2\sqrt{3}} = 0,029g\).
 
-\begin{verbatim}
-## Warning in plot.xy(xy.coords(x, y), type = type, ...): nicht implementierter
-## Wert '26' für pch
-\end{verbatim}
+Die Spannung liegt bei \(5,70V\), die Messunsicherheit liegt bei
+\(u_V=\frac{0,01V}{2\sqrt{3}}=0,0029V\). Die Stromstärke liegt bei
+\(2,20A\), die Messunsicherheit \(u_A\) beträgt
+\(u_A=\frac{0,01A}{2\sqrt{3}}=0,0029A\).
+
+Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
 
 \begin{figure}
 
@@ -145,47 +197,106 @@ Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
 
 }
 
-\caption{Testi}\label{fig:unnamed-chunk-1}
+\caption{Für sieben Minuten wurde der Temperaturverlauf der Erhitzung des Wassers im Kaloriemeter gemessen}\label{fig:unnamed-chunk-1}
 \end{figure}
-
-\emph{Abb. 1: Für sieben Minuten wurde der Temperaturverlauf der
-Erhitzung des Wassers im Kaloriemeter gemessen}
-
-Der Temperaturverlauf macht im betrachteten Zeitraum einen linearen
-Eindruck. Eine Regressionsgerade hat die Steigung
-\(a=(1641\pm 22)\cdot 10^{-5}\ ^{\circ} C\ s^{-1}\)
-
-Es gilt: (Eventuell noch Herkunft erklären)
-\[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Wird diese gleichung
-nach C\_K umgestellt erhält man für \(C_K\): \[C_K = \frac{U*I}{A}-C_W\]
-
-Mit:
-
-\begin{itemize}
-  \item $C_K$: Wärmekapazität Kaloriemeter ohne Wasser
-  \item $C_W$: Wärmekapazität des Wassers
-  \item $U$: Angelegte Spannung
-  \item $I$: Stromstärke
-  \item $T(t)$: Temperatur zum Zeitpunkt $t$
-  \item $A$: Steigung der Regressionsgeraden
-  \item $T_A$: Anfangstemperatur
-  \item $t$: Zeit
-\end{itemize}
-
-Formel \begin{equation}\label{eq:c_F}
-\begin{split}
-u_{c_F} &= \sqrt{(\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+(\frac{\partial c_F}{\partial c_w}*u_{c_w})^2+(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+(\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}\\
- &= \sqrt{(0*u_{T_{B}})^2+(0*u_{m_{w}})^2+(0*u_{T_{M}})^2+(0*u_{c_{w}})^2+(0*u_{C_{K}})^2+(0*u_{m_{F}})^2+(0*u_{T_{A}})^2}\\
- &= \sqrt{(0*u_{T_{B}})^2+(0*u_{m_{w}})^2+(0*u_{T_{M}})^2+(0*u_{c_{w}})^2+(0*u_{C_{K}})^2+(0*u_{m_{F}})^2+(0*u_{T_{A}})^2}\\
-\\
-\end{split}
-\end{equation}
 
 \hypertarget{auswertung}{%
 \subsection{Auswertung}\label{auswertung}}
 
-\hypertarget{interpretation}{%
-\subsection{Interpretation}\label{interpretation}}
+Der Temperaturverlauf in Abbildung 1 macht im betrachteten Zeitraum
+einen linearen Eindruck. Eine mittels der lm()-Funktion in R berechnete
+Regressionsgerade der Form \(T(t)=A\cdot t+B\) hat die Steigung
+\(a=(1641\pm 22)\cdot 10^{-5}K\ s^{-1}\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Lineare Regression}
+\NormalTok{lm }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(zeitreiheErhitzung}\SpecialCharTok{$}\NormalTok{Temperatur}\SpecialCharTok{\textasciitilde{}}\NormalTok{zeitreiheErhitzung}\SpecialCharTok{$}\NormalTok{Zeit\_s)}
+\FunctionTok{summary}\NormalTok{(lm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = zeitreiheErhitzung$Temperatur ~ zeitreiheErhitzung$Zeit_s)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.24286 -0.04863  0.01868  0.07830  0.10330 
+## 
+## Coefficients:
+##                            Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)               1.935e+01  5.546e-02  348.90   <2e-16 ***
+## zeitreiheErhitzung$Zeit_s 1.641e-02  2.171e-04   75.58   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.09824 on 12 degrees of freedom
+## Multiple R-squared:  0.9979, Adjusted R-squared:  0.9977 
+## F-statistic:  5713 on 1 and 12 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+Für den Temperaturverlauf ist folgender Zusammenhang bekannt:
+\[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Mit: \(C_K\):
+Wärmekapazität Kaloriemeter ohne Wasser; \(C_W\): Wärmekapazität des
+Wassers; \(U\): Angelegte Spannung; \(I\): Stromstärke; \(t\): Zeit;
+\(T(t)\): Temperatur zum Zeitpunkt \(t\); \(T_A\): Anfangstemperatur
+
+Wird diese Gleichung nach der Wärmekapazität des Kaloriemeters \(C_K\)
+umgestellt erhält man mit der Steigung der Regressionsgeraden \(A\) für
+\(C_K\): \[C_K = \frac{U*I}{A}-c_W*m_W\] Nun kann die Berechnung der
+Wärmekapazität des Kaloriemeters vorgenommen werden. Dazu wird noch die
+spezifische Wärmekapazität von Wasser benötigt. Diese wird im Tippler in
+Tabelle 15.1 auf Seite 569 mit \(4,18 \frac{kJ}{kg\cdot K}\) angegeben.
+
+\begin{equation*}
+\begin{split}
+C_K &= \frac{U*I}{A}-c_W*m_W\\
+\Rightarrow &=\frac{5,70V*2,20A}{0,01641\frac{K}{s}}-4180\frac{J}{kg\cdot K}*0,1637kg\\
+\underset{\text{mit VAs=J}}{\Leftrightarrow} &= 79,90219\frac{J}{K}\\
+\end{split}
+\end{equation*}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Berechnung in R}
+\NormalTok{(}\FloatTok{5.7}\SpecialCharTok{*}\FloatTok{2.2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.01641}\NormalTok{)}\SpecialCharTok{{-}}\DecValTok{4180}\SpecialCharTok{*}\FloatTok{0.1637}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 79.90219
+\end{verbatim}
+
+Die Messunsicherheit von \(C_K\) kann auf folgende Weise berechnet
+werden:
+
+\begin{equation*}
+\begin{split}
+u_{C_K} &= \sqrt{(\frac{\partial C_K}{\partial U}*u_U)^2+(\frac{\partial C_K}{\partial I}*u_I)^2+(\frac{\partial C_K}{\partial A}*u_A)^2+(\frac{\partial C_K}{\partial m_w}*u_{m_w})}\\
+&=\sqrt{(\frac{I}{A}*u_U)^2+(\frac{U}{A}*u_I)^2+(\frac{U*I}{A^2}*u_A)^2+(c_w*u_{m_w})^2}\\
+&= ((\frac{2,20A}{0,01641\frac{K}{s}}*0,0029V)^2+(\frac{5,70V}{0,01641\frac{K}{s}}*0,0029A)^2+(\frac{5,70V*2,20A}{(0,01641\frac{K}{s})^2}*0,00022\frac{K}{s})^2\\
+&\ \ \ \ +(4180\frac{J}{kg\cdot K}*29\cdot 10^{-6}kg)^2)^{\frac{1}{2}}\\
+&= 10.30224 \frac{J}{K}
+\end{split}
+\end{equation*}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Berechnung in R}
+\FunctionTok{sqrt}\NormalTok{((}\FloatTok{2.20}\SpecialCharTok{/}\FloatTok{0.01641}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{5.70}\SpecialCharTok{/}\FloatTok{0.01641}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}
+\NormalTok{       (}\FloatTok{5.70}\SpecialCharTok{*}\FloatTok{2.20}\SpecialCharTok{/}\FloatTok{0.01641}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{*}\FloatTok{0.00022}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\DecValTok{4180}\SpecialCharTok{*}\DecValTok{29}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{6}\NormalTok{))}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10.30224
+\end{verbatim}
+
+Damit wurde eine Wärmekapazität des Kaloriemeters von
+\(C_K=(80 \pm 10)\frac{J}{K}\) festgestellt. Das Ergebnis ist mit einer
+vergleichsweise hohen Unsicherheit behaftet.
 
 \hypertarget{versuch-2}{%
 \section{Versuch 2}\label{versuch-2}}
@@ -227,23 +338,54 @@ Anfangstemperatur im Kaloriemeter betrug
 Folgendes wurde für das orangene Metall bestimmt: (T\_B (Mischtemp):
 (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
 
-\begin{longtable}[]{@{}lrlr@{}}
+Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit
+folgenden Formeln bestimmt:
+
+\begin{itemize}
+  \item Digitale Anzeigen: $\frac{a}{2\sqrt{3}}$
+  \item Analoge Anzeigen: $\frac{a}{2\sqrt{6}}$
+\end{itemize}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3611}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1389}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1944}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1806}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 orangene Metall}\tabularnewline
 \toprule()
-& Messwert & Geräteart & Unsicherheit \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Messwert
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Geräteart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Skaleneinheit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsicherheit
+\end{minipage} \\
 \midrule()
 \endfirsthead
 \toprule()
-& Messwert & Geräteart & Unsicherheit \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Messwert
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Geräteart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Skaleneinheit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsicherheit
+\end{minipage} \\
 \midrule()
 \endhead
-Becherglas mit Wasser {[}g{]} & 235.5 & digital & 0.029 \\
-Masse Becherglas {[}g{]} & 97.4 & digital & 0.029 \\
-Wassermasse {[}g{]} & 138.1 & - & 0.058 \\
-Metallvolumen {[}cm³{]} & 23.0 & analog & 0.200 \\
-Anfangstemperatur {[}°C{]} & 50.0 & digital & 0.029 \\
-Mischtemperatur {[}°C{]} & 44.2 & digital & 0.029 \\
+Becherglas mit Wasser {[}g{]} & 235.5 & digital & 0.1 & 0.029 \\
+Masse Becherglas {[}g{]} & 97.4 & digital & 0.1 & 0.029 \\
+Wassermasse {[}g{]} & 138.1 & - & - & 0.058 \\
+Metallvolumen {[}ml{]} & 23.0 & analog & 1 & 0.200 \\
+Anfangstemperatur {[}°C{]} & 50.0 & digital & 0.1 & 0.029 \\
+Mischtemperatur {[}°C{]} & 44.2 & digital & 0.1 & 0.029 \\
 \bottomrule()
 \end{longtable}
 
@@ -273,7 +415,9 @@ Mischtemperatur {[}°C{]} & 42.8 & digital & 0.029 \\
 \hypertarget{auswertung-1}{%
 \subsection{Auswertung}\label{auswertung-1}}
 
-\hypertarget{interpretation-1}{%
-\subsection{Interpretation}\label{interpretation-1}}
+Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
+
+\hypertarget{interpretation}{%
+\subsection{Interpretation}\label{interpretation}}
 
 \end{document}

@@ -11,6 +11,9 @@ output:
   html_document:
     df_print: kable
 ---
+```{r setup, include=FALSE, echo=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
 
 # Versuch 1
 
@@ -23,22 +26,33 @@ Dieses soll in Versuch 2 dafür verwendet werden, die spezifische Wärmekapazit�
 
 ![Versuchsaufbau]("Bilder/Versuchsaufbau.png")
 
-Zu Beginn des eigentlichen Versuches wird die Raumtemperatur gemessen.
+Zu Beginn des eigentlichen Versuches wird die Raumtemperatur gemessen, für eventuell später auftretende Fragestellungen.
 
-Im Messzylinder werden 100ml und 70 ml Wasser abgemessen und anschließend in das Kaloriemeter gefüllt.
-In diesem Zustand wird dessen Masse gemessen.
-Der Deckel des Kaloriemeters mit Heizspirale, Thermometer und Rührstab wird geschlossen. 
+Das Kaloriemeter wird leer gewogen.
+Im Messzylinder werden ca. 170ml Wasser abgemessen und anschließend in das Kaloriemeter gefüllt.
+In diesem Zustand wird noch einmal die Masse des nun vollen Kaloriemeters gemessen, um die Wassermasse bestimmen zu können.
+
+Der Deckel des Kaloriemeters mit Heizspirale, Thermometer und Rührstab wird verschlossen. 
 Die Heizspirale wird über Bananenstecker mit dem AC Netzgerät verbunden. 
 Ein Amperemeter wird in Reihe und ein Voltmeter parallel geschaltet.
 
 Am Netzgerät wird eine mittlere Leistung eingestellt (50%) und über den Zeitraum von sieben Minuten eine Temperatur-Zeit Messreihe aufgenommen. 
-Während dieser Zeit wird zudem immer wieder die Spannung und die Stromstärke kontrolliert, die das Kaloriemeter durchfließt beziehungsweise die an der Heizspirale anliegt.
+Während der Erhitzung werden die Stromspannung und die Stromstärke abgelesen.
+Diese Schwanken zwar leicht in der Zeit, jedoch immer um einen festen Wert.
+
+Die steigende Innentemperatur im Kaloriemeter wird alle dreißig Sekunden notiert.
 
 ## Fehlerbetrachtung
 
 ## Beobachtungen
+Die Wassermasse, welche sich als Differenz aus Leer- und Vollgewicht des Kaloriemeters berechnet beträgt $(328,8-165,1)g=163,7g$. 
+Die Messunsicherheit ist die doppelte Skalenunsicherheit der verwendeten digitalen Waage, also $u_m=2\cdot \frac{0,1g}{2\sqrt{3}} = 0,029g$.
+
+Die Spannung liegt bei $5,70V$, die Messunsicherheit liegt bei $u_V=\frac{0,01V}{2\sqrt{3}}=0,0029V$.
+Die Stromstärke liegt bei $2,20A$, die Messunsicherheit $u_A$ beträgt $u_A=\frac{0,01A}{2\sqrt{3}}=0,0029A$.
+
 Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
-```{r, fig.cap = "Testi", echo=F, fig.align = 'center'}
+```{r, fig.cap = "Für sieben Minuten wurde der Temperaturverlauf der Erhitzung des Wassers im Kaloriemeter gemessen", echo=F, fig.align = 'center'}
 # Einlesen der csv-Datei
 zeitreiheErhitzung <- read.csv("Daten/Messreihe.csv", sep = ";", dec=",")
 # Tidy-up
@@ -78,34 +92,59 @@ R <- lmsummary$coefficients[2,2]
          bty = "n")
 }
 ```
-*Abb. 1: Für sieben Minuten wurde der Temperaturverlauf der Erhitzung des Wassers im Kaloriemeter gemessen*
-
-Der Temperaturverlauf macht im betrachteten Zeitraum einen linearen Eindruck.
-Eine Regressionsgerade hat die Steigung $a=(1641\pm 22)\cdot 10^{-5}\ ^{\circ} C\ s^{-1}$
-
-Es gilt: (Eventuell noch Herkunft erklären)
-$$T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A$$
-Wird diese gleichung nach C_K umgestellt erhält man für $C_K$:
-$$C_K = \frac{U*I}{A}-C_W$$
-
-Mit:
-\begin{itemize}
-  \item $C_K$: Wärmekapazität Kaloriemeter ohne Wasser
-  \item $C_W$: Wärmekapazität des Wassers
-  \item $U$: Angelegte Spannung
-  \item $I$: Stromstärke
-  \item $T(t)$: Temperatur zum Zeitpunkt $t$
-  \item $A$: Steigung der Regressionsgeraden
-  \item $T_A$: Anfangstemperatur
-  \item $t$: Zeit
-\end{itemize}
-
-Formel
 
 ## Auswertung
 
-## Interpretation
+Der Temperaturverlauf in Abbildung 1 macht im betrachteten Zeitraum einen linearen Eindruck.
+Eine mittels der lm()-Funktion in R berechnete Regressionsgerade der Form $T(t)=A\cdot t+B$ hat die Steigung $a=(1641\pm 22)\cdot 10^{-5}K\ s^{-1}$:
+```{r}
+# Lineare Regression
+lm <- lm(zeitreiheErhitzung$Temperatur~zeitreiheErhitzung$Zeit_s)
+summary(lm)
+```
 
+Für den Temperaturverlauf ist folgender Zusammenhang bekannt:
+$$T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A$$
+Mit: $C_K$: Wärmekapazität Kaloriemeter ohne Wasser; $C_W$: Wärmekapazität des Wassers; $U$: Angelegte Spannung; $I$: Stromstärke; $t$: Zeit; $T(t)$: Temperatur zum Zeitpunkt $t$; $T_A$: Anfangstemperatur
+
+Wird diese Gleichung nach der Wärmekapazität des Kaloriemeters $C_K$ umgestellt erhält man mit der Steigung der Regressionsgeraden $A$ für $C_K$:
+$$C_K = \frac{U*I}{A}-c_W*m_W$$
+Nun kann die Berechnung der Wärmekapazität des Kaloriemeters vorgenommen werden. 
+Dazu wird noch die spezifische Wärmekapazität von Wasser benötigt.
+Diese wird im Tippler in Tabelle 15.1 auf Seite 569 mit $4,18 \frac{kJ}{kg\cdot K}$ angegeben.
+
+\begin{equation*}
+\begin{split}
+C_K &= \frac{U*I}{A}-c_W*m_W\\
+\Rightarrow &=\frac{5,70V*2,20A}{0,01641\frac{K}{s}}-4180\frac{J}{kg\cdot K}*0,1637kg\\
+\underset{\text{mit VAs=J}}{\Leftrightarrow} &= 79,90219\frac{J}{K}\\
+\end{split}
+\end{equation*}
+
+```{r}
+# Berechnung in R
+(5.7*2.2)/(0.01641)-4180*0.1637
+```
+
+Die Messunsicherheit von $C_K$ kann auf folgende Weise berechnet werden:
+
+\begin{equation*}
+\begin{split}
+u_{C_K} &= \sqrt{(\frac{\partial C_K}{\partial U}*u_U)^2+(\frac{\partial C_K}{\partial I}*u_I)^2+(\frac{\partial C_K}{\partial A}*u_A)^2+(\frac{\partial C_K}{\partial m_w}*u_{m_w})}\\
+&=\sqrt{(\frac{I}{A}*u_U)^2+(\frac{U}{A}*u_I)^2+(\frac{U*I}{A^2}*u_A)^2+(c_w*u_{m_w})^2}\\
+&= ((\frac{2,20A}{0,01641\frac{K}{s}}*0,0029V)^2+(\frac{5,70V}{0,01641\frac{K}{s}}*0,0029A)^2+(\frac{5,70V*2,20A}{(0,01641\frac{K}{s})^2}*0,00022\frac{K}{s})^2\\
+&\ \ \ \ +(4180\frac{J}{kg\cdot K}*29\cdot 10^{-6}kg)^2)^{\frac{1}{2}}\\
+&= 10.30224 \frac{J}{K}
+\end{split}
+\end{equation*}
+
+```{r}
+# Berechnung in R
+sqrt((2.20/0.01641*0.0029)**2+(5.70/0.01641*0.0029)**2+
+       (5.70*2.20/0.01641**2*0.00022)**2+(4180*29*10**(-6))**2)
+```
+Damit wurde eine Wärmekapazität des Kaloriemeters von $C_K=(80 \pm 10)\frac{J}{K}$ festgestellt.
+Das Ergebnis ist mit einer vergleichsweise hohen Unsicherheit behaftet.
 
 # Versuch 2
 
@@ -131,11 +170,18 @@ Die gemessene Anfangstemperatur im Kaloriemeter betrug $T_A=(50,000\pm 0,029)^\c
 ## Beobachtungen
 Folgendes wurde für das orangene Metall bestimmt:
 (T_B (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
+
+Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit folgenden Formeln bestimmt:
+\begin{itemize}
+  \item Digitale Anzeigen: $\frac{a}{2\sqrt{3}}$
+  \item Analoge Anzeigen: $\frac{a}{2\sqrt{6}}$
+\end{itemize}
 ```{r, echo=FALSE}
 # Messgrößen
-groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
+groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [ml]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
 messwerte <- data.frame(Messwert = c(235.5, 97.4, 235.5-97.4, 23.00, 50.000, 44.2),
                         Geräteart = c("digital", "digital", "-", "analog", "digital", "digital"),
+                        Skaleneinheit = c(0.1, 0.1, "-", 1, 0.1, 0.1),
                         Unsicherheit = c(0.029, 0.029, 2*0.029, 0.20, 0.029, 0.029)
                         )
 rownames(messwerte) <- groesse
@@ -156,5 +202,15 @@ knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten f�
 ```
 
 ## Auswertung
+Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
+
+<!-- \begin{equation} -->
+<!-- u_{c_F} = \sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2} -->
+
+<!--         = \sqrt{ (\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+ -->
+<!--                  (\frac{(C_K+c_w)(T_M-T_B)}{mF(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{mF(T_A-1)}*u_{T_M})^2+ -->
+<!--                  (\frac{(C_K+m_w*c_w)*(T_M-1)}{mF(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+ -->
+<!--                  (\frac{(C_K+m_w*c_w)*(T_M-T_B)}{mF(1-T_M)}*u_{T_A})^2} -->
+<!-- \end{equation} -->
 
 ## Interpretation
