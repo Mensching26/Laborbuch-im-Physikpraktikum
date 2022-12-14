@@ -185,7 +185,7 @@ Messunsicherheit ist die doppelte Skalenunsicherheit der verwendeten
 digitalen Waage, also \(u_m=2\cdot \frac{0,1g}{2\sqrt{3}} = 0,029g\).
 
 Die Spannung liegt bei \(5,70V\), die Messunsicherheit liegt bei
-\(u_V=\frac{0,01V}{2\sqrt{3}}=0,0029V\). Die Stromstärke liegt bei
+\(u_U=\frac{0,01V}{2\sqrt{3}}=0,0029V\). Die Stromstärke liegt bei
 \(2,20A\), die Messunsicherheit \(u_A\) beträgt
 \(u_A=\frac{0,01A}{2\sqrt{3}}=0,0029A\).
 
@@ -199,6 +199,11 @@ Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
 
 \caption{Für sieben Minuten wurde der Temperaturverlauf der Erhitzung des Wassers im Kaloriemeter gemessen}\label{fig:unnamed-chunk-1}
 \end{figure}
+
+Mit den Messunsicherheiten sind aug´fgrund ihrer Größe sichtbar. Diese
+betragen für die Zeit \(u_t = \frac{0.1s}{2\sqrt{3}}=0,029s\) bzw.
+\(u_T = \frac{0,1\ ^{\circ}C}{2\sqrt{3}}=0,029\ ^{\circ}C\) für die
+Messunsicherheit der Temperatur.
 
 \hypertarget{auswertung}{%
 \subsection{Auswertung}\label{auswertung}}
@@ -444,7 +449,7 @@ Becherglas mit Wasser {[}g{]} & 241.30 & - & digital & 0.1 & 0.029 \\
 Masse Becherglas {[}g{]} & 97.40 & - & digital & 0.1 & 0.029 \\
 Wassermasse {[}g{]} & 143.90 & m\_w & - & - & 0.058 \\
 Metallmasse {[}g{]} & 176.12 & m\_F & digital & 0.1 & 0.029 \\
-Metallvolumen {[}cm³{]} & 22.00 & V\_F & analog & 1 & 0.200 \\
+Metallvolumen {[}ml{]} & 22.00 & V\_F & analog & 1 & 0.200 \\
 Anfangstemperatur {[}{]} & 322.25 & T\_A & digital & 0.1 & 0.029 \\
 Mischtemperatur {[}K{]} & 315.95 & T\_M & digital & 0.1 & 0.029 \\
 Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
@@ -457,7 +462,7 @@ Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
 Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
 \[u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}\]
 
-\(=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}\)
+\[=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}\]
 
 Nun können die Werte, die für das Kupfer und das Aluminium ermittelt
 wurden eingesetzt werden:
@@ -470,13 +475,30 @@ Kupfer}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-kupfer}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Konstanten}
+\NormalTok{C\_K }\OtherTok{=} \DecValTok{80} \CommentTok{\#J/kg}
+\NormalTok{u\_CK }\OtherTok{=} \DecValTok{10} \CommentTok{\#J/kg}
+\NormalTok{u\_mw }\OtherTok{=} \FloatTok{0.000058} \CommentTok{\#kg}
+\NormalTok{u\_mF }\OtherTok{=} \FloatTok{0.000029} \CommentTok{\#kg}
+\NormalTok{u\_TA }\OtherTok{=} \FloatTok{0.029} \CommentTok{\#K}
+\NormalTok{u\_TB }\OtherTok{=} \FloatTok{0.029} \CommentTok{\#K}
+\NormalTok{u\_TM }\OtherTok{=} \FloatTok{0.029} \CommentTok{\#K}
+\NormalTok{c\_w }\OtherTok{=} \DecValTok{4180} \CommentTok{\#J}
+
+\CommentTok{\# Variablen}
+\NormalTok{m\_w }\OtherTok{=} \FloatTok{0.13810} \CommentTok{\#kg}
+\NormalTok{m\_F }\OtherTok{=} \FloatTok{0.19800} \CommentTok{\#kg}
+\NormalTok{T\_A }\OtherTok{=} \FloatTok{323.15} \CommentTok{\#K}
+\NormalTok{T\_B }\OtherTok{=} \FloatTok{293.15} \CommentTok{\#K}
+\NormalTok{T\_M }\OtherTok{=} \FloatTok{317.35} \CommentTok{\#K}
+
 \CommentTok{\# Berechnung in R}
-\NormalTok{((((}\DecValTok{1}\FloatTok{+0.13810}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}293.150}\NormalTok{))}\SpecialCharTok{*}\DecValTok{10}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
-  \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\SpecialCharTok{+}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.000058}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
- \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.13810}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
- \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.13810}\SpecialCharTok{*} \DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
- \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.13810}\SpecialCharTok{*} \DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.000029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
- \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.13810}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}317.35}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{**}\FloatTok{0.5}
+\FunctionTok{sqrt}\NormalTok{( ( ((}\DecValTok{1}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_CK)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_mw)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\NormalTok{u\_TM)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TB)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M)}\SpecialCharTok{*}\NormalTok{u\_mF)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TA)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -492,13 +514,20 @@ Aluminium}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-aluminium}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Neudefinition Variablen}
+\NormalTok{m\_w }\OtherTok{=} \FloatTok{0.14390} \CommentTok{\#kg}
+\NormalTok{m\_F }\OtherTok{=} \FloatTok{0.17612} \CommentTok{\#kg}
+\NormalTok{T\_A }\OtherTok{=} \FloatTok{322.25} \CommentTok{\#K}
+\NormalTok{T\_B }\OtherTok{=} \FloatTok{293.15} \CommentTok{\#K}
+\NormalTok{T\_M }\OtherTok{=} \FloatTok{315.95} \CommentTok{\#K}
+
 \CommentTok{\# Berechnung in R}
-\NormalTok{((((}\DecValTok{1}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}293.150}\NormalTok{))}\SpecialCharTok{*}\DecValTok{10}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
-  \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\SpecialCharTok{+}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.000058}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
- \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
- \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*} \DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
- \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*} \DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.000029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
- \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}315.95}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{**}\FloatTok{0.5}
+\FunctionTok{sqrt}\NormalTok{( ( ((}\DecValTok{1}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_CK)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_mw)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\NormalTok{u\_TM)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TB)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M)}\SpecialCharTok{*}\NormalTok{u\_mF)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TA)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 

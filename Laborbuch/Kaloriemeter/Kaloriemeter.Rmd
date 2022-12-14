@@ -48,7 +48,7 @@ Die steigende Innentemperatur im Kaloriemeter wird alle dreißig Sekunden notier
 Die Wassermasse, welche sich als Differenz aus Leer- und Vollgewicht des Kaloriemeters berechnet beträgt $(328,8-165,1)g=163,7g$. 
 Die Messunsicherheit ist die doppelte Skalenunsicherheit der verwendeten digitalen Waage, also $u_m=2\cdot \frac{0,1g}{2\sqrt{3}} = 0,029g$.
 
-Die Spannung liegt bei $5,70V$, die Messunsicherheit liegt bei $u_V=\frac{0,01V}{2\sqrt{3}}=0,0029V$.
+Die Spannung liegt bei $5,70V$, die Messunsicherheit liegt bei $u_U=\frac{0,01V}{2\sqrt{3}}=0,0029V$.
 Die Stromstärke liegt bei $2,20A$, die Messunsicherheit $u_A$ beträgt $u_A=\frac{0,01A}{2\sqrt{3}}=0,0029A$.
 
 Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
@@ -92,6 +92,9 @@ R <- lmsummary$coefficients[2,2]
          bty = "n")
 }
 ```
+Mit den Messunsicherheiten sind aug´fgrund ihrer Größe sichtbar.
+Diese betragen für die Zeit $u_t = \frac{0.1s}{2\sqrt{3}}=0,029s$ bzw. 
+$u_T = \frac{0,1\ ^{\circ}C}{2\sqrt{3}}=0,029\ ^{\circ}C$ für die Messunsicherheit der Temperatur.
 
 ## Auswertung
 
@@ -193,7 +196,7 @@ Folgendes wurde für das graue Metall bestimmt:
 (T_B (Mischtemp): (vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8))
 ```{r, echo=FALSE}
 # Messgrößen
-groesse = c("C Kaloriemeter [J/K]", "Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallmasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur []", "Mischtemperatur [K]", "Raumtemperatur [K]")
+groesse = c("C Kaloriemeter [J/K]", "Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallmasse [g]", "Metallvolumen [ml]", "Anfangstemperatur []", "Mischtemperatur [K]", "Raumtemperatur [K]")
 messwerte <- data.frame(Messwert = c(80, 241.3, 97.4, 241.3-97.4, 176.12,22.00, 273.150+49.100, 273.150+42.8, 273.15+20.0),
                         Formelzeichen = c("C_K", "-", "-", "m_w", "m_F", "V_F", "T_A", "T_M", "T_B"),
                         Geräteart = c("-", "digital", "digital", "-", "digital", "analog", "digital", "digital", "digital"),
@@ -208,7 +211,7 @@ knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten f�
 Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
 $$u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}$$
 
-$=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}$
+$$=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}$$
 
 Nun können die Werte, die für das Kupfer und das Aluminium ermittelt wurden eingesetzt werden:
 
@@ -217,27 +220,50 @@ Nun können die Werte, die für das Kupfer und das Aluminium ermittelt wurden ei
 $=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg\cdot (323,15K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(317,35K-293,150K)}{0,19800kg(323,15K-317,35K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,19800kg(323,15K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-1)}{0,19800kg(323,15K-317,35K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{323,15K-317,35K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg(1-317,35K)}\cdot 0,029K)^2]^{\frac{1}{2}}$
 
 ```{r}
-# Berechnung in R
-((((1+0.13810*4180)*(317.35-293.150))/(0.19800*(323.15-293.150))*10)**2
-  +(((80+4180)*(317.35-293.150))/(0.19800*(323.15-317.35))*0.000058)**2
- +(((80+0.13810*4180)*(1-293.150))/(0.19800*(323.15-1))*0.029)**2
- +(((80+0.13810* 4180)*(317.35-1))/(0.19800*(323.15-317.35))*0.029)**2
- +(((80+0.13810* 4180)*(317.35-293.150))/(323.15-317.35)*0.000029)**2
- +(((80+0.13810*4180)*(317.35-293.150))/(0.19800*(1-317.35))*0.029)**2)**0.5
-```
+# Konstanten
+C_K = 80 #J/kg
+u_CK = 10 #J/kg
+u_mw = 0.000058 #kg
+u_mF = 0.000029 #kg
+u_TA = 0.029 #K
+u_TB = 0.029 #K
+u_TM = 0.029 #K
+c_w = 4180 #J
 
+# Variablen
+m_w = 0.13810 #kg
+m_F = 0.19800 #kg
+T_A = 323.15 #K
+T_B = 293.15 #K
+T_M = 317.35 #K
+
+# Berechnung in R
+sqrt( ( ((1+m_w*c_w)*(T_M-T_B))/(m_F*(T_A-T_B))*u_CK)**2
+     +( ((C_K+c_w)*(T_M-T_B))/(m_F*(T_A-T_M))*u_mw)**2
+     +( ((C_K+m_w*c_w)*(1-T_B))/(m_F*(T_A-1))*u_TM)**2
+     +( ((C_K+m_w*c_w)*(T_M-1))/(m_F*(T_A-T_M))*u_TB)**2
+     +( ((C_K+m_w*c_w)*(T_M-T_B))/(T_A-T_M)*u_mF)**2
+     +( ((C_K+m_w*c_w)*(T_M-T_B))/(m_F*(1-T_M))*u_TA)**2)
+```
 ### Unsicherheit spezifische Wärmekapazität Aluminium
 
 $=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}$
 
 ```{r}
+# Neudefinition Variablen
+m_w = 0.14390 #kg
+m_F = 0.17612 #kg
+T_A = 322.25 #K
+T_B = 293.15 #K
+T_M = 315.95 #K
+
 # Berechnung in R
-((((1+0.1439*4180)*(315.95-293.150))/(0.17612*(322.25-293.150))*10)**2
-  +(((80+4180)*(315.95-293.150))/(0.17612*(322.25-315.95))*0.000058)**2
- +(((80+0.1439*4180)*(1-293.150))/(0.17612*(322.25-1))*0.029)**2
- +(((80+0.1439* 4180)*(315.95-1))/(0.17612*(322.25-315.95))*0.029)**2
- +(((80+0.1439* 4180)*(315.95-293.150))/(322.25-315.95)*0.000029)**2
- +(((80+0.1439*4180)*(315.95-293.150))/(0.17612*(1-315.95))*0.029)**2)**0.5
+sqrt( ( ((1+m_w*c_w)*(T_M-T_B))/(m_F*(T_A-T_B))*u_CK)**2
+     +( ((C_K+c_w)*(T_M-T_B))/(m_F*(T_A-T_M))*u_mw)**2
+     +( ((C_K+m_w*c_w)*(1-T_B))/(m_F*(T_A-1))*u_TM)**2
+     +( ((C_K+m_w*c_w)*(T_M-1))/(m_F*(T_A-T_M))*u_TB)**2
+     +( ((C_K+m_w*c_w)*(T_M-T_B))/(T_A-T_M)*u_mF)**2
+     +( ((C_K+m_w*c_w)*(T_M-T_B))/(m_F*(1-T_M))*u_TA)**2)
 ```
 
 ## Interpretation
