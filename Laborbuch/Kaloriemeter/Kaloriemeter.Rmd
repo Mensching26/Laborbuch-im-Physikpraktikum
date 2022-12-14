@@ -46,21 +46,22 @@ Während der Erhitzung werden die Stromspannung und die Stromstärke abgelesen.
 Diese Schwanken zwar leicht in der Zeit, jedoch immer um einen festen Wert, welcher notiert wird.
 
 Die steigende Innentemperatur im Kaloriemeter wird alle dreißig Sekunden am Thermometer abgelesen und ebenfalls notiert.
+Mit Hilfe der Rührvorrichtung am Kaloriemeter wird sichergestellt, dass sich das Wasser so gleichmäßig wie möglich erwärmt.
 
 ## Fehlerbetrachtung
-Neben den Messunsicherheiten bei der Benutzung von Messbechern, Multimetern und Waagen ist vorallem die Tatsachen aufzuführen, dass das Kaloriemeter kein perfekt geschlossenes System ist. 
+Neben den Messunsicherheiten bei der Benutzung von Messbechern, Multimetern und Waagen ist vor allem die Tatsache aufzuführen, dass das Kaloriemeter *kein perfekt geschlossenes System* ist. 
 Es ist zwar doppelwandig und luftisoliert, dannoch wirken die äußeren Temperaturgegebeneiten auf die Innentemperatur des Kaloriemeters und verfälschen den Erwärmungsprozess.
 
-Die zu erstellende Temperatur-Zeitreihe unterliegt sowohl Unsicherheiten beim Abnehmen der Temperatur zum richigen Zeitpunkt als auch der Skalenunsicherheit des digitalen Thermometers selbst. 
+Die zu erstellende Temperatur-Zeitreihe unterliegt sowohl *Unsicherheiten beim Abnehmen der Temperatur zum richigen Zeitpunkt* als auch der *Skalenunsicherheit* des digitalen Thermometers selbst. 
 In beiden Fällen stellen sich die Beträge der Unsicherheiten aber als vergleichsweise klein heraus.
 
 ## Beobachtungen
 
-Die Wassermasse, welche sich als Differenz aus Leer- und Vollgewicht des Kaloriemeters berechnet beträgt $(328,8-165,1)g=163,7g$.
-Die Messunsicherheit ist die doppelte Skalenunsicherheit der verwendeten digitalen Waage, also $u_m=2\cdot \frac{0,1g}{2\sqrt{3}} = 0,029g$.
+Die Wassermasse, welche sich als Differenz aus Leer- und Vollgewicht des Kaloriemeters berechnet, beträgt $(328,8-165,1)g=163,7g$.
+Die Messunsicherheit ist die doppelte Skalenunsicherheit der verwendeten digitalen Waage, also $u_m=2\cdot \frac{0,1g}{2\sqrt{3}} = \pm0,029g$.
 
-Die Spannung liegt bei $5,70V$, die Messunsicherheit liegt bei $u_U=\frac{0,01V}{2\sqrt{3}}=0,0029V$.
-Die Stromstärke liegt bei $2,20A$, die Messunsicherheit $u_A$ beträgt $u_A=\frac{0,01A}{2\sqrt{3}}=0,0029A$.
+Die Spannung liegt bei $5,70V$, die Messunsicherheit liegt bei $u_U=\frac{0,01V}{2\sqrt{3}}= \pm0,0029V$.
+Die Stromstärke liegt bei $2,20A$, die Messunsicherheit $u_A$ beträgt $u_A=\frac{0,01A}{2\sqrt{3}}=\pm0,0029A$.
 
 Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
 
@@ -106,8 +107,8 @@ R <- lmsummary$coefficients[2,2]
 ```
 
 Die Messunsicherheiten sind augfgrund ihrer Größe nicht sichtbar.
-Diese betragen für die Zeit $u_t = \frac{0.1s}{2\sqrt{3}}=0,029s$ bzw.
-$u_T = \frac{0,1\ ^{\circ}C}{2\sqrt{3}}=0,029\ ^{\circ}C$ für die Messunsicherheit der Temperatur.
+Diese betragen für die Zeit $u_t = \frac{0.1s}{2\sqrt{3}}=\pm0,029s$ bzw.
+$u_T = \frac{0,1\ ^{\circ}C}{2\sqrt{3}}=\pm0,029\ ^{\circ}C$ für die Messunsicherheit der Temperatur.
 
 ## Auswertung
 
@@ -179,12 +180,11 @@ Im Kaloriemeter soll durch die Herstellung einer Mischtemperatur $T_M$ zwischen,
 
 Wasser wird auf einer Heizplatte auf ca. 50°C erwärmt.
 Dann wird das Thermometer in den Deckel des Kaloriemeters gesteckt, das Wasser eingefüllt, der Deckel geschlossen und $T_A$ am Thermometer abgelesen.
-Für das zweite Metall wird im Anschluss an den ersten Durchgang mit dem ersten Metall wird auf gleiche Weise verfahren.
 
 ## Fehlerbetrachtung
-Viel mehr noch, als in Versuch 1, ist der Wärmeverlust während des Versuches eine Fehlerquelle. 
+Viel mehr noch, als in Versuch 1, ist der *Wärmeverlust* während des Versuches eine Fehlerquelle. 
 Dies ist bedingt durch den starken Temperaturgradienten von ca. $30K$ zwischen der Innentemperatur des Kaloriemeters und der Raumtemperatur, welche bei ca. 20°C lag. 
-Der darum hohe Wärmeabfluss aus dem Kaloriemeter ist besoonders am Deckel bemerkbar, welcher sich während des Versuches spürbar erwärmte.
+Der darum hohe Wärmeabfluss aus dem Kaloriemeter ist besonders am Deckel bemerkbar, welcher sich während des Versuches spürbar erwärmte.
 
 Unter anderem dieser Effekt führte dazu, dass es keinen eindeutig bestimmbaren Wert für die Mischtemperatur im Kaloriemeter gab.
 Stattdessen fiel der Temperaturwert stetig.
@@ -204,10 +204,10 @@ Die Volumenbestimmung der Metallzylinder erfolgte über die Bestimmung der Wasse
 
 Da die Metallzylinder gut $20ml$ Volumen einnahmen, wurden im Becherglas wurden für jeden Versuch ca. $150ml$ Wasser abgemessen, um das Kaloriemeter mit ca. 170ml ausreichend zu füllen.
 Die Bestimmung der verwendeten Wassermasse erfolgte dann durch Abwiegen des vollen und des leeren Becherglases und durch anschließendes Subtrahieren der beiden Werte.
-Die Messunsicherheit der Wassermasse beträgt zweimal die Skalenunsicherheit der verwendeten digitalen Waage, also $u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=0.058g$.
+Die Messunsicherheit der Wassermasse beträgt zweimal die Skalenunsicherheit der verwendeten digitalen Waage, also $u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=\pm0.058g$.
 
-Nach der Bestimmung des Metallvolumensvolumens und der Masse das Wasser wurde dieses im Becherglas auf etwa $50^\circ C$ erwärmt und die genaue Anfangstemperatur dann im Kaloriemeter gemessen.
-Die Skalenunsicherheit des digitalen Thermometers lag bei $u_T = \frac{0.1^\circ C}{2\sqrt{3}} = 0.029^\circ C$.
+Nach der Bestimmung des Metallvolumens und der Masse des Wassers wurde dieses im Becherglas auf etwa $50^\circ C$ erwärmt. Die genaue Anfangstemperatur wurde anschließend im Kaloriemeter gemessen.
+Die Skalenunsicherheit des digitalen Thermometers lag bei $u_T = \frac{0.1^\circ C}{2\sqrt{3}} = \pm0.029^\circ C$.
 Die gemessene Anfangstemperatur im Kaloriemeter betrug $T_A=(50,000\pm 0,029)^\circ C$.
 
 Der erste Metallzylinder wurde dann in das Kaloriemeter gestellt und die Temperaturabnahme auf dem Thermometer verfolgt.
@@ -225,7 +225,7 @@ Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit folgenden
 Folgendes wurde für die zwei Metalle bestimmt:
 ```{r, echo=FALSE}
 # Messgrößen
-groesse = c("C Kaloriemeter [J/K]", "Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallmasse [g]", "Metallvolumen [ml]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]", "Raumtemperatur [K]")
+groesse = c("C Kaloriemeter [J/K]", "Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallmasse [g]", "Metallvolumen [ml]", "Anfangstemperatur [K]", "Mischtemperatur [K]", "Raumtemperatur [K]")
 messwerte <- data.frame(Messwert = c(80, 235.5, 97.4, 235.5-97.4, 198.0, 23.00, 273.15+50.000, 273.15+44.2, 273.15+20),
                         Formelzeichen = c("C_K", "-", "-", "m_w", "m_F", "V_F", "T_A", "T_M", "T_B"),
                         Geräteart = c("-", "digital", "digital", "-", "digital", "analog", "digital", "digital", "digital"),
@@ -259,15 +259,18 @@ c_F = \frac{(C_K + m_W\cdot c_W)\cdot (TM-TB)}{m_F\cdot (TA-TM)}
 \end{equation}
 
 Mit den den obigen Tabellen 1 und 2 aufgeführten Werten folgt damit für die bestimmten Bestwerte der beiden Metalle:
-$$c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}$$
+$$c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}= 13850,26\frac{J}{kg\cdot K}$$
 ```{r}
 # Berechnung in R
 ((80+0.1381*4180)*(317.35-293.15))/(0.1980*(323.15-317.35))
+((80+0.1381*4180)*(323.15-317.35))/(0.1980*(317.35-293.15))
 ```
-$$c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}$$
+$$c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}= 14004,02\frac{J}{kg\cdot K}$$
 ```{r}
 # Berechnung in R
 ((80+0.1439*4180)*(315.95-293.15))/(0.17612*(322.25-315.95))
+((80+0.1439*4180)*(322.25-315.95))/(0.17612*(315.95-293.15))
+
 ```
 Die beiden Werte sind viel zu groß.
 
@@ -280,7 +283,7 @@ $=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T
 $\ +(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2$
 $\ +(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}$
 
-Nun können die Werte, die für die zwei Metalle ermittelt wurden eingesetzt werden:
+Nun können die Werte, die für die zwei Metalle ermittelt wurden, eingesetzt werden:
 
 ### Unsicherheit spezifische Wärmekapazität oranges Metall
 
@@ -342,12 +345,12 @@ sqrt( ( ((1+m_w*c_w)*(T_M-T_B))/(m_F*(T_A-T_B))*u_CK)**2
 Mit den Unsicherheiten zusammengenommen wurde Folgendes bestimmt:
 \begin{itemize}
   \item Metall 1: $c_F = (12\pm 24)\frac{kJ}{kg\cdot K}$
-  \item Metall 2: $c_F = (14\pm 24)\frac{kJ}{kg\cdot K}$
+  \item Metall 2: $c_F = (14\pm 27)\frac{kJ}{kg\cdot K}$
 \end{itemize}
 Die Ergebnisse sind ziemlich falsch, liegen aber immerhin recht nah bei einander und das richtige Ergebnis liegt in dem sehr großzügig ausfallenden Fehlerintervall.
 Eine schnelle Recherche im Internet liefert für die meisten Reinmetalle spezifische Wärmekapazitäten von rund $1\frac{kJ}{kg\cot K}$.
 In diese Größenordnung fällt keines der beiden Ergebnisse, eine Aussage über die Metallart auf Basis der Messwerte ist nicht sinnvoll.
 Wir tippen auf Kupfer und Aluminium.
-Schließlich sind die Fehlerintervalle auch so groß, dass zu raten seriöser erscheint. 
+Schließlich sind die Fehlerintervalle auch so groß, dass das Raten seriöser erscheint. 
 
 ## Quellen
