@@ -102,6 +102,29 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \ifLuaTeX
 \usepackage[bidi=basic]{babel}
 \else
@@ -148,16 +171,16 @@ Durchführung}\label{versuchsaufbau-und-durchfuxfchrung}}
 \begin{figure}
 \centering
 \includegraphics{"Bilder/Versuchsaufbau.png"}
-\caption{Versuchsaufbau}
+\caption{Versuchsaufbau und Skizze des Schaltplans}
 \end{figure}
 
 Zu Beginn des eigentlichen Versuches wird die Raumtemperatur gemessen,
-für eventuell später auftretende Fragestellungen.
+für später auftretende Fragestellungen.
 
-Das Kaloriemeter wird leer gewogen. Im Messzylinder werden ca. 170ml
-Wasser abgemessen und anschließend in das Kaloriemeter gefüllt. In
-diesem Zustand wird noch einmal die Masse des nun vollen Kaloriemeters
-gemessen, um die Wassermasse bestimmen zu können.
+Das Kaloriemeter wird leer gewogen. Im Messzylinder werden ca. \(170ml\)
+destilliertes Wasser abgemessen und anschließend in das Kaloriemeter
+gefüllt. In diesem Zustand wird noch einmal die Masse des nun vollen
+Kaloriemeters gemessen, um die Wassermasse bestimmen zu können.
 
 Der Deckel des Kaloriemeters mit Heizspirale, Thermometer und Rührstab
 wird verschlossen. Die Heizspirale wird über Bananenstecker mit dem AC
@@ -168,13 +191,26 @@ Am Netzgerät wird eine mittlere Leistung eingestellt (50\%) und über den
 Zeitraum von sieben Minuten eine Temperatur-Zeit Messreihe aufgenommen.
 Während der Erhitzung werden die Stromspannung und die Stromstärke
 abgelesen. Diese Schwanken zwar leicht in der Zeit, jedoch immer um
-einen festen Wert.
+einen festen Wert, welcher notiert wird.
 
 Die steigende Innentemperatur im Kaloriemeter wird alle dreißig Sekunden
-notiert.
+am Thermometer abgelesen und ebenfalls notiert.
 
 \hypertarget{fehlerbetrachtung}{%
 \subsection{Fehlerbetrachtung}\label{fehlerbetrachtung}}
+
+Neben den Messunsicherheiten bei der Benutzung von Messbechern,
+Multimetern und Waagen ist vorallem die Tatsachen aufzuführen, dass das
+Kaloriemeter kein perfekt geschlossenes System ist. Es ist zwar
+doppelwandig und luftisoliert, dannoch wirken die äußeren
+Temperaturgegebeneiten auf die Innentemperatur des Kaloriemeters und
+verfälschen den Erwärmungsprozess.
+
+Die zu erstellende Temperatur-Zeitreihe unterliegt sowohl Unsicherheiten
+beim Abnehmen der Temperatur zum richigen Zeitpunkt als auch der
+Skalenunsicherheit des digitalen Thermometers selbst. In beiden Fällen
+stellen sich die Beträge der Unsicherheiten aber als vergleichsweise
+klein heraus.
 
 \hypertarget{beobachtungen}{%
 \subsection{Beobachtungen}\label{beobachtungen}}
@@ -200,7 +236,7 @@ Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
 \caption{Für sieben Minuten wurde der Temperaturverlauf der Erhitzung des Wassers im Kaloriemeter gemessen}\label{fig:unnamed-chunk-1}
 \end{figure}
 
-Mit den Messunsicherheiten sind aug´fgrund ihrer Größe sichtbar. Diese
+Die Messunsicherheiten sind augfgrund ihrer Größe nicht sichtbar. Diese
 betragen für die Zeit \(u_t = \frac{0.1s}{2\sqrt{3}}=0,029s\) bzw.
 \(u_T = \frac{0,1\ ^{\circ}C}{2\sqrt{3}}=0,029\ ^{\circ}C\) für die
 Messunsicherheit der Temperatur.
@@ -242,8 +278,8 @@ Regressionsgerade der Form \(T(t)=A\cdot t+B\) hat die Steigung
 ## F-statistic:  5713 on 1 and 12 DF,  p-value: < 2.2e-16
 \end{verbatim}
 
-Für den Temperaturverlauf ist folgender Zusammenhang bekannt:
-\[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Mit: \(C_K\):
+Für den Temperaturverlauf ist folgender Zusammenhang bekannt (o.V.
+2021): \[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Mit: \(C_K\):
 Wärmekapazität Kaloriemeter ohne Wasser; \(C_W\): Wärmekapazität des
 Wassers; \(U\): Angelegte Spannung; \(I\): Stromstärke; \(t\): Zeit;
 \(T(t)\): Temperatur zum Zeitpunkt \(t\); \(T_A\): Anfangstemperatur
@@ -253,7 +289,8 @@ umgestellt erhält man mit der Steigung der Regressionsgeraden \(A\) für
 \(C_K\): \[C_K = \frac{U*I}{A}-c_W*m_W\] Nun kann die Berechnung der
 Wärmekapazität des Kaloriemeters vorgenommen werden. Dazu wird noch die
 spezifische Wärmekapazität von Wasser benötigt. Diese wird im Tippler in
-Tabelle 15.1 auf Seite 569 mit \(4,18 \frac{kJ}{kg\cdot K}\) angegeben.
+Tabelle 15.1 auf Seite 569 mit \(4,18 \frac{kJ}{kg\cdot K}\) angegeben
+(Tipler, Mosca, und Wagner 2015).
 
 \begin{equation*}
 \begin{split}
@@ -265,7 +302,7 @@ C_K &= \frac{U*I}{A}-c_W*m_W\\
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Berechnung in R}
+\CommentTok{\# Berechnung der Wärmekapazität des Kaloriemeters in R}
 \NormalTok{(}\FloatTok{5.7}\SpecialCharTok{*}\FloatTok{2.2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.01641}\NormalTok{)}\SpecialCharTok{{-}}\DecValTok{4180}\SpecialCharTok{*}\FloatTok{0.1637}
 \end{Highlighting}
 \end{Shaded}
@@ -309,39 +346,89 @@ vergleichsweise hohen Unsicherheit behaftet.
 \hypertarget{thema-1}{%
 \subsection{Thema}\label{thema-1}}
 
+Dieser Versuch baut auf dem vorherigen Versuch 1 auf. Es soll die
+spezifische Wärmekapazität zweier Metalle bestimmt werden, wofür die in
+Versuch 1 ermittelte Wärmekapazität des Kaloriemeters \(C_K\) benötigt
+wird. Diese wurde als \(C_K=(80 \pm 10)\frac{J}{K}\) bestimmt. Im
+Kaloriemeter soll durch die Herstellung einer Mischtemperatur \(T_M\)
+zwischen, auf eine Anfangstemperatur \(T_A\), erwärmtem Wasser und einem
+Metall auf Raumtemperatur \(T_B\) die materialspezifische Wärmekapazität
+bestimmt und so auf die Metallart geschlossen werden.
+
 \hypertarget{versuchsaufbau}{%
 \subsection{Versuchsaufbau}\label{versuchsaufbau}}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.25\textheight]{Bilder/V2.png}
+\caption{Das mit Wasser und einem Metallzylinder gefüllte Kaloriemeter}
+\end{figure}
+
+Wasser wird auf einer Heizplatte auf ca. 50°C erwärmt. Dann wird das
+Thermometer in den Deckel des Kaloriemeters gesteckt, das Wasser
+eingefüllt, der Deckel geschlossen und \(T_A\) am Thermometer abgelesen.
+Für das zweite Metall wird im Anschluss an den ersten Durchgang mit dem
+ersten Metall wird auf gleiche Weise verfahren.
 
 \hypertarget{fehlerbetrachtung-1}{%
 \subsection{Fehlerbetrachtung}\label{fehlerbetrachtung-1}}
 
+Viel mehr noch, als in Versuch 1, ist der Wärmeverlust während des
+Versuches eine Fehlerquelle. Dies ist bedingt durch den starken
+Temperaturgradienten von ca. \(30K\) zwischen der Innentemperatur des
+Kaloriemeters und der Raumtemperatur, welche bei ca. 20°C lag. Der darum
+hohe Wärmeabfluss aus dem Kaloriemeter ist besoonders am Deckel
+bemerkbar, welcher sich während des Versuches spürbar erwärmte.
+
+Unter anderem dieser Effekt führte dazu, dass es keinen eindeutig
+bestimmbaren Wert für die Mischtemperatur im Kaloriemeter gab.
+Stattdessen fiel der Temperaturwert stetig. Es wurde dann ein Wert
+notiert, der, um den steigenden Einfluss des Wärmeverlustes klein zu
+halten, zu einem Zeitpukt abgelesen wurde, als sich die
+Temperaturabnahme im Kaloriemeter deutlich verlangsamte.
+
+Eventuell wäre eine Erwärmung des Wassers auf z.B. 30°C für den Versuch
+ausreichend gewesen und hätte bessere Ergebnisse geliefert, aufgrund der
+dann geringeren Wärmeabgabe des Kaloriemeters.
+
+Weitere Fehlerquellen sind Messunsicherheiten, welche im Gegensatz zum
+Wärmeverlust aber in den folgenden Fehlerrechnungen berücksichtigt
+werden.
+
 \hypertarget{durchfuxfchrung}{%
 \subsection{Durchführung}\label{durchfuxfchrung}}
 
-Im Becherglas wurden für den Versuch ca. \(150ml\) Wasser abgemessen.
-Die Bestimmung der verwendeten Wassermasse erfolgte dann durch Abwiegen
-des vollen und des leeren Becherglases und durch anschließendes
-Subtrahieren der beiden Werte. Die Messunsicherheit der Wassermasse
-beträgt zweimal die Skalenunsicherheit der verwendeten digitalen Waage,
-also \(u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=0.058g\).
+Die zwei Metalle werden nacheinander untersucht. Zuerst ein
+kupferfarbenes, im Vergleich schwereres Metall, als zweites ein
+aluminiumgraues, leichteres Metall.
 
 Die Volumenbestimmung der Metallzylinder erfolgte über die Bestimmung
-der Wasserverdrängung in einem Standzylinder. Die Skalenunsicherheit des
-Messbechers lag bei \(u_{Skala}=\frac{1ml}{2\sqrt{6}}=0,20ml\).
+der Wasserverdrängung in einem Standzylinder.
 
-Nach der Bestimmung des Metallvolumensvolumens und der Größen wurde das
-Wasser im Becherglas auf etwa \(50^\circ C\) erwärmt, die genaue
-Anfangstemperatur wurde im Kaloriemeter gemessen. Die Skalenunsicherheit
-des digitalen Thermometers lag bei
+Da die Metallzylinder gut \(20ml\) Volumen einnahmen, wurden im
+Becherglas wurden für jeden Versuch ca. \(150ml\) Wasser abgemessen, um
+das Kaloriemeter mit ca. 170ml ausreichend zu füllen. Die Bestimmung der
+verwendeten Wassermasse erfolgte dann durch Abwiegen des vollen und des
+leeren Becherglases und durch anschließendes Subtrahieren der beiden
+Werte. Die Messunsicherheit der Wassermasse beträgt zweimal die
+Skalenunsicherheit der verwendeten digitalen Waage, also
+\(u_{m_w}=2*\frac{0,1g}{2\sqrt{3}}=0.058g\).
+
+Nach der Bestimmung des Metallvolumensvolumens und der Masse das Wasser
+wurde dieses im Becherglas auf etwa \(50^\circ C\) erwärmt und die
+genaue Anfangstemperatur dann im Kaloriemeter gemessen. Die
+Skalenunsicherheit des digitalen Thermometers lag bei
 \(u_T = \frac{0.1^\circ C}{2\sqrt{3}} = 0.029^\circ C\). Die gemessene
 Anfangstemperatur im Kaloriemeter betrug
 \(T_A=(50,000\pm 0,029)^\circ C\).
 
+Der erste Metallzylinder wurde dann in das Kaloriemeter gestellt und die
+Temperaturabnahme auf dem Thermometer verfolgt.
+
+Für das zweite Metall wurde im Anschluss auf gleiche Weise verfahren.
+
 \hypertarget{beobachtungen-1}{%
 \subsection{Beobachtungen}\label{beobachtungen-1}}
-
-Folgendes wurde für das orangene Metall bestimmt: (T\_M (Mischtemp):
-(vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
 
 Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit
 folgenden Formeln bestimmt:
@@ -350,6 +437,8 @@ folgenden Formeln bestimmt:
   \item Digitale Anzeigen: $\frac{a}{2\sqrt{3}}$
   \item Analoge Anzeigen: $\frac{a}{2\sqrt{6}}$
 \end{itemize}
+
+Folgendes wurde für die zwei Metalle bestimmt:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3023}}
@@ -401,9 +490,6 @@ Mischtemperatur {[}°C{]} & 317.35 & T\_M & digital & 0.1 & 0.029 \\
 Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
 \bottomrule()
 \end{longtable}
-
-Folgendes wurde für das graue Metall bestimmt: (T\_B (Mischtemp):
-(vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8))
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3023}}
@@ -459,19 +545,73 @@ Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
 \hypertarget{auswertung-1}{%
 \subsection{Auswertung}\label{auswertung-1}}
 
-Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
+\hypertarget{bestimmung-der-spezifischen-wuxe4rmekapazituxe4t-fuxfcr-die-zwei-metalle}{%
+\subsubsection{Bestimmung der spezifischen Wärmekapazität für die zwei
+Metalle}\label{bestimmung-der-spezifischen-wuxe4rmekapazituxe4t-fuxfcr-die-zwei-metalle}}
+
+Mittels der Formel zur Berechnung der spezifischen Wärmekapazität
+\(c_F\) in einem Kaloriemeter, siehe (o.V. 2021), kann nun eben diese
+für beide Metalle berechnet werden.
+\begin{equation}\label{Kaloriemeter:c_F}
+c_F = \frac{(C_K + m_W\cdot c_W)\cdot (TM-TB)}{m_F\cdot (TA-TM)}
+\end{equation}
+
+Mit den den obigen Tabellen 1 und 2 aufgeführten Werten folgt damit für
+die bestimmten Bestwerte der beiden Metalle:
+\[c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Berechnung in R}
+\NormalTok{((}\DecValTok{80}\FloatTok{+0.1381}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.15}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.1980}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13850.26
+\end{verbatim}
+
+\[c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Berechnung in R}
+\NormalTok{((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.15}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14004.02
+\end{verbatim}
+
+Die beiden Werte sind viel zu groß.
+
+\hypertarget{unsicherheit-der-spezifische-wuxe4rmekapazituxe4t-der-feststoffe}{%
+\subsubsection{Unsicherheit der spezifische Wärmekapazität der
+Feststoffe}\label{unsicherheit-der-spezifische-wuxe4rmekapazituxe4t-der-feststoffe}}
+
+Aus Formel \ref{Kaloriemeter:c_F} kann über die Gausssche
+Fehlerfortpflanzung die zugehörige Messunsicherheit \(u_{c_F}\)
+berechnet werden.
+
 \[u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}\]
 
-\[=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}\]
+\(=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2\)
+\(\ +(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2\)
+\(\ +(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}\)
 
-Nun können die Werte, die für das Kupfer und das Aluminium ermittelt
-wurden eingesetzt werden:
+Nun können die Werte, die für die zwei Metalle ermittelt wurden
+eingesetzt werden:
 
-\hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-kupfer}{%
-\subsubsection{Unsicherheit spezifische Wärmekapazität
-Kupfer}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-kupfer}}
+\hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-oranges-metall}{%
+\subsubsection{Unsicherheit spezifische Wärmekapazität oranges
+Metall}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-oranges-metall}}
 
-\(=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg\cdot (323,15K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(317,35K-293,150K)}{0,19800kg(323,15K-317,35K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,19800kg(323,15K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-1)}{0,19800kg(323,15K-317,35K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{323,15K-317,35K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg(1-317,35K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+Einsetzen in die obige Formel ergibt:
+
+\(u_{c_F}(Metall\ 1)=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg\cdot (323,15K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(317,35K-293,150K)}{0,19800kg(323,15K-317,35K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,19800kg(323,15K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-1)}{0,19800kg(323,15K-317,35K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{323,15K-317,35K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg(1-317,35K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+
+\newpage
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -506,11 +646,11 @@ Kupfer}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-kupfer}}
 ## [1] 24136.84
 \end{verbatim}
 
-\hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-aluminium}{%
-\subsubsection{Unsicherheit spezifische Wärmekapazität
-Aluminium}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-aluminium}}
+\hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-graues-metall}{%
+\subsubsection{Unsicherheit spezifische Wärmekapazität graues
+Metall}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-graues-metall}}
 
-\(=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+\(u_{c_F}(Metall\ 2)=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -537,5 +677,41 @@ Aluminium}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-aluminium}}
 
 \hypertarget{interpretation}{%
 \subsection{Interpretation}\label{interpretation}}
+
+Mit den Unsicherheiten zusammengenommen wurde Folgendes bestimmt:
+
+\begin{itemize}
+  \item Metall 1: $c_F = (12\pm 24)\frac{kJ}{kg\cdot K}$
+  \item Metall 2: $c_F = (14\pm 24)\frac{kJ}{kg\cdot K}$
+\end{itemize}
+
+Die Ergebnisse sind ziemlich falsch, liegen aber immerhin recht nah bei
+einander und das richtige Ergebnis liegt in dem sehr großzügig
+ausfallenden Fehlerintervall. Eine schnelle Recherche im Internet
+liefert für die meisten Reinmetalle spezifische Wärmekapazitäten von
+rund \(1\frac{kJ}{kg\cot K}\). In diese Größenordnung fällt keines der
+beiden Ergebnisse, eine Aussage über die Metallart auf Basis der
+Messwerte ist nicht sinnvoll. Wir tippen auf Kupfer und Aluminium.
+Schließlich sind die Fehlerintervalle auch so groß, dass zu raten
+seriöser erscheint.
+
+\hypertarget{quellen}{%
+\subsection*{Quellen}\label{quellen}}
+\addcontentsline{toc}{subsection}{Quellen}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Skript.Kaloriemeter}{}}%
+o.V. 2021. \emph{Skript im Physikgrundpraktikum. T3 - Wärmekapazität}.
+Universität Potsdam, Institut für Physik und Astronomie: {Universität
+Potsdam}.
+\url{https://moodle2.uni-potsdam.de/pluginfile.php/2512120/mod_resource/content/2/T3___W_armekapazit_at__Corona-2.pdf}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Tipler.2015}{}}%
+Tipler, Paul A., Gene Mosca, und Jenny Wagner. 2015. \emph{Physik}.
+Berlin, Heidelberg: {Springer Berlin Heidelberg}.
+\url{https://doi.org/10.1007/978-3-642-54166-7}.
+
+\end{CSLReferences}
 
 \end{document}

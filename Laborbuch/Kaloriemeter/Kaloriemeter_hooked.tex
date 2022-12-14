@@ -103,6 +103,29 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \ifLuaTeX
 \usepackage[bidi=basic]{babel}
 \else
@@ -127,7 +150,7 @@
 
 \title{Pendel}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-13}
+\date{2022-12-14}
 
 \begin{document}
 
@@ -186,7 +209,7 @@ Messunsicherheit ist die doppelte Skalenunsicherheit der verwendeten
 digitalen Waage, also \(u_m=2\cdot \frac{0,1g}{2\sqrt{3}} = 0,029g\).
 
 Die Spannung liegt bei \(5,70V\), die Messunsicherheit liegt bei
-\(u_V=\frac{0,01V}{2\sqrt{3}}=0,0029V\). Die Stromstärke liegt bei
+\(u_U=\frac{0,01V}{2\sqrt{3}}=0,0029V\). Die Stromstärke liegt bei
 \(2,20A\), die Messunsicherheit \(u_A\) beträgt
 \(u_A=\frac{0,01A}{2\sqrt{3}}=0,0029A\).
 
@@ -200,6 +223,11 @@ Die Erhitzung im Kaloriemeter zeigt folgenden Temperaturverlauf:
 
 \caption{Für sieben Minuten wurde der Temperaturverlauf der Erhitzung des Wassers im Kaloriemeter gemessen}\label{fig:unnamed-chunk-1}
 \end{figure}
+
+Mit den Messunsicherheiten sind aug´fgrund ihrer Größe sichtbar. Diese
+betragen für die Zeit \(u_t = \frac{0.1s}{2\sqrt{3}}=0,029s\) bzw.
+\(u_T = \frac{0,1\ ^{\circ}C}{2\sqrt{3}}=0,029\ ^{\circ}C\) für die
+Messunsicherheit der Temperatur.
 
 \hypertarget{auswertung}{%
 \subsection{Auswertung}\label{auswertung}}
@@ -238,8 +266,8 @@ Regressionsgerade der Form \(T(t)=A\cdot t+B\) hat die Steigung
 ## F-statistic:  5713 on 1 and 12 DF,  p-value: < 2.2e-16
 \end{verbatim}
 
-Für den Temperaturverlauf ist folgender Zusammenhang bekannt:
-\[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Mit: \(C_K\):
+Für den Temperaturverlauf ist folgender Zusammenhang bekannt (o.V.
+2021): \[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Mit: \(C_K\):
 Wärmekapazität Kaloriemeter ohne Wasser; \(C_W\): Wärmekapazität des
 Wassers; \(U\): Angelegte Spannung; \(I\): Stromstärke; \(t\): Zeit;
 \(T(t)\): Temperatur zum Zeitpunkt \(t\); \(T_A\): Anfangstemperatur
@@ -249,7 +277,8 @@ umgestellt erhält man mit der Steigung der Regressionsgeraden \(A\) für
 \(C_K\): \[C_K = \frac{U*I}{A}-c_W*m_W\] Nun kann die Berechnung der
 Wärmekapazität des Kaloriemeters vorgenommen werden. Dazu wird noch die
 spezifische Wärmekapazität von Wasser benötigt. Diese wird im Tippler in
-Tabelle 15.1 auf Seite 569 mit \(4,18 \frac{kJ}{kg\cdot K}\) angegeben.
+Tabelle 15.1 auf Seite 569 mit \(4,18 \frac{kJ}{kg\cdot K}\) angegeben
+(Tipler, Mosca, und Wagner 2015).
 
 \begin{equation*}
 \begin{split}
@@ -336,7 +365,7 @@ Anfangstemperatur im Kaloriemeter betrug
 \hypertarget{beobachtungen-1}{%
 \subsection{Beobachtungen}\label{beobachtungen-1}}
 
-Folgendes wurde für das orangene Metall bestimmt: (T\_B (Mischtemp):
+Folgendes wurde für das orangene Metall bestimmt: (T\_M (Mischtemp):
 (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
 
 Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit
@@ -348,11 +377,12 @@ folgenden Formeln bestimmt:
 \end{itemize}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3611}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1389}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1944}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1806}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3023}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1047}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1163}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 orangene Metall}\tabularnewline
 \toprule()
@@ -360,6 +390,8 @@ orangene Metall}\tabularnewline
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formelzeichen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Geräteart
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Skaleneinheit
@@ -373,6 +405,8 @@ Unsicherheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formelzeichen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Geräteart
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Skaleneinheit
@@ -381,35 +415,69 @@ Unsicherheit
 \end{minipage} \\
 \midrule()
 \endhead
-Becherglas mit Wasser {[}g{]} & 235.5 & digital & 0.1 & 0.029 \\
-Masse Becherglas {[}g{]} & 97.4 & digital & 0.1 & 0.029 \\
-Wassermasse {[}g{]} & 138.1 & - & - & 0.058 \\
-Metallvolumen {[}ml{]} & 23.0 & analog & 1 & 0.200 \\
-Anfangstemperatur {[}°C{]} & 50.0 & digital & 0.1 & 0.029 \\
-Mischtemperatur {[}°C{]} & 44.2 & digital & 0.1 & 0.029 \\
+C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
+Becherglas mit Wasser {[}g{]} & 235.50 & - & digital & 0.1 & 0.029 \\
+Masse Becherglas {[}g{]} & 97.40 & - & digital & 0.1 & 0.029 \\
+Wassermasse {[}g{]} & 138.10 & m\_w & - & - & 0.058 \\
+Metallmasse {[}g{]} & 198.00 & m\_F & digital & 0.1 & 0.029 \\
+Metallvolumen {[}ml{]} & 23.00 & V\_F & analog & 1 & 0.200 \\
+Anfangstemperatur {[}°C{]} & 323.15 & T\_A & digital & 0.1 & 0.029 \\
+Mischtemperatur {[}°C{]} & 317.35 & T\_M & digital & 0.1 & 0.029 \\
+Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
 \bottomrule()
 \end{longtable}
 
 Folgendes wurde für das graue Metall bestimmt: (T\_B (Mischtemp):
 (vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8))
 
-\begin{longtable}[]{@{}lrlr@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3023}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1047}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1163}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 graue Metall}\tabularnewline
 \toprule()
-& Messwert & Geräteart & Unsicherheit \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Messwert
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formelzeichen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Geräteart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Skaleneinheit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsicherheit
+\end{minipage} \\
 \midrule()
 \endfirsthead
 \toprule()
-& Messwert & Geräteart & Unsicherheit \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Messwert
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formelzeichen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Geräteart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Skaleneinheit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsicherheit
+\end{minipage} \\
 \midrule()
 \endhead
-Becherglas mit Wasser {[}g{]} & 241.3 & digital & 0.029 \\
-Masse Becherglas {[}g{]} & 97.4 & digital & 0.029 \\
-Wassermasse {[}g{]} & 143.9 & - & 0.058 \\
-Metallvolumen {[}cm³{]} & 22.0 & analog & 0.200 \\
-Anfangstemperatur {[}°C{]} & 49.1 & digital & 0.029 \\
-Mischtemperatur {[}°C{]} & 42.8 & digital & 0.029 \\
+C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
+Becherglas mit Wasser {[}g{]} & 241.30 & - & digital & 0.1 & 0.029 \\
+Masse Becherglas {[}g{]} & 97.40 & - & digital & 0.1 & 0.029 \\
+Wassermasse {[}g{]} & 143.90 & m\_w & - & - & 0.058 \\
+Metallmasse {[}g{]} & 176.12 & m\_F & digital & 0.1 & 0.029 \\
+Metallvolumen {[}ml{]} & 22.00 & V\_F & analog & 1 & 0.200 \\
+Anfangstemperatur {[}{]} & 322.25 & T\_A & digital & 0.1 & 0.029 \\
+Mischtemperatur {[}K{]} & 315.95 & T\_M & digital & 0.1 & 0.029 \\
+Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
 \bottomrule()
 \end{longtable}
 
@@ -417,8 +485,98 @@ Mischtemperatur {[}°C{]} & 42.8 & digital & 0.029 \\
 \subsection{Auswertung}\label{auswertung-1}}
 
 Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
+\[u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}\]
+
+\[=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}\]
+
+Nun können die Werte, die für das Kupfer und das Aluminium ermittelt
+wurden eingesetzt werden:
+
+\hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-kupfer}{%
+\subsubsection{Unsicherheit spezifische Wärmekapazität
+Kupfer}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-kupfer}}
+
+\(=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg\cdot (323,15K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(317,35K-293,150K)}{0,19800kg(323,15K-317,35K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,19800kg(323,15K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-1)}{0,19800kg(323,15K-317,35K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{323,15K-317,35K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg(1-317,35K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Konstanten}
+\NormalTok{C\_K }\OtherTok{=} \DecValTok{80} \CommentTok{\#J/kg}
+\NormalTok{u\_CK }\OtherTok{=} \DecValTok{10} \CommentTok{\#J/kg}
+\NormalTok{u\_mw }\OtherTok{=} \FloatTok{0.000058} \CommentTok{\#kg}
+\NormalTok{u\_mF }\OtherTok{=} \FloatTok{0.000029} \CommentTok{\#kg}
+\NormalTok{u\_TA }\OtherTok{=} \FloatTok{0.029} \CommentTok{\#K}
+\NormalTok{u\_TB }\OtherTok{=} \FloatTok{0.029} \CommentTok{\#K}
+\NormalTok{u\_TM }\OtherTok{=} \FloatTok{0.029} \CommentTok{\#K}
+\NormalTok{c\_w }\OtherTok{=} \DecValTok{4180} \CommentTok{\#J}
+
+\CommentTok{\# Variablen}
+\NormalTok{m\_w }\OtherTok{=} \FloatTok{0.13810} \CommentTok{\#kg}
+\NormalTok{m\_F }\OtherTok{=} \FloatTok{0.19800} \CommentTok{\#kg}
+\NormalTok{T\_A }\OtherTok{=} \FloatTok{323.15} \CommentTok{\#K}
+\NormalTok{T\_B }\OtherTok{=} \FloatTok{293.15} \CommentTok{\#K}
+\NormalTok{T\_M }\OtherTok{=} \FloatTok{317.35} \CommentTok{\#K}
+
+\CommentTok{\# Berechnung in R}
+\FunctionTok{sqrt}\NormalTok{( ( ((}\DecValTok{1}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_CK)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_mw)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\NormalTok{u\_TM)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TB)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M)}\SpecialCharTok{*}\NormalTok{u\_mF)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TA)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 24136.84
+\end{verbatim}
+
+\hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-aluminium}{%
+\subsubsection{Unsicherheit spezifische Wärmekapazität
+Aluminium}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-aluminium}}
+
+\(=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Neudefinition Variablen}
+\NormalTok{m\_w }\OtherTok{=} \FloatTok{0.14390} \CommentTok{\#kg}
+\NormalTok{m\_F }\OtherTok{=} \FloatTok{0.17612} \CommentTok{\#kg}
+\NormalTok{T\_A }\OtherTok{=} \FloatTok{322.25} \CommentTok{\#K}
+\NormalTok{T\_B }\OtherTok{=} \FloatTok{293.15} \CommentTok{\#K}
+\NormalTok{T\_M }\OtherTok{=} \FloatTok{315.95} \CommentTok{\#K}
+
+\CommentTok{\# Berechnung in R}
+\FunctionTok{sqrt}\NormalTok{( ( ((}\DecValTok{1}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_CK)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_mw)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\NormalTok{u\_TM)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TB)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M)}\SpecialCharTok{*}\NormalTok{u\_mF)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TA)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 27384.48
+\end{verbatim}
 
 \hypertarget{interpretation}{%
-\subsection{Interpretation}\label{interpretation}}
+\subsection*{Interpretation}\label{interpretation}}
+\addcontentsline{toc}{subsection}{Interpretation}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Skript.Kaloriemeter}{}}%
+o.V. 2021. \emph{Skript im Physikgrundpraktikum. T3 - Wärmekapazität}.
+Universität Potsdam, Institut für Physik und Astronomie: {Universität
+Potsdam}.
+\url{https://moodle2.uni-potsdam.de/pluginfile.php/2512120/mod_resource/content/2/T3___W_armekapazit_at__Corona-2.pdf}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Tipler.2015}{}}%
+Tipler, Paul A., Gene Mosca, und Jenny Wagner. 2015. \emph{Physik}.
+Berlin, Heidelberg: {Springer Berlin Heidelberg}.
+\url{https://doi.org/10.1007/978-3-642-54166-7}.
+
+\end{CSLReferences}
 
 \end{document}
