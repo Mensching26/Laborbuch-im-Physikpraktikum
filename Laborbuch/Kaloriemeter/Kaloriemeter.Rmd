@@ -259,22 +259,21 @@ c_F = \frac{(C_K + m_W\cdot c_W)\cdot (TM-TB)}{m_F\cdot (TA-TM)}
 \end{equation}
 
 Mit den den obigen Tabellen 1 und 2 aufgeführten Werten folgt damit für die bestimmten Bestwerte der beiden Metalle:
-$$c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}= 13850,26\frac{J}{kg\cdot K}$$
+$$c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}= 795,579\frac{J}{kg\cdot K}$$
 ```{r}
 # Berechnung in R
-((80+0.1381*4180)*(317.35-293.15))/(0.1980*(323.15-317.35))
 ((80+0.1381*4180)*(323.15-317.35))/(0.1980*(317.35-293.15))
 ```
-$$c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}= 14004,02\frac{J}{kg\cdot K}$$
+$$c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}= 1069,213\frac{J}{kg\cdot K}$$
 ```{r}
 # Berechnung in R
-((80+0.1439*4180)*(315.95-293.15))/(0.17612*(322.25-315.95))
 ((80+0.1439*4180)*(322.25-315.95))/(0.17612*(315.95-293.15))
-
 ```
-Die beiden Werte sind viel zu groß.
 
 ### Unsicherheit der spezifische Wärmekapazität der Feststoffe 
+
+*Disclaimer: Die folgende Fehlerrechnung ist falsch. Die Werte für Anfangs- und Mischtemperatur wurden vertauscht. Oder anders herum. Sind uns da auch nicht ganz sicher.*
+
 Aus Formel \ref{Kaloriemeter:c_F} kann über die Gausssche Fehlerfortpflanzung die zugehörige Messunsicherheit $u_{c_F}$ berechnet werden.
 
 $$u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}$$
@@ -342,15 +341,17 @@ sqrt( ( ((1+m_w*c_w)*(T_M-T_B))/(m_F*(T_A-T_B))*u_CK)**2
 
 ## Interpretation
 
-Mit den Unsicherheiten zusammengenommen wurde Folgendes bestimmt:
+Es wurde Folgendes bestimmt:
 \begin{itemize}
-  \item Metall 1: $c_F = (12\pm 24)\frac{kJ}{kg\cdot K}$
-  \item Metall 2: $c_F = (14\pm 27)\frac{kJ}{kg\cdot K}$
+  \item Metall 1: $c_F = 795\frac{J}{kg\cdot K}\pm 24\frac{kJ}{kg\cdot K}$
+  \item Metall 2: $c_F = 1069\frac{J}{kg\cdot K}\pm 27\frac{kJ}{kg\cdot K}$
 \end{itemize}
-Die Ergebnisse sind ziemlich falsch, liegen aber immerhin recht nah bei einander und das richtige Ergebnis liegt in dem sehr großzügig ausfallenden Fehlerintervall.
-Eine schnelle Recherche im Internet liefert für die meisten Reinmetalle spezifische Wärmekapazitäten von rund $1\frac{kJ}{kg\cot K}$.
-In diese Größenordnung fällt keines der beiden Ergebnisse, eine Aussage über die Metallart auf Basis der Messwerte ist nicht sinnvoll.
+Die Bestwerte sind in der richtigen Größenordnung.
+Die Unsicherheiten sind falsch berechnet.
+
+Eine schnelle Recherche im Internet liefert für die meisten Reinmetalle spezifische Wärmekapazitäten von einigen hundert Joule pro $kg\cdot K$.
+Eine Aussage über die Metallart auf Basis der Messwerte ist nicht sinnvoll.
 Wir tippen auf Kupfer und Aluminium.
-Schließlich sind die Fehlerintervalle auch so groß, dass das Raten seriöser erscheint. 
+Es würde passen, das für das zweite Metall eine größere Wärmekapazität festgestellt wurde, denn Aluminium hat eine größere Wärmekapazität als Kupfer.
 
 ## Quellen

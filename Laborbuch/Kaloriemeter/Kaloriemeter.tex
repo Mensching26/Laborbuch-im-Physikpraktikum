@@ -34,15 +34,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Pendel},
-  pdfauthor={Milena Mensching, Justus Weyers},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -146,6 +137,15 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Pendel},
+  pdfauthor={Milena Mensching, Justus Weyers},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Pendel}
 \author{Milena Mensching, Justus Weyers}
@@ -449,7 +449,7 @@ Folgendes wurde für die zwei Metalle bestimmt:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 orangene Metall}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -462,9 +462,9 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -477,7 +477,7 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
 Becherglas mit Wasser {[}g{]} & 235.50 & - & digital & 0.1 & 0.029 \\
@@ -488,7 +488,7 @@ Metallvolumen {[}ml{]} & 23.00 & V\_F & analog & 1 & 0.200 \\
 Anfangstemperatur {[}K{]} & 323.15 & T\_A & digital & 0.1 & 0.029 \\
 Mischtemperatur {[}K{]} & 317.35 & T\_M & digital & 0.1 & 0.029 \\
 Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}
@@ -500,7 +500,7 @@ Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
   >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 graue Metall}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -513,9 +513,9 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -528,7 +528,7 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
 Becherglas mit Wasser {[}g{]} & 241.30 & - & digital & 0.1 & 0.029 \\
@@ -539,7 +539,7 @@ Metallvolumen {[}ml{]} & 22.00 & V\_F & analog & 1 & 0.200 \\
 Anfangstemperatur {[}{]} & 322.25 & T\_A & digital & 0.1 & 0.029 \\
 Mischtemperatur {[}K{]} & 315.95 & T\_M & digital & 0.1 & 0.029 \\
 Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{auswertung-1}{%
@@ -558,37 +558,39 @@ c_F = \frac{(C_K + m_W\cdot c_W)\cdot (TM-TB)}{m_F\cdot (TA-TM)}
 
 Mit den den obigen Tabellen 1 und 2 aufgeführten Werten folgt damit für
 die bestimmten Bestwerte der beiden Metalle:
-\[c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}= 13850,26\frac{J}{kg\cdot K}\]
+\[c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}= 795,579\frac{J}{kg\cdot K}\]
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Berechnung in R}
-\NormalTok{((}\DecValTok{80}\FloatTok{+0.1381}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.15}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.1980}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{))}
+\NormalTok{((}\DecValTok{80}\FloatTok{+0.1381}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.1980}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.15}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 13850.26
+## [1] 795.579
 \end{verbatim}
 
-\[c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}= 14004,02\frac{J}{kg\cdot K}\]
+\[c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}= 1069,213\frac{J}{kg\cdot K}\]
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Berechnung in R}
-\NormalTok{((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.15}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{))}
+\NormalTok{((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.15}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 14004.02
+## [1] 1069.213
 \end{verbatim}
-
-Die beiden Werte sind viel zu groß.
 
 \hypertarget{unsicherheit-der-spezifische-wuxe4rmekapazituxe4t-der-feststoffe}{%
 \subsubsection{Unsicherheit der spezifische Wärmekapazität der
 Feststoffe}\label{unsicherheit-der-spezifische-wuxe4rmekapazituxe4t-der-feststoffe}}
+
+\emph{Disclaimer: Die folgende Fehlerrechnung ist falsch. Die Werte für
+Anfangs- und Mischtemperatur wurden vertauscht. Oder anders herum. Sind
+uns da auch nicht ganz sicher.}
 
 Aus Formel \ref{Kaloriemeter:c_F} kann über die Gausssche
 Fehlerfortpflanzung die zugehörige Messunsicherheit \(u_{c_F}\)
@@ -678,22 +680,23 @@ Metall}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-graues-metall}}
 \hypertarget{interpretation}{%
 \subsection{Interpretation}\label{interpretation}}
 
-Mit den Unsicherheiten zusammengenommen wurde Folgendes bestimmt:
+Es wurde Folgendes bestimmt:
 
 \begin{itemize}
-  \item Metall 1: $c_F = (12\pm 24)\frac{kJ}{kg\cdot K}$
-  \item Metall 2: $c_F = (14\pm 27)\frac{kJ}{kg\cdot K}$
+  \item Metall 1: $c_F = 795\frac{J}{kg\cdot K}\pm 24\frac{kJ}{kg\cdot K}$
+  \item Metall 2: $c_F = 1069\frac{J}{kg\cdot K}\pm 27\frac{kJ}{kg\cdot K}$
 \end{itemize}
 
-Die Ergebnisse sind ziemlich falsch, liegen aber immerhin recht nah bei
-einander und das richtige Ergebnis liegt in dem sehr großzügig
-ausfallenden Fehlerintervall. Eine schnelle Recherche im Internet
-liefert für die meisten Reinmetalle spezifische Wärmekapazitäten von
-rund \(1\frac{kJ}{kg\cot K}\). In diese Größenordnung fällt keines der
-beiden Ergebnisse, eine Aussage über die Metallart auf Basis der
-Messwerte ist nicht sinnvoll. Wir tippen auf Kupfer und Aluminium.
-Schließlich sind die Fehlerintervalle auch so groß, dass das Raten
-seriöser erscheint.
+Die Bestwerte sind in der richtigen Größenordnung. Die Unsicherheiten
+sind falsch berechnet.
+
+Eine schnelle Recherche im Internet liefert für die meisten Reinmetalle
+spezifische Wärmekapazitäten von einigen hundert Joule pro
+\(kg\cdot K\). Eine Aussage über die Metallart auf Basis der Messwerte
+ist nicht sinnvoll. Wir tippen auf Kupfer und Aluminium. Es würde
+passen, das für das zweite Metall eine größere Wärmekapazität
+festgestellt wurde, denn Aluminium hat eine größere Wärmekapazität als
+Kupfer.
 
 \hypertarget{quellen}{%
 \subsection*{Quellen}\label{quellen}}
