@@ -1,10 +1,11 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage[subpreambles=false]{standalone}
+\usepackage{import}
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[
-  9pt,
-]{article}
+
+
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -126,10 +127,10 @@
 
 \title{Pendel}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-14}
+\date{2022-12-13}
 
 \begin{document}
-\maketitle
+
 
 \hypertarget{versuch-1}{%
 \section{Versuch 1}\label{versuch-1}}
@@ -335,7 +336,7 @@ Anfangstemperatur im Kaloriemeter betrug
 \hypertarget{beobachtungen-1}{%
 \subsection{Beobachtungen}\label{beobachtungen-1}}
 
-Folgendes wurde für das orangene Metall bestimmt: (T\_M (Mischtemp):
+Folgendes wurde für das orangene Metall bestimmt: (T\_B (Mischtemp):
 (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
 
 Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit
@@ -383,7 +384,6 @@ Unsicherheit
 Becherglas mit Wasser {[}g{]} & 235.5 & digital & 0.1 & 0.029 \\
 Masse Becherglas {[}g{]} & 97.4 & digital & 0.1 & 0.029 \\
 Wassermasse {[}g{]} & 138.1 & - & - & 0.058 \\
-Metallmasse {[}g{]} & 198.0 & digital & 0.1 & 0.029 \\
 Metallvolumen {[}ml{]} & 23.0 & analog & 1 & 0.200 \\
 Anfangstemperatur {[}°C{]} & 50.0 & digital & 0.1 & 0.029 \\
 Mischtemperatur {[}°C{]} & 44.2 & digital & 0.1 & 0.029 \\
@@ -404,14 +404,12 @@ graue Metall}\tabularnewline
 & Messwert & Geräteart & Unsicherheit \\
 \midrule()
 \endhead
-Becherglas mit Wasser {[}g{]} & 241.30 & digital & 0.029 \\
-Masse Becherglas {[}g{]} & 97.40 & digital & 0.029 \\
-Wassermasse {[}g{]} & 143.90 & - & 0.058 \\
-Metallmasse {[}g{]} & 176.12 & digital & 0.029 \\
-Metallvolumen {[}cm³{]} & 22.00 & analog & 0.200 \\
-Anfangstemperatur {[}{]} & 322.25 & digital & 0.029 \\
-Mischtemperatur {[}K{]} & 315.95 & digital & 0.029 \\
-Raumtemperatur {[}K{]} & 293.15 & digital & 0.029 \\
+Becherglas mit Wasser {[}g{]} & 241.3 & digital & 0.029 \\
+Masse Becherglas {[}g{]} & 97.4 & digital & 0.029 \\
+Wassermasse {[}g{]} & 143.9 & - & 0.058 \\
+Metallvolumen {[}cm³{]} & 22.0 & analog & 0.200 \\
+Anfangstemperatur {[}°C{]} & 49.1 & digital & 0.029 \\
+Mischtemperatur {[}°C{]} & 42.8 & digital & 0.029 \\
 \bottomrule()
 \end{longtable}
 
@@ -419,13 +417,6 @@ Raumtemperatur {[}K{]} & 293.15 & digital & 0.029 \\
 \subsection{Auswertung}\label{auswertung-1}}
 
 Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
-\[u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}\]
-
-\(=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}\)
-
-Graues Metall!!!
-
-\(=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
 
 \hypertarget{interpretation}{%
 \subsection{Interpretation}\label{interpretation}}

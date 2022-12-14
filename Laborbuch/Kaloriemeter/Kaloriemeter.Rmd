@@ -169,7 +169,7 @@ Die gemessene Anfangstemperatur im Kaloriemeter betrug $T_A=(50,000\pm 0,029)^\c
 
 ## Beobachtungen
 Folgendes wurde für das orangene Metall bestimmt:
-(T_B (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
+(T_M (Mischtemp): (vorläufig 46,1°C) (dann 44,9) (eigeloggt: 44,2))
 
 Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit folgenden Formeln bestimmt:
 \begin{itemize}
@@ -178,11 +178,11 @@ Zur Berechnung der Unsicherheiten wurden die Skalenungenauigkeiten mit folgenden
 \end{itemize}
 ```{r, echo=FALSE}
 # Messgrößen
-groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [ml]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
-messwerte <- data.frame(Messwert = c(235.5, 97.4, 235.5-97.4, 23.00, 50.000, 44.2),
-                        Geräteart = c("digital", "digital", "-", "analog", "digital", "digital"),
-                        Skaleneinheit = c(0.1, 0.1, "-", 1, 0.1, 0.1),
-                        Unsicherheit = c(0.029, 0.029, 2*0.029, 0.20, 0.029, 0.029)
+groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallmasse [g]", "Metallvolumen [ml]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
+messwerte <- data.frame(Messwert = c(235.5, 97.4, 235.5-97.4, 198.0,23.00, 50.000, 44.2),
+                        Geräteart = c("digital", "digital", "-", "digital", "analog", "digital", "digital"),
+                        Skaleneinheit = c(0.1, 0.1, "-", 0.1, 1, 0.1, 0.1),
+                        Unsicherheit = c(0.029, 0.029, 2*0.029, 0.029, 0.20, 0.029, 0.029)
                         )
 rownames(messwerte) <- groesse
 knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten für das untersuchte orangene Metall")
@@ -192,10 +192,10 @@ Folgendes wurde für das graue Metall bestimmt:
 (T_B (Mischtemp): (vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8))
 ```{r, echo=FALSE}
 # Messgrößen
-groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur [°C]", "Mischtemperatur [°C]")
-messwerte <- data.frame(Messwert = c(241.3, 97.4, 241.3-97.4, 22.00, 49.100, 42.8),
-                        Geräteart = c("digital", "digital", "-", "analog", "digital", "digital"),
-                        Unsicherheit = c(0.029, 0.029, 2*0.029, 0.20, 0.029, 0.029)
+groesse = c("Becherglas mit Wasser [g]", "Masse Becherglas [g]", "Wassermasse [g]", "Metallmasse [g]", "Metallvolumen [cm³]", "Anfangstemperatur []", "Mischtemperatur [K]", "Raumtemperatur [K]")
+messwerte <- data.frame(Messwert = c(241.3, 97.4, 241.3-97.4, 176.12,22.00, 273.150+49.100, 273.150+42.8, 273.15+20.0),
+                        Geräteart = c("digital", "digital", "-", "digital", "analog", "digital", "digital", "digital"),
+                        Unsicherheit = c(0.029, 0.029, 2*0.029, 0.029, 0.20, 0.029, 0.029, 0.029)
                         )
 rownames(messwerte) <- groesse
 knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten für das untersuchte graue Metall")
@@ -203,14 +203,21 @@ knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten f�
 
 ## Auswertung
 Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
+$$u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}$$
 
-<!-- \begin{equation} -->
-<!-- u_{c_F} = \sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2} -->
+$=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}$
 
-<!--         = \sqrt{ (\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+ -->
-<!--                  (\frac{(C_K+c_w)(T_M-T_B)}{mF(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{mF(T_A-1)}*u_{T_M})^2+ -->
-<!--                  (\frac{(C_K+m_w*c_w)*(T_M-1)}{mF(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+ -->
-<!--                  (\frac{(C_K+m_w*c_w)*(T_M-T_B)}{mF(1-T_M)}*u_{T_A})^2} -->
-<!-- \end{equation} -->
+Graues Metall!!!
+
+$=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}$
+
+```{r}
+((((1+0.1439*4180)*(315.95-293.150))/(0.17612*(322.25-293.150))*10)**2
+  +(((80+4180)*(315.95-293.150))/(0.17612*(322.25-315.95))*0.000058)**2
+ +(((80+0.1439*4180)*(1-293.150))/(0.17612*(322.25-1))*0.029)**2
+ +(((80+0.1439* 4180)*(315.95-1))/(0.17612*(322.25-315.95))*0.029)**2
+ +(((80+0.1439* 4180)*(315.95-293.150))/(322.25-315.95)*0.000029)**2
+ +(((80+0.1439*4180)*(315.95-293.150))/(0.17612*(1-315.95))*0.029)**2)**0.5
+```
 
 ## Interpretation
