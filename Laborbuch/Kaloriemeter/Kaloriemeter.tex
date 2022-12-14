@@ -347,11 +347,12 @@ folgenden Formeln bestimmt:
 \end{itemize}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3611}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1389}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1944}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1806}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3023}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1047}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1163}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 orangene Metall}\tabularnewline
 \toprule()
@@ -359,6 +360,8 @@ orangene Metall}\tabularnewline
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formelzeichen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Geräteart
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Skaleneinheit
@@ -372,6 +375,8 @@ Unsicherheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formelzeichen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Geräteart
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Skaleneinheit
@@ -380,38 +385,69 @@ Unsicherheit
 \end{minipage} \\
 \midrule()
 \endhead
-Becherglas mit Wasser {[}g{]} & 235.5 & digital & 0.1 & 0.029 \\
-Masse Becherglas {[}g{]} & 97.4 & digital & 0.1 & 0.029 \\
-Wassermasse {[}g{]} & 138.1 & - & - & 0.058 \\
-Metallmasse {[}g{]} & 198.0 & digital & 0.1 & 0.029 \\
-Metallvolumen {[}ml{]} & 23.0 & analog & 1 & 0.200 \\
-Anfangstemperatur {[}°C{]} & 50.0 & digital & 0.1 & 0.029 \\
-Mischtemperatur {[}°C{]} & 44.2 & digital & 0.1 & 0.029 \\
+C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
+Becherglas mit Wasser {[}g{]} & 235.50 & - & digital & 0.1 & 0.029 \\
+Masse Becherglas {[}g{]} & 97.40 & - & digital & 0.1 & 0.029 \\
+Wassermasse {[}g{]} & 138.10 & m\_w & - & - & 0.058 \\
+Metallmasse {[}g{]} & 198.00 & m\_F & digital & 0.1 & 0.029 \\
+Metallvolumen {[}ml{]} & 23.00 & V\_F & analog & 1 & 0.200 \\
+Anfangstemperatur {[}°C{]} & 323.15 & T\_A & digital & 0.1 & 0.029 \\
+Mischtemperatur {[}°C{]} & 317.35 & T\_M & digital & 0.1 & 0.029 \\
+Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
 \bottomrule()
 \end{longtable}
 
 Folgendes wurde für das graue Metall bestimmt: (T\_B (Mischtemp):
 (vorläufig 44,1°C) (dann 43,4) (eigeloggt 42,8))
 
-\begin{longtable}[]{@{}lrlr@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3023}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1047}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1163}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 graue Metall}\tabularnewline
 \toprule()
-& Messwert & Geräteart & Unsicherheit \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Messwert
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formelzeichen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Geräteart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Skaleneinheit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsicherheit
+\end{minipage} \\
 \midrule()
 \endfirsthead
 \toprule()
-& Messwert & Geräteart & Unsicherheit \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Messwert
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formelzeichen
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Geräteart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Skaleneinheit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsicherheit
+\end{minipage} \\
 \midrule()
 \endhead
-Becherglas mit Wasser {[}g{]} & 241.30 & digital & 0.029 \\
-Masse Becherglas {[}g{]} & 97.40 & digital & 0.029 \\
-Wassermasse {[}g{]} & 143.90 & - & 0.058 \\
-Metallmasse {[}g{]} & 176.12 & digital & 0.029 \\
-Metallvolumen {[}cm³{]} & 22.00 & analog & 0.200 \\
-Anfangstemperatur {[}{]} & 322.25 & digital & 0.029 \\
-Mischtemperatur {[}K{]} & 315.95 & digital & 0.029 \\
-Raumtemperatur {[}K{]} & 293.15 & digital & 0.029 \\
+C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
+Becherglas mit Wasser {[}g{]} & 241.30 & - & digital & 0.1 & 0.029 \\
+Masse Becherglas {[}g{]} & 97.40 & - & digital & 0.1 & 0.029 \\
+Wassermasse {[}g{]} & 143.90 & m\_w & - & - & 0.058 \\
+Metallmasse {[}g{]} & 176.12 & m\_F & digital & 0.1 & 0.029 \\
+Metallvolumen {[}cm³{]} & 22.00 & V\_F & analog & 1 & 0.200 \\
+Anfangstemperatur {[}{]} & 322.25 & T\_A & digital & 0.1 & 0.029 \\
+Mischtemperatur {[}K{]} & 315.95 & T\_M & digital & 0.1 & 0.029 \\
+Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
 \bottomrule()
 \end{longtable}
 
@@ -423,9 +459,52 @@ Die Unsicherheit der spezifische Wärmekapazität des Feststoffes:
 
 \(=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2+(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}\)
 
-Graues Metall!!!
+Nun können die Werte, die für das Kupfer und das Aluminium ermittelt
+wurden eingesetzt werden:
+
+\hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-kupfer}{%
+\subsubsection{Unsicherheit spezifische Wärmekapazität
+Kupfer}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-kupfer}}
+
+\(=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg\cdot (323,15K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(317,35K-293,150K)}{0,19800kg(323,15K-317,35K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,19800kg(323,15K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-1)}{0,19800kg(323,15K-317,35K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{323,15K-317,35K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg(1-317,35K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Berechnung in R}
+\NormalTok{((((}\DecValTok{1}\FloatTok{+0.13810}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}293.150}\NormalTok{))}\SpecialCharTok{*}\DecValTok{10}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+  \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\SpecialCharTok{+}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.000058}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+ \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.13810}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+ \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.13810}\SpecialCharTok{*} \DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+ \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.13810}\SpecialCharTok{*} \DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{323.15{-}317.35}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.000029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+ \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.13810}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{317.35{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.19800}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}317.35}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{**}\FloatTok{0.5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 24136.84
+\end{verbatim}
+
+\hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-aluminium}{%
+\subsubsection{Unsicherheit spezifische Wärmekapazität
+Aluminium}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-aluminium}}
 
 \(=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Berechnung in R}
+\NormalTok{((((}\DecValTok{1}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}293.150}\NormalTok{))}\SpecialCharTok{*}\DecValTok{10}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+  \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\SpecialCharTok{+}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.000058}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+ \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+ \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*} \DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+ \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*} \DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{322.25{-}315.95}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.000029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}
+ \SpecialCharTok{+}\NormalTok{(((}\DecValTok{80}\FloatTok{+0.1439}\SpecialCharTok{*}\DecValTok{4180}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(}\FloatTok{315.95{-}293.150}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(}\FloatTok{0.17612}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}315.95}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{**}\FloatTok{0.5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 27384.48
+\end{verbatim}
 
 \hypertarget{interpretation}{%
 \subsection{Interpretation}\label{interpretation}}
