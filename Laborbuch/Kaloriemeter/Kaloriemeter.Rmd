@@ -49,10 +49,10 @@ Die steigende Innentemperatur im Kaloriemeter wird alle dreißig Sekunden am The
 Mit Hilfe der Rührvorrichtung am Kaloriemeter wird sichergestellt, dass sich das Wasser so gleichmäßig wie möglich erwärmt.
 
 ## Fehlerbetrachtung
-Neben den Messunsicherheiten bei der Benutzung von Messbechern, Multimetern und Waagen ist vor allem die Tatsache aufzuführen, dass das Kaloriemeter *kein perfekt geschlossenes System* ist. 
+Neben den Messunsicherheiten bei der Benutzung von Messbechern, Multimetern und Waagen ist vor allem die Tatsache aufzuführen, dass das Kaloriemeter **kein perfekt geschlossenes System** ist. 
 Es ist zwar doppelwandig und luftisoliert, dannoch wirken die äußeren Temperaturgegebeneiten auf die Innentemperatur des Kaloriemeters und verfälschen den Erwärmungsprozess.
 
-Die zu erstellende Temperatur-Zeitreihe unterliegt sowohl *Unsicherheiten beim Abnehmen der Temperatur zum richigen Zeitpunkt* als auch der *Skalenunsicherheit* des digitalen Thermometers selbst. 
+Die zu erstellende Temperatur-Zeitreihe unterliegt sowohl **Unsicherheiten beim Abnehmen der Temperatur zum richigen Zeitpunkt** als auch der **Skalenunsicherheit** des digitalen Thermometers selbst. 
 In beiden Fällen stellen sich die Beträge der Unsicherheiten aber als vergleichsweise klein heraus.
 
 ## Beobachtungen
@@ -182,7 +182,7 @@ Wasser wird auf einer Heizplatte auf ca. 50°C erwärmt.
 Dann wird das Thermometer in den Deckel des Kaloriemeters gesteckt, das Wasser eingefüllt, der Deckel geschlossen und $T_A$ am Thermometer abgelesen.
 
 ## Fehlerbetrachtung
-Viel mehr noch, als in Versuch 1, ist der *Wärmeverlust* während des Versuches eine Fehlerquelle. 
+Viel mehr noch, als in Versuch 1, ist der **Wärmeverlust** während des Versuches eine Fehlerquelle. 
 Dies ist bedingt durch den starken Temperaturgradienten von ca. $30K$ zwischen der Innentemperatur des Kaloriemeters und der Raumtemperatur, welche bei ca. 20°C lag. 
 Der darum hohe Wärmeabfluss aus dem Kaloriemeter ist besonders am Deckel bemerkbar, welcher sich während des Versuches spürbar erwärmte.
 
@@ -251,6 +251,56 @@ knitr::kable(messwerte, caption = "Aufgenommene Messwerte samt Unsicherheiten f�
 
 ## Auswertung
 
+### Bestimmung der Dichte der zwei Metalle
+
+Um eine grobe Annäherung an die Charakter der Metalle vorzunehmen, wird im folgenden die Dichte mit der Formel $\rho = \frac{m}{V}$ bestimmt.
+
+\begin{equation*}
+\begin{split}
+Metall_1: \rho = \frac{198,00g}{23cm^3} = 8,608696 \frac{g}{cm^3}\\
+Metall_2: \rho = \frac{176,12g}{22cm^3} = 8,005455 \frac{g}{cm^3}
+\end{split}
+\end{equation*}
+
+```{r}
+198/23
+176.12/22
+```
+
+### Bestimmung der Unsicherheiten für die Dichte
+
+Die Unsicherheit der Dichte wird mit Hilfe der Gaußschen Fehlerfortpflanzung bestimmt:
+
+\begin{equation*}
+\begin{split}
+u_{\rho}&=\sqrt{(\frac{\partial \rho}{\partial m}*u_m)^2+(\frac{\partial \rho}{\partial V}*u_V)^2}\\
+u_{\rho}&=\sqrt{(\frac{1}{V}*u_m)^2+(\frac{-m}{V^2}*u_V)^2}\\
+Metall_1: u_{\rho}&=\sqrt{(\frac{1}{23cm^3}*0,029g)^2+(\frac{198g}{(23cm^3)^2}*0,200cm^3)^2}\approx 0,075 \frac{g}{cm^3}\\
+Metall_2: u_{\rho}&=\sqrt{(\frac{1}{22cm^3}*0,029g)^2+(\frac{176,12g}{(22cm^3)^2}*0,200cm^3)^2}\approx 0,072 \frac{g}{cm^3}
+\end{split}
+\end{equation*}
+
+```{r}
+#Metall 1
+sqrt(((1/23)*0.029)^2+((198/23^2)*0.2)^2)
+#Metall 
+sqrt(((1/22)*0.029)^2+((176.12/22^2)*0.2)^2)
+
+
+```
+Die Dichte kann zusammenfassend also folgendermaßen angegeben werden:
+
+\begin{equation*}
+\begin{split}
+Metall_1: \rho = (8,609 \pm 0,075) \frac{g}{cm^3}\\
+Metall_2: \rho = (8, 005\pm 0,072) \frac{g}{cm^3}
+\end{split}
+\end{equation*}
+
+Die Dichten liegen sehr nah beieinander, auch wenn sich beide Intervalle nicht überlappen, da die Unsicherheiten sehr klein sind. 
+Der Dichtewert von Metall 1 befindet sich zwischen Eisen ($7,8 \frac{g}{cm^3}$) und Messing ($8,3 \frac{g}{cm^3}$).
+Der Dichtewert von Metall 2 ist etwas größer und befindet sich zwischen Messing ($8,3 \frac{g}{cm^3}$) und Kupfer ($8,9 \frac{g}{cm^3}$).
+
 ### Bestimmung der spezifischen Wärmekapazität für die zwei Metalle
 
 Mittels der Formel zur Berechnung der spezifischen Wärmekapazität $c_F$ in einem Kaloriemeter, siehe [@Skript.Kaloriemeter], kann nun eben diese für beide Metalle berechnet werden.
@@ -258,13 +308,18 @@ Mittels der Formel zur Berechnung der spezifischen Wärmekapazität $c_F$ in ein
 c_F = \frac{(C_K + m_W\cdot c_W)\cdot (TM-TB)}{m_F\cdot (TA-TM)}
 \end{equation}
 
+Da wir entgegen der Anleitung desa versuches nicht den Metallkörper sondern das Wasser erhitzten, ändert sich unsere Berechnungsformel dementsprechend auf:
+\begin{equation}\label{Kaloriemeter:c_F}
+c_F = \frac{(C_K + m_W\cdot c_W)\cdot  (TA-TM) }{m_F\cdot(TM-TB)}
+\end{equation}
+
 Mit den den obigen Tabellen 1 und 2 aufgeführten Werten folgt damit für die bestimmten Bestwerte der beiden Metalle:
-$$c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}= 795,579\frac{J}{kg\cdot K}$$
+$$c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15-317,35) K}{0,1980kg\cdot(317,35-293,15)K}= 795,579\frac{J}{kg\cdot K}$$
 ```{r}
 # Berechnung in R
 ((80+0.1381*4180)*(323.15-317.35))/(0.1980*(317.35-293.15))
 ```
-$$c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}= 1069,213\frac{J}{kg\cdot K}$$
+$$c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25-315,95) K}{0,17612kg\cdot(315,95-293,15)K}= 1069,213\frac{J}{kg\cdot K}$$
 ```{r}
 # Berechnung in R
 ((80+0.1439*4180)*(322.25-315.95))/(0.17612*(315.95-293.15))
@@ -272,15 +327,15 @@ $$c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\c
 
 ### Unsicherheit der spezifische Wärmekapazität der Feststoffe 
 
-*Disclaimer: Die folgende Fehlerrechnung ist falsch. Die Werte für Anfangs- und Mischtemperatur wurden vertauscht. Oder anders herum. Sind uns da auch nicht ganz sicher.*
+*Disclaimer: Die folgende Fehlerrechnung ist falsch.Zumindest liegen unsere berechneten Unsicherheiten leider in einer völlig falschen Größenordnung*
 
 Aus Formel \ref{Kaloriemeter:c_F} kann über die Gausssche Fehlerfortpflanzung die zugehörige Messunsicherheit $u_{c_F}$ berechnet werden.
 
 $$u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}$$
 
-$=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2$
-$\ +(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2$
-$\ +(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}$
+$=[(\frac{(1+m_w*c_w)*(T_A-T_M)}{m_F*(T_M-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_A-T_M)}{m_F(T_M-T_B)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(T_A-1)}{m_F(1-T_B)}*u_{T_M})^2$
+$\ +(\frac{(C_K+m_w*c_w)*(T_A-T_M)}{m_F(T_M-1)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_A-T_M)}{T_M-T_B}*u_{m_F})^2$
+$\ +(\frac{(C_K+m_w*c_w)*(1-T_M)}{m_F(T_M-T_B)}*u_{T_A})^2]^{\frac{1}{2}}$
 
 Nun können die Werte, die für die zwei Metalle ermittelt wurden, eingesetzt werden:
 
@@ -288,7 +343,7 @@ Nun können die Werte, die für die zwei Metalle ermittelt wurden, eingesetzt we
 
 Einsetzen in die obige Formel ergibt:
 
-$u_{c_F}(Metall\ 1)=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg\cdot (323,15K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(317,35K-293,150K)}{0,19800kg(323,15K-317,35K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,19800kg(323,15K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-1)}{0,19800kg(323,15K-317,35K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{323,15K-317,35K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg(1-317,35K)}\cdot 0,029K)^2]^{\frac{1}{2}}$
+$u_{c_F}(Metall\ 1)=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15K-293,150K)}{0,19800kg\cdot (317,35K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(323,15K-317,35K)}{0,19800kg(317,35K-293,150K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15K-1)}{0,19800kg (1-293,150K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15K-317,35K)}{0,19800kg(317,35K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15K-317,35K)}{317,35K-293,150K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-317,35K)}{0,19800kg(317,35K-293,150K)}\cdot 0,029K)^2]^{\frac{1}{2}} \approx 7100 \frac{J}{kg \cdot K}$
 
 \newpage
 ```{r}
@@ -310,17 +365,17 @@ T_B = 293.15 #K
 T_M = 317.35 #K
 
 # Berechnung in R
-sqrt( ( ((1+m_w*c_w)*(T_M-T_B))/(m_F*(T_A-T_B))*u_CK)**2
-     +( ((C_K+c_w)*(T_M-T_B))/(m_F*(T_A-T_M))*u_mw)**2
-     +( ((C_K+m_w*c_w)*(1-T_B))/(m_F*(T_A-1))*u_TM)**2
-     +( ((C_K+m_w*c_w)*(T_M-1))/(m_F*(T_A-T_M))*u_TB)**2
-     +( ((C_K+m_w*c_w)*(T_M-T_B))/(T_A-T_M)*u_mF)**2
-     +( ((C_K+m_w*c_w)*(T_M-T_B))/(m_F*(1-T_M))*u_TA)**2)
+sqrt( ( ((1+m_w*c_w)*(T_A-T_M)/(m_F*(T_M-T_B)))*u_CK)**2
+     +( ((C_K+c_w)*(T_A-T_M))/(m_F*(T_M-T_B))*u_mw)**2
+     +( ((C_K+m_w*c_w)*(T_A-1))/(m_F*(1-T_B))*u_TM)**2
+     +( ((C_K+m_w*c_w)*(T_A-T_M))/(m_F*(T_M-1))*u_TB)**2
+     +( ((C_K+m_w*c_w)*(T_A-T_M))/(T_M-T_B)*u_mF)**2
+     +( ((C_K+m_w*c_w)*(1-T_M))/(m_F*(T_M-T_B))*u_TA)**2)
 ```
 
 ### Unsicherheit spezifische Wärmekapazität graues Metall
 
-$u_{c_F}(Metall\ 2)=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}$
+$u_{c_F}(Metall\ 2)=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot  (322,25K-293,150K)}{0,17612kg\cdot (315,95K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(322,25K-315,95K)}{0,17612kg (315,95K-293,150K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25K-1)}{0,17612kg(1-293,150K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25K-315,95K)}{0,17612kg (315,95K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25K-315,95K)}{315,95K-293,150K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-315,95K) }{0,17612kg(315,95K-293,150K)}\cdot 0,029K)^2]^{\frac{1}{2}} \approx 9600 \frac{J}{kg \cdot K}$
 
 ```{r}
 # Neudefinition Variablen
@@ -331,27 +386,26 @@ T_B = 293.15 #K
 T_M = 315.95 #K
 
 # Berechnung in R
-sqrt( ( ((1+m_w*c_w)*(T_M-T_B))/(m_F*(T_A-T_B))*u_CK)**2
-     +( ((C_K+c_w)*(T_M-T_B))/(m_F*(T_A-T_M))*u_mw)**2
-     +( ((C_K+m_w*c_w)*(1-T_B))/(m_F*(T_A-1))*u_TM)**2
-     +( ((C_K+m_w*c_w)*(T_M-1))/(m_F*(T_A-T_M))*u_TB)**2
-     +( ((C_K+m_w*c_w)*(T_M-T_B))/(T_A-T_M)*u_mF)**2
-     +( ((C_K+m_w*c_w)*(T_M-T_B))/(m_F*(1-T_M))*u_TA)**2)
+sqrt( ( ((1+m_w*c_w)*(T_A-T_M)/(m_F*(T_M-T_B)))*u_CK)**2
+     +( ((C_K+c_w)*(T_A-T_M))/(m_F*(T_M-T_B))*u_mw)**2
+     +( ((C_K+m_w*c_w)*(T_A-1))/(m_F*(1-T_B))*u_TM)**2
+     +( ((C_K+m_w*c_w)*(T_A-T_M))/(m_F*(T_M-1))*u_TB)**2
+     +( ((C_K+m_w*c_w)*(T_A-T_M))/(T_M-T_B)*u_mF)**2
+     +( ((C_K+m_w*c_w)*(1-T_M))/(m_F*(T_M-T_B))*u_TA)**2)
 ```
 
 ## Interpretation
 
 Es wurde Folgendes bestimmt:
 \begin{itemize}
-  \item Metall 1: $c_F = 795\frac{J}{kg\cdot K}\pm 24\frac{kJ}{kg\cdot K}$
-  \item Metall 2: $c_F = 1069\frac{J}{kg\cdot K}\pm 27\frac{kJ}{kg\cdot K}$
+  \item Metall 1: $c_F = 795\frac{J}{kg\cdot K}\pm 7,1\frac{kJ}{kg\cdot K}$
+  \item Metall 2: $c_F = 1069\frac{J}{kg\cdot K}\pm 9,6\frac{kJ}{kg\cdot K}$
 \end{itemize}
 Die Bestwerte sind in der richtigen Größenordnung.
 Die Unsicherheiten sind falsch berechnet.
 
 Eine schnelle Recherche im Internet liefert für die meisten Reinmetalle spezifische Wärmekapazitäten von einigen hundert Joule pro $kg\cdot K$.
 Eine Aussage über die Metallart auf Basis der Messwerte ist nicht sinnvoll.
-Wir tippen auf Kupfer und Aluminium.
-Es würde passen, das für das zweite Metall eine größere Wärmekapazität festgestellt wurde, denn Aluminium hat eine größere Wärmekapazität als Kupfer.
+Zudem widersprechen sich Angaben zu Dichte und Wärmekapazität. ANhand der Wärmekapazität können wir nicht  bestätigen, dass die Metallzylinder tatsächlich aus Kupfer oder Eisen bestanden. Der Versuch müsste wiederholt werden.
 
 ## Quellen

@@ -34,6 +34,15 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Pendel},
+  pdfauthor={Milena Mensching, Justus Weyers},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -137,19 +146,10 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={Pendel},
-  pdfauthor={Milena Mensching, Justus Weyers},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
 
 \title{Pendel}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-14}
+\date{2022-12-15}
 
 \begin{document}
 \maketitle
@@ -203,14 +203,14 @@ Wasser so gleichmäßig wie möglich erwärmt.
 
 Neben den Messunsicherheiten bei der Benutzung von Messbechern,
 Multimetern und Waagen ist vor allem die Tatsache aufzuführen, dass das
-Kaloriemeter \emph{kein perfekt geschlossenes System} ist. Es ist zwar
+Kaloriemeter \textbf{kein perfekt geschlossenes System} ist. Es ist zwar
 doppelwandig und luftisoliert, dannoch wirken die äußeren
 Temperaturgegebeneiten auf die Innentemperatur des Kaloriemeters und
 verfälschen den Erwärmungsprozess.
 
 Die zu erstellende Temperatur-Zeitreihe unterliegt sowohl
-\emph{Unsicherheiten beim Abnehmen der Temperatur zum richigen
-Zeitpunkt} als auch der \emph{Skalenunsicherheit} des digitalen
+\textbf{Unsicherheiten beim Abnehmen der Temperatur zum richigen
+Zeitpunkt} als auch der \textbf{Skalenunsicherheit} des digitalen
 Thermometers selbst. In beiden Fällen stellen sich die Beträge der
 Unsicherheiten aber als vergleichsweise klein heraus.
 
@@ -373,7 +373,7 @@ eingefüllt, der Deckel geschlossen und \(T_A\) am Thermometer abgelesen.
 \hypertarget{fehlerbetrachtung-1}{%
 \subsection{Fehlerbetrachtung}\label{fehlerbetrachtung-1}}
 
-Viel mehr noch, als in Versuch 1, ist der \emph{Wärmeverlust} während
+Viel mehr noch, als in Versuch 1, ist der \textbf{Wärmeverlust} während
 des Versuches eine Fehlerquelle. Dies ist bedingt durch den starken
 Temperaturgradienten von ca. \(30K\) zwischen der Innentemperatur des
 Kaloriemeters und der Raumtemperatur, welche bei ca. 20°C lag. Der darum
@@ -449,7 +449,7 @@ Folgendes wurde für die zwei Metalle bestimmt:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 orangene Metall}\tabularnewline
-\toprule()
+\toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -462,9 +462,9 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule()
+\midrule
 \endfirsthead
-\toprule()
+\toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -477,7 +477,7 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule()
+\midrule
 \endhead
 C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
 Becherglas mit Wasser {[}g{]} & 235.50 & - & digital & 0.1 & 0.029 \\
@@ -488,7 +488,7 @@ Metallvolumen {[}ml{]} & 23.00 & V\_F & analog & 1 & 0.200 \\
 Anfangstemperatur {[}K{]} & 323.15 & T\_A & digital & 0.1 & 0.029 \\
 Mischtemperatur {[}K{]} & 317.35 & T\_M & digital & 0.1 & 0.029 \\
 Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 \begin{longtable}[]{@{}
@@ -500,7 +500,7 @@ Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
   >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 graue Metall}\tabularnewline
-\toprule()
+\toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -513,9 +513,9 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule()
+\midrule
 \endfirsthead
-\toprule()
+\toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -528,7 +528,7 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule()
+\midrule
 \endhead
 C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
 Becherglas mit Wasser {[}g{]} & 241.30 & - & digital & 0.1 & 0.029 \\
@@ -539,11 +539,99 @@ Metallvolumen {[}ml{]} & 22.00 & V\_F & analog & 1 & 0.200 \\
 Anfangstemperatur {[}{]} & 322.25 & T\_A & digital & 0.1 & 0.029 \\
 Mischtemperatur {[}K{]} & 315.95 & T\_M & digital & 0.1 & 0.029 \\
 Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
-\bottomrule()
+\bottomrule
 \end{longtable}
 
 \hypertarget{auswertung-1}{%
 \subsection{Auswertung}\label{auswertung-1}}
+
+\hypertarget{bestimmung-der-dichte-der-zwei-metalle}{%
+\subsubsection{Bestimmung der Dichte der zwei
+Metalle}\label{bestimmung-der-dichte-der-zwei-metalle}}
+
+Um eine grobe Annäherung an die Charakter der Metalle vorzunehmen, wird
+im folgenden die Dichte mit der Formel \(\rho = \frac{m}{V}\) bestimmt.
+
+\begin{equation*}
+\begin{split}
+Metall_1: \rho = \frac{198,00g}{23cm^3} = 8,608696 \frac{g}{cm^3}\\
+Metall_2: \rho = \frac{176,12g}{22cm^3} = 8,005455 \frac{g}{cm^3}
+\end{split}
+\end{equation*}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{198}\SpecialCharTok{/}\DecValTok{23}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.608696
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{176.12}\SpecialCharTok{/}\DecValTok{22}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.005455
+\end{verbatim}
+
+\hypertarget{bestimmung-der-unsicherheiten-fuxfcr-die-dichte}{%
+\subsubsection{Bestimmung der Unsicherheiten für die
+Dichte}\label{bestimmung-der-unsicherheiten-fuxfcr-die-dichte}}
+
+Die Unsicherheit der Dichte wird mit Hilfe der Gaußschen
+Fehlerfortpflanzung bestimmt:
+
+\begin{equation*}
+\begin{split}
+u_{\rho}&=\sqrt{(\frac{\partial \rho}{\partial m}*u_m)^2+(\frac{\partial \rho}{\partial V}*u_V)^2}\\
+u_{\rho}&=\sqrt{(\frac{1}{V}*u_m)^2+(\frac{-m}{V^2}*u_V)^2}\\
+Metall_1: u_{\rho}&=\sqrt{(\frac{1}{23cm^3}*0,029g)^2+(\frac{198g}{(23cm^3)^2}*0,200cm^3)^2}\approx 0,075 \frac{g}{cm^3}\\
+Metall_2: u_{\rho}&=\sqrt{(\frac{1}{22cm^3}*0,029g)^2+(\frac{176,12g}{(22cm^3)^2}*0,200cm^3)^2}\approx 0,072 \frac{g}{cm^3}
+\end{split}
+\end{equation*}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Metall 1}
+\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\DecValTok{23}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{+}\NormalTok{((}\DecValTok{198}\SpecialCharTok{/}\DecValTok{23}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.07486884
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Metall }
+\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\DecValTok{22}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{+}\NormalTok{((}\FloatTok{176.12}\SpecialCharTok{/}\DecValTok{22}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0727888
+\end{verbatim}
+
+Die Dichte kann zusammenfassend also folgendermaßen angegeben werden:
+
+\begin{equation*}
+\begin{split}
+Metall_1: \rho = (8,609 \pm 0,075) \frac{g}{cm^3}\\
+Metall_2: \rho = (8, 005\pm 0,072) \frac{g}{cm^3}
+\end{split}
+\end{equation*}
+
+Die Dichten liegen sehr nah beieinander, auch wenn sich beide Intervalle
+nicht überlappen, da die Unsicherheiten sehr klein sind. Der Dichtewert
+von Metall 1 befindet sich zwischen Eisen (\(7,8 \frac{g}{cm^3}\)) und
+Messing (\(8,3 \frac{g}{cm^3}\)). Der Dichtewert von Metall 2 ist etwas
+größer und befindet sich zwischen Messing (\(8,3 \frac{g}{cm^3}\)) und
+Kupfer (\(8,9 \frac{g}{cm^3}\)).
 
 \hypertarget{bestimmung-der-spezifischen-wuxe4rmekapazituxe4t-fuxfcr-die-zwei-metalle}{%
 \subsubsection{Bestimmung der spezifischen Wärmekapazität für die zwei
@@ -556,9 +644,15 @@ für beide Metalle berechnet werden.
 c_F = \frac{(C_K + m_W\cdot c_W)\cdot (TM-TB)}{m_F\cdot (TA-TM)}
 \end{equation}
 
+Da wir entgegen der Anleitung desa versuches nicht den Metallkörper
+sondern das Wasser erhitzten, ändert sich unsere Berechnungsformel
+dementsprechend auf: \begin{equation}\label{Kaloriemeter:c_F}
+c_F = \frac{(C_K + m_W\cdot c_W)\cdot  (TA-TM) }{m_F\cdot(TM-TB)}
+\end{equation}
+
 Mit den den obigen Tabellen 1 und 2 aufgeführten Werten folgt damit für
 die bestimmten Bestwerte der beiden Metalle:
-\[c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35-293,15)K}{0,1980kg\cdot(323,15-317,35)K}= 795,579\frac{J}{kg\cdot K}\]
+\[c_F(Metall\ 1) = \frac{(80\frac{J}{K}+0,1381kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15-317,35) K}{0,1980kg\cdot(317,35-293,15)K}= 795,579\frac{J}{kg\cdot K}\]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -571,7 +665,7 @@ die bestimmten Bestwerte der beiden Metalle:
 ## [1] 795.579
 \end{verbatim}
 
-\[c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95-293,15)K}{0,17612kg\cdot(322,25-315,95)K}= 1069,213\frac{J}{kg\cdot K}\]
+\[c_F(Metall\ 2) = \frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25-315,95) K}{0,17612kg\cdot(315,95-293,15)K}= 1069,213\frac{J}{kg\cdot K}\]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -588,9 +682,9 @@ die bestimmten Bestwerte der beiden Metalle:
 \subsubsection{Unsicherheit der spezifische Wärmekapazität der
 Feststoffe}\label{unsicherheit-der-spezifische-wuxe4rmekapazituxe4t-der-feststoffe}}
 
-\emph{Disclaimer: Die folgende Fehlerrechnung ist falsch. Die Werte für
-Anfangs- und Mischtemperatur wurden vertauscht. Oder anders herum. Sind
-uns da auch nicht ganz sicher.}
+\emph{Disclaimer: Die folgende Fehlerrechnung ist falsch.Zumindest
+liegen unsere berechneten Unsicherheiten leider in einer völlig falschen
+Größenordnung}
 
 Aus Formel \ref{Kaloriemeter:c_F} kann über die Gausssche
 Fehlerfortpflanzung die zugehörige Messunsicherheit \(u_{c_F}\)
@@ -598,9 +692,9 @@ berechnet werden.
 
 \[u_{c_F}=\sqrt{(\frac{\partial c_F}{\partial C_K}*u_{C_K})^2+(\frac{\partial c_F}{\partial m_w}*u_{m_w})^2+(\frac{\partial c_F}{\partial T_M}*u_{T_M})^2+ (\frac{\partial c_F}{\partial T_B}*u_{T_B})^2+ (\frac{\partial c_F}{\partial m_F}*u_{m_F})^2+ (\frac{\partial c_F}{\partial T_A}*u_{T_A})^2}\]
 
-\(=[(\frac{(1+m_w*c_w)*(T_M-T_B)}{m_F*(T_A-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_M-T_B)}{m_F(T_A-T_M)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(1-T_B)}{m_F(T_A-1)}*u_{T_M})^2\)
-\(\ +(\frac{(C_K+m_w*c_w)*(T_M-1)}{m_F(T_A-T_M)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{T_A-T_M}*u_{m_F})^2\)
-\(\ +(\frac{(C_K+m_w*c_w)*(T_M-T_B)}{m_F(1-T_M)}*u_{T_A})^2]^{\frac{1}{2}}\)
+\(=[(\frac{(1+m_w*c_w)*(T_A-T_M)}{m_F*(T_M-T_B)}u_{C_K})^2+(\frac{(C_K+c_w)(T_A-T_M)}{m_F(T_M-T_B)}*u_{m_w})^2+(\frac{(C_K+m_w*c_w)*(T_A-1)}{m_F(1-T_B)}*u_{T_M})^2\)
+\(\ +(\frac{(C_K+m_w*c_w)*(T_A-T_M)}{m_F(T_M-1)}*u_{T_B})^2+(\frac{(C_K+m_w*c_w)*(T_A-T_M)}{T_M-T_B}*u_{m_F})^2\)
+\(\ +(\frac{(C_K+m_w*c_w)*(1-T_M)}{m_F(T_M-T_B)}*u_{T_A})^2]^{\frac{1}{2}}\)
 
 Nun können die Werte, die für die zwei Metalle ermittelt wurden,
 eingesetzt werden:
@@ -611,7 +705,7 @@ Metall}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-oranges-metall}}
 
 Einsetzen in die obige Formel ergibt:
 
-\(u_{c_F}(Metall\ 1)=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg\cdot (323,15K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(317,35K-293,150K)}{0,19800kg(323,15K-317,35K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,19800kg(323,15K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-1)}{0,19800kg(323,15K-317,35K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{323,15K-317,35K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (317,35K-293,150K)}{0,19800kg(1-317,35K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+\(u_{c_F}(Metall\ 1)=[(\frac{(1+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15K-293,150K)}{0,19800kg\cdot (317,35K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(323,15K-317,35K)}{0,19800kg(317,35K-293,150K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15K-1)}{0,19800kg (1-293,150K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15K-317,35K)}{0,19800kg(317,35K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (323,15K-317,35K)}{317,35K-293,150K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,13810kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-317,35K)}{0,19800kg(317,35K-293,150K)}\cdot 0,029K)^2]^{\frac{1}{2}} \approx 7100 \frac{J}{kg \cdot K}\)
 
 \newpage
 
@@ -635,24 +729,24 @@ Einsetzen in die obige Formel ergibt:
 \NormalTok{T\_M }\OtherTok{=} \FloatTok{317.35} \CommentTok{\#K}
 
 \CommentTok{\# Berechnung in R}
-\FunctionTok{sqrt}\NormalTok{( ( ((}\DecValTok{1}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_CK)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_mw)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\NormalTok{u\_TM)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TB)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M)}\SpecialCharTok{*}\NormalTok{u\_mF)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TA)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
+\FunctionTok{sqrt}\NormalTok{( ( ((}\DecValTok{1}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M)}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B)))}\SpecialCharTok{*}\NormalTok{u\_CK)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_mw)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_TM)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_M}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\NormalTok{u\_TB)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{/}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B)}\SpecialCharTok{*}\NormalTok{u\_mF)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_TA)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 24136.84
+## [1] 7112.547
 \end{verbatim}
 
 \hypertarget{unsicherheit-spezifische-wuxe4rmekapazituxe4t-graues-metall}{%
 \subsubsection{Unsicherheit spezifische Wärmekapazität graues
 Metall}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-graues-metall}}
 
-\(u_{c_F}(Metall\ 2)=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg\cdot (322,25K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(315,95K-293,150K)}{0,17612kg(322,25K-315,95K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-293,150K)}{0,17612kg(322,25K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-1)}{0,17612kg(322,25K-315,95K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{322,25K-315,95K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (315,95K-293,150K)}{0,17612kg(1-315,95K)}\cdot 0,029K)^2]^{\frac{1}{2}}\)
+\(u_{c_F}(Metall\ 2)=[(\frac{(1+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25K-293,150K)}{0,17612kg\cdot (315,95K-293,150K)}\cdot 10\frac{J}{K})^2+(\frac{(80\frac{J}{K}+4180\frac{J}{kg\cdot K})(322,25K-315,95K)}{0,17612kg (315,95K-293,150K)}\cdot 0,000058kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25K-1)}{0,17612kg(1-293,150K)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25K-315,95K)}{0,17612kg (315,95K-1)}\cdot 0,029K)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (322,25K-315,95K)}{315,95K-293,150K}\cdot 0,000029kg)^2+(\frac{(80\frac{J}{K}+0,1439kg\cdot 4180\frac{J}{kg\cdot K})\cdot (1-315,95K) }{0,17612kg(315,95K-293,150K)}\cdot 0,029K)^2]^{\frac{1}{2}} \approx 9600 \frac{J}{kg \cdot K}\)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -664,17 +758,17 @@ Metall}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-graues-metall}}
 \NormalTok{T\_M }\OtherTok{=} \FloatTok{315.95} \CommentTok{\#K}
 
 \CommentTok{\# Berechnung in R}
-\FunctionTok{sqrt}\NormalTok{( ( ((}\DecValTok{1}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_CK)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_mw)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\NormalTok{u\_TM)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TB)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M)}\SpecialCharTok{*}\NormalTok{u\_mF)}\SpecialCharTok{**}\DecValTok{2}
-     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{*}\NormalTok{u\_TA)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
+\FunctionTok{sqrt}\NormalTok{( ( ((}\DecValTok{1}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M)}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B)))}\SpecialCharTok{*}\NormalTok{u\_CK)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_mw)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_TM)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_M}\DecValTok{{-}1}\NormalTok{))}\SpecialCharTok{*}\NormalTok{u\_TB)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(T\_A}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{/}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B)}\SpecialCharTok{*}\NormalTok{u\_mF)}\SpecialCharTok{**}\DecValTok{2}
+     \SpecialCharTok{+}\NormalTok{( ((C\_K}\SpecialCharTok{+}\NormalTok{m\_w}\SpecialCharTok{*}\NormalTok{c\_w)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{T\_M))}\SpecialCharTok{/}\NormalTok{(m\_F}\SpecialCharTok{*}\NormalTok{(T\_M}\SpecialCharTok{{-}}\NormalTok{T\_B))}\SpecialCharTok{*}\NormalTok{u\_TA)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 27384.48
+## [1] 9579.743
 \end{verbatim}
 
 \hypertarget{interpretation}{%
@@ -683,8 +777,8 @@ Metall}\label{unsicherheit-spezifische-wuxe4rmekapazituxe4t-graues-metall}}
 Es wurde Folgendes bestimmt:
 
 \begin{itemize}
-  \item Metall 1: $c_F = 795\frac{J}{kg\cdot K}\pm 24\frac{kJ}{kg\cdot K}$
-  \item Metall 2: $c_F = 1069\frac{J}{kg\cdot K}\pm 27\frac{kJ}{kg\cdot K}$
+  \item Metall 1: $c_F = 795\frac{J}{kg\cdot K}\pm 7,1\frac{kJ}{kg\cdot K}$
+  \item Metall 2: $c_F = 1069\frac{J}{kg\cdot K}\pm 9,6\frac{kJ}{kg\cdot K}$
 \end{itemize}
 
 Die Bestwerte sind in der richtigen Größenordnung. Die Unsicherheiten
@@ -693,10 +787,10 @@ sind falsch berechnet.
 Eine schnelle Recherche im Internet liefert für die meisten Reinmetalle
 spezifische Wärmekapazitäten von einigen hundert Joule pro
 \(kg\cdot K\). Eine Aussage über die Metallart auf Basis der Messwerte
-ist nicht sinnvoll. Wir tippen auf Kupfer und Aluminium. Es würde
-passen, das für das zweite Metall eine größere Wärmekapazität
-festgestellt wurde, denn Aluminium hat eine größere Wärmekapazität als
-Kupfer.
+ist nicht sinnvoll. Zudem widersprechen sich Angaben zu Dichte und
+Wärmekapazität. ANhand der Wärmekapazität können wir nicht bestätigen,
+dass die Metallzylinder tatsächlich aus Kupfer oder Eisen bestanden. Der
+Versuch müsste wiederholt werden.
 
 \hypertarget{quellen}{%
 \subsection*{Quellen}\label{quellen}}
