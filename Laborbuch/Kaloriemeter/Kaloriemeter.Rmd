@@ -10,7 +10,7 @@ output:
     df_print: kable
   html_document:
     df_print: kable
-bibliography: references.bib
+# bibliography: references.bib
 editor_options: 
   markdown: 
     wrap: sentence

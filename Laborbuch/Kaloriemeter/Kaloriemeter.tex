@@ -34,15 +34,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Pendel},
-  pdfauthor={Milena Mensching, Justus Weyers},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -111,29 +102,6 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \ifLuaTeX
 \usepackage[bidi=basic]{babel}
 \else
@@ -146,10 +114,19 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Pendel},
+  pdfauthor={Milena Mensching, Justus Weyers},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Pendel}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-15}
+\date{2022-12-18}
 
 \begin{document}
 \maketitle
@@ -280,8 +257,9 @@ Regressionsgerade der Form \(T(t)=A\cdot t+B\) hat die Steigung
 ## F-statistic:  5713 on 1 and 12 DF,  p-value: < 2.2e-16
 \end{verbatim}
 
-Für den Temperaturverlauf ist folgender Zusammenhang bekannt (o.V.
-2021): \[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Mit: \(C_K\):
+Für den Temperaturverlauf ist folgender Zusammenhang bekannt
+{[}@Skript.Kaloriemeter{]}:
+\[T(t) = \frac{U\cdot I}{C_K + C_W}\cdot t + T_A\] Mit: \(C_K\):
 Wärmekapazität Kaloriemeter ohne Wasser; \(C_W\): Wärmekapazität des
 Wassers; \(U\): Angelegte Spannung; \(I\): Stromstärke; \(t\): Zeit;
 \(T(t)\): Temperatur zum Zeitpunkt \(t\); \(T_A\): Anfangstemperatur
@@ -292,7 +270,7 @@ umgestellt erhält man mit der Steigung der Regressionsgeraden \(A\) für
 Wärmekapazität des Kaloriemeters vorgenommen werden. Dazu wird noch die
 spezifische Wärmekapazität von Wasser benötigt. Diese wird im Tippler in
 Tabelle 15.1 auf Seite 569 mit \(4,18 \frac{kJ}{kg\cdot K}\) angegeben
-(Tipler, Mosca, und Wagner 2015).
+{[}@Tipler.2015{]}.
 
 \begin{equation*}
 \begin{split}
@@ -449,7 +427,7 @@ Folgendes wurde für die zwei Metalle bestimmt:
   >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 orangene Metall}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -462,9 +440,9 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -477,7 +455,7 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
 Becherglas mit Wasser {[}g{]} & 235.50 & - & digital & 0.1 & 0.029 \\
@@ -488,7 +466,7 @@ Metallvolumen {[}ml{]} & 23.00 & V\_F & analog & 1 & 0.200 \\
 Anfangstemperatur {[}K{]} & 323.15 & T\_A & digital & 0.1 & 0.029 \\
 Mischtemperatur {[}K{]} & 317.35 & T\_M & digital & 0.1 & 0.029 \\
 Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}
@@ -500,7 +478,7 @@ Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
   >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}@{}}
 \caption{Aufgenommene Messwerte samt Unsicherheiten für das untersuchte
 graue Metall}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -513,9 +491,9 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Messwert
@@ -528,7 +506,7 @@ Skaleneinheit
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Unsicherheit
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 C Kaloriemeter {[}J/K{]} & 80.00 & C\_K & - & - & 10.000 \\
 Becherglas mit Wasser {[}g{]} & 241.30 & - & digital & 0.1 & 0.029 \\
@@ -539,7 +517,7 @@ Metallvolumen {[}ml{]} & 22.00 & V\_F & analog & 1 & 0.200 \\
 Anfangstemperatur {[}{]} & 322.25 & T\_A & digital & 0.1 & 0.029 \\
 Mischtemperatur {[}K{]} & 315.95 & T\_M & digital & 0.1 & 0.029 \\
 Raumtemperatur {[}K{]} & 293.15 & T\_B & digital & 0.1 & 0.029 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{auswertung-1}{%
@@ -638,8 +616,8 @@ Kupfer (\(8,9 \frac{g}{cm^3}\)).
 Metalle}\label{bestimmung-der-spezifischen-wuxe4rmekapazituxe4t-fuxfcr-die-zwei-metalle}}
 
 Mittels der Formel zur Berechnung der spezifischen Wärmekapazität
-\(c_F\) in einem Kaloriemeter, siehe (o.V. 2021), kann nun eben diese
-für beide Metalle berechnet werden.
+\(c_F\) in einem Kaloriemeter, siehe {[}@Skript.Kaloriemeter{]}, kann
+nun eben diese für beide Metalle berechnet werden.
 \begin{equation}\label{Kaloriemeter:c_F}
 c_F = \frac{(C_K + m_W\cdot c_W)\cdot (TM-TB)}{m_F\cdot (TA-TM)}
 \end{equation}
@@ -793,22 +771,6 @@ dass die Metallzylinder tatsächlich aus Kupfer oder Eisen bestanden. Der
 Versuch müsste wiederholt werden.
 
 \hypertarget{quellen}{%
-\subsection*{Quellen}\label{quellen}}
-\addcontentsline{toc}{subsection}{Quellen}
-
-\hypertarget{refs}{}
-\begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-Skript.Kaloriemeter}{}}%
-o.V. 2021. \emph{Skript im Physikgrundpraktikum. T3 - Wärmekapazität}.
-Universität Potsdam, Institut für Physik und Astronomie: {Universität
-Potsdam}.
-\url{https://moodle2.uni-potsdam.de/pluginfile.php/2512120/mod_resource/content/2/T3___W_armekapazit_at__Corona-2.pdf}.
-
-\leavevmode\vadjust pre{\hypertarget{ref-Tipler.2015}{}}%
-Tipler, Paul A., Gene Mosca, und Jenny Wagner. 2015. \emph{Physik}.
-Berlin, Heidelberg: {Springer Berlin Heidelberg}.
-\url{https://doi.org/10.1007/978-3-642-54166-7}.
-
-\end{CSLReferences}
+\subsection{Quellen}\label{quellen}}
 
 \end{document}
