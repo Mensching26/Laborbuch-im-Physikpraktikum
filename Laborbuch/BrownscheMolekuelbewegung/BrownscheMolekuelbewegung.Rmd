@@ -1,5 +1,5 @@
 ---
-title: "Pendel"
+title: "Braunsche Molekularbewegung"
 author: "Milena Mensching, Justus Weyers"
 date: "`r Sys.Date()`"
 lang: de
