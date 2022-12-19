@@ -67,6 +67,7 @@ frame_period = 1  # 1000msec - assume frame rate is about 1Hz
 
 # Loop over every frame
 while(cap.isOpened()):
+                
     print(f'Progress: {round(imagenr/length*100)}%')
     # Increment iterator
     imagenr += 1
