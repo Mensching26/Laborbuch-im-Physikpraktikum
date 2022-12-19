@@ -90,15 +90,15 @@ while(cap.isOpened()):
     if not paths:
         paths = {k: [] for k in range(0, pointnr)}
         for key in range(0, pointnr):
-            paths[key] = [(coords.loc[key, 'tuple'][0], coords.loc[key, 'tuple'][1], 0)]
+            paths[key] = [(coords.loc[key, 'tuple'][1], coords.loc[key, 'tuple'][0], 0)]
     else:
         for key in paths.keys():
-            x1 = paths[key][-1][0]
-            y1 = paths[key][-1][1]
+            x1 = paths[key][-1][1]
+            y1 = paths[key][-1][0]
             dist = np.sqrt((coords['X']-x1)**2+(coords['Y']-y1)**2)
             closest_position = dist.argmin()
             match = coords.loc[closest_position, 'tuple']
-            paths[key].append((match[0], match[1], str(min(dist))))
+            paths[key].append((match[1], match[0], str(min(dist))))
 
     # Add new line to master-table
     pd.concat([table, coords], ignore_index=True)
@@ -112,12 +112,12 @@ while(cap.isOpened()):
 
 # Save file
 mf = pd.DataFrame(paths)
-mf.to_csv('out.csv') 
+mf.to_csv('Tabellen/out.csv') 
 
 # Editing of the produced csv-file. Not pretty but works.
-text = open("out.csv", "r")
+text = open("Tabellen/out.csv", "r")
 text = ''.join([i for i in text]).replace("(", "").replace(")", "").replace('"', "").replace(" ", "").replace("'", "")
-x = open("out_clean.csv","w")
+x = open("Tabellen/out_clean.csv","w")
 x.writelines(text)
 x.close()
 

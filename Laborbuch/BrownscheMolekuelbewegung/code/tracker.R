@@ -1,6 +1,6 @@
 # Data import -------------------------------------------------------------
 # Read Values
-values = read.csv('out_clean.csv', skip = 1, header=FALSE)
+values = read.csv('Tabellen/out_clean.csv', skip = 1, header=FALSE)
 
 # Tidydata
 colnames = c('Frame')

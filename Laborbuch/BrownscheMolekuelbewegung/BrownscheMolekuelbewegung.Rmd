@@ -1,8 +1,18 @@
 ---
-title: "Brownsche Molekülbewegung"
-author: "Milena Mensching und Justus Weyers"
+title: "Pendel"
+author: "Milena Mensching, Justus Weyers"
 date: "`r Sys.Date()`"
-output: pdf_document
+lang: de
+fontsize: 9pt
+output:
+  pdf_document: 
+    keep_tex: yes
+    df_print: kable
+  html_document:
+    df_print: kable
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
 # Simulation
@@ -13,15 +23,15 @@ output: pdf_document
 
 ## Material
 
-```{=tex}
+
 \begin{itemize}
 \item{Mikropartikel (Polystyrol) Suspension in Wasser}
 \item{Lichtmikroskop mit Objektträger}
-\item{Deckplättchen
+\item{Deckplättchen}
 \item{Thermometer}
-\item{Zur Messung und Auswertung wurden folgende Computerprogramme benutzt: ThorCam, Tracker & SciDAVis}
+\item{Zur Messung und Auswertung wurden folgende Computerprogramme benutzt: ThorCam, Tracker, SciDAVis}
 \end{itemize}
-```
+
 ## Versuchsaufbau und Durchführung
 
 AUf einen Objektträger wird ein Tropfen einer Mikropartikel (Polystyrol) Suspension in Wasser gegeben. Zwei Deckplättchen werden neben den Tropfen, und eines mittig auf die anderen beiden positioniert und unter das Mikroskop gelegt. Die Polystyrolpartikel werden scharf gestellt. Als Vergrößerung wird 40/0.65 gewählt. Mit Hilfe einer Mikroskopkamera und des Programms "ThorCam" wird die Projektion auf dem Bildschirm sichtbar.
@@ -34,25 +44,29 @@ Die größste Ungenauigkeit entsteht bei der Auswertung der Bilder, bzw. beim Ma
 
 ## Beobachtungen
 
+Zunächst werden die ermittelten Daten in die Meter umgerechnet.
+Dafür ist der Maßstab der aufgenommenen Bilder vonnöten.
+Dafür werden die PSP selbst verwendet, von denen Bekannt ist, dass deren Durchmesser 2µm sind.
+Beim Zählen der Pixel ist darauf geachtet worden, die originalauflösung zu verwenden, in der auch die Berechnung der Schrittweiten berechnet wurde.
+
+![Polystyrolpartikel mit dem Durchmesser 2µm. Der Durchmeeser ist in Pixel abgemessen und beträgt 16 Pixel.](Bilder/styrolpartikel.png){width=33%, height=33%}
+
+Aus dem Zusammenhang, dass sechzehn Bildpixel zwei Mikrometern entsprechen, folgt für die Kantenlänge eines Pixels eine Länge von $0,125 \mu m$. 
+Die kleinste ablesbare Skala in dem Bild ist der Durchmesser von $2\mu m$ des PSP.
+Für die Unsicherheit der Kantenlänge eines Pixels folgt so $u_{Pixelgröße} = \frac{1}{16}\cdot \frac{2\mu m}{2\sqrt{6}} = 0,026\mu m$. 
+
 ```{r}
-Data <- read.csv("Daten/styrolpartikel/AVI1.csv", header = T, sep =";", dec = ",")
-colnames(Data) <- Data[1,]
-Data <- Data[2:nrow(Data),]
-
-head(Data)
-
-plot(x=Data$x, y= Data$y)
-
-install.packages("tidyverse")
-library(tidyverse)
-typeof(Data$x)
-
-x <- rep(NA, nrow(Data))
-for (i in 1:nrow(Data)){
-  print(Data$x[i][1:5])
-}
-x
+# Berechnung der Kantenlänge eines Pixels
+2*10**(-6)/16
+# Berechnung Unsicherheit der Kantenlänge:
+2*10**(-6)/(16*2*sqrt(6))
 ```
+Als nächstes werden die zurückglegten Wege aller PSP im Bildausschnitt geplottet.
+Ein einzelner, ausgewählter Partikel wird exemplarisch genauer dargestellt, indem dessen "Diffusionspfad" einzeln in einem höheren Maßstab geplottet wird.
+
+![Auf diesen zwei Plots sind die Positionen aller bzw. eines markierten PSP im zeitlichen Verlauf zu sehen. Die Aufnahmedauer betrug 100 s mit 1 fps.](code/Plots/Raum.png){width=99%, height=99%}
+
+
 ## Auswertung
 
 ## Interpretation
