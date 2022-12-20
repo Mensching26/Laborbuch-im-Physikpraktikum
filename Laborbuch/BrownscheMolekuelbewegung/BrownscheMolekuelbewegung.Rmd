@@ -7,7 +7,7 @@ fontsize: 9pt
 output:
   pdf_document: 
     keep_tex: yes
-    #df_print: kable
+    df_print: kable
   html_document:
     df_print: kable
 editor_options: 
@@ -62,6 +62,7 @@ Eine Unsicherheit der Methodik besteht in der Umrechnung der Bildpunkte in Meter
 Eine zweite Unsicherheit besteht in der Auflösung des Bildes.
 Eine dritte Unsicherheit besteht in dem verwendeten Programm. 
 Letztere Unsicherheit wird aber als kleiner eingeschätzt, als die manuelle Auswertung.
+Grund dafür ist, dass die Lage des Mittelpunktes für jeden PSP in jedem Bild aus der Gesamtheit aller, zu dem entsprechenden PSP gehörigen, Pixel berechnet wurde, anstatt dies per Hand zu machen.
 
 ## Beobachtungen
 
@@ -121,6 +122,8 @@ Unterschiede in der Standardabweichung sind zwischen den wenig und den viel bewe
 Die Mittelwerte aller Verteilungen liegen, wie erwartbar, allesamt praktisch bei Null.
 
 ## Auswertung
+
+### Berechnung der Diffusionskonstante
 Mittels der folgender Formel kann für jedes Teilchen die zugehörige Diffusionskonstante $D$ berechnet werden:
 $$D=\frac{\sigma^2}{2t}$$
 Mit:
@@ -129,7 +132,8 @@ Mit:
 \item $t$: Zeitintervall zwischen zwei Bildaufnahmen ($t=1s=const.$).
 \end{itemize}
 
-### Berechnung der Diffusionskonstante
+### Berechnung der Boltzmannkonstante
 
+### Berechnung der Avogadrokonstante
 
 ## Interpretation

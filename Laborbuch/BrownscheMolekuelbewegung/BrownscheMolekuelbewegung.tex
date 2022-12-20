@@ -189,7 +189,9 @@ Eine Unsicherheit der Methodik besteht in der Umrechnung der Bildpunkte
 in Meter. Eine zweite Unsicherheit besteht in der Auflösung des Bildes.
 Eine dritte Unsicherheit besteht in dem verwendeten Programm. Letztere
 Unsicherheit wird aber als kleiner eingeschätzt, als die manuelle
-Auswertung.
+Auswertung. Grund dafür ist, dass die Lage des Mittelpunktes für jeden
+PSP in jedem Bild aus der Gesamtheit aller, zu dem entsprechenden PSP
+gehörigen, Pixel berechnet wurde, anstatt dies per Hand zu machen.
 
 \hypertarget{beobachtungen}{%
 \subsection{Beobachtungen}\label{beobachtungen}}
@@ -319,6 +321,10 @@ Verteilungen liegen, wie erwartbar, allesamt praktisch bei Null.
 \hypertarget{auswertung}{%
 \subsection{Auswertung}\label{auswertung}}
 
+\hypertarget{berechnung-der-diffusionskonstante}{%
+\subsubsection{Berechnung der
+Diffusionskonstante}\label{berechnung-der-diffusionskonstante}}
+
 Mittels der folgender Formel kann für jedes Teilchen die zugehörige
 Diffusionskonstante \(D\) berechnet werden: \[D=\frac{\sigma^2}{2t}\]
 Mit:
@@ -328,9 +334,13 @@ Mit:
 \item $t$: Zeitintervall zwischen zwei Bildaufnahmen ($t=1s=const.$).
 \end{itemize}
 
-\hypertarget{berechnung-der-diffusionskonstante}{%
+\hypertarget{berechnung-der-boltzmannkonstante}{%
 \subsubsection{Berechnung der
-Diffusionskonstante}\label{berechnung-der-diffusionskonstante}}
+Boltzmannkonstante}\label{berechnung-der-boltzmannkonstante}}
+
+\hypertarget{berechnung-der-avogadrokonstante}{%
+\subsubsection{Berechnung der
+Avogadrokonstante}\label{berechnung-der-avogadrokonstante}}
 
 \hypertarget{interpretation}{%
 \subsection{Interpretation}\label{interpretation}}
