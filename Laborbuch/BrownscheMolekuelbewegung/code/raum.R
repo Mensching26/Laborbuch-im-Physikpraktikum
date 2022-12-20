@@ -8,14 +8,14 @@ plot(x=xy[,1], y=xy[,2], ylim=c(0, 1200))
 
 ### Plottingvariablen
 # Positionierung des Maßstabes
-xm = 1100
-ym = 10
+xm = 50
+ym = 0
 
 # Auswahl des genauer untersuchten Teilchens
 nr= 4
 
 # Fenstergröße in pixel
-ww = 1200
+ww = 1290
 
 # Plottingarameter
 par(mfrow=c(1,2), mar=c(5,4,4,2))
@@ -32,7 +32,7 @@ text(x=xm+25, y=ym, labels = "10µm", pos = 1, cex = 1)
 
 # Hinzufügen einer Box um das näher zu betrachtende PSP
 rect(max(x_pixel[,nr]), min(y_pixel[,nr]), min(x_pixel[,nr]),
-     max(y_pixel[,nr]), border="red")
+     max(y_pixel[,nr]), border="red", lwd=2)
 
 # Hinzufügen einer Legende
 legend("bottomright",
@@ -44,6 +44,7 @@ legend("bottomright",
 # Einzeichnen der Diffusionsphfade und Anfange- bzw. Endpunkte
 for (i in 1:17){
  points(x=x_pixel[1,i], y=y_pixel[1,i], col = "red", pch = 20, cex=2)
+ text(x=x_pixel[1,i], y=y_pixel[1,i], pos=3, labels=paste("T", i))
  points(x=x_pixel[nrow(y_pixel),i], y=y_pixel[nrow(x_pixel),i], col = "darkblue", pch = 20, cex=2)
  points(x_pixel[,i], y_pixel[,i], type="l")
 }
