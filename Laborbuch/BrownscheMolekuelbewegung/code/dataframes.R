@@ -21,6 +21,9 @@ y_pixel = data_pixel[,seq(3, ncol(data_pixel )-1, by=3)]
 # Umdrehen der y-Werte (wegen des strangen opencv-koordinatensystems)
 y_pixel = y_pixel * -1 + 1200
 
+calculateDistance1D(data_pixel$`X 14`)
+plot(x_pixel$`X 14`, y_pixel$`y 14`, type = "l")
+
 # Speichern der Werte in Pixeln
 write.csv(x_pixel, "Tabellen/x_pixel.csv", row.names=FALSE)
 write.csv(y_pixel, "Tabellen/y_pixel.csv", row.names=FALSE)
@@ -32,6 +35,21 @@ y_meter = y_pixel * Umrechnungsfaktor
 write.csv(x_meter, "Tabellen/x_meter.csv", row.names=FALSE)
 write.csv(y_meter, "Tabellen/y_meter.csv", row.names=FALSE)
 
+### Funktion zur Berechnung der Schrittweiten, spaltenweise
+calculateDistance1D = function(vector){
+  shift_vector = c(0, vector[1:(length(vector)-1)])
+  dist = vector-shift_vector
+  dist[1] = 0
+  return(dist)
+}
+
 # Erstellung eines Dataframes der Schrittweiten 
-d_meter <- sqrt(x_meter**2+y_meter**2)
+dx_meter<-data.frame(x_meter)
+dy_meter<-data.frame(y_meter)
+for (i in 1:17) {
+  dx_meter[,i] = calculateDistance1D(x_meter[,i])
+  dy_meter[,i] = calculateDistance1D(y_meter[,i])
+}
+
+d_meter <- sqrt(dx_meter**2+dy_meter**2)
 write.csv(d_meter, "Tabellen/d_meter.csv", row.names=FALSE)

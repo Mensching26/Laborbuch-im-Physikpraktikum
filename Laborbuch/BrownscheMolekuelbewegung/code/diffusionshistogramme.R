@@ -10,19 +10,19 @@ calculateDistance1D = function(vector){
 }
 
 ### Berechnung der Schrittweite der einzelnen random-walks
-# Teilchen4
-spalten = 4
+# Teilchen2
+spalten = 2
 distances = c()
 for (col in spalten){
   walk = calculateDistance1D(d_meter[, col])
   distances = append(distances, walk)
 } 
-T4 <- distances
-mean4 <- mean(distances)
-sd4 <- sd(distances)
+T2 <- distances
+mean2 <- mean(distances)
+sd2 <- sd(distances)
 
 # Schnelle Teilchen
-spalten = c(3,4,7,10,14)
+spalten = c(1, 2, 4, 6, 10)
 distances = c()
 for (col in spalten){
   walk = calculateDistance1D(d_meter[, col])
@@ -33,7 +33,7 @@ meanSchnell <- mean(distances)
 sdSchnell <- sd(distances)
 
 # Langsame Teilchen
-spalten = c(6,16,15,12,2,5,17,13,8,1,9,11)
+spalten = c(3, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17)
 distances = c()
 for (col in spalten){
   walk = calculateDistance1D(d_meter[, col])
@@ -72,7 +72,7 @@ histogram <- function(vektor, title){
 }
 
 # Ausgabe
-histogram(T4, "Histogramm der Random-Walk-Weite Teilchen 4")
-histogram(TSchnell, "Histogramm der Random-Walk-Weite der viel bewegten Teilchen")
-histogram(TLangsam, "Histogramm der Random-Walk-Weite der wenig bewegten Teilchen")
-histogram(TAlle, "Histogramm der Random-Walk-Weite aller Teilchen")
+histogram(T2, "Histogramm der Random-Walk-Schrittweite Teilchen 2")
+histogram(TSchnell, "Histogramm der Random-Walk-Schrittweite der viel bewegten Teilchen")
+histogram(TLangsam, "Histogramm der Random-Walk-Schrittweite der wenig bewegten Teilchen")
+histogram(TAlle, "Histogramm der Random-Walk-Schrittweite aller Teilchen")

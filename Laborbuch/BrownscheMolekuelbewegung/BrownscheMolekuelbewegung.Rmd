@@ -7,7 +7,7 @@ fontsize: 9pt
 output:
   pdf_document: 
     keep_tex: yes
-    df_print: kable
+    #df_print: kable
   html_document:
     df_print: kable
 editor_options: 
@@ -21,37 +21,54 @@ editor_options:
 
 ## Thema
 
-## Material
+Bestimmung dere Diffusionskonstanten eines Polystyrolpartikels, sowie die Berechnung der Boltzmann- und Avogadrokonstanten.
 
+## Material
 
 \begin{itemize}
 \item{Mikropartikel (Polystyrol) Suspension in Wasser}
 \item{Lichtmikroskop mit Objektträger}
 \item{Deckplättchen}
 \item{Thermometer}
-\item{Zur Messung und Auswertung wurden folgende Computerprogramme benutzt: ThorCam, Tracker, SciDAVis}
+\item{Zur Messung und Auswertung wurden folgende Computerprogramme benutzt: ThorCam, Tracker, SciDAVis, Python, R.}
 \end{itemize}
 
 ## Versuchsaufbau und Durchführung
 ![Mikroskop mit Probe](Bilder/Objektträger.png){width=20%, height=20%}
 
-Auf einen Objektträger wurde ein Tropfen einer Mikropartikel (Polystyrol) Suspension in Wasser gegeben. Zwei Deckplättchen wurden neben den Tropfen, und eines mittig auf die anderen beiden positioniert und unter das Mikroskop gelegt. Die Polystyrolpartikel (PSP) wurden scharf gestellt. Als Vergrößerung wurde 40/0.65 gewählt. Mit Hilfe einer Mikroskopkamera und des Programms "ThorCam" wird die Projektion auf dem Bildschirm sichtbar.
+Auf einen Objektträger wurde ein Tropfen einer Mikropartikel (Polystyrol) Suspension in Wasser gegeben. 
+Zwei Deckplättchen wurden neben den Tropfen, und eines mittig auf die anderen beiden positioniert und unter das Mikroskop gelegt. 
+Die Polystyrolpartikel (PSP) wurden scharf gestellt. 
+Als Vergrößerung wurde 40/0.65 gewählt. 
 
-Nach Aufnehmen der Messreihe wurde die Temperatur gemessen. Diese betrug 21,7°C. Danach wurde mit Hilfe des Programms "Tracker" die Position des Teilchens ausgewertet. Dafür wird in einem Datensatz von 100 Bildern das "Teilchen of interest" mit dem Cursor markiert.
+## Durchführung
+
+Mit Hilfe einer Mikroskopkamera und des Programms "ThorCam" wird die Projektion auf dem Bildschirm sichtbar.
+Eine Zeitreihe über den Zeitraum von hundert Sekunden und im Umfang von 100 Bildern wurde von den PSP automatisch, mittels "ThorCam", erstellt.
+
+Nach Aufnehmen der Messreihe wurde die Temperatur gemessen. 
+Diese betrug 21,7°C. 
+Danach wurde mit Hilfe des Programms "Tracker" die Position des Teilchens ausgewertet. 
+Dafür wird in einem Datensatz von 100 Bildern das "Teilchen of interest" mit dem Cursor markiert.
+
+Nachdem sich die Verarbeitung der Daten als kompliziert herausgestellt hatte, wurde abweichend von erster Methode eine zweite Auswertung des Bildmaterials vorgenommen.
+Diese bestand darin, mittels eines Programmes die Mittelpunkte aller 17 PSP in allen 100 Einzelbildern zu bestimmen.
+Das verwendete Pythonscript umfasste eine Schwarz-Weiß-Maskierung der Einzelbilder und eine Clusterung. 
+Der Mittelpunkt jedes PSP wurden als Mittelpunkt aller zugehörigen Bildpixel in Bildkoordinaten berechnet und im Zeitverlauf als csv-Datei gespeichert.
 
 ## Fehlerbetrachtung
 
-Die größste Ungenauigkeit entsteht bei der Auswertung der Bilder, bzw. beim Markieren des zu beobachtenden Teilchens. 
-Es kann nicht garantiert werden, dass der Cursor allzeit perfekt mittig auf dem Teilchen liegt.
-
-## Durchführung
+Eine Unsicherheit der Methodik besteht in der Umrechnung der Bildpunkte in Meter.
+Eine zweite Unsicherheit besteht in der Auflösung des Bildes.
+Eine dritte Unsicherheit besteht in dem verwendeten Programm. 
+Letztere Unsicherheit wird aber als kleiner eingeschätzt, als die manuelle Auswertung.
 
 ## Beobachtungen
 
 Zu Beginn werden die zurückglegten Wege aller PSP im Bildausschnitt geplottet.
-Ein einzelner, ausgewählter Partikel wird exemplarisch genauer dargestellt, indem dessen "Diffusionspfad" einzeln in einem höheren Maßstab geplottet wird.
+Ein einzelner, ausgewählter Partikel (NR. 2) wird exemplarisch genauer dargestellt, indem dessen Bewegungspfad einzeln in einem höheren Maßstab geplottet wird.
 
-![Auf diesen zwei Plots sind die Positionen aller bzw. eines markierten PSP im zeitlichen Verlauf zu sehen. Die Aufnahmedauer betrug 100 s mit 1 fps. Die PSP wurden zudem nummeriert.](code/Plots/Raum.png){width=99%, height=99%}
+![Auf diesen zwei Plots sind die Positionen aller bzw. eines markierten PSP im zeitlichen Verlauf zu sehen. Die Aufnahmedauer betrug 100 s mit 1 fps. Die PSP wurden zudem nummeriert.](code/Plots/Raum.png){width=20%, height=20%}
 
 Auf Abbildung 2 ist erkennbar, dass die 17 beobachteten PSP sich in ihren zurückgelegten Wegen deutlich unterscheiden.
 Während 12 PSP sich praktisch nicht von ihrer Ausgangsposition bewegt haben, ist bei sechs Teilchen eine deutliche Abweichung zwischen Anfangs- und Endposition auszumachen.
@@ -59,7 +76,8 @@ Es ist nicht verwunderlich, dass viele Partikel keinen räumlichen Versatz aufwe
 Netto sollte die Bewegung aller Randomwalks zusammengenommen zu einem Verharren jedes Teilchens an seinem Ursprung führen, Abweichungen durch die Standardabweichungen sind möglich.
 Andere Erklärungen, wie die Ortsgebundenheit als Folge von adhäsiven Kräften zwischen PSP und den Glasplättchen sind aber auch denkbar.
 Zwar sind auch für die scheinbar unbewegten Teilchen Bewegungen bestimmt worden, diese sind aber mikroskopisch kaum nachweisbar und könnten ein Resultat der Unsicherheit beim verwendeten visuellen Messverfahren sein. 
-Interpretationsspielraum geben die zurückgelegten Pfade der fünf anderen Teilchen (T 3, 4, 7, 10, 14, siehe Abbildung 3).
+
+Interpretationsspielraum geben die zurückgelegten Pfade der fünf anderen Teilchen (T 1, 2, 4, 6, 10, siehe Abbildung 2).
 Diese weisen trotz aller Zufälligkeit der einzelnen random-walks eine gewisse Tendenz zu einer Bewegung entgegen der y-Achse auf.
 Hier stellt such die Frage, ob neben der diffusiven Bewegungskomponente auch eine advektive Transportkomponente einen Einfluss auf die Teilchenbewegung hat.
 Dies würde insofern gut den Sachverhalt erklären, als dass eine zufällige, diffusive Bewegungskomponente und eine der y-Achse entgegengerichteten, advektiven Hauptbewegungskomponente zusammengenommen, für ein Ensemble von Teilchen solche Bewegungspfaden bewirken würde.
@@ -72,7 +90,7 @@ Dafür ist der Maßstab der aufgenommenen Bilder vonnöten.
 Dafür werden die PSP selbst verwendet, von denen bekannt ist, dass deren Durchmesser 2µm beträgt.
 Beim Zählen der Pixel ist darauf geachtet worden, die Originalauflösung zu verwenden, in der auch die Berechnung der Schrittweiten berechnet wurde.
 
-![Polystyrolpartikel mit dem Durchmesser 2µm. Der Durchmesser ist in Pixel abgemessen und beträgt 16 Pixel.](Bilder/styrolpartikel.png){width=33%, height=33%}
+![Polystyrolpartikel mit dem Durchmesser 2µm. Der Durchmesser ist in Pixel abgemessen und beträgt 16 Pixel.](Bilder/styrolpartikel.png){width=21%, height=21%}
 
 Aus dem Zusammenhang, dass sechzehn Bildpixel zwei Mikrometern entsprechen, folgt für die Kantenlänge eines Pixels eine Länge von $0,125 \mu m$. 
 Die kleinste ablesbare Skala in dem Bild ist der Durchmesser von $2\mu m$ des PSP.
@@ -85,23 +103,31 @@ Für die Unsicherheit der Kantenlänge eines Pixels folgt so $u_{Pixellänge} = 
 ```
 
 ### Statistische Untersuchung
-Nach dieser Umrechnung kann mit statistischen Mitteln versucht werden weitere Aussagen über das Diffusionsverhalten der PSP zu treffen.
+
+Nach dieser Umrechnung kann mit statistischen Mitteln versucht werden, weitere Aussagen über das Diffusionsverhalten der PSP zu treffen.
 Dazu werden verschiedene Histogramme erstellt, die folgende Bewegungen, der in Abbildung 2 nummerierten Teilchen Erfassen:
 \begin{itemize}
-\item Bewegung von Teilchen 4
-\item Bewegung der viel bewegten Teilchen (Teilchen 3,4,7,10,14)
-\item Bewegung der webig bewegten Teilchen (Teilchen 6,16,15,12,2,5,17,13,8,1,9,11)
+\item Bewegung von Teilchen 2
+\item Bewegung der viel bewegten Teilchen (Teilchen 1, 2, 4, 6, 10)
+\item Bewegung der wenig bewegten Teilchen (Teilchen 3, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17)
 \item Bewegung aller Teilchen
 \end{itemize}
-Untersucht werden die Schrittweiten in x und y Richtung, deren Betrag über den Satz des pythagoras berechnet wurde.
+Untersucht werden die Schrittweiten in x und y Richtung, deren Betrag über den Satz des Pythagoras berechnet wurde.
 
-![Die vier Histogramme zeigen die Häufigkeit der Schrittweiten pro Random-walk für vier verschiedene Gruppen von Teilchen](code/Plots/Hist.png)
+![Die vier Histogramme zeigen die Häufigkeit der Schrittweiten pro Random-walk für vier verschiedene Gruppen von Teilchen](code/Plots/Hist.png){width=31%, height=31%}
 
 Die Histogramme sehen eigentlich alle ganz gut normalverteilt aus. 
-Unterschiede in der Standardabweichung sind zwischen den wenig und den viel bewegten Teilchen erkennbar, bei letzteren ist die Standardabweichung um $0,021\mu m$ größer.
+Unterschiede in der Standardabweichung sind zwischen den wenig und den viel bewegten Teilchen erkennbar, bei letzteren ist die Standardabweichung um $0,45\mu m$ größer.
 Die Mittelwerte aller Verteilungen liegen, wie erwartbar, allesamt praktisch bei Null.
 
 ## Auswertung
+Mittels der folgender Formel kann für jedes Teilchen die zugehörige Diffusionskonstante $D$ berechnet werden:
+$$D=\frac{\sigma^2}{2t}$$
+Mit:
+\begin{itemize}
+\item $\sigma$: Standardabweichung der Schrittweite eines Random-walks für ein PSP
+\item $t$: Zeitintervall zwischen zwei Bildaufnahmen ($t=1s=const.$).
+\end{itemize}
 
 ### Berechnung der Diffusionskonstante
 

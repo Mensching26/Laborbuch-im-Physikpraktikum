@@ -12,7 +12,7 @@ xm = 50
 ym = 0
 
 # Auswahl des genauer untersuchten Teilchens
-nr= 4
+nr= 2
 
 # Fenstergröße in pixel
 ww = 1290
@@ -50,11 +50,11 @@ for (i in 1:17){
 }
 
 # Plot walk of a partikle
-plot(x=y_pixel[,nr], y=x_pixel[,nr], type = "l", asp = 1,
+plot(x=x_pixel[,nr], y=y_pixel[,nr], type = "l", asp = 1,
    xlab = "x-Position in Pixel", ylab = "y-Position in Pixel",
    main="Pfad des markierten Teilchens")
-points(x=y_pixel[1,nr], y=x_pixel[1,nr], cex = 2, col = "firebrick3", pch=20)
-points(x=y_pixel[100,nr], y=x_pixel[100,nr], cex = 2, col = "darkblue", pch=20)
+points(x=x_pixel[1,nr], y=y_pixel[1,nr], cex = 2, col = "firebrick3", pch=20)
+points(x=x_pixel[100,nr], y=y_pixel[100,nr], cex = 2, col = "darkblue", pch=20)
 
 # Hinzufügen eines Maßstabes mit Beschriftung
 xm = 1020

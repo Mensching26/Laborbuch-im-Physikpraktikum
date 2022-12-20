@@ -1,37 +1,13 @@
-### Einlesen des Schrittweiten dataframes
+### Einlesen des Random-Walk-Schrittweiten (RWS) Dataframes
 d_meter <- read.csv('Tabellen/d_meter.csv')
-
-### Funktion zur Berechnung der Schrittweiten, spaltenweise
-calculateDistance1D = function(vector){
-  shift_vector = c(0, vector[1:(length(vector)-1)])
-  dist = vector-shift_vector
-  dist[1] = 0
-  return(dist)
-}
-
-### Berechnung der Schrittweite der einzelnen random-walks
-# Teilchen4
-spalten = 4
-distances = c()
-for (col in spalten){
-  walk = calculateDistance1D(d_meter[, col])
-  distances = append(distances, walk)
-} 
-T4 <- distances
-mean4 <- mean(distances)
-sd4 <- sd(distances)
-
-sd4**2/(2*1)
-
-
-# Alle Teilchen
-distances = c()
-for (col in 1:17){
-  walk = calculateDistance1D(d_meter[, col])
-  distances = append(distances, walk)
-} 
-TAlle<- distances
-meanAlle <- mean(distances)
-sdAlle <- sd(distances)
-
-sdAlle**2/(2*1)
+# Eingabe Zeitlicher Abstand zwischen zwei Aufnahmen
+t = 1 #s
+# Berechnung der Standardabweichung aller 17 RWS
+sigma <- apply(d_meter,2,sd)
+# Funktion zum Berechnen der Diffusionskonstante
+funcDiff <- function(c) c**2/(2*t)
+# Berechnung der Diffusionskonstante
+Diffusionskonstanten <- data.frame(Diffusionskonstante=funcDiff(sigma))
+# Ausgabe als Dataframe
+rownames(Diffusionskonstanten) = paste("T", 1:17)
+colnames(Diffusionskonstanten) = "Diffusionskonstante D [m²/s]"
