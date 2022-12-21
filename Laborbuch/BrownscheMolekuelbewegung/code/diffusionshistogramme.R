@@ -72,7 +72,7 @@ histogram <- function(vektor, title){
 }
 
 # Ausgabe
-histogram(T2, "Histogramm der Random-Walk-Schrittweite Teilchen 2")
-histogram(TSchnell, "Histogramm der Random-Walk-Schrittweite der viel bewegten Teilchen")
-histogram(TLangsam, "Histogramm der Random-Walk-Schrittweite der wenig bewegten Teilchen")
-histogram(TAlle, "Histogramm der Random-Walk-Schrittweite aller Teilchen")
+histogram(T2, "1) Histogramm der Random-Walk-Schrittweite Teilchen 2")
+histogram(TSchnell, "2) Histogramm der Random-Walk-Schrittweite der viel bewegten Teilchen")
+histogram(TLangsam, "3) Histogramm der Random-Walk-Schrittweite der wenig bewegten Teilchen")
+histogram(TAlle, "4) Histogramm der Random-Walk-Schrittweite aller Teilchen")

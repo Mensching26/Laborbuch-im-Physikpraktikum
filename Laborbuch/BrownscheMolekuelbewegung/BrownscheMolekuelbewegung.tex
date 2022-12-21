@@ -116,7 +116,7 @@
 
 \title{Braunsche Molekularbewegung}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-20}
+\date{2022-12-21}
 
 \begin{document}
 \maketitle
@@ -168,19 +168,23 @@ Projektion auf dem Bildschirm sichtbar. Eine Zeitreihe über den Zeitraum
 von hundert Sekunden und im Umfang von 100 Bildern wurde von den PSP
 automatisch, mittels ``ThorCam'', erstellt.
 
-Nach Aufnehmen der Messreihe wurde die Temperatur gemessen. Diese betrug
-21,7°C. Danach wurde mit Hilfe des Programms ``Tracker'' die Position
-des Teilchens ausgewertet. Dafür wird in einem Datensatz von 100 Bildern
-das ``Teilchen of interest'' mit dem Cursor markiert.
+Nach Aufnehmen der Messreihe wurde die Temperatur im Lichtgang des
+Mikroskopes für ca. 20 Sekunden gemessen. Diese betrug ca. 21,7°C. Die
+Messunsicherheit liegt bei
+\(U_{Temperatur}=\frac{0,1^{\circ}C}{2\sqrt{6}}= 0,020^{\circ}C\) Danach
+wurde mit Hilfe des Programms ``Tracker'' die Position des Teilchens
+ausgewertet. Dafür wird in einem Datensatz von 100 Bildern das
+``Teilchen of interest'' mit dem Cursor markiert.
 
 Nachdem sich die Verarbeitung der Daten als kompliziert herausgestellt
 hatte, wurde abweichend von erster Methode eine zweite Auswertung des
 Bildmaterials vorgenommen. Diese bestand darin, mittels eines Programmes
 die Mittelpunkte aller 17 PSP in allen 100 Einzelbildern zu bestimmen.
-Das verwendete Pythonscript umfasste eine Schwarz-Weiß-Maskierung der
-Einzelbilder und eine Clusterung. Der Mittelpunkt jedes PSP wurden als
-Mittelpunkt aller zugehörigen Bildpixel in Bildkoordinaten berechnet und
-im Zeitverlauf als csv-Datei gespeichert.
+Das Ergebnis dieser Methode war eine große csv-Datei mit den Koordinaten
+aller PSP-Mittelpunkte im Zeitlichen verlauf. Es wurde darauf
+verzichtet, diese hier abzudrucken, weil diese erstens zu groß ist,
+zweitens keinen informativen Mehrwert bietet und drittens eine grafische
+Auswertung der Ergebnisse in den nächsten Abschnitten vorgenommen wird.
 
 \hypertarget{fehlerbetrachtung}{%
 \subsection{Fehlerbetrachtung}\label{fehlerbetrachtung}}
@@ -217,34 +221,32 @@ auszumachen. Es ist nicht verwunderlich, dass viele Partikel keinen
 räumlichen Versatz aufweisen. Netto sollte die Bewegung aller
 Randomwalks zusammengenommen zu einem Verharren jedes Teilchens an
 seinem Ursprung führen, Abweichungen durch die Standardabweichungen sind
-möglich. Andere Erklärungen, wie die Ortsgebundenheit als Folge von
-adhäsiven Kräften zwischen PSP und den Glasplättchen sind aber auch
+möglich. Andere Erklärungen, wie die Ortsgebundenheit der PSP als Folge
+von adhäsiven Kräften zwischen PSP und den Glasplättchen sind aber auch
 denkbar. Zwar sind auch für die scheinbar unbewegten Teilchen Bewegungen
 bestimmt worden, diese sind aber mikroskopisch kaum nachweisbar und
 könnten ein Resultat der Unsicherheit beim verwendeten visuellen
 Messverfahren sein.
 
 Interpretationsspielraum geben die zurückgelegten Pfade der fünf anderen
-Teilchen (T 1, 2, 4, 6, 10, siehe Abbildung 2). Diese weisen trotz aller
-Zufälligkeit der einzelnen random-walks eine gewisse Tendenz zu einer
+Teilchen (T 1, 2, 4, 6, 10, siehe Abbildung 2). Die Schrittweite dieser
+Teilchen war 2 Größenordnungen höher, als die der ``wenig unbewegten''
+Teilchen. Jene ``viel bewegten Teilchen'' weisen trotz aller
+Zufälligkeit der einzelnen Random-walks eine gewisse Tendenz zu einer
 Bewegung entgegen der y-Achse auf. Hier stellt such die Frage, ob neben
 der diffusiven Bewegungskomponente auch eine advektive
-Transportkomponente einen Einfluss auf die Teilchenbewegung hat. Dies
-würde insofern gut den Sachverhalt erklären, als dass eine zufällige,
-diffusive Bewegungskomponente und eine der y-Achse entgegengerichteten,
-advektiven Hauptbewegungskomponente zusammengenommen, für ein Ensemble
-von Teilchen solche Bewegungspfaden bewirken würde. Ursache könnte eine
-kleine Strömung auf mikroskopischer Ebene zwischen den Glasplättchen
-sein, möglicherweise verursacht durch einen Temperaturgradienten
-aufgrund der erhöhten Temperatur des Wassers im Lichtgang des
-Mikroskopes.
+Transportkomponente einen Einfluss auf die Teilchenbewegung hat. Ursache
+könnte eine kleine Strömung auf mikroskopischer Ebene zwischen den
+Glasplättchen sein, möglicherweise verursacht durch einen
+Temperaturgradienten aufgrund der erhöhten Temperatur des Wassers im
+Lichtgang des Mikroskopes.
 
 \hypertarget{umrechnung-der-messwerte-in-meter}{%
 \subsubsection{Umrechnung der Messwerte in
 Meter}\label{umrechnung-der-messwerte-in-meter}}
 
 Im nächsten Schritt können die ermittelten Werte für die Diffusionspfade
-von Pixel in Meter umgerechnet werden. Dafür ist der Maßstab der
+von Pixel in Meter umgerechnet werden. Hierbei ist der Maßstab der
 aufgenommenen Bilder vonnöten. Dafür werden die PSP selbst verwendet,
 von denen bekannt ist, dass deren Durchmesser 2µm beträgt. Beim Zählen
 der Pixel ist darauf geachtet worden, die Originalauflösung zu
@@ -291,19 +293,33 @@ eines Pixels folgt so
 Untersuchung}\label{statistische-untersuchung}}
 
 Nach dieser Umrechnung kann mit statistischen Mitteln versucht werden,
-weitere Aussagen über das Diffusionsverhalten der PSP zu treffen. Dazu
-werden verschiedene Histogramme erstellt, die folgende Bewegungen, der
-in Abbildung 2 nummerierten Teilchen Erfassen:
+weitere Aussagen über das Diffusionsverhalten der PSP zu treffen.
+Zunächst werden hier alle 17 beobachteten Teilchen behandelt, einfach,
+weil es interessant ist. Im weiteren Verlauf soll die
+Diffusionskonstante, die Boltzmannkonstante und die Avogadrokonstante
+aber nur anhand eines ausgewählten Teilchens erfolgen, Teilchen 2, siehe
+Abbildung 2.
+
+Zunächst werden also die Random-walk-Schrittweiten (RWS) aller Teilchen
+beschrieben. Die RWS eines Teilchens berechnet sich aus den
+Verschiebungskomponenten in x- und y-Richtung während eines
+Random-walkes und der anschließenden Berechnung des Betrages der
+resultierenden Bewegung. Um zu unterscheiden, ob eine Bewegung vorwärts,
+oder rückwärts erfolgte wurde eine Konvention bezüglich des Vorzeichens
+der RWS getroffen: Dort, wo x- und y-Verschiebungskomponente
+vorzeichengleich sind wurde ein positives, andernfalls ein negatives
+Vorzeichen vergeben. Dieses Vorgehen sollte für statistische Zwecke
+ausreichend sein. Zur Veranschaulichung der Ergebnisse werden
+Histogramme verschiedener Gruppen von Teilchen, grob gegliedert nach der
+Gesamtverschiebung, die anhand von Abbildung 2 für jedes PSP ersichtlich
+ist, erstellt:
 
 \begin{itemize}
-\item Bewegung von Teilchen 2
-\item Bewegung der viel bewegten Teilchen (Teilchen 1, 2, 4, 6, 10)
-\item Bewegung der wenig bewegten Teilchen (Teilchen 3, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17)
-\item Bewegung aller Teilchen
+\item Histogrammm 1: RWS von Teilchen 2
+\item Histogrammm 2: RWS der "viel bewegten" Teilchen (Teilchen 1, 2, 4, 6, 10)
+\item Histogrammm 3: RWS der "wenig bewegten" Teilchen (Teilchen 3, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17)
+\item Histogrammm 4: RWS aller Teilchen
 \end{itemize}
-
-Untersucht werden die Schrittweiten in x und y Richtung, deren Betrag
-über den Satz des Pythagoras berechnet wurde.
 
 \begin{figure}
 \centering
@@ -320,6 +336,10 @@ Verteilungen liegen, wie erwartbar, allesamt praktisch bei Null.
 
 \hypertarget{auswertung}{%
 \subsection{Auswertung}\label{auswertung}}
+
+Für die Berechnung verschiedener Konstanten werden nun nicht mehr die
+Bewegungen aller Teilchen untersucht, sondern lediglich die des
+Teilchens 2, siehe Abbildung 2.
 
 \hypertarget{berechnung-der-diffusionskonstante}{%
 \subsubsection{Berechnung der

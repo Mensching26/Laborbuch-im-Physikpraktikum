@@ -51,5 +51,12 @@ for (i in 1:17) {
   dy_meter[,i] = calculateDistance1D(y_meter[,i])
 }
 
-d_meter <- sqrt(dx_meter**2+dy_meter**2)
+# Vorzeichenbehandlung
+vx <- dx_meter>=0
+vy <- dy_meter>=0
+v <- vx==vy
+v[v==TRUE] <- 1
+v[v==0] <- -1
+
+d_meter <- sqrt(dx_meter**2+dy_meter**2)*v
 write.csv(d_meter, "Tabellen/d_meter.csv", row.names=FALSE)
