@@ -17,6 +17,12 @@ editor_options:
 
 # Simulation
 
+![Simulation 1. 1 Teilchen, 5 Sekunden, 300 Stöße pro s](Daten/a.png){width=10%, height=10%}
+
+![Simulation 2. 10 Teilchen, 5 Sekunden, 300 Stöße pro s](Daten/b.png){width=10%, height=10%}
+
+![Simulation 3. 10 Teilchen, 5 Sekunden, 100 Stöße pro s](Daten/c.png){width=10%, height=10%}
+
 # Experiment
 
 ## Thema
@@ -45,6 +51,7 @@ Als Vergrößerung wurde 40/0.65 gewählt.
 
 Mit Hilfe einer Mikroskopkamera und des Programms "ThorCam" wird die Projektion auf dem Bildschirm sichtbar.
 Eine Zeitreihe über den Zeitraum von hundert Sekunden und im Umfang von 100 Bildern wurde von den PSP automatisch, mittels "ThorCam", erstellt.
+Über die Messunsicherheit der Länge der Zeitintervalle ist nichts bekannt.
 
 Nach Aufnehmen der Messreihe wurde die Temperatur im Lichtgang des Mikroskopes für ca. 20 Sekunden gemessen. 
 Diese betrug ca. 21,7°C.
@@ -52,18 +59,18 @@ Die Messunsicherheit liegt bei $U_{Temperatur}=\frac{0,1^{\circ}C}{2\sqrt{6}}= 0
 Danach wurde mit Hilfe des Programms "Tracker" die Position des Teilchens ausgewertet. 
 Dafür wird in einem Datensatz von 100 Bildern das "Teilchen of interest" mit dem Cursor markiert.
 
-Nachdem sich die Verarbeitung der Daten als kompliziert herausgestellt hatte, wurde abweichend von erster Methode eine zweite Auswertung des Bildmaterials vorgenommen.
-Diese bestand darin, mittels eines Programmes die Mittelpunkte aller 17 PSP in allen 100 Einzelbildern zu bestimmen.
-Das Ergebnis dieser Methode war eine große csv-Datei mit den Koordinaten aller PSP-Mittelpunkte im Zeitlichen verlauf.
-Es wurde darauf verzichtet, diese hier abzudrucken, weil diese erstens zu groß ist, zweitens keinen informativen Mehrwert bietet und drittens eine grafische Auswertung der Ergebnisse in den nächsten Abschnitten vorgenommen wird.
+Neben dieser Methode wurde eine zweite Auswertung des Bildmaterials vorgenommen.
+Diese bestand darin, mittels eines Pythonscripts (siehe Anhang) die Mittelpunkte aller 17 PSP in allen 100 Einzelbildern zu bestimmen.
+Das Ergebnis dieses Verfahrens war eine große Datei mit den Koordinaten aller 17 PSP-Mittelpunkte in allen 100 Bildern.
+Es wurde darauf verzichtet, diese hier abzudrucken, stattdessen werden die Ergebnisse in Abbildung 4 grafisch dargestellt.
+Mit diesen Daten wird weitergearbeitet.
 
 ## Fehlerbetrachtung
 
 Eine Unsicherheit der Methodik besteht in der Umrechnung der Bildpunkte in Meter.
 Eine zweite Unsicherheit besteht in der Auflösung des Bildes.
-Eine dritte Unsicherheit besteht in dem verwendeten Programm. 
-Letztere Unsicherheit wird aber als kleiner eingeschätzt, als die manuelle Auswertung.
-Grund dafür ist, dass die Lage des Mittelpunktes für jeden PSP in jedem Bild aus der Gesamtheit aller, zu dem entsprechenden PSP gehörigen, Pixel berechnet wurde, anstatt dies per Hand zu machen.
+Durch die Verwendete Methode konnte eine Manuelle Verfolgung der PSP umgangen werden.
+Diese computervisuelle Methode sollte zu kleineren fehlern führen. 
 
 ## Beobachtungen
 
@@ -72,17 +79,16 @@ Ein einzelner, ausgewählter Partikel (NR. 2) wird exemplarisch genauer dargeste
 
 ![Auf diesen zwei Plots sind die Positionen aller bzw. eines markierten PSP im zeitlichen Verlauf zu sehen. Die Aufnahmedauer betrug 100 s mit 1 fps. Die PSP wurden zudem nummeriert.](code/Plots/Raum.png){width=20%, height=20%}
 
-Auf Abbildung 2 ist erkennbar, dass die 17 beobachteten PSP sich in ihren zurückgelegten Wegen deutlich unterscheiden.
+Auf Abbildung 4 ist erkennbar, dass die 17 beobachteten PSP sich in ihren zurückgelegten Wegen deutlich unterscheiden.
 Während 12 PSP sich praktisch nicht von ihrer Ausgangsposition bewegt haben, ist bei sechs Teilchen eine deutliche Abweichung zwischen Anfangs- und Endposition auszumachen.
 Es ist nicht verwunderlich, dass viele Partikel keinen räumlichen Versatz aufweisen.
 Netto sollte die Bewegung aller Randomwalks zusammengenommen zu einem Verharren jedes Teilchens an seinem Ursprung führen, Abweichungen durch die Standardabweichungen sind möglich.
-Andere Erklärungen, wie die Ortsgebundenheit der PSP als Folge von adhäsiven Kräften zwischen PSP und den Glasplättchen sind aber auch denkbar.
-Zwar sind auch für die scheinbar unbewegten Teilchen Bewegungen bestimmt worden, diese sind aber mikroskopisch kaum nachweisbar und könnten ein Resultat der Unsicherheit beim verwendeten visuellen Messverfahren sein. 
+Es ist aber auch möglich, dass diese Teilchen an den Glaspättchen kleben.
+Zwar sind auch für die scheinbar unbewegten Teilchen Bewegungen bestimmt worden, diese sind aber mikroskopisch kaum nachweisbar und könnten ein Resultat der Unsicherheit beim verwendeten visuellen Auswertungsverfahren sein. 
 
-Interpretationsspielraum geben die zurückgelegten Pfade der fünf anderen Teilchen (T 1, 2, 4, 6, 10, siehe Abbildung 2).
-Die Schrittweite dieser Teilchen war 2 Größenordnungen höher, als die der "wenig unbewegten" Teilchen.
+Interpretationsspielraum geben die zurückgelegten Pfade der fünf anderen Teilchen (T 1, 2, 4, 6, 10, siehe Abbildung 4).
 Jene "viel bewegten Teilchen" weisen trotz aller Zufälligkeit der einzelnen Random-walks eine gewisse Tendenz zu einer Bewegung entgegen der y-Achse auf.
-Hier stellt such die Frage, ob neben der diffusiven Bewegungskomponente auch eine advektive Transportkomponente einen Einfluss auf die Teilchenbewegung hat.
+Hier stellt sich die Frage, ob neben der diffusiven Bewegungskomponente auch eine advektive Transportkomponente einen Einfluss auf die Teilchenbewegung hatte.
 Ursache könnte eine kleine Strömung auf mikroskopischer Ebene zwischen den Glasplättchen sein, möglicherweise verursacht durch einen Temperaturgradienten aufgrund der erhöhten Temperatur des Wassers im Lichtgang des Mikroskopes.
 
 ### Umrechnung der Messwerte in Meter
@@ -107,34 +113,48 @@ Für die Unsicherheit der Kantenlänge eines Pixels folgt so $u_{Pixellänge} = 
 ### Statistische Untersuchung
 
 Nach dieser Umrechnung kann mit statistischen Mitteln versucht werden, weitere Aussagen über das Diffusionsverhalten der PSP zu treffen.
-Zunächst werden hier alle 17 beobachteten Teilchen behandelt, einfach, weil es interessant ist.
-Im weiteren Verlauf soll die Diffusionskonstante, die Boltzmannkonstante und die Avogadrokonstante aber nur anhand eines ausgewählten Teilchens erfolgen, Teilchen 2, siehe Abbildung 2.
+Im weiteren Verlauf sollen dann die Diffusionskonstante, die Boltzmannkonstante und die Avogadrokonstante anhand eines ausgewählten Teilchens berechnet werden.
 
-Zunächst werden also die Random-walk-Schrittweiten (RWS) aller Teilchen beschrieben.
-Die RWS eines Teilchens berechnet sich aus den Verschiebungskomponenten in x- und y-Richtung während eines Random-walkes und der anschließenden Berechnung des Betrages der resultierenden Bewegung.
-Um zu unterscheiden, ob eine Bewegung vorwärts, oder rückwärts erfolgte wurde eine Konvention bezüglich des Vorzeichens der RWS getroffen: Dort, wo x- und y-Verschiebungskomponente vorzeichengleich sind wurde ein positives, andernfalls ein negatives Vorzeichen vergeben.
-Dieses Vorgehen sollte für statistische Zwecke ausreichend sein.
-Zur Veranschaulichung der Ergebnisse werden Histogramme verschiedener Gruppen von Teilchen, grob gegliedert nach der Gesamtverschiebung, die anhand von Abbildung 2 für jedes PSP ersichtlich ist, erstellt:
+Zunächst wird also die Random-walk-Schrittweite (RWS) des ausgesuchten Teilchens 2 berechnet.
+Die Berechnung findet nur in einer räumlichen Dimension, der x-Dimension, statt.
+Die RWS wird berechnet, indem die x-Postition dew  Bildes $i$ von der x-Position des Bildes $i+1$ abgezogen wird.
+Die Berechnung findet in R statt:
 
-\begin{itemize}
-\item Histogrammm 1: RWS von Teilchen 2
-\item Histogrammm 2: RWS der "viel bewegten" Teilchen (Teilchen 1, 2, 4, 6, 10)
-\item Histogrammm 3: RWS der "wenig bewegten" Teilchen (Teilchen 3, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17)
-\item Histogrammm 4: RWS aller Teilchen
-\end{itemize}
+```{r}
+# Einlesen der x-Positionen aller Teilchen aus dem erhobenen Datensatz
+x_meter <- read.csv('code/Tabellen/x_meter.csv')
 
-![Die vier Histogramme zeigen die Häufigkeit der Schrittweiten pro Random-walk für vier verschiedene Gruppen von Teilchen](code/Plots/Hist.png){width=31%, height=31%}
+### Funktion zur Berechnung der RWS
+calculateDistance1D = function(vector){
+  shift_vector = c(0, vector[1:(length(vector)-1)])
+  dist = vector-shift_vector
+  dist[1] = 0
+  return(dist)
+}
 
-Die Histogramme sehen eigentlich alle ganz gut normalverteilt aus. 
-Unterschiede in der Standardabweichung sind zwischen den wenig und den viel bewegten Teilchen erkennbar, bei letzteren ist die Standardabweichung um $0,45\mu m$ größer.
-Die Mittelwerte aller Verteilungen liegen, wie erwartbar, allesamt praktisch bei Null.
+# Berechnung der RWS von Teilchen 2
+RWS <- calculateDistance1D(x_meter$X.2)
+```
+
+Die RWS von Teilchen 2 kann grafisch veranschaulicht werden.
+Dies erfolgt mittels eines Histogramms, in dem die Häufigkeiten bestimmter RWS aufgetragen ist.
+
+![Das Histogramm zeigt die Häufigkeit der Schrittweiten pro Random-walk für Teilchen 2](code/Plots/Teilchen2.png){width=31%, height=31%}
+
+Das Histogramme sieht normalverteilt aus.
+```{r}
+shapiro.test(RWS)
+```
+
+Ein Shapiro-Wilk Test unter der Nullhypohese der Normalverteiltheit liefert einen p-Wert von $p = 0,7713$.
+Die Mittelwerte der Bewegung beträgt $-6\cdot10^{-8}m$.
+Dass dieser leicht von Null abweicht, liegt entweder daran, dass das Teilchen nicht über einen hinreichend langen Zeitraum beobachtet wurde, oder daran, dass neben der Diffusion auch andere Transportkomponenten auf den PSP wirkten.
+In Abbildung 4 ist ebenfalls ersichtlich, das Teilchen 2 insgesamt eine leichte Tendenz zu Bewegungen entgegen der x-Achse hatte.
 
 ## Auswertung
 
-Für die Berechnung verschiedener Konstanten werden nun nicht mehr die Bewegungen aller Teilchen untersucht, sondern lediglich die des Teilchens 2, siehe Abbildung 2.
-
 ### Berechnung der Diffusionskonstante
-Mittels der folgender Formel kann für jedes Teilchen die zugehörige Diffusionskonstante $D$ berechnet werden:
+Mittels der folgender Formel kann für Teilchen 2 die Diffusionskonstante $D$ berechnet werden:
 $$D=\frac{\sigma^2}{2t}$$
 Mit:
 \begin{itemize}
@@ -142,7 +162,59 @@ Mit:
 \item $t$: Zeitintervall zwischen zwei Bildaufnahmen ($t=1s=const.$).
 \end{itemize}
 
+Nun kann die Standardabweichung aus den Werten der RWS-Serie berechnet werden.
+```{r}
+# Standardabweichung x-Verschiebung von Teilchen 2
+sigma = sd(RWS) #m
+sigma
+```
+Der Fehler der Standardabweichung berechnet sich als Quotient aus Standardabweichung und der Anzahl von Messwerten ($n=100$).
+```{r}
+# Fehler der Standardabweichung
+u_sigma = sd(RWS)/100 #m
+u_sigma
+```
+Unter der Annahme, dass die Bewegung hinreichend lange beobachtet wurde beträgt die mittlere Verschiebung $\sigma$, bzw. Schrittweite $\delta$ bzw. Standardabweichung der Verschiebung $\Delta x$: $\sigma = (6.185 \pm 0.062 )\cdot 10^{-7}m = (0.6185 \pm 0.0062 )\mu m$.
+
+Nun kann die Diffusionskonstante berechnet werden (in $\frac{m^2}{s}$):
+```{r}
+# Berechnung der Diffusionskonstanten für Teilchen 2
+D = sd(RWS)^2/(2*1)
+D
+```
+
+Auch die Unsicherheit der Diffusionskonstante kann berechnet werden.
+Da über die Unsicherheit der vom Computer bestimmten Zeitintervalle nichts weiter bekannt ist wird $u_t$ als null angenommen.
+$$u_D = \sqrt{(\frac{\partial D}{\partial \sigma}\cdot u_{\sigma})^2 + \frac{\partial D}{\partial t}\cdot u_{t})^2}= \sqrt{(\frac{2\sigma}{2t}\cdot u_{\sigma})^2+(\frac{\sigma^2}{2t^2}\cdot u_t)^2}$$
+```{r}
+# Berechnung der Unsicherheit der Diffusionskonstanten für Teilchen 2
+u_D = sqrt( (2*sigma/2*u_sigma)**2 + (sigma**2/2*1**2*0)**2 )
+u_D
+```
+Damit wurde für Partikel 2 eine Diffusionskonstante von $D=(191.2 \pm 3.8)\cdot 10^{-15} \frac{m^2}{s}$ bestimmt.
+
 ### Berechnung der Boltzmannkonstante
+
+Die Boltzmannkonstante soll über die Einstein-Smoluchowski-Gleichung berechne werden:
+
+$$DC = k_B\cdot T \Leftrightarrow k_B = \frac{DC}{T} \Leftrightarrow k_B = \frac{D\cdot 6\pi \eta r}{T}$$
+Mit:
+\begin{itemize}
+  \item $k_B$: Boltzmannkonstante
+  \item $D$: Diffusionskonstante $(0.6185 \pm 0.0062 )\frac{\mu m^2}{s}$
+  \item $C$: Stokessche Reibungskonstante ($C=6\pi \eta r$)
+  \item $T$: Temperatur $(21,700 \pm 0,020)^{\circ}C$
+  \item $\eta$: Viskosität von Wasser bei $21,7^{\circ}C$: $1,00\cdot 10^{-6}\frac{m^2}{s}$ (aus Kohlrausch 1986)
+  \item $r$: Radius von PSP $2\mu m$
+\end{itemize}
+
+Die Berechnung der ermittelten Boltzmannkonstante ergibt:
+```{r}
+eta = 1e-6 # m^2/s
+r = 2e-6 # m 
+(D*6*pi*eta*r)/(21.7+273.15)
+```
+
 
 ### Berechnung der Avogadrokonstante
 
