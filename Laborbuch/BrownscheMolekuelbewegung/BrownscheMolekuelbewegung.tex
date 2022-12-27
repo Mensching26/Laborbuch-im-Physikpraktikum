@@ -190,8 +190,8 @@ der Länge der Zeitintervalle ist nichts bekannt.
 Nach Aufnehmen der Messreihe wurde die Temperatur im Lichtgang des
 Mikroskopes für ca. 20 Sekunden gemessen. Diese betrug ca. 21,7°C. Die
 Messunsicherheit liegt bei
-\(U_{Temperatur}=\frac{0,1^{\circ}C}{2\sqrt{6}}= 0,020^{\circ}C\) Danach
-wurde mit Hilfe des Programms ``Tracker'' die Position des Teilchens
+\(u_{Temp}=\frac{0,1^{\circ}C}{2\sqrt{6}}= 0,020^{\circ}C\) Danach wurde
+mit Hilfe des Programms ``Tracker'' die Position des Teilchens
 ausgewertet. Dafür wird in einem Datensatz von 100 Bildern das
 ``Teilchen of interest'' mit dem Cursor markiert.
 
@@ -364,10 +364,10 @@ Das Histogramme sieht normalverteilt aus.
 
 Ein Shapiro-Wilk Test unter der Nullhypohese der Normalverteiltheit
 liefert einen p-Wert von \(p = 0,7713\). Die Mittelwerte der Bewegung
-beträgt \(-6\cdot10^{-8}m\). Dass dieser leicht von Null abweicht, liegt
+beträgt \(-6\cdot10^{-8}m\). Dass dieser von Null abweicht, liegt
 entweder daran, dass das Teilchen nicht über einen hinreichend langen
 Zeitraum beobachtet wurde, oder daran, dass neben der Diffusion auch
-andere Transportkomponenten auf den PSP wirkten. In Abbildung 4 ist
+andere Bewegungskomponenten auf den PSP wirkten. In Abbildung 4 ist
 ebenfalls ersichtlich, das Teilchen 2 insgesamt eine leichte Tendenz zu
 Bewegungen entgegen der x-Achse hatte.
 
@@ -461,8 +461,7 @@ Damit wurde für Partikel 2 eine Diffusionskonstante von
 Boltzmannkonstante}\label{berechnung-der-boltzmannkonstante}}
 
 Die Boltzmannkonstante soll über die Einstein-Smoluchowski-Gleichung
-berechne werden:
-
+berechnet werden:
 \[DC = k_B\cdot T \Leftrightarrow k_B = \frac{DC}{T} \Leftrightarrow k_B = \frac{D\cdot 6\pi \eta r}{T}\]
 Mit:
 
@@ -471,23 +470,46 @@ Mit:
   \item $D$: Diffusionskonstante $(0.6185 \pm 0.0062 )\frac{\mu m^2}{s}$
   \item $C$: Stokessche Reibungskonstante ($C=6\pi \eta r$)
   \item $T$: Temperatur $(21,700 \pm 0,020)^{\circ}C$
-  \item $\eta$: Viskosität von Wasser bei $21,7^{\circ}C$: $1,00\cdot 10^{-6}\frac{m^2}{s}$ (aus Kohlrausch 1986)
+  \item $\eta$: danamische Viskosität von Wasser bei $20^{\circ}C$: $1002\cdot 10^{-6} \frac{kg}{ms}$
   \item $r$: Radius von PSP $2\mu m$
 \end{itemize}
 
-Die Berechnung der ermittelten Boltzmannkonstante ergibt:
+Die Berechnung der ermittelten Boltzmannkonstante ergibt, mit der
+Einheitenbetrachtung
+\([\frac{\frac{m^2}{s}*\frac{kg}{ms}*m}{K} = \frac{kg\cdot m^2}{Ks^2}]\):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{eta }\OtherTok{=} \FloatTok{1e{-}6} \CommentTok{\# m\^{}2/s}
-\NormalTok{r }\OtherTok{=} \FloatTok{2e{-}6} \CommentTok{\# m }
-\NormalTok{(D}\SpecialCharTok{*}\DecValTok{6}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{eta}\SpecialCharTok{*}\NormalTok{r)}\SpecialCharTok{/}\NormalTok{(}\FloatTok{21.7+273.15}\NormalTok{)}
+\NormalTok{eta }\OtherTok{=} \FloatTok{1002e{-}6} \CommentTok{\# m\^{}2/s}
+\NormalTok{r }\OtherTok{=} \FloatTok{1e{-}6} \CommentTok{\# m }
+\NormalTok{Temp }\OtherTok{=} \FloatTok{21.7} \SpecialCharTok{+} \FloatTok{273.15}
+\NormalTok{kB }\OtherTok{=}\NormalTok{ (D}\SpecialCharTok{*}\DecValTok{6}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{eta}\SpecialCharTok{*}\NormalTok{r)}\SpecialCharTok{/}\NormalTok{(Temp)}
+\NormalTok{kB}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.445606e-26
+## [1] 1.225248e-23
 \end{verbatim}
+
+Die Unsicherheit der ermittelten Boltzmannkonstante \(u_{kB}\) errechnet
+sich als:
+\[u_{kB} = \sqrt{(\frac{\partial k_B}{\partial D}\cdot u_D)^2 + (\frac{\partial k_B}{\partial T}\cdot u_T)^2}\]
+\[\sqrt{(\frac{6\pi \eta r}{T}\cdot u_D)^2+(\frac{D\cdot 6\pi \eta r}{T^2} \cdot u_T)^2}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{u\_T }\OtherTok{=} \FloatTok{0.020}
+\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{6}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{eta}\SpecialCharTok{*}\NormalTok{r)}\SpecialCharTok{/}\NormalTok{(Temp)}\SpecialCharTok{*}\NormalTok{u\_D)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{((D}\SpecialCharTok{*}\DecValTok{6}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{eta}\SpecialCharTok{*}\NormalTok{r)}\SpecialCharTok{/}\NormalTok{(Temp}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\NormalTok{u\_T)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.450511e-25
+\end{verbatim}
+
+In diesem Versuch wurde also eine Boltzmannkonstante von
+\(k_B = (1,225 \pm 0,025) \cdot 10^{-23}\) bestimmt.
 
 \hypertarget{berechnung-der-avogadrokonstante}{%
 \subsubsection{Berechnung der
