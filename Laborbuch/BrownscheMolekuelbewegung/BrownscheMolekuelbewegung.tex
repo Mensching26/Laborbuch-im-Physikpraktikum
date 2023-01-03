@@ -34,6 +34,15 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Braunsche Molekularbewegung},
+  pdfauthor={Milena Mensching, Justus Weyers},
+  pdflang={de},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -104,19 +113,10 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={Braunsche Molekularbewegung},
-  pdfauthor={Milena Mensching, Justus Weyers},
-  pdflang={de},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
 
 \title{Braunsche Molekularbewegung}
 \author{Milena Mensching, Justus Weyers}
-\date{2022-12-27}
+\date{2023-01-03}
 
 \begin{document}
 \maketitle
@@ -427,7 +427,7 @@ Nun kann die Diffusionskonstante berechnet werden (in
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Berechnung der Diffusionskonstanten für Teilchen 2}
-\NormalTok{D }\OtherTok{=} \FunctionTok{sd}\NormalTok{(RWS)}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{/}\NormalTok{(}\DecValTok{2}\SpecialCharTok{*}\DecValTok{1}\NormalTok{)}
+\NormalTok{D }\OtherTok{=} \FunctionTok{sd}\NormalTok{(RWS)}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{/}\NormalTok{(}\DecValTok{2}\SpecialCharTok{*}\DecValTok{1}\NormalTok{) }\CommentTok{\#m\^{}2/s}
 \NormalTok{D}
 \end{Highlighting}
 \end{Shaded}
@@ -444,7 +444,7 @@ weiter bekannt ist wird \(u_t\) als null angenommen.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Berechnung der Unsicherheit der Diffusionskonstanten für Teilchen 2}
-\NormalTok{u\_D }\OtherTok{=} \FunctionTok{sqrt}\NormalTok{( (}\DecValTok{2}\SpecialCharTok{*}\NormalTok{sigma}\SpecialCharTok{/}\DecValTok{2}\SpecialCharTok{*}\NormalTok{u\_sigma)}\SpecialCharTok{**}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ (sigma}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{/}\DecValTok{2}\SpecialCharTok{*}\DecValTok{1}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{*}\DecValTok{0}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{ )}
+\NormalTok{u\_D }\OtherTok{=} \FunctionTok{sqrt}\NormalTok{( (}\DecValTok{2}\SpecialCharTok{*}\NormalTok{sigma}\SpecialCharTok{/}\DecValTok{2}\SpecialCharTok{*}\NormalTok{u\_sigma)}\SpecialCharTok{**}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ (sigma}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{/}\DecValTok{2}\SpecialCharTok{*}\DecValTok{1}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{*}\DecValTok{0}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{ ) }\CommentTok{\#m\^{}2/s}
 \NormalTok{u\_D}
 \end{Highlighting}
 \end{Shaded}
@@ -483,7 +483,7 @@ Einheitenbetrachtung
 \NormalTok{eta }\OtherTok{=} \FloatTok{1002e{-}6} \CommentTok{\# m\^{}2/s}
 \NormalTok{r }\OtherTok{=} \FloatTok{1e{-}6} \CommentTok{\# m }
 \NormalTok{Temp }\OtherTok{=} \FloatTok{21.7} \SpecialCharTok{+} \FloatTok{273.15}
-\NormalTok{kB }\OtherTok{=}\NormalTok{ (D}\SpecialCharTok{*}\DecValTok{6}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{eta}\SpecialCharTok{*}\NormalTok{r)}\SpecialCharTok{/}\NormalTok{(Temp)}
+\NormalTok{kB }\OtherTok{=}\NormalTok{ (D}\SpecialCharTok{*}\DecValTok{6}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{eta}\SpecialCharTok{*}\NormalTok{r)}\SpecialCharTok{/}\NormalTok{(Temp) }\CommentTok{\#kg*m\^{}2/(s\^{}2*K)}
 \NormalTok{kB}
 \end{Highlighting}
 \end{Shaded}
@@ -499,7 +499,7 @@ sich als:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{u\_T }\OtherTok{=} \FloatTok{0.020}
+\NormalTok{u\_T }\OtherTok{=} \FloatTok{0.020} \CommentTok{\# K}
 \FunctionTok{sqrt}\NormalTok{(((}\DecValTok{6}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{eta}\SpecialCharTok{*}\NormalTok{r)}\SpecialCharTok{/}\NormalTok{(Temp)}\SpecialCharTok{*}\NormalTok{u\_D)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{((D}\SpecialCharTok{*}\DecValTok{6}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{eta}\SpecialCharTok{*}\NormalTok{r)}\SpecialCharTok{/}\NormalTok{(Temp}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\NormalTok{u\_T)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
