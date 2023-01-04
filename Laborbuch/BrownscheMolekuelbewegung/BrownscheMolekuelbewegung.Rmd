@@ -1,14 +1,14 @@
 ---
-title: "Braunsche Molekularbewegung"
+title: "Brownsche Molekularbewegung"
 author: "Milena Mensching, Justus Weyers"
 date: "`r Sys.Date()`"
 lang: de
 fontsize: 9pt
 output:
+  html_document:
+    df_print: kable
   pdf_document: 
     keep_tex: yes
-    df_print: kable
-  html_document:
     df_print: kable
 editor_options: 
   markdown: 
@@ -222,7 +222,7 @@ Mit:
   \item $r$: Radius von PSP $2\mu m$
 \end{itemize}
 
-Die Berechnung der ermittelten Boltzmannkonstante ergibt, mit der Einheitenbetrachtung $[\frac{\frac{m^2}{s}*\frac{kg}{ms}*m}{K} = \frac{kg\cdot m^2}{Ks^2}]$:
+Die Berechnung der ermittelten Boltzmannkonstante ergibt, mit der Einheitenbetrachtung $[\frac{\frac{m^2}{s}*\frac{kg}{ms}*m}{K} = \frac{kg\cdot m^2}{K\cdot s^2}= \frac{J}{K}]$:
 ```{r}
 eta = 1002e-6 # m^2/s
 r = 1e-6 # m 
@@ -237,9 +237,39 @@ $$\sqrt{(\frac{6\pi \eta r}{T}\cdot u_D)^2+(\frac{D\cdot 6\pi \eta r}{T^2} \cdot
 u_T = 0.020 # K
 sqrt(((6*pi*eta*r)/(Temp)*u_D)**2+((D*6*pi*eta*r)/(Temp**2)*u_T)^2)
 ```
-In diesem Versuch wurde also eine Boltzmannkonstante von $k_B = (1,225 \pm 0,025) \cdot 10^{-23}$ bestimmt.
+In diesem Versuch wurde also eine Boltzmannkonstante von $k_B = (1,225 \pm 0,025) \cdot 10^{-23} \frac{J}{K}$ bestimmt.
 
 ### Berechnung der Avogadrokonstante
 
+Es gilt das allgemeine Gesetz:
+
+\begin{equation*}
+R=N_A*k_B \leftrightarrow N_A = \frac{R}{k_B}
+\end{equation*}
+\noindent $R$ = universelle Gaskonstante = $8,314 \frac{J}{mol\cdot K}$ \
+\noindent $N_A$ = Avogadrokonstante \
+\noindent $k_B$ = Boltzmannkonstante
+
+Damit ergibt sich mit der zuvor ermittelten Boltzmannkonstante von $k_B = (1,225 \pm 0,025) \cdot 10^{-23} \frac{J}{K}$ ein Bestwert von:
+
+\begin{equation*}
+N_A = \frac{R}{k_B} = \frac{8,314 \frac{J}{mol\cdot K}}{1,225 \cdot 10^{-23} \frac{J}{K}} \approx 6.786939\cdot 10^{23} \frac{1}{mol}
+\end{equation*}
+
+Die Unsicherheit ergibt sich mit:
+
+\begin{equation*}
+u_{NA}= \frac {\partial N_A}{\partial k_B} \cdot u_{kB} 
+= \vert - \frac{R}{k_B^2} \cdot u_{kB}\vert 
+= \frac{8,314 \frac{J}{mol\cdot K}}{(1,225 \cdot 10^{-23} \frac{J}{K})^2} \cdot 0,025 \cdot 10^{-23} \frac{J}{K} \approx 0,14 \cdot 10^{23} \frac{1}{mol}
+\end{equation*}
+
+```{r}
+8.314/(1.225*10**-23) #Bestwert Avogadrokonstante
+8.314/((1.225*10**-23)**2)*0.025*10**-23 #Unsicherheit
+```
+Die Avogadrokonstante ergibt sich folglich mit $N_A = (6.79 \pm 0.14) \cdot 10^{23} \frac{1}{mol}$
 
 ## Interpretation
+
+Obwohl sowohl der Literaturwert für die Boltzmannkonstante ($k_B = 1,380 \cdot 10^{-23} \frac{J}{K}$) als auch der Literaturwert der Avogadrokonstante ($N_A = 6,022 \cdot 10^{23} \frac{1}{mol}$) nicht in die von uns bestimmten Intervalle fallen, liegen beide ermittelten Werte in der richtigen Größenordnung und nahe am Literaturwert. Sie können daher als ganz gute Näherungen betrachtet werden.
