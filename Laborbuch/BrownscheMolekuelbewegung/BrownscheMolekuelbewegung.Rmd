@@ -17,11 +17,26 @@ editor_options:
 
 # Simulation
 
+Mittels einer Simulation  soll versucht werden, die durch die Diffusion bedingte Bewegung von Polystyrolpartikeln unter verschiedenen Bedingungen nachzustellen.
+In der Simulation lassen sich die Anzahl von Stößen und die Partikelanzahl einstellen.
+Auch die Simulationsdauer kann verändert werden, diese haben wir aber konstant bei einer Länge von fünf Sekunden belassen.
+Für die drei eingestellten Kombinationen ergaben sich folgende Histogramme für die Schrittweite eines "Random-walks":
+
 ![Simulation 1. 1 Teilchen, 5 Sekunden, 300 Stöße pro s](Daten/a.png){width=10%, height=10%}
 
 ![Simulation 2. 10 Teilchen, 5 Sekunden, 300 Stöße pro s](Daten/b.png){width=10%, height=10%}
 
 ![Simulation 3. 10 Teilchen, 5 Sekunden, 100 Stöße pro s](Daten/c.png){width=10%, height=10%}
+
+Für die Auswertung der Simulationsergebnisse werden verallgemeinernd und vereinfachend die optischen Gesamteindrücke der Histogramme verglichen.
+Wird das gemacht, fällt auf, dass die Histogramme für die Versuche b) und c) am meisten normalverteilt aussehen.
+Die Verteilungen entsprechen im Allgemeinen ganz gut den eingezeichneten Normalverteilungen (in Orange) für den ermittelten Mittelwert und die Standardabweichung der Daten.
+Der Mittelwert und die Standardabweichung wurden in der Simulation nicht ausgegeben, aber es ist erkennbar, dass der Mittelwert bei allen Histogrammen bei Null liegt und die Standardabweichung ein gutes Maß angenommen hat.
+
+Die Ergebnisse von Versuch a) fallen gegenüber den Ergebnissen aus b) und c) in puncto Normalverteiltheit etwas ab, sind aber insgesamt auch normalverteilt.
+Grund für dieses etwas schlechter ausfallende Ergebniss in a) ist vermutlich, dass hier mit den jeweiligen Minimalwerten der Versuchsreihe (1 Teilchen bei nur 10x30 Stößen pro Sekunde) gerechnet wurde. In b) und c) fällt immer jeweils einer dieser beiden Werte wesentlich höher aus (jeweils um einen Faktor 10).
+
+Dass zwischen b) und c) kaum Unterschiede im Ergebnis, dafür aber in den Simulationsparametern bestehen, könnte durch das Ergodentheorem erklärbar sein, wonach es für das Ergebnis einer Random-walk-Betrachtung auf dasselbe hinausläuft, ob eine große Anzahl von Teilchen mit wenigen Stößen pro Sekunde, oder eine kleine Menge von Teilchen mit vielen Stößen pro Sekunde beobachtet wird. 
 
 # Experiment
 
