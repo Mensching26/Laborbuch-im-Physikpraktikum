@@ -5,10 +5,10 @@ date: "`r Sys.Date()`"
 lang: de
 fontsize: 9pt
 output:
-  html_document:
-    df_print: kable
   pdf_document: 
     keep_tex: yes
+    df_print: kable
+  html_document:
     df_print: kable
 editor_options: 
   markdown: 
@@ -22,18 +22,18 @@ In der Simulation lassen sich die Anzahl von Stößen und die Partikelanzahl ein
 Auch die Simulationsdauer kann verändert werden, diese haben wir aber konstant bei einer Länge von fünf Sekunden belassen.
 Für die drei eingestellten Kombinationen ergaben sich folgende Histogramme für die Schrittweite eines "Random-walks":
 
-![Simulation 1. 1 Teilchen, 5 Sekunden, 300 Stöße pro s](Daten/a.png){width=10%, height=10%}
+![Simulation 1. 1 Teilchen, 5 Sekunden, 300 Stöße pro s](Daten/a.png){width=25%, height=25%}
 
-![Simulation 2. 10 Teilchen, 5 Sekunden, 300 Stöße pro s](Daten/b.png){width=10%, height=10%}
+![Simulation 2. 1 Teilchen, 5 Sekunden, 3000 Stöße pro s](Daten/b2.png){width=25%, height=25%}
 
-![Simulation 3. 10 Teilchen, 5 Sekunden, 100 Stöße pro s](Daten/c.png){width=10%, height=10%}
+![Simulation 3. 10 Teilchen, 5 Sekunden, 300 Stöße pro s](Daten/c.png){width=25%, height=25%}
 
 Für die Auswertung der Simulationsergebnisse werden verallgemeinernd und vereinfachend die optischen Gesamteindrücke der Histogramme verglichen.
 Wird das gemacht, fällt auf, dass die Histogramme für die Versuche b) und c) am meisten normalverteilt aussehen.
 Die Verteilungen entsprechen im Allgemeinen ganz gut den eingezeichneten Normalverteilungen (in Orange) für den ermittelten Mittelwert und die Standardabweichung der Daten.
 Der Mittelwert und die Standardabweichung wurden in der Simulation nicht ausgegeben, aber es ist erkennbar, dass der Mittelwert bei allen Histogrammen bei Null liegt und die Standardabweichung ein gutes Maß angenommen hat.
 
-Die Ergebnisse von Versuch a) fallen gegenüber den Ergebnissen aus b) und c) in puncto Normalverteiltheit etwas ab, sind aber insgesamt auch normalverteilt.
+Die Ergebnisse von Versuch a) fallen gegenüber den Ergebnissen aus b) und c) in puncto Normalverteiltheit etwas ab.
 Grund für dieses etwas schlechter ausfallende Ergebniss in a) ist vermutlich, dass hier mit den jeweiligen Minimalwerten der Versuchsreihe (1 Teilchen bei nur 10x30 Stößen pro Sekunde) gerechnet wurde. In b) und c) fällt immer jeweils einer dieser beiden Werte wesentlich höher aus (jeweils um einen Faktor 10).
 
 Dass zwischen b) und c) kaum Unterschiede im Ergebnis, dafür aber in den Simulationsparametern bestehen, könnte durch das Ergodentheorem erklärbar sein, wonach es für das Ergebnis einer Random-walk-Betrachtung auf dasselbe hinausläuft, ob eine große Anzahl von Teilchen mit wenigen Stößen pro Sekunde, oder eine kleine Menge von Teilchen mit vielen Stößen pro Sekunde beobachtet wird. 
@@ -70,50 +70,50 @@ Eine Zeitreihe über den Zeitraum von hundert Sekunden und im Umfang von 100 Bil
 
 Nach Aufnehmen der Messreihe wurde die Temperatur im Lichtgang des Mikroskopes für ca. 20 Sekunden gemessen. 
 Diese betrug ca. 21,7°C.
-Die Messunsicherheit liegt bei $u_{Temp}=\frac{0,1^{\circ}C}{2\sqrt{6}}= 0,020^{\circ}C$
+Die Messunsicherheit liegt bei $u_{Temp}=\frac{0,1^{\circ}C}{2\sqrt{6}}= 0,020^{\circ}C$.
 Danach wurde mit Hilfe des Programms "Tracker" die Position des Teilchens ausgewertet. 
 Dafür wird in einem Datensatz von 100 Bildern das "Teilchen of interest" mit dem Cursor markiert.
 
 Neben dieser Methode wurde eine zweite Auswertung des Bildmaterials vorgenommen.
-Diese bestand darin, mittels eines Pythonscripts (siehe Anhang) die Mittelpunkte aller 17 PSP in allen 100 Einzelbildern zu bestimmen.
+Diese bestand darin, mittels eines Pythonscripts die Mittelpunkte aller 17 PSP in allen 100 Einzelbildern zu bestimmen.
 Das Ergebnis dieses Verfahrens war eine große Datei mit den Koordinaten aller 17 PSP-Mittelpunkte in allen 100 Bildern.
-Es wurde darauf verzichtet, diese hier abzudrucken, stattdessen werden die Ergebnisse in Abbildung 4 grafisch dargestellt.
+Es wurde darauf verzichtet, diese hier abzudrucken, stattdessen werden die Ergebnisse in Abbildung 5 grafisch dargestellt.
 Mit diesen Daten wird weitergearbeitet.
 
 ## Fehlerbetrachtung
 
 Eine Unsicherheit der Methodik besteht in der Umrechnung der Bildpunkte in Meter.
 Eine zweite Unsicherheit besteht in der Auflösung des Bildes.
-Durch die Verwendete Methode konnte eine Manuelle Verfolgung der PSP umgangen werden.
-Diese computervisuelle Methode sollte zu kleineren fehlern führen. 
+Durch die verwendete Methode konnte eine manuelle Verfolgung der PSP umgangen werden.
+Diese computervisuelle Methodik sollte zu kleineren Fehlern führen. 
 
 ## Beobachtungen
 
 Zu Beginn werden die zurückglegten Wege aller PSP im Bildausschnitt geplottet.
 Ein einzelner, ausgewählter Partikel (NR. 2) wird exemplarisch genauer dargestellt, indem dessen Bewegungspfad einzeln in einem höheren Maßstab geplottet wird.
 
-![Auf diesen zwei Plots sind die Positionen aller bzw. eines markierten PSP im zeitlichen Verlauf zu sehen. Die Aufnahmedauer betrug 100 s mit 1 fps. Die PSP wurden zudem nummeriert.](code/Plots/Raum.png){width=20%, height=20%}
+![Auf diesen zwei Plots sind die Positionen aller bzw. eines markierten PSP im zeitlichen Verlauf zu sehen. Die Aufnahmedauer betrug 100 s mit 1 fps. Die PSP wurden zudem nummeriert.](code/Plots/Raum.png){width=40%, height=40%}
 
-Auf Abbildung 4 ist erkennbar, dass die 17 beobachteten PSP sich in ihren zurückgelegten Wegen deutlich unterscheiden.
+Auf Abbildung 5 ist erkennbar, dass die 17 beobachteten PSP sich in ihren zurückgelegten Wegen deutlich unterscheiden.
 Während 12 PSP sich praktisch nicht von ihrer Ausgangsposition bewegt haben, ist bei sechs Teilchen eine deutliche Abweichung zwischen Anfangs- und Endposition auszumachen.
 Es ist nicht verwunderlich, dass viele Partikel keinen räumlichen Versatz aufweisen.
 Netto sollte die Bewegung aller Randomwalks zusammengenommen zu einem Verharren jedes Teilchens an seinem Ursprung führen, Abweichungen durch die Standardabweichungen sind möglich.
 Es ist aber auch möglich, dass diese Teilchen an den Glaspättchen kleben.
-Zwar sind auch für die scheinbar unbewegten Teilchen Bewegungen bestimmt worden, diese sind aber mikroskopisch kaum nachweisbar und könnten ein Resultat der Unsicherheit beim verwendeten visuellen Auswertungsverfahren sein. 
+Zwar sind auch für die scheinbar unbewegten Teilchen Bewegungen bestimmt worden, diese sind aber mikroskopisch kaum nachweisbar und könnten ein Resultat der Unsicherheit beim verwendeten computervisuellen Auswertungsverfahren sein. 
 
-Interpretationsspielraum geben die zurückgelegten Pfade der fünf anderen Teilchen (T 1, 2, 4, 6, 10, siehe Abbildung 4).
+Interpretationsspielraum geben die zurückgelegten Pfade der fünf anderen Teilchen (T 1, 2, 4, 6, 10, siehe Abbildung 5).
 Jene "viel bewegten Teilchen" weisen trotz aller Zufälligkeit der einzelnen Random-walks eine gewisse Tendenz zu einer Bewegung entgegen der y-Achse auf.
 Hier stellt sich die Frage, ob neben der diffusiven Bewegungskomponente auch eine advektive Transportkomponente einen Einfluss auf die Teilchenbewegung hatte.
-Ursache könnte eine kleine Strömung auf mikroskopischer Ebene zwischen den Glasplättchen sein, möglicherweise verursacht durch einen Temperaturgradienten aufgrund der erhöhten Temperatur des Wassers im Lichtgang des Mikroskopes.
+Dies wäre eine weitere mögliche Fehlerquelle.
 
 ### Umrechnung der Messwerte in Meter
 
 Im nächsten Schritt können die ermittelten Werte für die Diffusionspfade von Pixel in Meter umgerechnet werden.
 Hierbei ist der Maßstab der aufgenommenen Bilder vonnöten.
-Dafür werden die PSP selbst verwendet, von denen bekannt ist, dass deren Durchmesser 2µm beträgt.
-Beim Zählen der Pixel ist darauf geachtet worden, die Originalauflösung zu verwenden, in der auch die Berechnung der Schrittweiten berechnet wurde.
+Dafür werden die PSP selbst verwendet, von denen bekannt ist, dass deren Durchmesser $2 \mu m$ beträgt.
+Beim Zählen der Bildpixel ist darauf geachtet worden, die Originalauflösung zu verwenden, in der auch die Berechnung der Schrittweiten berechnet wurde.
 
-![Polystyrolpartikel mit dem Durchmesser 2µm. Der Durchmesser ist in Pixel abgemessen und beträgt 16 Pixel.](Bilder/styrolpartikel.png){width=21%, height=21%}
+![Polystyrolpartikel mit dem Durchmesser 2µm. Der Durchmesser ist in Pixel abgemessen und beträgt 16 Pixel.](Bilder/styrolpartikel.png){width=28%, height=28%}
 
 Aus dem Zusammenhang, dass sechzehn Bildpixel zwei Mikrometern entsprechen, folgt für die Kantenlänge eines Pixels eine Länge von $0,125 \mu m$. 
 Die kleinste ablesbare Skala in dem Bild ist der Durchmesser von $2\mu m$ des PSP.
@@ -132,7 +132,7 @@ Im weiteren Verlauf sollen dann die Diffusionskonstante, die Boltzmannkonstante 
 
 Zunächst wird also die Random-walk-Schrittweite (RWS) des ausgesuchten Teilchens 2 berechnet.
 Die Berechnung findet nur in einer räumlichen Dimension, der x-Dimension, statt.
-Die RWS wird berechnet, indem die x-Postition dew  Bildes $i$ von der x-Position des Bildes $i+1$ abgezogen wird.
+Die RWS wird berechnet, indem die x-Postition des  Bildes $i$ von der x-Position des Bildes $i+1$ abgezogen wird.
 Die Berechnung findet in R statt:
 
 ```{r}
@@ -151,10 +151,10 @@ calculateDistance1D = function(vector){
 RWS <- calculateDistance1D(x_meter$X.2)
 ```
 
-Die RWS von Teilchen 2 kann grafisch veranschaulicht werden.
+Die RWS in x-Richtung von Teilchen 2 kann grafisch veranschaulicht werden.
 Dies erfolgt mittels eines Histogramms, in dem die Häufigkeiten bestimmter RWS aufgetragen ist.
 
-![Das Histogramm zeigt die Häufigkeit der Schrittweiten pro Random-walk für Teilchen 2](code/Plots/Teilchen2.png){width=31%, height=31%}
+![Das Histogramm zeigt die Häufigkeit der Schrittweiten pro Random-walk für Teilchen 2](code/Plots/Teilchen2.png){width=50%, height=50%}
 
 Das Histogramme sieht normalverteilt aus.
 ```{r}
@@ -163,7 +163,7 @@ shapiro.test(RWS)
 
 Ein Shapiro-Wilk Test unter der Nullhypohese der Normalverteiltheit liefert einen p-Wert von $p = 0,7713$.
 Die Mittelwerte der Bewegung beträgt $-6\cdot10^{-8}m$.
-Dass dieser von Null abweicht, liegt entweder daran, dass das Teilchen nicht über einen hinreichend langen Zeitraum beobachtet wurde, oder daran, dass neben der Diffusion auch andere Bewegungskomponenten auf den PSP wirkten.
+Dass dieser von Null abweicht, liegt entweder daran, dass das Teilchen nicht über einen genügend langen Zeitraum beobachtet wurde, oder aber auch daran, dass neben der Diffusion auch andere Bewegungskomponenten (Advektion) auf den PSP wirkte.
 In Abbildung 4 ist ebenfalls ersichtlich, das Teilchen 2 insgesamt eine leichte Tendenz zu Bewegungen entgegen der x-Achse hatte.
 
 ## Auswertung
@@ -219,7 +219,7 @@ Mit:
   \item $C$: Stokessche Reibungskonstante ($C=6\pi \eta r$)
   \item $T$: Temperatur $(21,700 \pm 0,020)^{\circ}C$
   \item $\eta$: danamische Viskosität von Wasser bei $20^{\circ}C$: $1002\cdot 10^{-6} \frac{kg}{ms}$
-  \item $r$: Radius von PSP $2\mu m$
+  \item $r$: Radius des PSP $2\mu m$
 \end{itemize}
 
 Die Berechnung der ermittelten Boltzmannkonstante ergibt, mit der Einheitenbetrachtung $[\frac{\frac{m^2}{s}*\frac{kg}{ms}*m}{K} = \frac{kg\cdot m^2}{K\cdot s^2}= \frac{J}{K}]$:
@@ -268,8 +268,8 @@ u_{NA}= \frac {\partial N_A}{\partial k_B} \cdot u_{kB}
 8.314/(1.225*10**-23) #Bestwert Avogadrokonstante
 8.314/((1.225*10**-23)**2)*0.025*10**-23 #Unsicherheit
 ```
-Die Avogadrokonstante ergibt sich folglich mit $N_A = (6.79 \pm 0.14) \cdot 10^{23} \frac{1}{mol}$
+Die Avogadrokonstante ergibt sich folglich mit $N_A = (6.79 \pm 0.14) \cdot 10^{23} \frac{1}{mol}$.
 
 ## Interpretation
 
-Obwohl sowohl der Literaturwert für die Boltzmannkonstante ($k_B = 1,380 \cdot 10^{-23} \frac{J}{K}$) als auch der Literaturwert der Avogadrokonstante ($N_A = 6,022 \cdot 10^{23} \frac{1}{mol}$) nicht in die von uns bestimmten Intervalle fallen, liegen beide ermittelten Werte in der richtigen Größenordnung und nahe am Literaturwert. Sie können daher als ganz gute Näherungen betrachtet werden.
+Obwohl sowohl der Literaturwert für die Boltzmannkonstante ($k_B = 1,380 \cdot 10^{-23} \frac{J}{K}$), als auch der Literaturwert der Avogadrokonstante ($N_A = 6,022 \cdot 10^{23} \frac{1}{mol}$) nicht in die von uns bestimmten Intervalle fallen, liegen beide ermittelten Werte in der richtigen Größenordnung und nahe am Literaturwert. Sie können daher als ganz gute Näherungen betrachtet werden.
