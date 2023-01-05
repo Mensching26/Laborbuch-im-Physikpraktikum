@@ -154,7 +154,7 @@ RWS <- calculateDistance1D(x_meter$X.2)
 Die RWS in x-Richtung von Teilchen 2 kann grafisch veranschaulicht werden.
 Dies erfolgt mittels eines Histogramms, in dem die Häufigkeiten bestimmter RWS aufgetragen ist.
 
-![Das Histogramm zeigt die Häufigkeit der Schrittweiten pro Random-walk für Teilchen 2](code/Plots/Teilchen2.png){width=50%, height=50%}
+![Das Histogramm zeigt die Häufigkeit der Schrittweiten pro Random-walk für Teilchen 2](code/Plots/Teilchen2.png){width=40%, height=40%}
 
 Das Histogramme sieht normalverteilt aus.
 ```{r}
