@@ -1,0 +1,53 @@
+Die Farbreihenfolge auf dem Widerstand ist:
+
+$Braun, Schwarz, Schwarz, Gelb, Braun$
+
+Dementsprechend kodiert der Widerstand für 
+
+\begin{equation*}
+R = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R=(1\pm 0.01) M\Omega
+\end{equation*}
+
+Der zweite Widerstand ist als Widerstand von $1\Omega$ gekennzeichnet 
+
+
+## direkte Messung
+
+Messen des ersten Widerstands liefert einen Wert von:
+
+\begin{equation*}
+\begin{split}
+1.Widerstand: R &= 1,005 M\Omega \\
+2. Widerstand: R &= 1,0 \Omega
+\end{split}
+\end{equation*}
+
+## Messunsicherheiten
+
+## indirekte Messungen
+
+# Aufbau a
+
+-Widerstand 1: Bei 5V
+
+Spannung: 5,04 V \
+Strom: 5,4 µA
+
+-Widerstand 2: Bei 0.6 V
+
+Spannung: 0,15 V \
+Strom: 150,3 mA
+
+
+# Aufbau b
+
+
+-Widerstand 1: Bei 5V
+
+Spannung: 5,03 V \
+Strom: 5,0 µA
+
+-Widerstand 2: Bei 0.8 V
+
+Spannung: 0,4 V \
+Strom: 101,8 mA
