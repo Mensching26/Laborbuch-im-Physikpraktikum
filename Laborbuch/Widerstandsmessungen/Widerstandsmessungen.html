@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="de" xml:lang="de">
 
 <head>
 
@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Milena Mensching, Justus Weyers" />
 
+<meta name="date" content="2023-01-05" />
 
-<title>Widerstandsmessungen.knit</title>
+<title>Widerstandsmessungen</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -354,11 +356,27 @@ pre code {
 
 
 
+<h1 class="title toc-ignore">Widerstandsmessungen</h1>
+<h4 class="author">Milena Mensching, Justus Weyers</h4>
+<h4 class="date">2023-01-05</h4>
 
 </div>
 
 
-<p>Die Farbreihenfolge auf dem Widerstand ist:</p>
+<div id="experiment" class="section level1">
+<h1>Experiment</h1>
+<div id="thema" class="section level2">
+<h2>Thema</h2>
+<p>Bestimmung von Widerständen auf direkte und indirekte Weise</p>
+</div>
+<div id="material" class="section level2">
+<h2>Material</h2>
+
+</div>
+<div id="auslesung-der-widerstände" class="section level2">
+<h2>Auslesung der Widerstände</h2>
+<!-- Foto vom Widerstand -->
+<p>Die Farbreihenfolge auf dem ersten Widerstand ist:</p>
 <p><span class="math inline">\(Braun, Schwarz, Schwarz, Gelb,
 Braun\)</span></p>
 <p>Dementsprechend kodiert der Widerstand für</p>
@@ -367,9 +385,10 @@ R = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R=(1\pm 0.01)
 M\Omega
 \end{equation*}\]</span></p>
 <p>Der zweite Widerstand ist als Widerstand von <span class="math inline">\(1\Omega\)</span> gekennzeichnet</p>
-<div id="messung" class="section level2">
-<h2>Messung</h2>
-<p>Messen des ersten Widerstands liefert einen Wert von:</p>
+</div>
+<div id="direkte-messung" class="section level2">
+<h2>Direkte Messung</h2>
+<p>Messen der zwei Widerstände liefert Werte von:</p>
 <p><span class="math display">\[\begin{equation*}
 \begin{split}
 1.Widerstand: R &amp;= 1,005 M\Omega \\
@@ -379,27 +398,87 @@ M\Omega
 </div>
 <div id="messunsicherheiten" class="section level2">
 <h2>Messunsicherheiten</h2>
+<p>Die Messunsicherheit der direkten Messung ergibt sich aus der
+Messunsicherheit der digitalen Skala</p>
+<p><span class="math display">\[\begin{equation*}
+\begin{split}
+u_{Skala} &amp;=\frac{a}{2*\sqrt{3}} \\
+1.Widerstand: u_1 &amp;= \frac{0,001M\Omega}{2*\sqrt{3}} \approx 0,00029
+M\Omega \\
+2.Widerstand: u_2 &amp;= \frac{0,1\Omega}{2*\sqrt{3}} \approx
+0,029\Omega
+\end{split}
+\end{equation*}\]</span></p>
+<pre class="r"><code>0.001/(2*sqrt(3)) #Unsicherheit 1</code></pre>
+<pre><code>## [1] 0.0002886751</code></pre>
+<pre class="r"><code>0.1/(2*sqrt(3)) #Unsicherheit 2</code></pre>
+<pre><code>## [1] 0.02886751</code></pre>
 </div>
-<div id="indirekte-messungen" class="section level2">
-<h2>indirekte Messungen</h2>
 </div>
-<div id="aufbau-a" class="section level1">
-<h1>Aufbau a</h1>
-<p>-Widerstand 1: Bei 5V</p>
-<p>Spannung: 5,04 V<br />
-Strom: 5,4 µA</p>
-<p>-Widerstand 2: Bei 0.6 V</p>
-<p>Spannung: 0,15 V<br />
-Strom: 150,3 mA</p>
+<div id="indirekte-messungen" class="section level1">
+<h1>Indirekte Messungen</h1>
+<div id="aufbau-a" class="section level2">
+<h2>Aufbau (a)</h2>
+<p>Mithilfe der Kabel und des Breadboards wurde folgender Stromkreis
+aufgebaut:</p>
+<!-- Skizze Stromkreis und Foto Stromkreis -->
+<p>Folgende Werte wurden gemessen:</p>
+<div id="messunsicherheiten-1" class="section level3">
+<h3>Messunsicherheiten</h3>
+<p>Die Messunsicherheitem von Spannung und Strom ergeben sich aus der
+Messunsicherheit der digitalen Skala</p>
+<p><span class="math display">\[\begin{equation*}
+\begin{split}
+u_{Skala} &amp;=\frac{a}{2*\sqrt{3}} \\
+\underline{1.Widerstand:} \\
+Spannung: u_{U1a} &amp;= \frac{0,01V}{2*\sqrt{3}} \approx 0,0029 V \\
+Strom: u_{I1a} &amp;= \frac{0,1\mu A}{2*\sqrt{3}} \approx 0,029\mu A \\
+\underline{2.Widerstand:} \\
+Spannung: u_{U2a} &amp;= \frac{0,01V}{2*\sqrt{3}} \approx 0,0029 V \\
+Strom: u_{I2a} &amp;= \frac{0,1mA}{2*\sqrt{3}} \approx 0,029 mA \\
+\end{split}
+\end{equation*}\]</span></p>
+<pre class="r"><code>0.01/(2*sqrt(3)) #Unsicherheit Spannung 1,2</code></pre>
+<pre><code>## [1] 0.002886751</code></pre>
+<pre class="r"><code>0.1/(2*sqrt(3)) #Unsicherheit Strom 1,2</code></pre>
+<pre><code>## [1] 0.02886751</code></pre>
+<p>Folglich liegen die gemessenen Größen bei:</p>
 </div>
-<div id="aufbau-b" class="section level1">
-<h1>Aufbau b</h1>
-<p>-Widerstand 1: Bei 5V</p>
-<p>Spannung: 5,03 V<br />
-Strom: 5,0 µA</p>
-<p>-Widerstand 2: Bei 0.8 V</p>
-<p>Spannung: 0,4 V<br />
-Strom: 101,8 mA</p>
+</div>
+<div id="berechnung-der-widerstände" class="section level2">
+<h2>Berechnung der Widerstände</h2>
+<p>Es gilt das Ohmsche Gesetz:</p>
+<p><span class="math inline">\(U=I\cdot R \Leftrightarrow R =
+\frac{U}{I}\)</span></p>
+<p><span class="math inline">\(R\)</span> =Widerstand<br />
+<span class="math inline">\(U\)</span> = Spannung<br />
+<span class="math inline">\(I\)</span> = Strom</p>
+<p>Für die Widerstände ergeben sich somit für Aufbau (a) Bestwerte von:
+<span class="math display">\[\begin{equation*}
+\begin{split}
+1. Widerstand: R=\frac{U}{I} = \frac {5,0400V}{5,4 \mu A} \approx
+933333,3 \Omega \\
+2.Widerstand: R=\frac{U}{I} = \frac {0,1500V}{150,3 mA} \approx 0,998004
+\Omega \\
+\end{split}
+\end{equation*}\]</span></p>
+<pre class="r"><code>(5.04/(5.4*10**-6)) #Widerstand 1</code></pre>
+<pre><code>## [1] 933333.3</code></pre>
+<pre class="r"><code>(0.15/(150.3*10**-3)) #Widerstand 2</code></pre>
+<pre><code>## [1] 0.998004</code></pre>
+<div id="messunsicherheiten-2" class="section level3">
+<h3>Messunsicherheiten</h3>
+<p>Die Messunsicherheit für die indirekt bestimmten Widerstände ergibt
+sich mit folgender Formel:</p>
+<p></p>
+</div>
+</div>
+<div id="aufbau-b" class="section level2">
+<h2>Aufbau (b)</h2>
+<p>Anschließend wurde der Schaltkreis entsprechend umgebaut:
+<!-- Skizze Schaltkreis und Foto --></p>
+<p>Folgende Werte wurden gemessen:</p>
+</div>
 </div>
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Widerstandsmessungen"
 author: "Milena Mensching, Justus Weyers"
-date: "`r Sys.Date()`"
+date: "2023-01-05"
 lang: de
 fontsize: 9pt
 output:
@@ -68,9 +68,21 @@ u_{Skala} &=\frac{a}{2*\sqrt{3}} \\
 2.Widerstand: u_2 &= \frac{0,1\Omega}{2*\sqrt{3}} \approx \pm 0,029\Omega 
 \end{split}
 \end{equation*}
-```{r}
+
+```r
 0.001/(2*sqrt(3)) #Unsicherheit 1
+```
+
+```
+## [1] 0.0002886751
+```
+
+```r
 0.1/(2*sqrt(3)) #Unsicherheit 2
+```
+
+```
+## [1] 0.02886751
 ```
 
 # Indirekte Messungen
@@ -112,9 +124,21 @@ Spannung: u_{U2a} &= \frac{0,01V}{2*\sqrt{3}} \approx \pm 0,0029 V \\
 Strom: u_{I2a} &= \frac{0,1mA}{2*\sqrt{3}} \approx \pm 0,029 mA \\
 \end{split}
 \end{equation*}
-```{r}
+
+```r
 0.01/(2*sqrt(3)) #Unsicherheit Spannung 1,2
+```
+
+```
+## [1] 0.002886751
+```
+
+```r
 0.1/(2*sqrt(3)) #Unsicherheit Strom 1,2
+```
+
+```
+## [1] 0.02886751
 ```
 Folglich liegen die gemessenen Größen bei:
 
@@ -144,9 +168,21 @@ Für die Widerstände ergeben sich somit für Aufbau (a) Bestwerte von:
 \end{split}
 \end{equation*}
 
-```{r}
+
+```r
 (5.04/(5.4*10**-6)) #Widerstand 1
+```
+
+```
+## [1] 933333.3
+```
+
+```r
 (0.15/(150.3*10**-3)) #Widerstand 2
+```
+
+```
+## [1] 0.998004
 ```
 ### Messunsicherheiten
 
@@ -161,9 +197,21 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 \end{split}
 \end{equation*}
 
-```{r}
+
+```r
 sqrt(((1/(5.4*10**-6))*0.0029)**2+(5.04/((5.4*10**-6)**2)*0.029*10**-6)**2) #Unsicherheit Widerstand 1
+```
+
+```
+## [1] 5041.033
+```
+
+```r
 sqrt(((1/(150.3*10**-3))*0.0029)**2+(0.15/((150.3*10**-3)**2)*0.029*10**-3)**2) #Unsicherheit Widerstand 2
+```
+
+```
+## [1] 0.0192957
 ```
 Die Widerstände für den Aufbau (a) ergeben sich somit insgesamt zu:
 
@@ -225,9 +273,21 @@ Für die Widerstände ergeben sich somit für Aufbau (b) Bestwerte von:
 \end{split}
 \end{equation*}
 
-```{r}
+
+```r
 (5.03/(5*10**-6)) #Widerstand 1
+```
+
+```
+## [1] 1006000
+```
+
+```r
 (0.4/(101.8*10**-3)) #Widerstand 2
+```
+
+```
+## [1] 3.929273
 ```
 ### Messunsicherheiten
 
@@ -242,9 +302,21 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 \end{split}
 \end{equation*}
 
-```{r}
+
+```r
 sqrt(((1/(5*10**-6))*0.0029)**2+(5.03/((5*10**-6)**2)*0.029*10**-6)**2) #Unsicherheit Widerstand 1
+```
+
+```
+## [1] 5863.556
+```
+
+```r
 sqrt(((1/(101.8*10**-3))*0.0029)**2+(0.4/((101.8*10**-3)**2)*0.029*10**-3)**2) #Unsicherheit Widerstand 2
+```
+
+```
+## [1] 0.02850921
 ```
 Die Widerstände für den Aufbau (b) ergeben sich somit insgesamt zu:
 
