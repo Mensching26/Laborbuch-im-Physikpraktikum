@@ -18,54 +18,52 @@ editor_options:
 
 ## Thema
 
-Bestimmung von Widerständen auf direkte und indirekte Weise
+Bestimmung von Widerständen auf direkte und indirekte Weise. 
+Dazu werden die Beträge der zwei zu untersuchenden Widerstände durch ablesen der Farbcodes, durch Widerstandsmessungen mit einem Multimeter und in einem Schaltkreis ermittelt.
 
 ## Material
 
 \begin{itemize}
-\item{2 Multimeter}
+\item{Zwei Multimeter}
 \item{Breadboard}
-\item{Kabel}
+\item{Jumperwire, Bananenstecker und Krokodilklemmen}
 \item{Netzgerät}
+\item{Zwei Widerstände unbekannter Größe}
 \end{itemize}
 
-## Auslesung der Widerstände
+## Auslesen der Widerstandsfarbcodes
+
+Als erste Methode zur Bestimmung des Widerstandes werden die Bauteilspezifikationen auf dem Widertstand selbst abgelesen.
 
 <!-- Foto vom Widerstand -->
 
-Die Farbreihenfolge auf dem ersten Widerstand ist:
+Die Farbreihenfolge auf dem ersten Widerstand ist $Braun, Schwarz, Schwarz, Gelb, Braun$.
+Dementsprechend kodiert der im Folgenden als $R_1$ bezeichnete Widerstand für $R_1 = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R_1=(1,00\pm 0,01) M\Omega$.
 
-$Braun, Schwarz, Schwarz, Gelb, Braun$
+<!-- Foto vom Widerstand -->
 
-Dementsprechend kodiert der Widerstand für 
-
-\begin{equation*}
-R = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R=(1\pm 0.01) M\Omega
-\end{equation*}
-
-Der zweite Widerstand ist als Widerstand von $1\Omega$ gekennzeichnet 
-
+Der zweite, $R_2$ genannte Widerstand ist als Widerstand von $1\Omega$ gekennzeichnet. 
+Aus Datenblättern im Internet geht hervor, dass auch dieser eine Toleranz von $\pm 1 \%$ aufweist (https://de.rs-online.com/web/p/durchsteckwiderstande/1249328).
+Dies bedeutet einen Widerstand von $R_2=(1,00 \pm 0,01)\Omega$ für dieses Bauteil.
 
 ## Direkte Messung
 
-Messen der zwei Widerstände liefert Werte von:
+Messungen der Widerstände mit dem Multimeter liefert Werte von:
+
+\begin{itemize}
+\item $R_1 = 1,005 M\Omega$\\
+\item $R_2 = 1,0 \Omega$
+\end{itemize}
+
+### Messunsicherheiten der direkten Messung
+
+Die Messunsicherheit der direkten Messung ergibt sich aus der Messunsicherheit der digitalen Skala:
 
 \begin{equation*}
 \begin{split}
-1.Widerstand: R &= 1,005 M\Omega \\
-2. Widerstand: R &= 1,0 \Omega
-\end{split}
-\end{equation*}
-
-## Messunsicherheiten
-
-Die Messunsicherheit der direkten Messung ergibt sich aus der Messunsicherheit der digitalen Skala
-
-\begin{equation*}
-\begin{split}
-u_{Skala} &=\frac{a}{2*\sqrt{3}} \\
-1.Widerstand: u_1 &= \frac{0,001M\Omega}{2*\sqrt{3}} \approx \pm 0,00029 M\Omega \\
-2.Widerstand: u_2 &= \frac{0,1\Omega}{2*\sqrt{3}} \approx \pm 0,029\Omega 
+u_{Skala} &=\frac{a}{2\sqrt{3}} \\
+1.Widerstand: u_1 &= \frac{0,001M\Omega}{2\sqrt{3}} \approx \pm 0,00029 M\Omega \\
+2.Widerstand: u_2 &= \frac{0,1\Omega}{2\sqrt{3}} \approx \pm 0,029\Omega 
 \end{split}
 \end{equation*}
 ```{r}
@@ -73,8 +71,13 @@ u_{Skala} &=\frac{a}{2*\sqrt{3}} \\
 0.1/(2*sqrt(3)) #Unsicherheit 2
 ```
 
-# Indirekte Messungen
+## Indirekte Widerstandsmessung
 
+Die indirekte Bestimmung der Widerstände in einem Stromkreis erfolgt in zwei Varianten. Diese Unterscheiden sich in der Art des Schaltungsaufbaus. In Abbildung ... ist der Unterschied zwischen den Varianten a) und b) erkennlich.
+
+<!-- Abbildung Schaltkreise-->
+
+In Variante a) wird das Voltmeter parralel zum Widerstand geschaltet, in Variante b) parallel zur Spannungsquelle.
 
 ## Aufbau (a)
 
