@@ -116,7 +116,7 @@
 
 \title{Widerstandsmessungen}
 \author{Milena Mensching, Justus Weyers}
-\date{2023-01-05}
+\date{2023-01-11}
 
 \begin{document}
 \maketitle
@@ -148,16 +148,29 @@ Schaltkreis ermittelt.
 Widerstandsfarbcodes}\label{auslesen-der-widerstandsfarbcodes}}
 
 Als erste Methode zur Bestimmung des Widerstandes werden die
-Bauteilspezifikationen auf dem Widertstand selbst abgelesen.
+Bauteilspezifikationen auf dem Widertstand selbst abgelesen. Im
+folgenden wird von ``Widerstand 1'' und ``Widerstand 2'' gesprochen.
 
-Die Farbreihenfolge auf dem ersten Widerstand ist
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/1MOhm.png}
+\caption{Foto von Widerstand 1}
+\end{figure}
+
+Die Farbreihenfolge auf dem Widerstand ist
 \(Braun, Schwarz, Schwarz, Gelb, Braun\). Dementsprechend kodiert der im
 Folgenden als \(R_1\) bezeichnete Widerstand für
 \(R_1 = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R_1=(1,00\pm 0,01) M\Omega\).
 
-Der zweite, \(R_2\) genannte Widerstand ist als Widerstand von
-\(1\Omega\) gekennzeichnet. Aus Datenblättern im Internet geht hervor,
-dass auch dieser eine Toleranz von \(\pm 1 \%\) aufweist
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/1Ohm.png}
+\caption{Foto von Widerstand 2}
+\end{figure}
+
+Widerstand 2 ist als Widerstand von \(1\Omega\) gekennzeichnet. Aus
+Datenblättern im Internet geht hervor, dass auch dieser eine Toleranz
+von \(\pm 1 \%\) aufweist
 (\url{https://de.rs-online.com/web/p/durchsteckwiderstande/1249328}).
 Dies bedeutet einen Widerstand von \(R_2=(1,00 \pm 0,01)\Omega\) für
 dieses Bauteil.
@@ -177,7 +190,7 @@ Messungen der Widerstände mit dem Multimeter liefert Werte von:
 Messung}\label{messunsicherheiten-der-direkten-messung}}
 
 Die Messunsicherheit der direkten Messung ergibt sich aus der
-Messunsicherheit der digitalen Skala
+Messunsicherheit der digitalen Skala:
 
 \begin{equation*}
 \begin{split}
@@ -216,14 +229,41 @@ zwei Varianten. Diese Unterscheiden sich in der Art des
 Schaltungsaufbaus. In Abbildung \ldots{} ist der Unterschied zwischen
 den Varianten a) und b) erkennlich.
 
-In Variante a) wird das Voltmeter parralel zum Widerstand geschaltet, in
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.1\textheight]{Bilder/Schaltkreis.png}
+\caption{Schaltkreise zur indirekten Widerstandsmessung. Links: Variante
+a). Rechts: Variante b). Quelle: Universität Potsdam, Institut für
+Physik und Astronomie, Grundpraktikum, Skript zum Versuch E1.}
+\end{figure}
+
+In Variante a) wird das Voltmeter parallel zum Widerstand geschaltet, in
 Variante b) parallel zur Spannungsquelle.
+
+Bei der Berechnung der Widerstände aus den gemessenen Werten werden zwei
+Annahmen getroffen:
+
+\begin{itemize}
+  \item Durch das Voltmeter findet Stromfluss statt. Der tatsächliche Innenwiderstand beträgt ca. $10M\Omega$, wie Datenblättern des Messgerätes aus dem Internet entnommen und auch experimentell überprüft wurde.
+  \item Das Amperemeter hat keinen Innenwiderstand. In den Datenblättern gab es keine Agaben zum Innenwiderstand des Amperemeters und auch experimentell konnte kein Widerstand bestimmt werden.
+\end{itemize}
+
+Verwendetes Datenblatt:
+\url{https://asset.conrad.com/media10/add/160267/c1/-/en/000124501DS01/datasheet-124501-voltcraft-vc250-handheld-multimeter-digital-cat-iii-600-v-display-counts-2000.pdf}.
 
 \hypertarget{aufbau-a}{%
 \subsection{Aufbau (a)}\label{aufbau-a}}
 
 Mithilfe der Kabel und des Breadboards wurde folgender Stromkreis
 aufgebaut:
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/SchaltungA.png}
+\caption{Aufbau auf Breadboard für Variante a) der indirekten
+Widerstandsmessung. Im Bild ist zudem bereits der Widerstand 1
+eingebaut.}
+\end{figure}
 
 Folgende Werte wurden gemessen:
 
@@ -248,13 +288,13 @@ Messunsicherheit der digitalen Skala
 
 \begin{equation*}
 \begin{split}
-u_{Skala} &=\frac{a}{2*\sqrt{3}} \\
+u_{Skala} &=\frac{a}{2\sqrt{3}} \\
 \underline{1.Widerstand:} \\
-Spannung: u_{U1a} &= \frac{0,01V}{2*\sqrt{3}} \approx \pm 0,0029 V \\
-Strom: u_{I1a} &= \frac{0,1\mu A}{2*\sqrt{3}} \approx \pm 0,029\mu A \\
+Spannung: u_{U1a} &= \frac{0,01V}{2\sqrt{3}} \approx 0,0029 V \\
+Strom: u_{I1a} &= \frac{0,1\mu A}{2\sqrt{3}} \approx 0,029\mu A \\
 \underline{2.Widerstand:} \\
-Spannung: u_{U2a} &= \frac{0,01V}{2*\sqrt{3}} \approx \pm 0,0029 V \\
-Strom: u_{I2a} &= \frac{0,1mA}{2*\sqrt{3}} \approx \pm 0,029 mA \\
+Spannung: u_{U2a} &= \frac{0,01V}{2\sqrt{3}} \approx 0,0029 V \\
+Strom: u_{I2a} &= \frac{0,1mA}{2\sqrt{3}} \approx 0,029 mA \\
 \end{split}
 \end{equation*}
 
@@ -344,7 +384,8 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\FloatTok{5.4}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{5.04}\SpecialCharTok{/}\NormalTok{((}\FloatTok{5.4}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{) }\CommentTok{\#Unsicherheit Widerstand 1}
+\CommentTok{\# Unsicherheit Widerstand 1}
+\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\FloatTok{5.4}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{5.04}\SpecialCharTok{/}\NormalTok{((}\FloatTok{5.4}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -354,7 +395,8 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\FloatTok{150.3}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{0.15}\SpecialCharTok{/}\NormalTok{((}\FloatTok{150.3}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{) }\CommentTok{\#Unsicherheit Widerstand 2}
+\CommentTok{\# Unsicherheit Widerstand 2}
+\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\FloatTok{150.3}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{0.15}\SpecialCharTok{/}\NormalTok{((}\FloatTok{150.3}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -365,14 +407,22 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 Die Widerstände für den Aufbau (a) ergeben sich somit insgesamt zu:
 
 \begin{itemize}
-\item $R1a = (93000 \pm 5000)\Omega $
+\item $R1a = (933300 \pm 5000)\Omega = (0,9333 \pm 0,0050)M\Omega$
 \item $R2a = (0,998 \pm 0,019) \Omega$
 \end{itemize}
 
 \hypertarget{aufbau-b}{%
 \subsection{Aufbau (b)}\label{aufbau-b}}
 
-Anschließend wurde der Schaltkreis entsprechend umgebaut:
+Anschließend wurde der Schaltkreis, Versuchsvariante b) entsprechend,
+umgebaut:
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/VersuchB1.png}
+\caption{Aufbau auf Breadboard für Variante b) der indirekten
+Widerstandsmessung.}
+\end{figure}
 
 Folgende Werte wurden gemessen:
 
@@ -459,7 +509,8 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\DecValTok{5}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{5.03}\SpecialCharTok{/}\NormalTok{((}\DecValTok{5}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{) }\CommentTok{\#Unsicherheit Widerstand 1}
+\CommentTok{\# Unsicherheit Widerstand 1}
+\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\DecValTok{5}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{5.03}\SpecialCharTok{/}\NormalTok{((}\DecValTok{5}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -469,7 +520,8 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\FloatTok{101.8}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{0.4}\SpecialCharTok{/}\NormalTok{((}\FloatTok{101.8}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{) }\CommentTok{\#Unsicherheit Widerstand 2}
+\CommentTok{\# Unsicherheit Widerstand 2}
+\FunctionTok{sqrt}\NormalTok{(((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\FloatTok{101.8}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{))}\SpecialCharTok{*}\FloatTok{0.0029}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\SpecialCharTok{+}\NormalTok{(}\FloatTok{0.4}\SpecialCharTok{/}\NormalTok{((}\FloatTok{101.8}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.029}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 

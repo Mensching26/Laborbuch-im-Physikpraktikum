@@ -33,16 +33,16 @@ Dazu werden die Beträge der zwei zu untersuchenden Widerstände durch ablesen d
 
 ## Auslesen der Widerstandsfarbcodes
 
-Als erste Methode zur Bestimmung des Widerstandes werden die Bauteilspezifikationen auf dem Widertstand selbst abgelesen.
+Als erste Methode zur Bestimmung des Widerstandes werden die Bauteilspezifikationen auf dem Widertstand selbst abgelesen. Im folgenden wird von "Widerstand 1" und "Widerstand 2" gesprochen.
 
-<!-- Foto vom Widerstand -->
+![Foto von Widerstand 1](Bilder/1MOhm.png){width=20%, height=20%}
 
-Die Farbreihenfolge auf dem ersten Widerstand ist $Braun, Schwarz, Schwarz, Gelb, Braun$.
+Die Farbreihenfolge auf dem Widerstand ist $Braun, Schwarz, Schwarz, Gelb, Braun$.
 Dementsprechend kodiert der im Folgenden als $R_1$ bezeichnete Widerstand für $R_1 = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R_1=(1,00\pm 0,01) M\Omega$.
 
-<!-- Foto vom Widerstand -->
+![Foto von Widerstand 2](Bilder/1Ohm.png){width=20%, height=20%}
 
-Der zweite, $R_2$ genannte Widerstand ist als Widerstand von $1\Omega$ gekennzeichnet. 
+Widerstand 2 ist als Widerstand von $1\Omega$ gekennzeichnet. 
 Aus Datenblättern im Internet geht hervor, dass auch dieser eine Toleranz von $\pm 1 \%$ aufweist (https://de.rs-online.com/web/p/durchsteckwiderstande/1249328).
 Dies bedeutet einen Widerstand von $R_2=(1,00 \pm 0,01)\Omega$ für dieses Bauteil.
 
@@ -75,15 +75,23 @@ u_{Skala} &=\frac{a}{2\sqrt{3}} \\
 
 Die indirekte Bestimmung der Widerstände in einem Stromkreis erfolgt in zwei Varianten. Diese Unterscheiden sich in der Art des Schaltungsaufbaus. In Abbildung ... ist der Unterschied zwischen den Varianten a) und b) erkennlich.
 
-<!-- Abbildung Schaltkreise-->
+![Schaltkreise zur indirekten Widerstandsmessung. Links: Variante a). Rechts: Variante b). Quelle: Universität Potsdam, Institut für Physik und Astronomie, Grundpraktikum, Skript zum Versuch E1.](Bilder/Schaltkreis.png){width=10%, height=10%}
 
-In Variante a) wird das Voltmeter parralel zum Widerstand geschaltet, in Variante b) parallel zur Spannungsquelle.
+In Variante a) wird das Voltmeter parallel zum Widerstand geschaltet, in Variante b) parallel zur Spannungsquelle.
+
+Bei der Berechnung der Widerstände aus den gemessenen Werten werden zwei Annahmen getroffen:
+\begin{itemize}
+  \item Durch das Voltmeter findet Stromfluss statt. Der tatsächliche Innenwiderstand beträgt ca. $10M\Omega$, wie Datenblättern des Messgerätes aus dem Internet entnommen und auch experimentell überprüft wurde.
+  \item Das Amperemeter hat keinen Innenwiderstand. In den Datenblättern gab es keine Agaben zum Innenwiderstand des Amperemeters und auch experimentell konnte kein Widerstand bestimmt werden.
+\end{itemize}
+
+Verwendetes Datenblatt: https://asset.conrad.com/media10/add/160267/c1/-/en/000124501DS01/datasheet-124501-voltcraft-vc250-handheld-multimeter-digital-cat-iii-600-v-display-counts-2000.pdf.
 
 ## Aufbau (a)
 
 Mithilfe der Kabel und des Breadboards wurde folgender Stromkreis aufgebaut:
 
-<!-- Skizze Stromkreis und Foto Stromkreis -->
+![Aufbau auf Breadboard für Variante a) der indirekten Widerstandsmessung. Im Bild ist zudem bereits der Widerstand 1 eingebaut.](Bilder/SchaltungA.png){width=20%, height=20%}
 
 Folgende Werte wurden gemessen:
 
@@ -106,13 +114,13 @@ Die Messunsicherheitem von Spannung und Strom ergeben sich aus der Messunsicherh
 
 \begin{equation*}
 \begin{split}
-u_{Skala} &=\frac{a}{2*\sqrt{3}} \\
+u_{Skala} &=\frac{a}{2\sqrt{3}} \\
 \underline{1.Widerstand:} \\
-Spannung: u_{U1a} &= \frac{0,01V}{2*\sqrt{3}} \approx \pm 0,0029 V \\
-Strom: u_{I1a} &= \frac{0,1\mu A}{2*\sqrt{3}} \approx \pm 0,029\mu A \\
+Spannung: u_{U1a} &= \frac{0,01V}{2\sqrt{3}} \approx 0,0029 V \\
+Strom: u_{I1a} &= \frac{0,1\mu A}{2\sqrt{3}} \approx 0,029\mu A \\
 \underline{2.Widerstand:} \\
-Spannung: u_{U2a} &= \frac{0,01V}{2*\sqrt{3}} \approx \pm 0,0029 V \\
-Strom: u_{I2a} &= \frac{0,1mA}{2*\sqrt{3}} \approx \pm 0,029 mA \\
+Spannung: u_{U2a} &= \frac{0,01V}{2\sqrt{3}} \approx 0,0029 V \\
+Strom: u_{I2a} &= \frac{0,1mA}{2\sqrt{3}} \approx 0,029 mA \\
 \end{split}
 \end{equation*}
 ```{r}
@@ -151,6 +159,7 @@ Für die Widerstände ergeben sich somit für Aufbau (a) Bestwerte von:
 (5.04/(5.4*10**-6)) #Widerstand 1
 (0.15/(150.3*10**-3)) #Widerstand 2
 ```
+
 ### Messunsicherheiten
 
 Die Messunsicherheit für die indirekt bestimmten Widerstände ergibt sich mit folgender Formel:
@@ -165,22 +174,25 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 \end{equation*}
 
 ```{r}
-sqrt(((1/(5.4*10**-6))*0.0029)**2+(5.04/((5.4*10**-6)**2)*0.029*10**-6)**2) #Unsicherheit Widerstand 1
-sqrt(((1/(150.3*10**-3))*0.0029)**2+(0.15/((150.3*10**-3)**2)*0.029*10**-3)**2) #Unsicherheit Widerstand 2
+# Unsicherheit Widerstand 1
+sqrt(((1/(5.4*10**-6))*0.0029)**2+(5.04/((5.4*10**-6)**2)*0.029*10**-6)**2)
+# Unsicherheit Widerstand 2
+sqrt(((1/(150.3*10**-3))*0.0029)**2+(0.15/((150.3*10**-3)**2)*0.029*10**-3)**2)
 ```
 Die Widerstände für den Aufbau (a) ergeben sich somit insgesamt zu:
 
 
 \begin{itemize}
-\item $R1a = (93000 \pm 5000)\Omega $
+\item $R1a = (933300 \pm 5000)\Omega = (0,9333 \pm 0,0050)M\Omega$
 \item $R2a = (0,998 \pm 0,019) \Omega$
 \end{itemize}
 
 
 ## Aufbau (b)
 
-Anschließend wurde der Schaltkreis entsprechend umgebaut:
-<!-- Skizze Schaltkreis und Foto -->
+Anschließend wurde der Schaltkreis, Versuchsvariante b) entsprechend, umgebaut:
+
+![Aufbau auf Breadboard für Variante b) der indirekten Widerstandsmessung. ](Bilder/VersuchB1.png){width=20%, height=20%}
 
 Folgende Werte wurden gemessen:
 
@@ -246,8 +258,10 @@ u_R &= \sqrt{\left (\frac{1}{I} \cdot u_U\right )^2 + \left (\frac{-U}{I^2} \cdo
 \end{equation*}
 
 ```{r}
-sqrt(((1/(5*10**-6))*0.0029)**2+(5.03/((5*10**-6)**2)*0.029*10**-6)**2) #Unsicherheit Widerstand 1
-sqrt(((1/(101.8*10**-3))*0.0029)**2+(0.4/((101.8*10**-3)**2)*0.029*10**-3)**2) #Unsicherheit Widerstand 2
+# Unsicherheit Widerstand 1
+sqrt(((1/(5*10**-6))*0.0029)**2+(5.03/((5*10**-6)**2)*0.029*10**-6)**2)
+# Unsicherheit Widerstand 2
+sqrt(((1/(101.8*10**-3))*0.0029)**2+(0.4/((101.8*10**-3)**2)*0.029*10**-3)**2)
 ```
 Die Widerstände für den Aufbau (b) ergeben sich somit insgesamt zu:
 
