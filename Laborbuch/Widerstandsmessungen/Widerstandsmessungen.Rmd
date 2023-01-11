@@ -79,7 +79,7 @@ Die indirekte Bestimmung der Widerstände in einem Stromkreis erfolgt in zwei Va
 
 In Variante a) wird das Voltmeter parallel zum Widerstand geschaltet, in Variante b) parallel zur Spannungsquelle.
 
-Bei der Berechnung der Widerstände aus den gemessenen Werten werden zwei Annahmen getroffen:
+Bei der Berechnung der Widerstände aus den gemessenen Werten werden zwei Annahmen/Vereinfachungen getroffen:
 \begin{itemize}
   \item Durch das Voltmeter findet Stromfluss statt. Der tatsächliche Innenwiderstand beträgt ca. $10M\Omega$, wie Datenblättern des Messgerätes aus dem Internet entnommen und auch experimentell überprüft wurde.
   \item Das Amperemeter hat keinen Innenwiderstand. In den Datenblättern gab es keine Agaben zum Innenwiderstand des Amperemeters und auch experimentell konnte kein Widerstand bestimmt werden.
@@ -108,7 +108,7 @@ Folgende Werte wurden gemessen:
 \end{itemize}
 \end{itemize}
 
-### Messunsicherheiten
+### Gerätespezifische Messunsicherheiten
 
 Die Messunsicherheitem von Spannung und Strom ergeben sich aus der Messunsicherheit der digitalen Skala
 
@@ -136,7 +136,7 @@ Folglich liegen die gemessenen Größen bei:
 \item $I2a = (150,300 \pm 0,029) mA$
 \end{itemize}
 
-## Berechnung der Widerstände
+### Berechnung der Widerstände
 
 Es gilt das Ohmsche Gesetz:
 
@@ -187,6 +187,9 @@ Die Widerstände für den Aufbau (a) ergeben sich somit insgesamt zu:
 \item $R2a = (0,998 \pm 0,019) \Omega$
 \end{itemize}
 
+Die Widerstände liegen in den richtigen Größenordnungen.
+Die bestimmten Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den Sollwerten von $10M\Omega$ und $1\Omega$, wie sie im Vorfeld bestimmt wurden vereinbaren.
+Grund für die falschen Messergebnisse können z.B. die zum Voltmeter und dem Amperemeter getroffenen Annahmen sein.
 
 ## Aufbau (b)
 
@@ -209,7 +212,7 @@ Folgende Werte wurden gemessen:
 \end{itemize}
 \end{itemize}
 
-### Messunsicherheiten
+### Gerätespezifische Messunsicherheiten
 
 Die Messunsicherheiten von Spannung und Strom sind identisch zu denen im Aufbau (a).
 Folglich liegen die gemessenen Größen bei:
@@ -221,7 +224,7 @@ Folglich liegen die gemessenen Größen bei:
 \item $I2b = (101,800 \pm 0,029) mA$
 \end{itemize}
 
-## Berechnung der Widerstände
+### Berechnung der Widerstände
 
 Es gilt das Ohmsche Gesetz:
 
@@ -244,6 +247,7 @@ Für die Widerstände ergeben sich somit für Aufbau (b) Bestwerte von:
 (5.03/(5*10**-6)) #Widerstand 1
 (0.4/(101.8*10**-3)) #Widerstand 2
 ```
+
 ### Messunsicherheiten
 
 Die Messunsicherheit für die indirekt bestimmten Widerstände ergibt sich mit folgender Formel:
@@ -270,4 +274,80 @@ Die Widerstände für den Aufbau (b) ergeben sich somit insgesamt zu:
 \item $R1b = (1006000\pm 5900)\Omega $
 \item $R2b = (3,929\pm 0,029) \Omega$
 \end{itemize}
+
+Die Widerstände liegen in den richtigen Größenordnungen.
+Die bestimmten Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den Sollwerten von $10M\Omega$ und $1\Omega$, wie sie im Vorfeld bestimmt wurden vereinbaren. 
+Besonders für Widerstand 2 ist im Experiment ein etwa vier mal höherer Wert bestimmt worden.
+Grund für die falschen Messergebnisse können z.B. die zum Voltmeter und dem Amperemeter getroffenen Annahmen sein.
+
+# Modellbildungsprozess
+
+Bei unserem Versuch handelt es sich um ein Testexperiment, bei dem wir auf der Grundlage des Ohmschen Gesetzes Widerstände indirekt messen.
+Es soll nun ein Modell erstellt werden, anhand dessen die Widerstände der elektrischen Widerstandsbauteile in den jeweiligen Schaltungen vorhergesagt werden können.
+
+Die Modelle sollen den Schaltungen nachempfundene Widerstandsschaltungen sein, in denen Amperemeter und Voltmeter durch Widerstände ersetzt werden.
+
+## Annahmen
+Sowohl für Schaltung a), als auch für Schaltung b) wird grundsätzlich angenommen, dass das Voltmeter dabei einen Widerstand von $10M\Omega$ und das Amperemeter einen Innenwiderstand von $0\Omega$ hat (vergleiche Ausführungen dazu bei der indirekten Widerstandsmessung).
+Eine weitere Annahme ist, dass der schaltungsdraht keinen Widerstand hat.
+
+## Modell für Schaltung a)
+
+![Modell zur Schaltung a)](Bilder/ModellA.png){width=20%, height=20%}
+
+***Input:***
+
+Systemparameter:
+
+* Spannung U an der Spannungsquelle
+* Stromstärke I im gesamten Stromkreis
+
+Randbedingungen:
+
+* Widerstand Amperemeter $R_1$: $0\Omega$
+* Widerstand Voltmeter $R_2$: $10M\Omega$
+
+***Output:***
+
+* Widerstand des unbekannten Widerstandes $R_3$
+
+***Modelldomäne***
+Innerhalb des Modells wird der Widerstand R_3 mittels folgender Formel berechnet:
+
+$$(\frac{1}{(R_{ges}-R_1)}-\frac{1}{R_2})**-1$$
+
+Diese Rührt von den bekannten Gesetzen zu dem Widerstand in Reihen- und Parallelschaltung, sowie dem Ohmschen Gesetz her.
+
+\newpage
+***Implementierung als R-Funktion mit zwei Argumenten:***
+```{r}
+# ---- Schaltung 1
+# INPUT: Spannung, Stromstärke
+# OUTPUT: Benötigter Widerstand
+schaltung1 <- function(U0, I0){
+  # Randbedingungen
+  R1 = 0 # Widerstand Amperemeter
+  R2 = 10e6 # Widerstand Voltmeter
+  # Berechnung des Gesamtwiderstandes
+  Rges = U0/I0
+  # Berechnung des benötigten R
+  R3 = (1/(Rges-R1)-1/R2)**-1
+  print("Widerstände in der Schaltung in Ohm:")
+  print(paste("R1: ", R1))
+  print(paste("R2: ", R2))
+  print(paste("R3: ", R3))
+  print(paste("R_ges: ", Rges))
+}
+```
+
+Wird das Modell mit den gemessenen Werten ausgeführt (das gemessene U und I entsprechen bei Schaltung a) den Einstellungen an der Spannungsquelle) erhält man mit diesem Modell folgenden Output:
+```{r}
+# Testen mit gemessenen Werten für Widerstand 1
+schaltung1(U0=5, I0=5.4e-06)
+```
+
+```{r}
+# Testen mit gemessenen Werten für Widerstand 1
+schaltung1(U0=0.15, I0=0.1503)
+```
 

@@ -241,7 +241,7 @@ In Variante a) wird das Voltmeter parallel zum Widerstand geschaltet, in
 Variante b) parallel zur Spannungsquelle.
 
 Bei der Berechnung der Widerstände aus den gemessenen Werten werden zwei
-Annahmen getroffen:
+Annahmen/Vereinfachungen getroffen:
 
 \begin{itemize}
   \item Durch das Voltmeter findet Stromfluss statt. Der tatsächliche Innenwiderstand beträgt ca. $10M\Omega$, wie Datenblättern des Messgerätes aus dem Internet entnommen und auch experimentell überprüft wurde.
@@ -280,8 +280,9 @@ Folgende Werte wurden gemessen:
 \end{itemize}
 \end{itemize}
 
-\hypertarget{messunsicherheiten}{%
-\subsubsection{Messunsicherheiten}\label{messunsicherheiten}}
+\hypertarget{geruxe4tespezifische-messunsicherheiten}{%
+\subsubsection{Gerätespezifische
+Messunsicherheiten}\label{geruxe4tespezifische-messunsicherheiten}}
 
 Die Messunsicherheitem von Spannung und Strom ergeben sich aus der
 Messunsicherheit der digitalen Skala
@@ -328,7 +329,7 @@ Folglich liegen die gemessenen Größen bei:
 \end{itemize}
 
 \hypertarget{berechnung-der-widerstuxe4nde}{%
-\subsection{Berechnung der
+\subsubsection{Berechnung der
 Widerstände}\label{berechnung-der-widerstuxe4nde}}
 
 Es gilt das Ohmsche Gesetz:
@@ -367,8 +368,8 @@ Für die Widerstände ergeben sich somit für Aufbau (a) Bestwerte von:
 ## [1] 0.998004
 \end{verbatim}
 
-\hypertarget{messunsicherheiten-1}{%
-\subsubsection{Messunsicherheiten}\label{messunsicherheiten-1}}
+\hypertarget{messunsicherheiten}{%
+\subsubsection{Messunsicherheiten}\label{messunsicherheiten}}
 
 Die Messunsicherheit für die indirekt bestimmten Widerstände ergibt sich
 mit folgender Formel:
@@ -411,6 +412,13 @@ Die Widerstände für den Aufbau (a) ergeben sich somit insgesamt zu:
 \item $R2a = (0,998 \pm 0,019) \Omega$
 \end{itemize}
 
+Die Widerstände liegen in den richtigen Größenordnungen. Die bestimmten
+Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den
+Sollwerten von \(10M\Omega\) und \(1\Omega\), wie sie im Vorfeld
+bestimmt wurden vereinbaren. Grund für die falschen Messergebnisse
+können z.B. die zum Voltmeter und dem Amperemeter getroffenen Annahmen
+sein.
+
 \hypertarget{aufbau-b}{%
 \subsection{Aufbau (b)}\label{aufbau-b}}
 
@@ -439,8 +447,9 @@ Folgende Werte wurden gemessen:
 \end{itemize}
 \end{itemize}
 
-\hypertarget{messunsicherheiten-2}{%
-\subsubsection{Messunsicherheiten}\label{messunsicherheiten-2}}
+\hypertarget{geruxe4tespezifische-messunsicherheiten-1}{%
+\subsubsection{Gerätespezifische
+Messunsicherheiten}\label{geruxe4tespezifische-messunsicherheiten-1}}
 
 Die Messunsicherheiten von Spannung und Strom sind identisch zu denen im
 Aufbau (a). Folglich liegen die gemessenen Größen bei:
@@ -453,7 +462,7 @@ Aufbau (a). Folglich liegen die gemessenen Größen bei:
 \end{itemize}
 
 \hypertarget{berechnung-der-widerstuxe4nde-1}{%
-\subsection{Berechnung der
+\subsubsection{Berechnung der
 Widerstände}\label{berechnung-der-widerstuxe4nde-1}}
 
 Es gilt das Ohmsche Gesetz:
@@ -492,8 +501,8 @@ Für die Widerstände ergeben sich somit für Aufbau (b) Bestwerte von:
 ## [1] 3.929273
 \end{verbatim}
 
-\hypertarget{messunsicherheiten-3}{%
-\subsubsection{Messunsicherheiten}\label{messunsicherheiten-3}}
+\hypertarget{messunsicherheiten-1}{%
+\subsubsection{Messunsicherheiten}\label{messunsicherheiten-1}}
 
 Die Messunsicherheit für die indirekt bestimmten Widerstände ergibt sich
 mit folgender Formel:
@@ -535,5 +544,137 @@ Die Widerstände für den Aufbau (b) ergeben sich somit insgesamt zu:
 \item $R1b = (1006000\pm 5900)\Omega $
 \item $R2b = (3,929\pm 0,029) \Omega$
 \end{itemize}
+
+Die Widerstände liegen in den richtigen Größenordnungen. Die bestimmten
+Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den
+Sollwerten von \(10M\Omega\) und \(1\Omega\), wie sie im Vorfeld
+bestimmt wurden vereinbaren. Besonders für Widerstand 2 ist im
+Experiment ein etwa vier mal höherer Wert bestimmt worden. Grund für die
+falschen Messergebnisse können z.B. die zum Voltmeter und dem
+Amperemeter getroffenen Annahmen sein.
+
+\hypertarget{modellbildungsprozess}{%
+\section{Modellbildungsprozess}\label{modellbildungsprozess}}
+
+Bei unserem Versuch handelt es sich um ein Testexperiment, bei dem wir
+auf der Grundlage des Ohmschen Gesetzes Widerstände indirekt messen. Es
+soll nun ein Modell erstellt werden, anhand dessen die Widerstände der
+elektrischen Widerstandsbauteile in den jeweiligen Schaltungen
+vorhergesagt werden können.
+
+Die Modelle sollen den Schaltungen nachempfundene Widerstandsschaltungen
+sein, in denen Amperemeter und Voltmeter durch Widerstände ersetzt
+werden.
+
+\hypertarget{annahmen}{%
+\subsection{Annahmen}\label{annahmen}}
+
+Sowohl für Schaltung a), als auch für Schaltung b) wird grundsätzlich
+angenommen, dass das Voltmeter dabei einen Widerstand von \(10M\Omega\)
+und das Amperemeter einen Innenwiderstand von \(0\Omega\) hat
+(vergleiche Ausführungen dazu bei der indirekten Widerstandsmessung).
+Eine weitere Annahme ist, dass der schaltungsdraht keinen Widerstand
+hat.
+
+\hypertarget{modell-fuxfcr-schaltung-a}{%
+\subsection{Modell für Schaltung a)}\label{modell-fuxfcr-schaltung-a}}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/ModellA.png}
+\caption{Modell zur Schaltung a)}
+\end{figure}
+
+\textbf{\emph{Input:}}
+
+Systemparameter:
+
+\begin{itemize}
+\tightlist
+\item
+  Spannung U an der Spannungsquelle
+\item
+  Stromstärke I im gesamten Stromkreis
+\end{itemize}
+
+Randbedingungen:
+
+\begin{itemize}
+\tightlist
+\item
+  Widerstand Amperemeter \(R_1\): \(0\Omega\)
+\item
+  Widerstand Voltmeter \(R_2\): \(10M\Omega\)
+\end{itemize}
+
+\textbf{\emph{Output:}}
+
+\begin{itemize}
+\tightlist
+\item
+  Widerstand des unbekannten Widerstandes \(R_3\)
+\end{itemize}
+
+\textbf{\emph{Modelldomäne}} Formel
+
+\newpage
+
+\textbf{\emph{Implementierung als R-Funktion mit zwei Argumenten:}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# {-}{-}{-}{-} Schaltung 1}
+\CommentTok{\# INPUT: Spannung, Stromstärke}
+\CommentTok{\# OUTPUT: Benötigter Widerstand}
+\NormalTok{schaltung1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(U0, I0)\{}
+  \CommentTok{\# Randbedingungen}
+\NormalTok{  R1 }\OtherTok{=} \DecValTok{0} \CommentTok{\# Widerstand Amperemeter}
+\NormalTok{  R2 }\OtherTok{=} \FloatTok{10e6} \CommentTok{\# Widerstand Voltmeter}
+  \CommentTok{\# Berechnung des Gesamtwiderstandes}
+\NormalTok{  Rges }\OtherTok{=}\NormalTok{ U0}\SpecialCharTok{/}\NormalTok{I0}
+  \CommentTok{\# Berechnung des benötigten R}
+\NormalTok{  R3 }\OtherTok{=}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(Rges}\SpecialCharTok{{-}}\NormalTok{R1)}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{/}\NormalTok{R2)}\SpecialCharTok{**{-}}\DecValTok{1}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Widerstände in der Schaltung in Ohm:"}\NormalTok{)}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R1: "}\NormalTok{, R1))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R2: "}\NormalTok{, R2))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R3: "}\NormalTok{, R3))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R\_ges: "}\NormalTok{, Rges))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Wird das Modell mit den gemessenen Werten ausgeführt (das gemessene U
+und I entsprechen bei Schaltung a) den Einstellungen an der
+Spannungsquelle) erhält man mit diesem Modell folgenden Output:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Testen mit gemessenen Werten für Widerstand 1}
+\FunctionTok{schaltung1}\NormalTok{(}\AttributeTok{U0=}\DecValTok{5}\NormalTok{, }\AttributeTok{I0=}\FloatTok{5.4e{-}06}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Widerstände in der Schaltung in Ohm:"
+## [1] "R1:  0"
+## [1] "R2:  1e+07"
+## [1] "R3:  1020408.16326531"
+## [1] "R_ges:  925925.925925926"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Testen mit gemessenen Werten für Widerstand 1}
+\FunctionTok{schaltung1}\NormalTok{(}\AttributeTok{U0=}\FloatTok{0.15}\NormalTok{, }\AttributeTok{I0=}\FloatTok{0.1503}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Widerstände in der Schaltung in Ohm:"
+## [1] "R1:  0"
+## [1] "R2:  1e+07"
+## [1] "R3:  0.998004091617175"
+## [1] "R_ges:  0.998003992015968"
+\end{verbatim}
 
 \end{document}
