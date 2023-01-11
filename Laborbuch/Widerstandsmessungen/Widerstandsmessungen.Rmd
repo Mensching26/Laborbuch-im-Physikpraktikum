@@ -88,7 +88,7 @@ Verwendetes Datenblatt: https://asset.conrad.com/media10/add/160267/c1/-/en/0001
 
 ## Aufbau (a)
 
-Mithilfe der Kabel und des Breadboards wurde folgender, Skizze a) entsprechender Stromkreis aufgebaut:
+Mithilfe der Kabel und des Breadboards wurde der Skizze a) entsprechende Stromkreis aufgebaut:
 
 ![Aufbau auf Breadboard für Variante a) der indirekten Widerstandsmessung. Im Bild ist zudem bereits der Widerstand 1 eingebaut.](Bilder/SchaltungA.png){width=23%, height=23%}
 
@@ -129,9 +129,13 @@ Strom: u_{I2a} &= \frac{0,1mA}{2\sqrt{3}} \approx 0,029 mA \\
 ```
 Folglich liegen die gemessenen Größen bei:
 
+Widerstand 1:
 \begin{itemize}
 \item $U1a = (5,0400 \pm 0,0029)V$
 \item $I1a = (5,400 \pm 0,029) \mu A$
+\end{itemize}
+Widerstand 2:
+\begin{itemize}
 \item $U2a = (0,1500 \pm 0,0029)V$
 \item $I2a = (150,300 \pm 0,029) mA$
 \end{itemize}
@@ -156,8 +160,10 @@ Für die Widerstände ergeben sich somit für Aufbau (a) Bestwerte von:
 \end{equation*}
 
 ```{r}
-(5.04/(5.4*10**-6)) #Widerstand 1
-(0.15/(150.3*10**-3)) #Widerstand 2
+#Widerstand 1
+(5.04/(5.4*10**-6))
+#Widerstand 2
+(0.15/(150.3*10**-3))
 ```
 
 ### Messunsicherheiten
@@ -188,7 +194,7 @@ Die Widerstände für den Aufbau (a) ergeben sich somit insgesamt zu:
 \end{itemize}
 
 Die Widerstände liegen in den richtigen Größenordnungen.
-Die bestimmten Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den Sollwerten von $10M\Omega$ und $1\Omega$, wie sie im Vorfeld bestimmt wurden vereinbaren.
+Die bestimmten Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den Sollwerten von $10M\Omega$ und $1\Omega$, wie sie im Vorfeld bestimmt wurden, vereinbaren.
 Grund für die falschen Messergebnisse können z.B. die zum Voltmeter und dem Amperemeter getroffenen Annahmen sein.
 
 ## Aufbau (b)
@@ -276,16 +282,16 @@ Die Widerstände für den Aufbau (b) ergeben sich somit insgesamt zu:
 \end{itemize}
 
 Die Widerstände liegen in den richtigen Größenordnungen.
-Die bestimmten Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den Sollwerten von $10M\Omega$ und $1\Omega$, wie sie im Vorfeld bestimmt wurden vereinbaren. 
+Die bestimmten Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den Sollwerten von $10M\Omega$ und $1\Omega$, wie sie im Vorfeld bestimmt wurden, vereinbaren. 
 Besonders für Widerstand 2 ist im Experiment ein etwa vier mal höherer Wert bestimmt worden.
 Grund für die falschen Messergebnisse können z.B. die zum Voltmeter und dem Amperemeter getroffenen Annahmen sein.
 
 # Modellbildungsprozess
 
 Bei unserem Versuch handelt es sich um ein Testexperiment, bei dem wir auf der Grundlage des Ohmschen Gesetzes Widerstände indirekt messen.
-Es soll nun ein Modell erstellt werden, anhand dessen die Widerstände der elektrischen Widerstandsbauteile in den jeweiligen Schaltungen vorhergesagt werden können.
+Es sollen nun zwei Modelle erstellt werden, anhand derer die Widerstände der verwendeten elektrischen Widerstandsbauteile in den jeweiligen Schaltungen vorhergesagt werden können.
 Die Modelle sollen den Schaltungen nachempfundene Widerstandsschaltungen sein, in denen Amperemeter und Voltmeter durch Widerstände ersetzt werden.
-Das bedeutet allerdings auch, dass unser Messsystem und das Physikalischesystem diesselbe Sache sind.
+Das bedeutet allerdings auch, dass unser Messsystem und das physikalischess System nicht voneinander zu trennen sind.
 
 ## Annahmen
 Sowohl für Schaltung a), als auch für Schaltung b) wird grundsätzlich (vereinfachend) angenommen, dass das Voltmeter dabei einen Widerstand von $10M\Omega$ und das Amperemeter einen Innenwiderstand von $0\Omega$ hat (vergleiche Ausführungen dazu bei der indirekten Widerstandsmessung).
@@ -339,7 +345,7 @@ schaltungA <- function(U0, I0){
 }
 ```
 
-Wird das Modell mit den gemessenen Werten ausgeführt (das gemessene U und I entsprechen bei Schaltung a) den Einstellungen an der Spannungsquelle) erhält man mit diesem Modell folgenden Output:
+Wird das Modell mit den gemessenen Werten ausgeführt (das gemessene U und I entsprechen bei Schaltung a) den Einstellungen an der Spannungsquelle), erhält man mit diesem Modell folgenden Output:
 ```{r}
 # Testen mit gemessenen Werten für Widerstand 1
 schaltungA(U0=5, I0=5.4e-06)
@@ -351,17 +357,17 @@ Für Widerstand 2 sieht das etwas anders aus:
 # Testen mit gemessenen Werten für Widerstand 2
 schaltungA(U0=0.15, I0=0.1503)
 ```
-Widerstand 2 wird hier, wie in der indirekten MEssung als $R1b\equiv R_3 \approx 0,9980\Omega$ ermittelt. 
-Dases hierbei eine größere Übereinstimmung gegeben hat, als für Widerstand 1 lässt sich so erklären, dass das parallel geschaltete Voltmeter neben dem $10M\Omega$-Widerstand eine vergleichsweise größere Rolle gespielt hat, als neben dem $1\Omega$-Widerstand. 
+Widerstand 2 wird hier, wie in der indirekten Messung als $R1b\equiv R_3 \approx 0,9980\Omega$ ermittelt. 
+Dass es hierbei eine größere Übereinstimmung gegeben hat, als für Widerstand 1 lässt sich so erklären, dass das parallel geschaltete Voltmeter neben dem $10M\Omega$-Widerstand für einen zum Widerstand parallel verlaufenden Stromfluss eine vergleichsweise größere Rolle gespielt hat, als neben dem $1\Omega$-Widerstand. 
 Der Fehler ist entsprechend im letzteren Fall kleiner.
 
 ## Modell für Schaltung b)
 
 ![Modell zur Schaltung b)](Bilder/ModellB.png){width=20%, height=20%}
 
-Die modellparameter, Rahmenbedingungen, Grenzen, Annahmen, Vereinfachungen, Inputs und Outputs sind die gleichen wie in für Schaltung a).
+Die Modellparameter, Rahmenbedingungen, Grenzen, Annahmen, Vereinfachungen, Inputs und Outputs sind die gleichen wie in für Schaltung a).
 
-Der Unterschied zu dem Modell für Schaltung a) besteht in einer anderen Formel zur berechnung des Widerstandes R_3:
+Der Unterschied zu dem Modell für Schaltung a) besteht in einer anderen Formel zur Berechnung des Widerstandes R_3:
 $$R_3=(\frac{1}{R_{ges}}-\frac{1}{R_2})^{-1}$$
 
 Implementierung als R-Funktion:
@@ -387,19 +393,19 @@ schaltungB <- function(U0, I13){
 ```
 
 Ein Problem stellt aber dar, dass beim Durchführen des Experiments vergessen worden ist, die Stromstärke an der Spannungsquelle abzulesen.
-Es werden stattdessen für diese Modelltest die mit dem Amperemeter bestimmten Werte eingesetzt.
+Es werden stattdessen für diese Modelltest die mit den Multimetern bestimmten Werte eingesetzt.
 Dabei geht allerdings der Stom, der durch das Voltmeter geflossen ist in der Berechnung unter.
 Das Modell wird also falsch benutzt.
 
-'Die Ergebnisse der folgenden Modelltests sind also nur im Kontext mit dieser Problematik aussagefähig*
+*Die Ergebnisse der folgenden Modelltests sind also nur im Kontext mit dieser Problematik genießbar*
 
-Für Widerstand 1 gibt das Modell also folgenden (falschen) Output:
+Für Widerstand 1 gibt das Modell folgenden (falschen) Output:
 ```{r}
 # Testen mit gemessenen Werten
 schaltungB(U0=5.03, I13=5e-06)
 ```
 Dieser Wert entspricht dann exakt dem indirekt bestimmten Widerstandswert.
-Auch für Widerstand 2 gibt das modell (falscherweise) den Messwert aus.
+Auch für Widerstand 2 gibt das Modell (falscherweise) den Messwert aus:
 
 ```{r}
 schaltungB(U0=0.4, I13=0.1018)
@@ -408,4 +414,4 @@ schaltungB(U0=0.4, I13=0.1018)
 ## Fazit
 
 Zusammenfassend lässt sich also sagen, dass mit den verwendeten Modellen für die Schaltungen a) und b) gute Werte für den zu untersuchenden Widerstand $R_3$ vorhergesagt werden können.
-In Für Schaltung a) konnten mit dem entsprechenden Modell sogar ein genauerer Wert vorhergesagt werden, als dies bei der indirekten Widerstandsmessung möglich war.
+Für Schaltung a) konnten mit dem entsprechenden Modell sogar ein genauerer Wert vorhergesagt werden, als dies bei der indirekten Widerstandsmessung möglich war.

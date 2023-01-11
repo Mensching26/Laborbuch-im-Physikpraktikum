@@ -253,8 +253,8 @@ Verwendetes Datenblatt:
 \hypertarget{aufbau-a}{%
 \subsection{Aufbau (a)}\label{aufbau-a}}
 
-Mithilfe der Kabel und des Breadboards wurde folgender, Skizze a)
-entsprechender Stromkreis aufgebaut:
+Mithilfe der Kabel und des Breadboards wurde der Skizze a) entsprechende
+Stromkreis aufgebaut:
 
 \begin{figure}
 \centering
@@ -322,9 +322,16 @@ Strom: u_{I2a} &= \frac{0,1mA}{2\sqrt{3}} \approx 0,029 mA \\
 
 Folglich liegen die gemessenen Größen bei:
 
+Widerstand 1:
+
 \begin{itemize}
 \item $U1a = (5,0400 \pm 0,0029)V$
 \item $I1a = (5,400 \pm 0,029) \mu A$
+\end{itemize}
+
+Widerstand 2:
+
+\begin{itemize}
 \item $U2a = (0,1500 \pm 0,0029)V$
 \item $I2a = (150,300 \pm 0,029) mA$
 \end{itemize}
@@ -351,7 +358,8 @@ Für die Widerstände ergeben sich somit für Aufbau (a) Bestwerte von:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{(}\FloatTok{5.04}\SpecialCharTok{/}\NormalTok{(}\FloatTok{5.4}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{)) }\CommentTok{\#Widerstand 1}
+\CommentTok{\#Widerstand 1}
+\NormalTok{(}\FloatTok{5.04}\SpecialCharTok{/}\NormalTok{(}\FloatTok{5.4}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{6}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -361,7 +369,8 @@ Für die Widerstände ergeben sich somit für Aufbau (a) Bestwerte von:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{(}\FloatTok{0.15}\SpecialCharTok{/}\NormalTok{(}\FloatTok{150.3}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{)) }\CommentTok{\#Widerstand 2}
+\CommentTok{\#Widerstand 2}
+\NormalTok{(}\FloatTok{0.15}\SpecialCharTok{/}\NormalTok{(}\FloatTok{150.3}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{**{-}}\DecValTok{3}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -416,7 +425,7 @@ Die Widerstände für den Aufbau (a) ergeben sich somit insgesamt zu:
 Die Widerstände liegen in den richtigen Größenordnungen. Die bestimmten
 Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den
 Sollwerten von \(10M\Omega\) und \(1\Omega\), wie sie im Vorfeld
-bestimmt wurden vereinbaren. Grund für die falschen Messergebnisse
+bestimmt wurden, vereinbaren. Grund für die falschen Messergebnisse
 können z.B. die zum Voltmeter und dem Amperemeter getroffenen Annahmen
 sein.
 
@@ -549,7 +558,7 @@ Die Widerstände für den Aufbau (b) ergeben sich somit insgesamt zu:
 Die Widerstände liegen in den richtigen Größenordnungen. Die bestimmten
 Widerstände lassen sich im Rahmen ihrer Unsicherheiten nicht mit den
 Sollwerten von \(10M\Omega\) und \(1\Omega\), wie sie im Vorfeld
-bestimmt wurden vereinbaren. Besonders für Widerstand 2 ist im
+bestimmt wurden, vereinbaren. Besonders für Widerstand 2 ist im
 Experiment ein etwa vier mal höherer Wert bestimmt worden. Grund für die
 falschen Messergebnisse können z.B. die zum Voltmeter und dem
 Amperemeter getroffenen Annahmen sein.
@@ -559,13 +568,13 @@ Amperemeter getroffenen Annahmen sein.
 
 Bei unserem Versuch handelt es sich um ein Testexperiment, bei dem wir
 auf der Grundlage des Ohmschen Gesetzes Widerstände indirekt messen. Es
-soll nun ein Modell erstellt werden, anhand dessen die Widerstände der
-elektrischen Widerstandsbauteile in den jeweiligen Schaltungen
-vorhergesagt werden können. Die Modelle sollen den Schaltungen
-nachempfundene Widerstandsschaltungen sein, in denen Amperemeter und
-Voltmeter durch Widerstände ersetzt werden. Das bedeutet allerdings
-auch, dass unser Messsystem und das Physikalischesystem diesselbe Sache
-sind.
+sollen nun zwei Modelle erstellt werden, anhand derer die Widerstände
+der verwendeten elektrischen Widerstandsbauteile in den jeweiligen
+Schaltungen vorhergesagt werden können. Die Modelle sollen den
+Schaltungen nachempfundene Widerstandsschaltungen sein, in denen
+Amperemeter und Voltmeter durch Widerstände ersetzt werden. Das bedeutet
+allerdings auch, dass unser Messsystem und das physikalischess System
+nicht voneinander zu trennen sind.
 
 \hypertarget{annahmen}{%
 \subsection{Annahmen}\label{annahmen}}
@@ -650,7 +659,7 @@ Parallelschaltung, sowie dem Ohmschen Gesetz her.
 
 Wird das Modell mit den gemessenen Werten ausgeführt (das gemessene U
 und I entsprechen bei Schaltung a) den Einstellungen an der
-Spannungsquelle) erhält man mit diesem Modell folgenden Output:
+Spannungsquelle), erhält man mit diesem Modell folgenden Output:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -690,13 +699,14 @@ Für Widerstand 2 sieht das etwas anders aus:
 ## [1] "R_ges:  0.998003992015968"
 \end{verbatim}
 
-Widerstand 2 wird hier, wie in der indirekten MEssung als
-\(R1b\equiv R_3 \approx 0,9980\Omega\) ermittelt. Dases hierbei eine
+Widerstand 2 wird hier, wie in der indirekten Messung als
+\(R1b\equiv R_3 \approx 0,9980\Omega\) ermittelt. Dass es hierbei eine
 größere Übereinstimmung gegeben hat, als für Widerstand 1 lässt sich so
 erklären, dass das parallel geschaltete Voltmeter neben dem
-\(10M\Omega\)-Widerstand eine vergleichsweise größere Rolle gespielt
-hat, als neben dem \(1\Omega\)-Widerstand. Der Fehler ist entsprechend
-im letzteren Fall kleiner.
+\(10M\Omega\)-Widerstand für einen zum Widerstand parallel verlaufenden
+Stromfluss eine vergleichsweise größere Rolle gespielt hat, als neben
+dem \(1\Omega\)-Widerstand. Der Fehler ist entsprechend im letzteren
+Fall kleiner.
 
 \hypertarget{modell-fuxfcr-schaltung-b}{%
 \subsection{Modell für Schaltung b)}\label{modell-fuxfcr-schaltung-b}}
@@ -707,12 +717,12 @@ im letzteren Fall kleiner.
 \caption{Modell zur Schaltung b)}
 \end{figure}
 
-Die modellparameter, Rahmenbedingungen, Grenzen, Annahmen,
+Die Modellparameter, Rahmenbedingungen, Grenzen, Annahmen,
 Vereinfachungen, Inputs und Outputs sind die gleichen wie in für
 Schaltung a).
 
 Der Unterschied zu dem Modell für Schaltung a) besteht in einer anderen
-Formel zur berechnung des Widerstandes R\_3:
+Formel zur Berechnung des Widerstandes R\_3:
 \[R_3=(\frac{1}{R_{ges}}-\frac{1}{R_2})^{-1}\]
 
 Implementierung als R-Funktion:
@@ -742,15 +752,15 @@ Implementierung als R-Funktion:
 
 Ein Problem stellt aber dar, dass beim Durchführen des Experiments
 vergessen worden ist, die Stromstärke an der Spannungsquelle abzulesen.
-Es werden stattdessen für diese Modelltest die mit dem Amperemeter
+Es werden stattdessen für diese Modelltest die mit den Multimetern
 bestimmten Werte eingesetzt. Dabei geht allerdings der Stom, der durch
 das Voltmeter geflossen ist in der Berechnung unter. Das Modell wird
 also falsch benutzt.
 
-'Die Ergebnisse der folgenden Modelltests sind also nur im Kontext mit
-dieser Problematik aussagefähig*
+\emph{Die Ergebnisse der folgenden Modelltests sind also nur im Kontext
+mit dieser Problematik genießbar}
 
-Für Widerstand 1 gibt das Modell also folgenden (falschen) Output:
+Für Widerstand 1 gibt das Modell folgenden (falschen) Output:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -768,8 +778,8 @@ Für Widerstand 1 gibt das Modell also folgenden (falschen) Output:
 \end{verbatim}
 
 Dieser Wert entspricht dann exakt dem indirekt bestimmten
-Widerstandswert. Auch für Widerstand 2 gibt das modell (falscherweise)
-den Messwert aus.
+Widerstandswert. Auch für Widerstand 2 gibt das Modell (falscherweise)
+den Messwert aus:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -790,9 +800,8 @@ den Messwert aus.
 
 Zusammenfassend lässt sich also sagen, dass mit den verwendeten Modellen
 für die Schaltungen a) und b) gute Werte für den zu untersuchenden
-Widerstand \(R_3\) vorhergesagt werden können. In Für Schaltung a)
-konnten mit dem entsprechenden Modell sogar ein genauerer Wert
-vorhergesagt werden, als dies bei der indirekten Widerstandsmessung
-möglich war.
+Widerstand \(R_3\) vorhergesagt werden können. Für Schaltung a) konnten
+mit dem entsprechenden Modell sogar ein genauerer Wert vorhergesagt
+werden, als dies bei der indirekten Widerstandsmessung möglich war.
 
 \end{document}

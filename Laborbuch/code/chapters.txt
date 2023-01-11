@@ -2,3 +2,4 @@
 ../Pendel
 ../Kaloriemeter
 ../BrownscheMolekuelbewegung
+../Widerstandsmessungen
