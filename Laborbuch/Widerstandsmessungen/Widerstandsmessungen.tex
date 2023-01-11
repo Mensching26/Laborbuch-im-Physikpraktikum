@@ -128,9 +128,9 @@
 \subsection{Thema}\label{thema}}
 
 Bestimmung von Widerständen auf direkte und indirekte Weise. Dazu werden
-die Beträge der zwei zu untersuchenden Widerstände durch ablesen der
-Farbcodes, durch Widerstandsmessungen mit einem Multimeter und in einem
-Schaltkreis ermittelt.
+die Beträge der zwei zu untersuchenden Widerstände durch Ablesen der
+Farbcodes, durch Widerstandsmessungen mit einem Multimeter und auf
+indirekte Weise in einem Schaltkreis ermittelt.
 
 \hypertarget{material}{%
 \subsection{Material}\label{material}}
@@ -158,8 +158,8 @@ folgenden wird von ``Widerstand 1'' und ``Widerstand 2'' gesprochen.
 \end{figure}
 
 Die Farbreihenfolge auf dem Widerstand ist
-\(Braun, Schwarz, Schwarz, Gelb, Braun\). Dementsprechend kodiert der im
-Folgenden als \(R_1\) bezeichnete Widerstand für
+\(Braun, Schwarz, Schwarz, Gelb, Braun\). Dementsprechend kodiert der,
+im Folgenden als \(R_1\) bezeichnete, Widerstand für
 \(R_1 = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R_1=(1,00\pm 0,01) M\Omega\).
 
 \begin{figure}
@@ -224,21 +224,20 @@ u_{Skala} &=\frac{a}{2\sqrt{3}} \\
 \subsection{Indirekte
 Widerstandsmessung}\label{indirekte-widerstandsmessung}}
 
-Die indirekte Bestimmung der Widerstände in einem Stromkreis erfolgt in
-zwei Varianten. Diese Unterscheiden sich in der Art des
-Schaltungsaufbaus. In Abbildung \ldots{} ist der Unterschied zwischen
-den Varianten a) und b) erkennlich.
-
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=0.1\textheight]{Bilder/Schaltkreis.png}
+\includegraphics[width=\textwidth,height=0.15\textheight]{Bilder/Schaltkreis.png}
 \caption{Schaltkreise zur indirekten Widerstandsmessung. Links: Variante
 a). Rechts: Variante b). Quelle: Universität Potsdam, Institut für
 Physik und Astronomie, Grundpraktikum, Skript zum Versuch E1.}
 \end{figure}
 
-In Variante a) wird das Voltmeter parallel zum Widerstand geschaltet, in
-Variante b) parallel zur Spannungsquelle.
+Die indirekte Bestimmung der Widerstände in einem Stromkreis erfolgt in
+zwei Varianten. Diese Unterscheiden sich in der Art des
+Schaltungsaufbaus. In Abbildung 3 ist der Unterschied zwischen den
+Varianten a) und b) erkennbar. In Variante a) wird das Voltmeter
+parallel zum Widerstand geschaltet, in Variante b) parallel zur
+Spannungsquelle.
 
 Bei der Berechnung der Widerstände aus den gemessenen Werten werden zwei
 Annahmen/Vereinfachungen getroffen:
@@ -254,16 +253,18 @@ Verwendetes Datenblatt:
 \hypertarget{aufbau-a}{%
 \subsection{Aufbau (a)}\label{aufbau-a}}
 
-Mithilfe der Kabel und des Breadboards wurde folgender Stromkreis
-aufgebaut:
+Mithilfe der Kabel und des Breadboards wurde folgender, Skizze a)
+entsprechender Stromkreis aufgebaut:
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/SchaltungA.png}
+\includegraphics[width=\textwidth,height=0.23\textheight]{Bilder/SchaltungA.png}
 \caption{Aufbau auf Breadboard für Variante a) der indirekten
 Widerstandsmessung. Im Bild ist zudem bereits der Widerstand 1
 eingebaut.}
 \end{figure}
+
+\newpage
 
 Folgende Werte wurden gemessen:
 
@@ -285,7 +286,7 @@ Folgende Werte wurden gemessen:
 Messunsicherheiten}\label{geruxe4tespezifische-messunsicherheiten}}
 
 Die Messunsicherheitem von Spannung und Strom ergeben sich aus der
-Messunsicherheit der digitalen Skala
+Messunsicherheit der digitalen Skala.
 
 \begin{equation*}
 \begin{split}
@@ -560,21 +561,21 @@ Bei unserem Versuch handelt es sich um ein Testexperiment, bei dem wir
 auf der Grundlage des Ohmschen Gesetzes Widerstände indirekt messen. Es
 soll nun ein Modell erstellt werden, anhand dessen die Widerstände der
 elektrischen Widerstandsbauteile in den jeweiligen Schaltungen
-vorhergesagt werden können.
-
-Die Modelle sollen den Schaltungen nachempfundene Widerstandsschaltungen
-sein, in denen Amperemeter und Voltmeter durch Widerstände ersetzt
-werden.
+vorhergesagt werden können. Die Modelle sollen den Schaltungen
+nachempfundene Widerstandsschaltungen sein, in denen Amperemeter und
+Voltmeter durch Widerstände ersetzt werden. Das bedeutet allerdings
+auch, dass unser Messsystem und das Physikalischesystem diesselbe Sache
+sind.
 
 \hypertarget{annahmen}{%
 \subsection{Annahmen}\label{annahmen}}
 
 Sowohl für Schaltung a), als auch für Schaltung b) wird grundsätzlich
-angenommen, dass das Voltmeter dabei einen Widerstand von \(10M\Omega\)
-und das Amperemeter einen Innenwiderstand von \(0\Omega\) hat
-(vergleiche Ausführungen dazu bei der indirekten Widerstandsmessung).
-Eine weitere Annahme ist, dass der schaltungsdraht keinen Widerstand
-hat.
+(vereinfachend) angenommen, dass das Voltmeter dabei einen Widerstand
+von \(10M\Omega\) und das Amperemeter einen Innenwiderstand von
+\(0\Omega\) hat (vergleiche Ausführungen dazu bei der indirekten
+Widerstandsmessung). Eine weitere Annahme ist, dass der Schaltungsdraht
+keinen Widerstand hat.
 
 \hypertarget{modell-fuxfcr-schaltung-a}{%
 \subsection{Modell für Schaltung a)}\label{modell-fuxfcr-schaltung-a}}
@@ -615,18 +616,22 @@ Randbedingungen:
   Widerstand des unbekannten Widerstandes \(R_3\)
 \end{itemize}
 
-\textbf{\emph{Modelldomäne}} Formel
+\textbf{\emph{Modelldomäne}} Innerhalb des Modells wird der Widerstand
+R\_3 mittels folgender Formel berechnet:
 
-\newpage
+\[(\frac{1}{(R_{ges}-R_1)}-\frac{1}{R_2})**-1\]
+
+Diese rührt von den bekannten Gesetzen zu dem Widerstand in Reihen- und
+Parallelschaltung, sowie dem Ohmschen Gesetz her.
 
 \textbf{\emph{Implementierung als R-Funktion mit zwei Argumenten:}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# {-}{-}{-}{-} Schaltung 1}
+\CommentTok{\# {-}{-}{-}{-} Schaltung a)}
 \CommentTok{\# INPUT: Spannung, Stromstärke}
 \CommentTok{\# OUTPUT: Benötigter Widerstand}
-\NormalTok{schaltung1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(U0, I0)\{}
+\NormalTok{schaltungA }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(U0, I0)\{}
   \CommentTok{\# Randbedingungen}
 \NormalTok{  R1 }\OtherTok{=} \DecValTok{0} \CommentTok{\# Widerstand Amperemeter}
 \NormalTok{  R2 }\OtherTok{=} \FloatTok{10e6} \CommentTok{\# Widerstand Voltmeter}
@@ -634,7 +639,7 @@ Randbedingungen:
 \NormalTok{  Rges }\OtherTok{=}\NormalTok{ U0}\SpecialCharTok{/}\NormalTok{I0}
   \CommentTok{\# Berechnung des benötigten R}
 \NormalTok{  R3 }\OtherTok{=}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(Rges}\SpecialCharTok{{-}}\NormalTok{R1)}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{/}\NormalTok{R2)}\SpecialCharTok{**{-}}\DecValTok{1}
-  \FunctionTok{print}\NormalTok{(}\StringTok{"Widerstände in der Schaltung in Ohm:"}\NormalTok{)}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Widerstände in Schaltung a) in Ohm:"}\NormalTok{)}
   \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R1: "}\NormalTok{, R1))}
   \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R2: "}\NormalTok{, R2))}
   \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R3: "}\NormalTok{, R3))}
@@ -650,31 +655,144 @@ Spannungsquelle) erhält man mit diesem Modell folgenden Output:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Testen mit gemessenen Werten für Widerstand 1}
-\FunctionTok{schaltung1}\NormalTok{(}\AttributeTok{U0=}\DecValTok{5}\NormalTok{, }\AttributeTok{I0=}\FloatTok{5.4e{-}06}\NormalTok{)}
+\FunctionTok{schaltungA}\NormalTok{(}\AttributeTok{U0=}\DecValTok{5}\NormalTok{, }\AttributeTok{I0=}\FloatTok{5.4e{-}06}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Widerstände in der Schaltung in Ohm:"
+## [1] "Widerstände in Schaltung a) in Ohm:"
 ## [1] "R1:  0"
 ## [1] "R2:  1e+07"
 ## [1] "R3:  1020408.16326531"
 ## [1] "R_ges:  925925.925925926"
 \end{verbatim}
 
+Der auf diese Weise ermittelte Wert für Widerstand 1
+(\(R_3\approx 1020000\Omega\))ist etwas besser, als der Wert aus dem
+Experiment (\(R1a \equiv R_3 = (933300 \pm 5000)\Omega\)), bei dessen
+Bestimmung die Wirkung von Voltmeter und Amperemeter vernachlässigt
+wurde.
+
+Für Widerstand 2 sieht das etwas anders aus:
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Testen mit gemessenen Werten für Widerstand 1}
-\FunctionTok{schaltung1}\NormalTok{(}\AttributeTok{U0=}\FloatTok{0.15}\NormalTok{, }\AttributeTok{I0=}\FloatTok{0.1503}\NormalTok{)}
+\CommentTok{\# Testen mit gemessenen Werten für Widerstand 2}
+\FunctionTok{schaltungA}\NormalTok{(}\AttributeTok{U0=}\FloatTok{0.15}\NormalTok{, }\AttributeTok{I0=}\FloatTok{0.1503}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Widerstände in der Schaltung in Ohm:"
+## [1] "Widerstände in Schaltung a) in Ohm:"
 ## [1] "R1:  0"
 ## [1] "R2:  1e+07"
 ## [1] "R3:  0.998004091617175"
 ## [1] "R_ges:  0.998003992015968"
 \end{verbatim}
+
+Widerstand 2 wird hier, wie in der indirekten MEssung als
+\(R1b\equiv R_3 \approx 0,9980\Omega\) ermittelt. Dases hierbei eine
+größere Übereinstimmung gegeben hat, als für Widerstand 1 lässt sich so
+erklären, dass das parallel geschaltete Voltmeter neben dem
+\(10M\Omega\)-Widerstand eine vergleichsweise größere Rolle gespielt
+hat, als neben dem \(1\Omega\)-Widerstand. Der Fehler ist entsprechend
+im letzteren Fall kleiner.
+
+\hypertarget{modell-fuxfcr-schaltung-b}{%
+\subsection{Modell für Schaltung b)}\label{modell-fuxfcr-schaltung-b}}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=0.2\textheight]{Bilder/ModellB.png}
+\caption{Modell zur Schaltung b)}
+\end{figure}
+
+Die modellparameter, Rahmenbedingungen, Grenzen, Annahmen,
+Vereinfachungen, Inputs und Outputs sind die gleichen wie in für
+Schaltung a).
+
+Der Unterschied zu dem Modell für Schaltung a) besteht in einer anderen
+Formel zur berechnung des Widerstandes R\_3:
+\[R_3=(\frac{1}{R_{ges}}-\frac{1}{R_2})^{-1}\]
+
+Implementierung als R-Funktion:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# {-}{-}{-}{-} Schaltung b)}
+\CommentTok{\# INPUT: Spannung, Stromstärke}
+\CommentTok{\# OUTPUT: Benötigter Widerstand}
+\NormalTok{schaltungB }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(U0, I13)\{}
+  \CommentTok{\# Randbedingungen}
+\NormalTok{  R1 }\OtherTok{=} \DecValTok{0} \CommentTok{\# Widerstand Amperemeter}
+\NormalTok{  R2 }\OtherTok{=} \FloatTok{10e6} \CommentTok{\# Widerstand Voltmeter}
+  \CommentTok{\# Berechnung des Gesamtwiderstandes}
+\NormalTok{  I0 }\OtherTok{=}\NormalTok{ I13 }\SpecialCharTok{+}\NormalTok{ U0}\SpecialCharTok{/}\NormalTok{R2}
+\NormalTok{  Rges }\OtherTok{=}\NormalTok{ U0}\SpecialCharTok{/}\NormalTok{I0}
+  \CommentTok{\# Berechnung des benötigten R}
+\NormalTok{  R3 }\OtherTok{=}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{/}\NormalTok{Rges}\DecValTok{{-}1}\SpecialCharTok{/}\NormalTok{R2)}\SpecialCharTok{**{-}}\DecValTok{1}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Widerstände in Schaltung b) in Ohm:"}\NormalTok{)}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R1: "}\NormalTok{, R1))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R2: "}\NormalTok{, R2))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R3: "}\NormalTok{, R3))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"R\_ges: "}\NormalTok{, Rges))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Ein Problem stellt aber dar, dass beim Durchführen des Experiments
+vergessen worden ist, die Stromstärke an der Spannungsquelle abzulesen.
+Es werden stattdessen für diese Modelltest die mit dem Amperemeter
+bestimmten Werte eingesetzt. Dabei geht allerdings der Stom, der durch
+das Voltmeter geflossen ist in der Berechnung unter. Das Modell wird
+also falsch benutzt.
+
+'Die Ergebnisse der folgenden Modelltests sind also nur im Kontext mit
+dieser Problematik aussagefähig*
+
+Für Widerstand 1 gibt das Modell also folgenden (falschen) Output:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Testen mit gemessenen Werten}
+\FunctionTok{schaltungB}\NormalTok{(}\AttributeTok{U0=}\FloatTok{5.03}\NormalTok{, }\AttributeTok{I13=}\FloatTok{5e{-}06}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Widerstände in Schaltung b) in Ohm:"
+## [1] "R1:  0"
+## [1] "R2:  1e+07"
+## [1] "R3:  1006000"
+## [1] "R_ges:  914046.883518081"
+\end{verbatim}
+
+Dieser Wert entspricht dann exakt dem indirekt bestimmten
+Widerstandswert. Auch für Widerstand 2 gibt das modell (falscherweise)
+den Messwert aus.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{schaltungB}\NormalTok{(}\AttributeTok{U0=}\FloatTok{0.4}\NormalTok{, }\AttributeTok{I13=}\FloatTok{0.1018}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Widerstände in Schaltung b) in Ohm:"
+## [1] "R1:  0"
+## [1] "R2:  1e+07"
+## [1] "R3:  3.92927308447937"
+## [1] "R_ges:  3.92927154056128"
+\end{verbatim}
+
+\hypertarget{fazit}{%
+\subsection{Fazit}\label{fazit}}
+
+Zusammenfassend lässt sich also sagen, dass mit den verwendeten Modellen
+für die Schaltungen a) und b) gute Werte für den zu untersuchenden
+Widerstand \(R_3\) vorhergesagt werden können. In Für Schaltung a)
+konnten mit dem entsprechenden Modell sogar ein genauerer Wert
+vorhergesagt werden, als dies bei der indirekten Widerstandsmessung
+möglich war.
 
 \end{document}

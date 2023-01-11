@@ -19,7 +19,7 @@ editor_options:
 ## Thema
 
 Bestimmung von Widerständen auf direkte und indirekte Weise. 
-Dazu werden die Beträge der zwei zu untersuchenden Widerstände durch ablesen der Farbcodes, durch Widerstandsmessungen mit einem Multimeter und in einem Schaltkreis ermittelt.
+Dazu werden die Beträge der zwei zu untersuchenden Widerstände durch Ablesen der Farbcodes, durch Widerstandsmessungen mit einem Multimeter und auf indirekte Weise in einem Schaltkreis ermittelt.
 
 ## Material
 
@@ -38,7 +38,7 @@ Als erste Methode zur Bestimmung des Widerstandes werden die Bauteilspezifikatio
 ![Foto von Widerstand 1](Bilder/1MOhm.png){width=20%, height=20%}
 
 Die Farbreihenfolge auf dem Widerstand ist $Braun, Schwarz, Schwarz, Gelb, Braun$.
-Dementsprechend kodiert der im Folgenden als $R_1$ bezeichnete Widerstand für $R_1 = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R_1=(1,00\pm 0,01) M\Omega$.
+Dementsprechend kodiert der, im Folgenden als $R_1$ bezeichnete, Widerstand für $R_1 = (100 \cdot 10^4\pm 1\% ) \Omega \Leftrightarrow R_1=(1,00\pm 0,01) M\Omega$.
 
 ![Foto von Widerstand 2](Bilder/1Ohm.png){width=20%, height=20%}
 
@@ -73,10 +73,9 @@ u_{Skala} &=\frac{a}{2\sqrt{3}} \\
 
 ## Indirekte Widerstandsmessung
 
-Die indirekte Bestimmung der Widerstände in einem Stromkreis erfolgt in zwei Varianten. Diese Unterscheiden sich in der Art des Schaltungsaufbaus. In Abbildung ... ist der Unterschied zwischen den Varianten a) und b) erkennlich.
+![Schaltkreise zur indirekten Widerstandsmessung. Links: Variante a). Rechts: Variante b). Quelle: Universität Potsdam, Institut für Physik und Astronomie, Grundpraktikum, Skript zum Versuch E1.](Bilder/Schaltkreis.png){width=15%, height=15%}
 
-![Schaltkreise zur indirekten Widerstandsmessung. Links: Variante a). Rechts: Variante b). Quelle: Universität Potsdam, Institut für Physik und Astronomie, Grundpraktikum, Skript zum Versuch E1.](Bilder/Schaltkreis.png){width=10%, height=10%}
-
+Die indirekte Bestimmung der Widerstände in einem Stromkreis erfolgt in zwei Varianten. Diese Unterscheiden sich in der Art des Schaltungsaufbaus. In Abbildung 3 ist der Unterschied zwischen den Varianten a) und b) erkennbar.
 In Variante a) wird das Voltmeter parallel zum Widerstand geschaltet, in Variante b) parallel zur Spannungsquelle.
 
 Bei der Berechnung der Widerstände aus den gemessenen Werten werden zwei Annahmen/Vereinfachungen getroffen:
@@ -89,10 +88,11 @@ Verwendetes Datenblatt: https://asset.conrad.com/media10/add/160267/c1/-/en/0001
 
 ## Aufbau (a)
 
-Mithilfe der Kabel und des Breadboards wurde folgender Stromkreis aufgebaut:
+Mithilfe der Kabel und des Breadboards wurde folgender, Skizze a) entsprechender Stromkreis aufgebaut:
 
-![Aufbau auf Breadboard für Variante a) der indirekten Widerstandsmessung. Im Bild ist zudem bereits der Widerstand 1 eingebaut.](Bilder/SchaltungA.png){width=20%, height=20%}
+![Aufbau auf Breadboard für Variante a) der indirekten Widerstandsmessung. Im Bild ist zudem bereits der Widerstand 1 eingebaut.](Bilder/SchaltungA.png){width=23%, height=23%}
 
+\newpage
 Folgende Werte wurden gemessen:
 
 \begin{itemize}
@@ -110,7 +110,7 @@ Folgende Werte wurden gemessen:
 
 ### Gerätespezifische Messunsicherheiten
 
-Die Messunsicherheitem von Spannung und Strom ergeben sich aus der Messunsicherheit der digitalen Skala
+Die Messunsicherheitem von Spannung und Strom ergeben sich aus der Messunsicherheit der digitalen Skala.
 
 \begin{equation*}
 \begin{split}
@@ -284,12 +284,12 @@ Grund für die falschen Messergebnisse können z.B. die zum Voltmeter und dem Am
 
 Bei unserem Versuch handelt es sich um ein Testexperiment, bei dem wir auf der Grundlage des Ohmschen Gesetzes Widerstände indirekt messen.
 Es soll nun ein Modell erstellt werden, anhand dessen die Widerstände der elektrischen Widerstandsbauteile in den jeweiligen Schaltungen vorhergesagt werden können.
-
 Die Modelle sollen den Schaltungen nachempfundene Widerstandsschaltungen sein, in denen Amperemeter und Voltmeter durch Widerstände ersetzt werden.
+Das bedeutet allerdings auch, dass unser Messsystem und das Physikalischesystem diesselbe Sache sind.
 
 ## Annahmen
-Sowohl für Schaltung a), als auch für Schaltung b) wird grundsätzlich angenommen, dass das Voltmeter dabei einen Widerstand von $10M\Omega$ und das Amperemeter einen Innenwiderstand von $0\Omega$ hat (vergleiche Ausführungen dazu bei der indirekten Widerstandsmessung).
-Eine weitere Annahme ist, dass der schaltungsdraht keinen Widerstand hat.
+Sowohl für Schaltung a), als auch für Schaltung b) wird grundsätzlich (vereinfachend) angenommen, dass das Voltmeter dabei einen Widerstand von $10M\Omega$ und das Amperemeter einen Innenwiderstand von $0\Omega$ hat (vergleiche Ausführungen dazu bei der indirekten Widerstandsmessung).
+Eine weitere Annahme ist, dass der Schaltungsdraht keinen Widerstand hat.
 
 ## Modell für Schaltung a)
 
@@ -316,15 +316,14 @@ Innerhalb des Modells wird der Widerstand R_3 mittels folgender Formel berechnet
 
 $$(\frac{1}{(R_{ges}-R_1)}-\frac{1}{R_2})**-1$$
 
-Diese Rührt von den bekannten Gesetzen zu dem Widerstand in Reihen- und Parallelschaltung, sowie dem Ohmschen Gesetz her.
+Diese rührt von den bekannten Gesetzen zu dem Widerstand in Reihen- und Parallelschaltung, sowie dem Ohmschen Gesetz her.
 
-\newpage
 ***Implementierung als R-Funktion mit zwei Argumenten:***
 ```{r}
-# ---- Schaltung 1
+# ---- Schaltung a)
 # INPUT: Spannung, Stromstärke
 # OUTPUT: Benötigter Widerstand
-schaltung1 <- function(U0, I0){
+schaltungA <- function(U0, I0){
   # Randbedingungen
   R1 = 0 # Widerstand Amperemeter
   R2 = 10e6 # Widerstand Voltmeter
@@ -332,7 +331,7 @@ schaltung1 <- function(U0, I0){
   Rges = U0/I0
   # Berechnung des benötigten R
   R3 = (1/(Rges-R1)-1/R2)**-1
-  print("Widerstände in der Schaltung in Ohm:")
+  print("Widerstände in Schaltung a) in Ohm:")
   print(paste("R1: ", R1))
   print(paste("R2: ", R2))
   print(paste("R3: ", R3))
@@ -343,11 +342,70 @@ schaltung1 <- function(U0, I0){
 Wird das Modell mit den gemessenen Werten ausgeführt (das gemessene U und I entsprechen bei Schaltung a) den Einstellungen an der Spannungsquelle) erhält man mit diesem Modell folgenden Output:
 ```{r}
 # Testen mit gemessenen Werten für Widerstand 1
-schaltung1(U0=5, I0=5.4e-06)
+schaltungA(U0=5, I0=5.4e-06)
 ```
+Der auf diese Weise ermittelte Wert für Widerstand 1 ($R_3\approx 1020000\Omega$)ist etwas besser, als der Wert aus dem Experiment ($R1a \equiv R_3 = (933300 \pm 5000)\Omega$), bei dessen Bestimmung die Wirkung von Voltmeter und Amperemeter vernachlässigt wurde.
+
+Für Widerstand 2 sieht das etwas anders aus:
+```{r}
+# Testen mit gemessenen Werten für Widerstand 2
+schaltungA(U0=0.15, I0=0.1503)
+```
+Widerstand 2 wird hier, wie in der indirekten MEssung als $R1b\equiv R_3 \approx 0,9980\Omega$ ermittelt. 
+Dases hierbei eine größere Übereinstimmung gegeben hat, als für Widerstand 1 lässt sich so erklären, dass das parallel geschaltete Voltmeter neben dem $10M\Omega$-Widerstand eine vergleichsweise größere Rolle gespielt hat, als neben dem $1\Omega$-Widerstand. 
+Der Fehler ist entsprechend im letzteren Fall kleiner.
+
+## Modell für Schaltung b)
+
+![Modell zur Schaltung b)](Bilder/ModellB.png){width=20%, height=20%}
+
+Die modellparameter, Rahmenbedingungen, Grenzen, Annahmen, Vereinfachungen, Inputs und Outputs sind die gleichen wie in für Schaltung a).
+
+Der Unterschied zu dem Modell für Schaltung a) besteht in einer anderen Formel zur berechnung des Widerstandes R_3:
+$$R_3=(\frac{1}{R_{ges}}-\frac{1}{R_2})^{-1}$$
+
+Implementierung als R-Funktion:
+```{r}
+# ---- Schaltung b)
+# INPUT: Spannung, Stromstärke
+# OUTPUT: Benötigter Widerstand
+schaltungB <- function(U0, I13){
+  # Randbedingungen
+  R1 = 0 # Widerstand Amperemeter
+  R2 = 10e6 # Widerstand Voltmeter
+  # Berechnung des Gesamtwiderstandes
+  I0 = I13 + U0/R2
+  Rges = U0/I0
+  # Berechnung des benötigten R
+  R3 = (1/Rges-1/R2)**-1
+  print("Widerstände in Schaltung b) in Ohm:")
+  print(paste("R1: ", R1))
+  print(paste("R2: ", R2))
+  print(paste("R3: ", R3))
+  print(paste("R_ges: ", Rges))
+}
+```
+
+Ein Problem stellt aber dar, dass beim Durchführen des Experiments vergessen worden ist, die Stromstärke an der Spannungsquelle abzulesen.
+Es werden stattdessen für diese Modelltest die mit dem Amperemeter bestimmten Werte eingesetzt.
+Dabei geht allerdings der Stom, der durch das Voltmeter geflossen ist in der Berechnung unter.
+Das Modell wird also falsch benutzt.
+
+'Die Ergebnisse der folgenden Modelltests sind also nur im Kontext mit dieser Problematik aussagefähig*
+
+Für Widerstand 1 gibt das Modell also folgenden (falschen) Output:
+```{r}
+# Testen mit gemessenen Werten
+schaltungB(U0=5.03, I13=5e-06)
+```
+Dieser Wert entspricht dann exakt dem indirekt bestimmten Widerstandswert.
+Auch für Widerstand 2 gibt das modell (falscherweise) den Messwert aus.
 
 ```{r}
-# Testen mit gemessenen Werten für Widerstand 1
-schaltung1(U0=0.15, I0=0.1503)
+schaltungB(U0=0.4, I13=0.1018)
 ```
 
+## Fazit
+
+Zusammenfassend lässt sich also sagen, dass mit den verwendeten Modellen für die Schaltungen a) und b) gute Werte für den zu untersuchenden Widerstand $R_3$ vorhergesagt werden können.
+In Für Schaltung a) konnten mit dem entsprechenden Modell sogar ein genauerer Wert vorhergesagt werden, als dies bei der indirekten Widerstandsmessung möglich war.
