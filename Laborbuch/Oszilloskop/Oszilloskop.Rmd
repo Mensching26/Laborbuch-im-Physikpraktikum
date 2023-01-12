@@ -1,0 +1,16 @@
+---
+title: "Widerstandsmessungen"
+author: "Milena Mensching, Justus Weyers"
+date: "`r Sys.Date()`"
+lang: de
+fontsize: 9pt
+output:
+  pdf_document: 
+    keep_tex: yes
+    df_print: kable
+  html_document:
+    df_print: kable
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
