@@ -66,7 +66,7 @@ U_{200V} &= \frac{0.1}{2\sqrt{3}} \approx 0,029V
 ```{r}
 0.1/(2*sqrt(3)) #Unsicherheit 200V
 ```
-Im Folgenden wurde die zuvor eingestellte Spannung von $U_{eff} = (10,020\pm 0,029) V$  an das Oszilloskop angeschlossen und Spitze-Spitze Spannung $U_{SS}$ und Periodendauer $T$ graphisch ermittelt. 
+Im Folgenden wurde die zuvor eingestellte Spannung von $U_{eff} = (10,020\pm 0,029) V$  an das Oszilloskop angeschlossen und Spitze-Spitze Spannung $U_{SS}$ und Periodendauer $T$ graphisch ermittelt. DIe Auflösung der Kästchen liegt bei $5,00V$ in y-Richtung und $5,00ms$ in x-Richung.
 Die ermittelten Werte lagen bei $U_{SS} = 28V$ und $T = 20ms$.
 Die Unsicherheiten ergeben sich dabei mit:
 
@@ -83,7 +83,7 @@ Periodendauer: U_T &= \frac{1}{2\sqrt{6}} \approx 0,20ms
 ```
 Insgesamt liegen die rein graphisch ermittelten Werte also bei $U_{eff} = (28,00 \pm 0,20) V$ und $T = (20,02 \pm 0,20) mS$
 
-Mit der Periodendauer $T = (20,02 \pm 0,20) mS$ ergibt sich eine Frequenz von:
+Mit der Periodendauer $T = (20,00 \pm 0,20) ms$ ergibt sich eine Frequenz von:
 
 \begin{equation*}
 \begin{split}
@@ -100,9 +100,44 @@ U_f &= \frac{1}{0,20ms} = 5 Hz
 1/0.2 #Unsicherheit Frequenz
 ```
 
-Der Wert von $f= (50 \pm 5) Hz$ entspricht der in Europa üblichen Frequenz des Stromnetzes von $50 Hz$.
+Der Wert von $f= (50 \pm 5) Hz$ entspricht der in Europa üblichen Frequenz des Stromnetzes von $50 Hz$. -> aber falsche Unsicherheit
 
 
 
+# 3.4 Digitale Messung eines sinusförmigen Signals
 
+Das Netzgerät und das OZ haben nach wie vor sie selben Einstellungen wie in Abschnitt 3.2. 
+Dieses Mal wird die Messung automatisch vom OZ durch Drücken der Taste $\textbf{Measure}$ ermittelt. Die beiden ausgegebenen Werte der MEssung lagen bei $U_{SS} = 28,2 V$ und $T= 20,04ms$. Die Messunsicherheit ergibt sich zu:
 
+\begin{equation*}
+\begin{split}
+U_{Skala} &= \frac{a}{2\sqrt{3}} \\
+Spannung: U_{U_{SS}} &= \frac{0,1}{2\sqrt{3}} \approx 0,029V \\
+Periodendauer: U_T &= \frac{0,01}{2\sqrt{6}} \approx 0,0029ms 
+\end{split}
+\end{equation*}
+
+```{r}
+0.1/(2*sqrt(3)) 
+0.01/(2*sqrt(3)) 
+```
+
+Insgesamt liegen die digital ermittelten Werte also bei $U_{eff} = (28,200 \pm 0,029) V$ und $T = (20,0400 \pm 0,0029) ms$. 
+
+Mit der Periodendauer $T = (20,0400 \pm 0,0029) ms$ ergibt sich eine Frequenz von:
+
+\begin{equation*}
+\begin{split}
+f &= \frac{1}{T} \\
+f &= \frac{1}{20,04ms} = 49,9002 Hz \\
+Unsicherheit: U_f &= \frac{1}{U_T} \\
+U_f &= \frac{1}{0,0029ms} = 344,83 Hz
+\end{split}
+\end{equation*}
+
+```{r}
+1/(20.04*10**-3) #Bestwert Frequenz
+1/0.0029 #Unsicherheit Frequenz
+```
+
+Der Wert von $f= (50 \pm 340) Hz$ entspricht der in Europa üblichen Frequenz des Stromnetzes von $50 Hz$. -> aber komplett falsche Unsicherheit
