@@ -17,8 +17,19 @@ editor_options:
 
 # 3.1 Gleichspannungsmessung
 
-*Multimeter Anschlussarten erklären*
+Das Multimeter wird in den Gleichspannungsmodus auf einen Messbereich von $20V$ eingestellt. 
+Über den COM-Anschluss und den V-Anschluss wird das Multimeter mit dem negativen und dem positiven Pol des analogen Netzgerätes verbunden.
+Am Netzgerät wird daraufhin eine Spannung von ca. $6 V$ eingestellt.
+Am Voltmeter wird dann eine Spannung von $6,06 V$ abgelesen.
+Die Unsicherheit dieses Ergebnisses ist gleich der Skalenunsicherheit des verwendeten Multimeters und beträgt:
 
-Eingestellte Spannung:
-6,06 V (Voltmeter)
+$$u_{20V} = \frac{0,01V}{2\sqrt{3}}=0,0029V$$
+Damit wurde eine Gleichspannung am Netzgerät von $U_1 = (6,0600 \pm 0,0029)V$ gemessen.
 
+Mittels der Bananenstecker wird das Netzgerät mit dem Kanal 1 des OZ verbunden. 
+Für die Auflösung in vertikaler Richtung wird eine Kästchengröße von $2,00 V$ eingestellt und für die Auflösung in horizontaler Richtung eine Auflösug von $250\mu s$, wobei diese Auflösung bei der gemessenen Gleichspannung egal ist.
+
+Auf dem Bildschirm des digitalen OZ erscheint daraufhin eine Linie bei 6 V.
+Das OZ gibt diese Spannung mit einem Wert von 6,06 Volt an.
+Da auch dieses Ergebnis mit einer Genauigkeit im Hundertstelbereich angegeben wird ist die Ungenauigkeit des Oszilloskops für diese Messung gleich {u_20V}.
+Damit wurde auch mit dem OZ eine Spannung von $U_1 = (6,0600 \pm 0,0029)V$ gemessen, die Ergebnisse sind identisch.
