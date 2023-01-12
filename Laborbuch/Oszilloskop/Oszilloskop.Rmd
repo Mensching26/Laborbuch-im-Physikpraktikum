@@ -1,5 +1,5 @@
 ---
-title: "Widerstandsmessungen"
+title: "Oszilloskop"
 author: "Milena Mensching, Justus Weyers"
 date: "`r Sys.Date()`"
 lang: de
@@ -14,3 +14,11 @@ editor_options:
   markdown: 
     wrap: sentence
 ---
+
+# 3.1 Gleichspannungsmessung
+
+*Multimeter Anschlussarten erklären*
+
+Eingestellte Spannung:
+6,06 V (Voltmeter)
+
