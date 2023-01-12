@@ -33,3 +33,14 @@ Auf dem Bildschirm des digitalen OZ erscheint daraufhin eine Linie bei 6 V.
 Das OZ gibt diese Spannung mit einem Wert von 6,06 Volt an.
 Da auch dieses Ergebnis mit einer Genauigkeit im Hundertstelbereich angegeben wird ist die Ungenauigkeit des Oszilloskops für diese Messung gleich {u_20V}.
 Damit wurde auch mit dem OZ eine Spannung von $U_1 = (6,0600 \pm 0,0029)V$ gemessen, die Ergebnisse sind identisch.
+
+# 3.3 Grafische Vermessung eines sinusförmigen Signals
+
+Das Netzgerät und das OZ haben nach wie vor diesselben Einstellungen wie in Abschnitt 3.2.
+
+Mittels der zwei Cursor wird die Spitzen-Spitzenspannung an dem auf dem Bildschirm sichtbaren Sinussignal vermessen.
+Das OZ gibt als $\Delta V$ zwischen den beiden Cursern einen Wert von $\Delta V = 28,0 V$ an.
+Dieser Wert ist mit einer Unsicherheit von $u_{\Delta V} = \frac{0.1V}{2\sqrt{3}}=0,029 V$ behaftet.
+FÜr die Spitzen-Spitzen-Spannung ist auf graphische Weise am OZ ein Wert von $U_{SS}=(28,000 \pm 0,029)V$
+
+
